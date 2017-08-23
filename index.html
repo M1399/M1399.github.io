@@ -277,6 +277,192 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/23/vim整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yangq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangq blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/23/vim整理/" itemprop="url">vim整理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-23T17:04:50+08:00">
+                2017-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><ol>
+<li><p>ctrl+z 退出vim编辑，返回终端，vim编辑在后台</p>
+<ul>
+<li>jobs :显示当前环境下所有任务编号</li>
+<li>fg:（fg NUM）进入vim编辑</li>
+</ul>
+</li>
+<li><p>粘贴缩进</p>
+<ul>
+<li>:set paste</li>
+</ul>
+</li>
+<li>开启新文件窗口:<ul>
+<li>:tabnew .</li>
+<li>gt 跳转</li>
+<li>:tabn可以加数字</li>
+<li>:tabp</li>
+</ul>
+</li>
+<li>command+f,弹出查找模式，<ul>
+<li>输入，tab,查找窗口自动变化内容，并将其复制。</li>
+<li>shift+tab,将自动查找内容左边的选中并复制</li>
+</ul>
+</li>
+<li>注释：<ul>
+<li>V 选择模式，选中: normal i #</li>
+<li>V 选择，d</li>
+</ul>
+</li>
+</ol>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ol>
+<li>最大化、最小化：command+shift</li>
+<li>移到行尾 $ (shift+4）</li>
+<li>移到行首 ^(shift+6)和0<ul>
+<li>在行首第一个字符是空白字符时有点区别。</li>
+</ul>
+</li>
+<li>前一单词：b、B</li>
+<li>后一单词：w、W</li>
+<li>屏幕顶：H</li>
+<li>屏幕底：L</li>
+<li>词尾：E、e</li>
+<li>整页翻页 <ul>
+<li>ctrl-f </li>
+<li>ctrl-b</li>
+<li>f就是forword b就是backward</li>
+</ul>
+</li>
+<li>翻半页<ul>
+<li>ctrl-d ctlr-u</li>
+<li>d=down u=up</li>
+</ul>
+</li>
+<li>滚一行<ul>
+<li>ctrl-e ctrl-y</li>
+</ul>
+</li>
+<li>zz 让光标所杂的行居屏幕中央</li>
+<li>zt 让光标所杂的行居屏幕最上一行 t=top</li>
+<li>zb 让光标所杂的行居屏幕最下一行 b=bottom</li>
+</ol>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><ul>
+<li>vim之不能复制<ul>
+<li>启动了鼠标，鼠标相应了vim的选中，不是终端的选中，被vim截获了操作</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/20/Markdown基础语法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -400,7 +586,7 @@
 --------
 </code></pre><p>实例：</p>
 <hr>
-<h2 id="反斜杠"><a href="#反斜杠" class="headerlink" title="反斜杠"></a>反斜杠</h2><h5 id="Markdown-可以利用反斜杠来插入一些在语法中有其它意义的符号"><a href="#Markdown-可以利用反斜杠来插入一些在语法中有其它意义的符号" class="headerlink" title="Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号"></a>Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号</h5><h5 id="例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠："><a href="#例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠：" class="headerlink" title="例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠："></a>例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠：</h5>
+<h2 id="反斜杠"><a href="#反斜杠" class="headerlink" title="反斜杠"></a>反斜杠</h2><h5 id="Markdown-可以利用反斜杠来插入一些在语法中有其它意义的符号"><a href="#Markdown-可以利用反斜杠来插入一些在语法中有其它意义的符号" class="headerlink" title="Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号"></a>Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号</h5><h5 id="例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。"><a href="#例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。" class="headerlink" title="例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。"></a>例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。</h5>
           
         
       
@@ -601,7 +787,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -609,6 +795,15 @@
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
           
 
         </nav>
