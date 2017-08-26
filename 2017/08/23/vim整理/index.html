@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="小技巧 ctrl+z 退出vim编辑，返回终端，vim编辑在后台  jobs :显示当前环境下所有任务编号 fg:（fg NUM）进入vim编辑   粘贴缩进  :set paste   开启新文件窗口: :tabnew . gt 跳转 :tabn可以加数字 :tabp   command+f,弹出查找模式， 输入，tab,查找窗口自动变化内容，并将其复制。 shift+tab,将自动查找内容左边">
+<meta name="description" content="小技巧 ctrl+z 退出vim编辑，返回终端，vim编辑在后台  jobs :显示当前环境下所有任务编号 fg:（fg NUM）进入vim编辑   进入粘贴模式  :set paste   开启新文件窗口: :tabnew . gt 跳转 :tabn可以加数字 :tabp   command+f,弹出查找模式， 输入，tab,查找窗口自动变化内容，并将其复制。 shift+tab,将自动查找内容">
 <meta name="keywords" content="tools">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim整理">
 <meta property="og:url" content="http://www.yangqingwt.top/2017/08/23/vim整理/index.html">
 <meta property="og:site_name" content="Yangq blog">
-<meta property="og:description" content="小技巧 ctrl+z 退出vim编辑，返回终端，vim编辑在后台  jobs :显示当前环境下所有任务编号 fg:（fg NUM）进入vim编辑   粘贴缩进  :set paste   开启新文件窗口: :tabnew . gt 跳转 :tabn可以加数字 :tabp   command+f,弹出查找模式， 输入，tab,查找窗口自动变化内容，并将其复制。 shift+tab,将自动查找内容左边">
+<meta property="og:description" content="小技巧 ctrl+z 退出vim编辑，返回终端，vim编辑在后台  jobs :显示当前环境下所有任务编号 fg:（fg NUM）进入vim编辑   进入粘贴模式  :set paste   开启新文件窗口: :tabnew . gt 跳转 :tabn可以加数字 :tabp   command+f,弹出查找模式， 输入，tab,查找窗口自动变化内容，并将其复制。 shift+tab,将自动查找内容">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-23T16:34:11.000Z">
+<meta property="og:updated_time" content="2017-08-26T15:25:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim整理">
-<meta name="twitter:description" content="小技巧 ctrl+z 退出vim编辑，返回终端，vim编辑在后台  jobs :显示当前环境下所有任务编号 fg:（fg NUM）进入vim编辑   粘贴缩进  :set paste   开启新文件窗口: :tabnew . gt 跳转 :tabn可以加数字 :tabp   command+f,弹出查找模式， 输入，tab,查找窗口自动变化内容，并将其复制。 shift+tab,将自动查找内容左边">
+<meta name="twitter:description" content="小技巧 ctrl+z 退出vim编辑，返回终端，vim编辑在后台  jobs :显示当前环境下所有任务编号 fg:（fg NUM）进入vim编辑   进入粘贴模式  :set paste   开启新文件窗口: :tabnew . gt 跳转 :tabn可以加数字 :tabp   command+f,弹出查找模式， 输入，tab,查找窗口自动变化内容，并将其复制。 shift+tab,将自动查找内容">
 
 
 
@@ -351,7 +351,7 @@
 <li>fg:（fg NUM）进入vim编辑</li>
 </ul>
 </li>
-<li><p>粘贴缩进</p>
+<li><p>进入粘贴模式</p>
 <ul>
 <li>:set paste</li>
 </ul>
@@ -370,22 +370,23 @@
 </li>
 <li>注释：<ul>
 <li>V 选择模式，选中: normal i #</li>
-<li>V 选择，d</li>
+<li>取消注释：V选择，d</li>
 </ul>
 </li>
+<li>：e!  放弃更改（=重新打开）</li>
 </ol>
 <h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ol>
 <li>最大化、最小化：command+shift</li>
 <li>移到行尾 $ (shift+4）</li>
 <li>移到行首 ^(shift+6)和0<ul>
-<li>在行首第一个字符是空白字符时有点区别。</li>
+<li>0是整段的跳转，6是行跳转</li>
 </ul>
 </li>
 <li>前一单词：b、B</li>
-<li>后一单词：w、W</li>
+<li>后一单词：w、W ；词尾：e、E</li>
 <li>屏幕顶：H</li>
 <li>屏幕底：L</li>
-<li>词尾：E、e</li>
+<li>向右移动一格：空格</li>
 <li>整页翻页 <ul>
 <li>ctrl-f </li>
 <li>ctrl-b</li>
@@ -404,6 +405,18 @@
 <li>zz 让光标所杂的行居屏幕中央</li>
 <li>zt 让光标所杂的行居屏幕最上一行 t=top</li>
 <li>zb 让光标所杂的行居屏幕最下一行 b=bottom</li>
+<li>删除后一字符：x</li>
+<li>删除前一字符：X     3X</li>
+<li>删除换行符：J      nJ：连接后面n行</li>
+<li>U：撤销当前行的所有修改</li>
+<li>A：行末插入</li>
+<li>>&gt;：整行向右移动（3&gt;&gt;：下面3行包括自己，向右移）<ul>
+<li>:20,30&gt;&gt;：把20到30行向右移动</li>
+</ul>
+</li>
+<li>%：移动到与之匹配的括号上去</li>
+<li>，逗号：移动到上次的修改处</li>
+<li>+：移动到下一行的行首     -：上一行</li>
 </ol>
 <h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><ul>
 <li>vim之不能复制<ul>
@@ -450,6 +463,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/24/tmuxp/" rel="prev" title="tmux">
+                tmux <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -526,7 +543,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
