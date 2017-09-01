@@ -90,7 +90,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -106,17 +106,18 @@
 
 
 
-<meta name="description" content="快捷键(command+a后)我的控制键为：Ctrl+a s：查看当前会话 w：显示当前会话的所有窗口 t：查看时间 ,：窗口重命名 o：选择pane，轮训选择，逆时针，也可方向键。 ;：last pane q：输入序号选择 !：使单独一个pane作为新的window 空格：更换pane排版 ctrl+o：按顺序移动pane位置 {  ：往左、往上移动pane }  ：往右、往下移动pane ：s">
+<meta name="description" content="基础整理 数据量达到亿的时候，可以用pandas处理 导入pandas库  import pandas as pdimport numpy as np   导入数据  pd.read_csv(filename)：从CSV文件导入数据 pd.read_table(filename)：从限定分隔符的文本文件导入数据 pd.read_excel(filename)：从Excel文件导入数据 pd.rea">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tmux">
-<meta property="og:url" content="http://www.yangqingwt.top/2017/08/24/tmuxp/index.html">
+<meta property="og:title" content="python之pandas">
+<meta property="og:url" content="http://www.yangqingwt.top/2017/08/31/python之pandas/index.html">
 <meta property="og:site_name" content="Yangq blog">
-<meta property="og:description" content="快捷键(command+a后)我的控制键为：Ctrl+a s：查看当前会话 w：显示当前会话的所有窗口 t：查看时间 ,：窗口重命名 o：选择pane，轮训选择，逆时针，也可方向键。 ;：last pane q：输入序号选择 !：使单独一个pane作为新的window 空格：更换pane排版 ctrl+o：按顺序移动pane位置 {  ：往左、往上移动pane }  ：往右、往下移动pane ：s">
+<meta property="og:description" content="基础整理 数据量达到亿的时候，可以用pandas处理 导入pandas库  import pandas as pdimport numpy as np   导入数据  pd.read_csv(filename)：从CSV文件导入数据 pd.read_table(filename)：从限定分隔符的文本文件导入数据 pd.read_excel(filename)：从Excel文件导入数据 pd.rea">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-26T15:23:12.000Z">
+<meta property="og:updated_time" content="2017-08-31T02:32:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tmux">
-<meta name="twitter:description" content="快捷键(command+a后)我的控制键为：Ctrl+a s：查看当前会话 w：显示当前会话的所有窗口 t：查看时间 ,：窗口重命名 o：选择pane，轮训选择，逆时针，也可方向键。 ;：last pane q：输入序号选择 !：使单独一个pane作为新的window 空格：更换pane排版 ctrl+o：按顺序移动pane位置 {  ：往左、往上移动pane }  ：往右、往下移动pane ：s">
+<meta name="twitter:title" content="python之pandas">
+<meta name="twitter:description" content="基础整理 数据量达到亿的时候，可以用pandas处理 导入pandas库  import pandas as pdimport numpy as np   导入数据  pd.read_csv(filename)：从CSV文件导入数据 pd.read_table(filename)：从限定分隔符的文本文件导入数据 pd.read_excel(filename)：从Excel文件导入数据 pd.rea">
 
 
 
@@ -145,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yangqingwt.top/2017/08/24/tmuxp/"/>
+  <link rel="canonical" href="http://www.yangqingwt.top/2017/08/31/python之pandas/"/>
 
 
 
 
 
-  <title>tmux | Yangq blog</title>
+  <title>python之pandas | Yangq blog</title>
   
 
 
@@ -288,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/24/tmuxp/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/31/python之pandas/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -305,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">tmux</h1>
+          <h1 class="post-title" itemprop="name headline">python之pandas</h1>
         
 
         <div class="post-meta">
@@ -317,8 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T23:43:38+08:00">
-                2017-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-31T23:50:12+08:00">
+                2017-08-31
               </time>
             
 
@@ -355,29 +356,114 @@
       
 
       
-        <h2 id="快捷键-command-a后"><a href="#快捷键-command-a后" class="headerlink" title="快捷键(command+a后)"></a>快捷键(command+a后)</h2><h6 id="我的控制键为：Ctrl-a"><a href="#我的控制键为：Ctrl-a" class="headerlink" title="我的控制键为：Ctrl+a"></a>我的控制键为：Ctrl+a</h6><ol>
-<li>s：查看当前会话</li>
-<li>w：显示当前会话的所有窗口</li>
-<li>t：查看时间</li>
-<li>,：窗口重命名</li>
-<li>o：选择pane，轮训选择，逆时针，也可方向键。</li>
-<li>;：last pane</li>
-<li>q：输入序号选择</li>
-<li>!：使单独一个pane作为新的window</li>
-<li>空格：更换pane排版</li>
-<li>ctrl+o：按顺序移动pane位置</li>
-<li>{  ：往左、往上移动pane</li>
-<li>}  ：往右、往下移动pane</li>
-<li>：setw synchronize-panes(off)：同步所有窗口执行命令</li>
-<li>复制模式：（需要添加配置）<ul>
-<li>ctrl+a [</li>
-<li>h、j、k、l 上下左右</li>
-<li>alt + 上下箭头：一屏跳</li>
-<li>空格：选择，回车完成复制到剪贴板</li>
-<li>ctrl+a ] ：粘贴</li>
-</ul>
+        <h1 id="基础整理"><a href="#基础整理" class="headerlink" title="基础整理"></a>基础整理</h1><ul>
+<li>数据量达到亿的时候，可以用pandas处理</li>
+<li><p>导入pandas库</p>
+<blockquote>
+<p>import pandas as pd<br>import numpy as np</p>
+</blockquote>
 </li>
+<li><p>导入数据</p>
+<ol>
+<li>pd.read_csv(filename)：从CSV文件导入数据</li>
+<li>pd.read_table(filename)：从限定分隔符的文本文件导入数据</li>
+<li>pd.read_excel(filename)：从Excel文件导入数据</li>
+<li>pd.read_sql(query, connection_object)：从SQL表/库导入数据</li>
+<li>pd.read_json(json_string)：从JSON格式的字符串导入数据</li>
+<li>pd.read_html(url)：解析URL、字符串或者HTML文件，抽取其中的tables表格</li>
+<li>pd.read_clipboard()：从你的粘贴板获取内容，并传给read_table()</li>
+<li>pd.DataFrame(dict)：从字典对象导入数据，Key是列名，Value是数据</li>
 </ol>
+</li>
+<li><p>导出数据</p>
+<ol>
+<li>df.to_csv(filename)：导出数据到CSV文件</li>
+<li>df.to_excel(filename)：导出数据到Excel文件</li>
+<li>df.to_sql(table_name, connection_object)：导出数据到SQL表</li>
+<li>df.to_json(filename)：以Json格式导出数据到文本文件</li>
+</ol>
+</li>
+<li><p>创建测试对象</p>
+<ol>
+<li>pd.DataFrame(np.random.rand(20,5))：创建20行5列的随机数组成的DataFrame对象</li>
+<li>pd.Series(my_list)：从可迭代对象my_list创建一个Series对象</li>
+<li>df.index = pd.date_range(‘1900/1/30’, periods=df.shape[0])：增加一个日期索引</li>
+</ol>
+</li>
+<li><p>查看、检查数据</p>
+<ol>
+<li>df.head(n)：查看DataFrame对象的前n行</li>
+<li>df.tail(n)：查看DataFrame对象的最后n行</li>
+<li>df.shape()：查看行数和列数</li>
+<li>df.info() ：查看索引、数据类型和内存信息</li>
+<li>df.describe()：查看数值型列的汇总统计</li>
+<li>s.value_counts(dropna=False)：查看Series对象的唯一值和计数</li>
+<li>df.apply(pd.Series.value_counts)：查看DataFrame对象中每一列的唯一值和计数</li>
+</ol>
+</li>
+<li><p>数据选取</p>
+<ol>
+<li>df[col]：根据列名，并以Series的形式返回列</li>
+<li>df[[col1, col2]]：以DataFrame形式返回多列</li>
+<li>s.iloc[0]：按位置选取数据</li>
+<li>s.loc[‘index_one’]：按索引选取数据</li>
+<li>df.iloc[0,:]：返回第一行</li>
+<li>df.iloc[0,0]：返回第一列的第一个元素</li>
+</ol>
+</li>
+<li><p>数据清理</p>
+<ol>
+<li>df.columns = [‘a’,’b’,’c’]：重命名列名</li>
+<li>pd.isnull()：检查DataFrame对象中的空值，并返回一个Boolean数组</li>
+<li>pd.notnull()：检查DataFrame对象中的非空值，并返回一个Boolean数组</li>
+<li>df.dropna()：删除所有包含空值的行</li>
+<li>df.dropna(axis=1)：删除所有包含空值的列</li>
+<li>df.dropna(axis=1,thresh=n)：删除所有小于n个非空值的行</li>
+<li>df.fillna(x)：用x替换DataFrame对象中所有的空值</li>
+<li>s.astype(float)：将Series中的数据类型更改为float类型</li>
+<li>s.replace(1,’one’)：用‘one’代替所有等于1的值</li>
+<li>s.replace([1,3],[‘one’,’three’])：用’one’代替1，用’three’代替</li>
+<li>df.rename(columns=lambda x: x + 1)：批量更改列名</li>
+<li>df.rename(columns={‘old<em>name’: ‘new</em> name’})：选择性更改列名</li>
+<li>df.set_index(‘column_one’)：更改索引列</li>
+<li>df.rename(index=lambda x: x + 1)：批量重命名索引</li>
+</ol>
+</li>
+<li><p>数据处理：Filter、Sort和GroupBy</p>
+<ol>
+<li>df[df[col] &gt; 0.5]：选择col列的值大于0.5的行</li>
+<li>df.sort_values(col1)：按照列col1排序数据，默认升序排列</li>
+<li>df.sort_values(col2, ascending=False)：按照列col1降序排列数据</li>
+<li>df.sort_values([col1,col2], ascending=[True,False])：先按列col1升序排列，后按col2降序排列数据</li>
+<li>df.groupby(col)：返回一个按列col进行分组的Groupby对象</li>
+<li>df.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象</li>
+<li>df.groupby(col1)[col2]：返回按列col1进行分组后，列col2的均值</li>
+<li>df.pivot_table(index=col1, values=[col2,col3], aggfunc=max)：创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表</li>
+<li>df.groupby(col1).agg(np.mean)：返回按列col1分组的所有列的均值</li>
+<li>data.apply(np.mean)：对DataFrame中的每一列应用函数np.mean</li>
+<li>data.apply(np.max,axis=1)：对DataFrame中的每一行应用函数np.max</li>
+</ol>
+</li>
+<li><p>数据合并</p>
+<ol>
+<li>df1.append(df2)：将df2中的行添加到df1的尾部</li>
+<li>df.concat([df1, df2],axis=1)：将df2中的列添加到df1的尾部</li>
+<li>df1.join(df2,on=col1,how=’inner’)：对df1的列和df2的列执行SQL形式的join</li>
+</ol>
+</li>
+<li><p>数据统计</p>
+<ol>
+<li>df.describe()：查看数据值列的汇总统计</li>
+<li>df.mean()：返回所有列的均值</li>
+<li>df.corr()：返回列与列之间的相关系数</li>
+<li>df.count()：返回每一列中的非空值的个数</li>
+<li>df.max()：返回每一列的最大值</li>
+<li>df.min()：返回每一列的最小值</li>
+<li>df.median()：返回每一列的中位数</li>
+<li>df.std()：返回每一列的标准差</li>
+</ol>
+</li>
+</ul>
 
       
     </div>
@@ -427,6 +513,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
 
       
       
@@ -436,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/23/vim整理/" rel="next" title="vim整理">
-                <i class="fa fa-chevron-left"></i> vim整理
+              <a href="/2017/08/31/sublime/" rel="next" title="sublime">
+                <i class="fa fa-chevron-left"></i> sublime
               </a>
             
           </div>
@@ -445,10 +537,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/24/mongo整理/" rel="prev" title="mongo">
-                mongo <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -608,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键-command-a后"><span class="nav-number">1.</span> <span class="nav-text">快捷键(command+a后)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#我的控制键为：Ctrl-a"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">我的控制键为：Ctrl+a</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础整理"><span class="nav-number">1.</span> <span class="nav-text">基础整理</span></a></li></ol></div>
             
 
           </div>

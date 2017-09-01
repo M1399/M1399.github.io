@@ -90,7 +90,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="前端," />
 
 
 
@@ -106,17 +106,18 @@
 
 
 
-<meta name="description" content="快捷键(command+a后)我的控制键为：Ctrl+a s：查看当前会话 w：显示当前会话的所有窗口 t：查看时间 ,：窗口重命名 o：选择pane，轮训选择，逆时针，也可方向键。 ;：last pane q：输入序号选择 !：使单独一个pane作为新的window 空格：更换pane排版 ctrl+o：按顺序移动pane位置 {  ：往左、往上移动pane }  ：往右、往下移动pane ：s">
+<meta name="description" content="基础语法 注释 行注释//  段注释/ / == 会自动转换类型，一致后再比较 === 不会自动转换类型，类型不一致返回false NaN 与所有值都不相等，包括自己 NaN === NaN; //false用isNaN()函数判断isNaN（NaN）; //true   null：表示空的值（与python的None类似 ） undefined: 表示未定义，在判断函数参数是否传递的情况下有用">
+<meta name="keywords" content="前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tmux">
-<meta property="og:url" content="http://www.yangqingwt.top/2017/08/24/tmuxp/index.html">
+<meta property="og:title" content="js">
+<meta property="og:url" content="http://www.yangqingwt.top/2017/08/31/js/index.html">
 <meta property="og:site_name" content="Yangq blog">
-<meta property="og:description" content="快捷键(command+a后)我的控制键为：Ctrl+a s：查看当前会话 w：显示当前会话的所有窗口 t：查看时间 ,：窗口重命名 o：选择pane，轮训选择，逆时针，也可方向键。 ;：last pane q：输入序号选择 !：使单独一个pane作为新的window 空格：更换pane排版 ctrl+o：按顺序移动pane位置 {  ：往左、往上移动pane }  ：往右、往下移动pane ：s">
+<meta property="og:description" content="基础语法 注释 行注释//  段注释/ / == 会自动转换类型，一致后再比较 === 不会自动转换类型，类型不一致返回false NaN 与所有值都不相等，包括自己 NaN === NaN; //false用isNaN()函数判断isNaN（NaN）; //true   null：表示空的值（与python的None类似 ） undefined: 表示未定义，在判断函数参数是否传递的情况下有用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-26T15:23:12.000Z">
+<meta property="og:updated_time" content="2017-08-31T02:51:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tmux">
-<meta name="twitter:description" content="快捷键(command+a后)我的控制键为：Ctrl+a s：查看当前会话 w：显示当前会话的所有窗口 t：查看时间 ,：窗口重命名 o：选择pane，轮训选择，逆时针，也可方向键。 ;：last pane q：输入序号选择 !：使单独一个pane作为新的window 空格：更换pane排版 ctrl+o：按顺序移动pane位置 {  ：往左、往上移动pane }  ：往右、往下移动pane ：s">
+<meta name="twitter:title" content="js">
+<meta name="twitter:description" content="基础语法 注释 行注释//  段注释/ / == 会自动转换类型，一致后再比较 === 不会自动转换类型，类型不一致返回false NaN 与所有值都不相等，包括自己 NaN === NaN; //false用isNaN()函数判断isNaN（NaN）; //true   null：表示空的值（与python的None类似 ） undefined: 表示未定义，在判断函数参数是否传递的情况下有用">
 
 
 
@@ -145,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yangqingwt.top/2017/08/24/tmuxp/"/>
+  <link rel="canonical" href="http://www.yangqingwt.top/2017/08/31/js/"/>
 
 
 
 
 
-  <title>tmux | Yangq blog</title>
+  <title>js | Yangq blog</title>
   
 
 
@@ -288,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/24/tmuxp/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/31/js/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -305,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">tmux</h1>
+          <h1 class="post-title" itemprop="name headline">js</h1>
         
 
         <div class="post-meta">
@@ -317,8 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T23:43:38+08:00">
-                2017-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-31T10:39:00+08:00">
+                2017-08-31
               </time>
             
 
@@ -355,29 +356,18 @@
       
 
       
-        <h2 id="快捷键-command-a后"><a href="#快捷键-command-a后" class="headerlink" title="快捷键(command+a后)"></a>快捷键(command+a后)</h2><h6 id="我的控制键为：Ctrl-a"><a href="#我的控制键为：Ctrl-a" class="headerlink" title="我的控制键为：Ctrl+a"></a>我的控制键为：Ctrl+a</h6><ol>
-<li>s：查看当前会话</li>
-<li>w：显示当前会话的所有窗口</li>
-<li>t：查看时间</li>
-<li>,：窗口重命名</li>
-<li>o：选择pane，轮训选择，逆时针，也可方向键。</li>
-<li>;：last pane</li>
-<li>q：输入序号选择</li>
-<li>!：使单独一个pane作为新的window</li>
-<li>空格：更换pane排版</li>
-<li>ctrl+o：按顺序移动pane位置</li>
-<li>{  ：往左、往上移动pane</li>
-<li>}  ：往右、往下移动pane</li>
-<li>：setw synchronize-panes(off)：同步所有窗口执行命令</li>
-<li>复制模式：（需要添加配置）<ul>
-<li>ctrl+a [</li>
-<li>h、j、k、l 上下左右</li>
-<li>alt + 上下箭头：一屏跳</li>
-<li>空格：选择，回车完成复制到剪贴板</li>
-<li>ctrl+a ] ：粘贴</li>
-</ul>
+        <h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><ul>
+<li>注释 行注释//  段注释/<em> </em>/</li>
+<li>== 会自动转换类型，一致后再比较</li>
+<li>=== 不会自动转换类型，类型不一致返回false</li>
+<li>NaN 与所有值都不相等，包括自己<blockquote>
+<p>NaN === NaN; //false<br>用isNaN()函数判断<br>isNaN（NaN）; //true</p>
+</blockquote>
 </li>
-</ol>
+<li>null：表示空的值（与python的None类似 ）</li>
+<li>undefined: 表示未定义，在判断函数参数是否传递的情况下有用</li>
+<li>变量名：大小写英文、数字、$和_的组合</li>
+</ul>
 
       
     </div>
@@ -427,6 +417,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
 
       
       
@@ -436,8 +432,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/23/vim整理/" rel="next" title="vim整理">
-                <i class="fa fa-chevron-left"></i> vim整理
+              <a href="/2017/08/30/git整理/" rel="next" title="git整理">
+                <i class="fa fa-chevron-left"></i> git整理
               </a>
             
           </div>
@@ -446,8 +442,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/24/mongo整理/" rel="prev" title="mongo">
-                mongo <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/31/sublime/" rel="prev" title="sublime">
+                sublime <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -608,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键-command-a后"><span class="nav-number">1.</span> <span class="nav-text">快捷键(command+a后)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#我的控制键为：Ctrl-a"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">我的控制键为：Ctrl+a</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础语法"><span class="nav-number">1.</span> <span class="nav-text">基础语法</span></a></li></ol></div>
             
 
           </div>

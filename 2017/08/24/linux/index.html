@@ -59,13 +59,25 @@
   
 
   
+    
+      
+    
 
+    
+  
+
+  
+    
+      
+    
+
+    
   
 
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -78,7 +90,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="sys," />
 
 
 
@@ -94,17 +106,18 @@
 
 
 
-<meta name="description" content="My First、Study、Summary、Insist and Efforts">
+<meta name="description" content="uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4   w: 2   X: 1  改权限：chmod 777 file 都有读写、执行权限root 所属用户组 其他用户   chown">
+<meta name="keywords" content="sys">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux">
 <meta property="og:url" content="http://www.yangqingwt.top/2017/08/24/linux/index.html">
 <meta property="og:site_name" content="Yangq blog">
-<meta property="og:description" content="My First、Study、Summary、Insist and Efforts">
+<meta property="og:description" content="uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4   w: 2   X: 1  改权限：chmod 777 file 都有读写、执行权限root 所属用户组 其他用户   chown">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-24T15:50:33.000Z">
+<meta property="og:updated_time" content="2017-08-31T03:01:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux">
-<meta name="twitter:description" content="My First、Study、Summary、Insist and Efforts">
+<meta name="twitter:description" content="uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4   w: 2   X: 1  改权限：chmod 777 file 都有读写、执行权限root 所属用户组 其他用户   chown">
 
 
 
@@ -113,7 +126,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -214,6 +227,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -230,16 +253,6 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
           </a>
         </li>
       
@@ -279,9 +292,9 @@
     <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/24/linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yangq">
+      <meta itemprop="name" content="yangq">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/img/pic.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -343,7 +356,17 @@
       
 
       
-        
+        <ul>
+<li>uname: 显示内核类别 -a 显示详细</li>
+<li>touch：创建不存在的文件（文件存在会更新时间戳）</li>
+<li><p>chmod: R: 4   w: 2   X: 1</p>
+<blockquote>
+<p>改权限：chmod 777 file 都有读写、执行权限<br>root 所属用户组 其他用户</p>
+</blockquote>
+</li>
+<li>chown</li>
+</ul>
+
       
     </div>
     
@@ -353,10 +376,50 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>thans</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="yangq WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="yangq Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="bitcoin_qr" src="/images/bitcoin.png" alt="yangq Bitcoin"/>
+        <p>Bitcoin</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sys/" rel="tag"># sys</a>
+          
+        </div>
       
 
       
@@ -367,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/24/python之pandas/" rel="next" title="python之pandas">
-                <i class="fa fa-chevron-left"></i> python之pandas
+              <a href="/2017/08/24/正则整理/" rel="next" title="正则整理">
+                <i class="fa fa-chevron-left"></i> 正则整理
               </a>
             
           </div>
@@ -435,9 +498,9 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="Yangq" />
-          <p class="site-author-name" itemprop="name">Yangq</p>
+               src="/img/pic.jpeg"
+               alt="yangq" />
+          <p class="site-author-name" itemprop="name">yangq</p>
            
               <p class="site-description motion-element" itemprop="description">My First、Study、Summary、Insist and Efforts</p>
           
@@ -447,7 +510,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -460,7 +523,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -471,6 +534,41 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      豆瓣
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
           
         </div>
 
@@ -566,6 +664,8 @@
   
 
 
+  
+
 
 
 
@@ -593,6 +693,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
