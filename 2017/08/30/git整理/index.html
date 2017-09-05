@@ -106,20 +106,20 @@
 
 
 
-<meta name="description" content="基本操作 git checkout xxx.py 签出分支、特定文件等 git push origin test:master 提交本地分支test作为远程master分支 git branch 创建本地分支 git log –pretty=oneline 只显示提交版本号和内容 回退： git reset –hard HEAD ^ 回退到上个版本 git reset –hard 版本号   gi">
+<meta name="description" content="基本操作 git checkout xxx.py 签出分支、特定文件等 git checkout origin/yangq4   git push origin test:master 提交本地分支test作为远程master分支 git branch 创建本地分支 git log –pretty=oneline 只显示提交版本号和内容 回退： git reset –hard HEAD ^ 回退到">
 <meta name="keywords" content="tools">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git整理">
 <meta property="og:url" content="http://www.yangqingwt.top/2017/08/30/git整理/index.html">
 <meta property="og:site_name" content="Yangq blog">
-<meta property="og:description" content="基本操作 git checkout xxx.py 签出分支、特定文件等 git push origin test:master 提交本地分支test作为远程master分支 git branch 创建本地分支 git log –pretty=oneline 只显示提交版本号和内容 回退： git reset –hard HEAD ^ 回退到上个版本 git reset –hard 版本号   gi">
+<meta property="og:description" content="基本操作 git checkout xxx.py 签出分支、特定文件等 git checkout origin/yangq4   git push origin test:master 提交本地分支test作为远程master分支 git branch 创建本地分支 git log –pretty=oneline 只显示提交版本号和内容 回退： git reset –hard HEAD ^ 回退到">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.yangqingwt.top/img/git/git_log.png">
 <meta property="og:image" content="http://www.yangqingwt.top/img/git/git_reflog.png">
-<meta property="og:updated_time" content="2017-08-30T14:38:59.000Z">
+<meta property="og:updated_time" content="2017-09-05T14:28:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git整理">
-<meta name="twitter:description" content="基本操作 git checkout xxx.py 签出分支、特定文件等 git push origin test:master 提交本地分支test作为远程master分支 git branch 创建本地分支 git log –pretty=oneline 只显示提交版本号和内容 回退： git reset –hard HEAD ^ 回退到上个版本 git reset –hard 版本号   gi">
+<meta name="twitter:description" content="基本操作 git checkout xxx.py 签出分支、特定文件等 git checkout origin/yangq4   git push origin test:master 提交本地分支test作为远程master分支 git branch 创建本地分支 git log –pretty=oneline 只显示提交版本号和内容 回退： git reset –hard HEAD ^ 回退到">
 <meta name="twitter:image" content="http://www.yangqingwt.top/img/git/git_log.png">
 
 
@@ -360,7 +360,10 @@
 
       
         <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><ul>
-<li>git checkout xxx.py 签出分支、特定文件等</li>
+<li>git checkout xxx.py 签出分支、特定文件等<ul>
+<li>git checkout origin/yangq4</li>
+</ul>
+</li>
 <li>git push origin test:master 提交本地分支test作为远程master分支</li>
 <li>git branch 创建本地分支</li>
 <li>git log –pretty=oneline 只显示提交版本号和内容<img src="/img/git/git_log.png" alt="图"></li>
@@ -371,12 +374,45 @@
 </li>
 <li>git reflog 查看版本号<img src="/img/git/git_reflog.png" alt=""></li>
 <li>git checkout –file 把文件在工作区做的修改撤销（未提交前，未放在暂存区的）</li>
-<li>git branch -d name 删除分支</li>
+<li>git branch -d name 删除分支<ul>
+<li>有merge时，用-D</li>
+</ul>
+</li>
+<li>git branch -m fix yangq4 分支重命名</li>
 <li>git stash 当前工作现场隐藏</li>
 <li>git stash list 工作现场查看</li>
 <li>git stash apply 恢复（stash内容并不删除）</li>
 <li>git stash drop 删除文件</li>
 <li>git stash pop 恢复发同时文件也删除</li>
+</ul>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul>
+<li>commit类别<ul>
+<li>feat：新功能（feature）</li>
+<li>fix：修补bug</li>
+<li>docs：文档（documentation）</li>
+<li>style： 格式（不影响代码运行的变动）</li>
+<li>refactor：重构（即不是新增功能，也不是修改bug的代码变动）</li>
+<li>test：增加测试</li>
+<li>chore：构建过程或辅助工具的变动</li>
+</ul>
+</li>
+<li>撤销上次推送    <ul>
+<li>git reset –hard &lt;版本号&gt;</li>
+<li>git push origin &lt;分支名&gt; –force</li>
+</ul>
+</li>
+</ul>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
+<li>error: you need to resolve your current index first<ul>
+<li>git reset –merge</li>
+</ul>
+</li>
+</ul>
+<h2 id="套路"><a href="#套路" class="headerlink" title="套路"></a>套路</h2><ul>
+<li>git pull</li>
+<li>git checkout origin/xuhf</li>
+<li>git checkout -b yangq4</li>
+<li>(git merge origin/branch)</li>
 </ul>
 
       
@@ -390,7 +426,7 @@
     
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>作为小菜程序媛，记录下自己日常整理的基础知识。我会努力哒(๑•̀ㅂ•́)و✧</div>
+  <div>添加个小功能~(๑•̀ㅂ•́)و✧</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
     <span>Donate</span>
   </button>
@@ -398,23 +434,18 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="yangq WeChat Pay"/>
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="yangq WeChat Pay"/>
         <p>WeChat Pay</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="yangq Alipay"/>
+        <img id="alipay_qr" src="/images/alipay.png" alt="yangq Alipay"/>
         <p>Alipay</p>
       </div>
     
 
-    
-      <div id="bitcoin" style="display: inline-block">
-        <img id="bitcoin_qr" src="/images/bitcoin.png" alt="yangq Bitcoin"/>
-        <p>Bitcoin</p>
-      </div>
     
 
   </div>
@@ -531,7 +562,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -543,10 +574,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">5</span>
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -614,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.</span> <span class="nav-text">基本操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">2.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">3.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#套路"><span class="nav-number">4.</span> <span class="nav-text">套路</span></a></li></ol></div>
             
 
           </div>
