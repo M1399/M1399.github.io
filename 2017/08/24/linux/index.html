@@ -106,18 +106,21 @@
 
 
 
-<meta name="description" content="uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4   w: 2   X: 1  改权限：chmod 777 file 都有读写、执行权限root 所属用户组 其他用户   chown pdsh: pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。 pdsh支持交互模式，当要执行的命令不确定时，可">
+<meta name="description" content="基础命令 uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4   w: 2   X: 1  改权限：chmod 777 file 都有读写、执行权限root 所属用户组 其他用户   chown  分主题整理pdsh: pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。 pdsh支持交互模式，当要执">
 <meta name="keywords" content="sys">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux">
 <meta property="og:url" content="http://www.yangqingwt.top/2017/08/24/linux/index.html">
 <meta property="og:site_name" content="Yangq blog">
-<meta property="og:description" content="uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4   w: 2   X: 1  改权限：chmod 777 file 都有读写、执行权限root 所属用户组 其他用户   chown pdsh: pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。 pdsh支持交互模式，当要执行的命令不确定时，可">
+<meta property="og:description" content="基础命令 uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4   w: 2   X: 1  改权限：chmod 777 file 都有读写、执行权限root 所属用户组 其他用户   chown  分主题整理pdsh: pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。 pdsh支持交互模式，当要执">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-04T15:25:02.000Z">
+<meta property="og:image" content="http://www.yangqingwt.top/img/linux/ps_/ps_-ef.png">
+<meta property="og:image" content="http://www.yangqingwt.top/img/linux/ps_/ps_aux.png">
+<meta property="og:updated_time" content="2017-09-12T15:03:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux">
-<meta name="twitter:description" content="uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4   w: 2   X: 1  改权限：chmod 777 file 都有读写、执行权限root 所属用户组 其他用户   chown pdsh: pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。 pdsh支持交互模式，当要执行的命令不确定时，可">
+<meta name="twitter:description" content="基础命令 uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4   w: 2   X: 1  改权限：chmod 777 file 都有读写、执行权限root 所属用户组 其他用户   chown  分主题整理pdsh: pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。 pdsh支持交互模式，当要执">
+<meta name="twitter:image" content="http://www.yangqingwt.top/img/linux/ps_/ps_-ef.png">
 
 
 
@@ -356,7 +359,7 @@
       
 
       
-        <ul>
+        <h2 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h2><ul>
 <li>uname: 显示内核类别 -a 显示详细</li>
 <li>touch：创建不存在的文件（文件存在会更新时间戳）</li>
 <li><p>chmod: R: 4   w: 2   X: 1</p>
@@ -365,7 +368,8 @@
 </blockquote>
 </li>
 <li>chown</li>
-<li>pdsh:<ul>
+</ul>
+<h2 id="分主题整理"><a href="#分主题整理" class="headerlink" title="分主题整理"></a>分主题整理</h2><h3 id="pdsh"><a href="#pdsh" class="headerlink" title="pdsh:"></a>pdsh:</h3><ul>
 <li>pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。</li>
 <li>pdsh支持交互模式，当要执行的命令不确定时，可直接进入pdsh命令行</li>
 <li>pdsh可以通过多种方式在远程主机上运行命令，默认是rsh方式，另外也支持ssh、mrsh、qsh、mqsh、krb4、xcpu等多种rcmd模块</li>
@@ -373,11 +377,67 @@
 <li>-R    指定使用rcmd的模块名，默认是rsh</li>
 <li>-l    指定在远程主机上使用的用户名称</li>
 </ul>
-</li>
-<li>pdsp:<ul>
+<h3 id="pdsp"><a href="#pdsp" class="headerlink" title="pdsp:"></a>pdsp:</h3><ul>
 <li>如果配置整个集群，要求所有的机器安装相同的软件，逐一拷贝效率较低，通常的做法是将所有要安装的软件拷贝到一台主机上，通过pdcp命令同步拷贝到其他机器上。</li>
 <li>pdcp命令格式：pdcp [-参数] “源文件1” [源文件2…]  目标</li>
 <li>参数-w：指定要拷贝文件的远程主机，多个主机用逗号隔开，可以是主机名也可以是IP地址</li>
+</ul>
+<h3 id="su-和-sudo-su"><a href="#su-和-sudo-su" class="headerlink" title="su 和 sudo su"></a>su 和 sudo su</h3><ul>
+<li>su：不指明用户名时，默认为root。su yangq4</li>
+<li>su -:切换用户后同时切换到新用户的工作环境</li>
+<li>以上，切换用户需知晓对应用户的登录密码</li>
+<li>sudo su<ul>
+<li>sudo su <user>中的su将以root身份被执行，并要求输入root的password</user></li>
+</ul>
+</li>
+</ul>
+<h3 id="ps-aux-和-ps-ef"><a href="#ps-aux-和-ps-ef" class="headerlink" title="ps aux 和 ps -ef"></a>ps aux 和 ps -ef</h3><ul>
+<li>都是Linux显示系统进程的命令，区别：输出略有不同</li>
+<li><p>ps -ef是标准的格式显示进程<img src="/img/linux/ps_/ps_-ef.png" alt=""></p>
+<ul>
+<li><p>UID    //用户ID、但输出的是用户名</p>
+</li>
+<li><p>PID    //进程的ID</p>
+</li>
+<li><p>PPID   //父进程ID </p>
+</li>
+<li><p>C      //进程占用CPU的百分比 </p>
+</li>
+<li><p>STIME  //进程启动到现在的时间</p>
+</li>
+<li><p>TTY    //该进程在那个终端上运行，若与终端无关，则显示? 若为pts/0等，则表示由网络连接主机进程。 </p>
+</li>
+<li><p>CMD    //命令的名称和参数</p>
+</li>
+</ul>
+</li>
+<li><p>ps aux是BSD的格式显示<img src="/img/linux/ps_/ps_aux.png" alt=""></p>
+<ul>
+<li>USER    //用户名 </li>
+<li>%CPU    //进程占用的CPU百分比 </li>
+<li>%MEM    //占用内存的百分比</li>
+<li>VSZ     //该进程使用的虚拟內存量（KB） </li>
+<li>RSS     //该进程占用的固定內存量（KB）（驻留中页的数量)</li>
+<li>STAT    //进程的状态         </li>
+<li>START   //该进程被触发启动时间 </li>
+<li><p>TIME    //该进程实际使用CPU运行的时间</p>
+<p>  <strong>其中STAT状态位常见的状态字符有</strong> </p>
+<ul>
+<li>D    &nbsp;&nbsp;//无法中断的休眠状态（通常 IO 的进程）</li>
+<li>R    &nbsp;&nbsp;//正在运行可中在队列中可过行的；</li>
+<li>S    &nbsp;&nbsp;//处于休眠状态； </li>
+<li>T    &nbsp;&nbsp;//停止或被追踪； </li>
+<li>W    &nbsp;&nbsp;//进入内存交换 （从内核2.6开始无效）； </li>
+<li>X    &nbsp;&nbsp;//死掉的进程 （基本很少见）； </li>
+<li>Z    &nbsp;&nbsp;//僵尸进程； </li>
+<li>&lt;    &nbsp;&nbsp;//优先级高的进程 </li>
+<li>N    &nbsp;&nbsp;//优先级较低的进程 </li>
+<li>L    &nbsp;&nbsp;//有些页被锁进内存； </li>
+<li>s    &nbsp;&nbsp;//进程的领导者（在它之下有子进程）； </li>
+<li>l    &nbsp;&nbsp;//多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）； </li>
+<li>+    &nbsp;&nbsp;//位于后台的进程组；</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -504,8 +564,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/pic.jpeg"
@@ -593,6 +662,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础命令"><span class="nav-number">1.</span> <span class="nav-text">基础命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分主题整理"><span class="nav-number">2.</span> <span class="nav-text">分主题整理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pdsh"><span class="nav-number">2.1.</span> <span class="nav-text">pdsh:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pdsp"><span class="nav-number">2.2.</span> <span class="nav-text">pdsp:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#su-和-sudo-su"><span class="nav-number">2.3.</span> <span class="nav-text">su 和 sudo su</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps-aux-和-ps-ef"><span class="nav-number">2.4.</span> <span class="nav-text">ps aux 和 ps -ef</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
