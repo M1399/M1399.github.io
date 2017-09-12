@@ -890,23 +890,15 @@
 <li>$gt 大于</li>
 <li>$lt 小于</li>
 <li>$gte 大于等于</li>
-<li>$lte 小于等于<h5 id="样例"><a href="#样例" class="headerlink" title="样例:"></a>样例:</h5><blockquote>
-<p>大于0219小于0320</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;$gt:&quot;2017-02-19&quot;, $lt:&quot;2017-03-20&quot;&#125;</div></pre></td></tr></table></figure>
-</blockquote>
-</li>
+<li>$lte 小于等于</li>
 </ul>
-<pre><code>&gt; 降序排列，限制2
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.Hacked.find(&#123;&quot;keyword&quot;: &quot;fghk&quot;&#125;).sort(&#123;sqlite_id: -1&#125;).limit(2)</div></pre></td></tr></table></figure>
-
-
-&gt; 查status字段值为“p”或“d”的
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.users.find(&#123;status: &#123;$in: [&quot;p&quot;, &quot;d&quot;]&#125;&#125;</div></pre></td></tr></table></figure>
-
-
-&gt; status为a, age小于30的
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.users.find(&#123;status: &quot;a&quot;, age:&#123;$lt:30&#125;&#125;)</div></pre></td></tr></table></figure>
-</code></pre><h3 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><blockquote>
+<h4 id="样例"><a href="#样例" class="headerlink" title="样例:"></a>样例:</h4><blockquote>
+<p>大于0219小于0320<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;$gt:&quot;2017-02-19&quot;, $lt:&quot;2017-03-20&quot;&#125;</div></pre></td></tr></table></figure></p>
+<p>降序排列，限制2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.Hacked.find(&#123;&quot;keyword&quot;: &quot;fghk&quot;&#125;).sort(&#123;sqlite_id: -1&#125;).limit(2)</div></pre></td></tr></table></figure></p>
+<p>查status字段值为“p”或“d”的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.users.find(&#123;status: &#123;$in: [&quot;p&quot;, &quot;d&quot;]&#125;&#125;</div></pre></td></tr></table></figure></p>
+<p>status为a, age小于30的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.users.find(&#123;status: &quot;a&quot;, age:&#123;$lt:30&#125;&#125;)</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><blockquote>
 <p>mongodump -h dbhost -d dbname -o dbdirectory</p>
 </blockquote>
 <ul>
