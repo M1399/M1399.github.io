@@ -217,26 +217,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -253,6 +233,26 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/30/git整理/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/13/python之pdb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -308,7 +308,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/30/git整理/" itemprop="url">git整理</a></h1>
+                <a class="post-title-link" href="/2017/09/13/python之pdb/" itemprop="url">python之pdb</a></h1>
         
 
         <div class="post-meta">
@@ -320,8 +320,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-30T22:19:56+08:00">
-                2017-08-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T16:01:54+08:00">
+                2017-09-13
               </time>
             
 
@@ -360,60 +360,20 @@
       
         
           
-            <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><ul>
-<li>git checkout xxx.py 签出分支、特定文件等<ul>
-<li>git checkout origin/yangq4</li>
-</ul>
-</li>
-<li>git push origin test:master 提交本地分支test作为远程master分支</li>
-<li>git branch 创建本地分支</li>
-<li>git log –pretty=oneline 只显示提交版本号和内容<img src="/img/git/git_log.png" alt="图"></li>
-<li>回退：<ol>
-<li>git reset –hard HEAD ^ 回退到上个版本</li>
-<li>git reset –hard 版本号</li>
-</ol>
-</li>
-<li>git reflog 查看版本号<img src="/img/git/git_reflog.png" alt=""></li>
-<li>git checkout –file 把文件在工作区做的修改撤销（未提交前，未放在暂存区的）</li>
-<li>git branch -d name 删除分支<ul>
-<li>有merge时，用-D</li>
-</ul>
-</li>
-<li>git branch -m fix yangq4 分支重命名</li>
-<li>git stash 当前工作现场隐藏</li>
-<li>git stash list 工作现场查看</li>
-<li>git stash apply 恢复（stash内容并不删除）</li>
-<li>git stash drop 删除文件</li>
-<li>git stash pop 恢复发同时文件也删除</li>
-</ul>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul>
-<li>commit类别<ul>
-<li>feat：新功能（feature）</li>
-<li>fix：修补bug</li>
-<li>docs：文档（documentation）</li>
-<li>style： 格式（不影响代码运行的变动）</li>
-<li>refactor：重构（即不是新增功能，也不是修改bug的代码变动）</li>
-<li>test：增加测试</li>
-<li>chore：构建过程或辅助工具的变动</li>
-</ul>
-</li>
-<li>撤销上次推送    <ul>
-<li>git reset –hard &lt;版本号&gt;</li>
-<li>git push origin &lt;分支名&gt; –force</li>
-</ul>
-</li>
-</ul>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
-<li>error: you need to resolve your current index first<ul>
-<li>git reset –merge</li>
-</ul>
-</li>
-</ul>
-<h2 id="套路"><a href="#套路" class="headerlink" title="套路"></a>套路</h2><ul>
-<li>git pull</li>
-<li>git checkout origin/xuhf</li>
-<li>git checkout -b yangq4</li>
-<li>(git merge origin/branch)</li>
+            <h2 id="引入pdb模块"><a href="#引入pdb模块" class="headerlink" title="引入pdb模块"></a>引入pdb模块</h2><blockquote>
+<p>import pdb</p>
+<p>pdb.set_trace()</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>b / break: 设置断点</li>
+<li>c / continue: 继续执行程序</li>
+<li>l / list: 查看当前的代码段</li>
+<li>s / step: 进入函数</li>
+<li>r / return: 执行代码直到从当前函数返回</li>
+<li>n / next: 执行下一行</li>
+<li>q / exit: 中止并退出</li>
+<li>p / pp: 打印变量的值</li>
+<li>h / help: 帮助</li>
 </ul>
 
           
@@ -463,7 +423,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/24/linux/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/06/电脑配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -482,7 +442,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/24/linux/" itemprop="url">linux</a></h1>
+                <a class="post-title-link" href="/2017/09/06/电脑配置/" itemprop="url">电脑配置</a></h1>
         
 
         <div class="post-meta">
@@ -494,8 +454,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T23:50:33+08:00">
-                2017-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-06T21:48:27+08:00">
+                2017-09-06
               </time>
             
 
@@ -534,86 +494,401 @@
       
         
           
-            <h2 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h2><ul>
-<li>uname: 显示内核类别 -a 显示详细</li>
-<li>touch：创建不存在的文件（文件存在会更新时间戳）</li>
-<li><p>chmod: R: 4   w: 2   X: 1</p>
+            <h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>看图吧先<br><img src="/img/电脑配置/center.png" alt=""></p>
+<ol>
+<li>CPU（处理器）<ul>
+<li>inter：酷睿i3、酷睿i5、酷睿i7<ul>
+<li>i5 5200U：中端处理器，第五代，编号200<img src="/img/电脑配置/computer.png" alt=""></li>
+</ul>
+</li>
+<li>ADM</li>
+<li>概述：<ul>
+<li>i3：普通办公</li>
+<li>i5：玩网游</li>
+<li>i7：性能好，价格高。同时高耗能造成高发热</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>内存：可以自己更换（少数，如Mac、Surface等超薄的，内存条焊在主板上，无法自己更换）</li>
+<li><p>显卡：（N卡：英伟达公司的，GT开头；A卡：AMD公司的)</p>
+<ul>
+<li>分为两种<ul>
+<li>双显卡：独立显卡+核心显卡</li>
+<li>核心显卡电脑</li>
+</ul>
+</li>
+<li>根据型号判断显卡性能</li>
+<li>独立显卡：<ul>
+<li>通常显卡型号为GT abcM（abc为数字）<ul>
+<li>a代表是第几代产品</li>
+<li>bc为它的型号，b代表显卡的定位，5定位为中端，大于5高端，小于5为入门级别</li>
+<li>末尾M代表它四笔记本电脑显卡</li>
+<li>有的在GT后添加x，代表更好的性能</li>
+<li>例：GT820M，第八代入门级别的笔记本显卡</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>核心显卡：<ul>
+<li>理解为集成显卡，它把图形处理核心整合在了CPU当中</li>
+<li>双显卡，在游戏等需要较大图形运算量时，才会自动切换为<strong>独立显卡</strong>，所以双显卡性能取决于其中高性能显卡所能达到的性能（一般是独立显卡）</li>
+<li>HD4400, HD4600 &lt; HD5500, HD5600 &lt; HD6000 &lt; HD520, HD530 &lt; HD5100,HD540,HD550 &lt; HD6100 &lt; HD5200 &lt; HD6200</li>
+<li>目前最好的HD6200的显卡大概是中端独立显卡性能水平。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>硬盘：电脑的存储设备</p>
+</li>
+<li>主板：结合CPU、显卡、硬盘等综合考虑</li>
+<li>台式机：还需注意：风扇、散热器、显示器</li>
+</ol>
+<p>摘自：<a href="https://www.zhihu.com/question/40463573/answer/87720343" target="_blank" rel="external">https://www.zhihu.com/question/40463573/answer/87720343</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/05/SmallSentiment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yangq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/pic.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangq blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/05/SmallSentiment/" itemprop="url">SmallSentiment</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T17:26:47+08:00">
+                2017-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/31/python之pandas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yangq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/pic.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangq blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/31/python之pandas/" itemprop="url">python之pandas</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-31T23:50:12+08:00">
+                2017-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="基础整理"><a href="#基础整理" class="headerlink" title="基础整理"></a>基础整理</h1><ul>
+<li>数据量达到亿的时候，可以用pandas处理</li>
+<li><p>导入pandas库</p>
 <blockquote>
-<p>改权限：chmod 777 file 都有读写、执行权限<br>root 所属用户组 其他用户</p>
+<p>import pandas as pd<br>import numpy as np</p>
 </blockquote>
 </li>
-<li>chown</li>
-</ul>
-<h2 id="分主题整理"><a href="#分主题整理" class="headerlink" title="分主题整理"></a>分主题整理</h2><h3 id="pdsh"><a href="#pdsh" class="headerlink" title="pdsh:"></a>pdsh:</h3><ul>
-<li>pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。</li>
-<li>pdsh支持交互模式，当要执行的命令不确定时，可直接进入pdsh命令行</li>
-<li>pdsh可以通过多种方式在远程主机上运行命令，默认是rsh方式，另外也支持ssh、mrsh、qsh、mqsh、krb4、xcpu等多种rcmd模块</li>
-<li>-w host,host    指定远程主机，可以指定多个，每个主机用逗号隔开，host可以是主机名也可以是IP地址</li>
-<li>-R    指定使用rcmd的模块名，默认是rsh</li>
-<li>-l    指定在远程主机上使用的用户名称</li>
-</ul>
-<h3 id="pdsp"><a href="#pdsp" class="headerlink" title="pdsp:"></a>pdsp:</h3><ul>
-<li>如果配置整个集群，要求所有的机器安装相同的软件，逐一拷贝效率较低，通常的做法是将所有要安装的软件拷贝到一台主机上，通过pdcp命令同步拷贝到其他机器上。</li>
-<li>pdcp命令格式：pdcp [-参数] “源文件1” [源文件2…]  目标</li>
-<li>参数-w：指定要拷贝文件的远程主机，多个主机用逗号隔开，可以是主机名也可以是IP地址</li>
-</ul>
-<h3 id="su-和-sudo-su"><a href="#su-和-sudo-su" class="headerlink" title="su 和 sudo su"></a>su 和 sudo su</h3><ul>
-<li>su：不指明用户名时，默认为root。su yangq4</li>
-<li>su -:切换用户后同时切换到新用户的工作环境</li>
-<li>以上，切换用户需知晓对应用户的登录密码</li>
-<li>sudo su<ul>
-<li>sudo su <user>中的su将以root身份被执行，并要求输入root的password</user></li>
-</ul>
+<li><p>导入数据</p>
+<ol>
+<li>pd.read_csv(filename)：从CSV文件导入数据</li>
+<li>pd.read_table(filename)：从限定分隔符的文本文件导入数据</li>
+<li>pd.read_excel(filename)：从Excel文件导入数据</li>
+<li>pd.read_sql(query, connection_object)：从SQL表/库导入数据</li>
+<li>pd.read_json(json_string)：从JSON格式的字符串导入数据</li>
+<li>pd.read_html(url)：解析URL、字符串或者HTML文件，抽取其中的tables表格</li>
+<li>pd.read_clipboard()：从你的粘贴板获取内容，并传给read_table()</li>
+<li>pd.DataFrame(dict)：从字典对象导入数据，Key是列名，Value是数据</li>
+</ol>
 </li>
-</ul>
-<h3 id="ps-aux-和-ps-ef"><a href="#ps-aux-和-ps-ef" class="headerlink" title="ps aux 和 ps -ef"></a>ps aux 和 ps -ef</h3><ul>
-<li>都是Linux显示系统进程的命令，区别：输出略有不同</li>
-<li><p>ps -ef是标准的格式显示进程<img src="/img/linux/ps_/ps_-ef.png" alt=""></p>
-<ul>
-<li><p>UID    //用户ID、但输出的是用户名</p>
+<li><p>导出数据</p>
+<ol>
+<li>df.to_csv(filename)：导出数据到CSV文件</li>
+<li>df.to_excel(filename)：导出数据到Excel文件</li>
+<li>df.to_sql(table_name, connection_object)：导出数据到SQL表</li>
+<li>df.to_json(filename)：以Json格式导出数据到文本文件</li>
+</ol>
 </li>
-<li><p>PID    //进程的ID</p>
+<li><p>创建测试对象</p>
+<ol>
+<li>pd.DataFrame(np.random.rand(20,5))：创建20行5列的随机数组成的DataFrame对象</li>
+<li>pd.Series(my_list)：从可迭代对象my_list创建一个Series对象</li>
+<li>df.index = pd.date_range(‘1900/1/30’, periods=df.shape[0])：增加一个日期索引</li>
+</ol>
 </li>
-<li><p>PPID   //父进程ID </p>
+<li><p>查看、检查数据</p>
+<ol>
+<li>df.head(n)：查看DataFrame对象的前n行</li>
+<li>df.tail(n)：查看DataFrame对象的最后n行</li>
+<li>df.shape()：查看行数和列数</li>
+<li>df.info() ：查看索引、数据类型和内存信息</li>
+<li>df.describe()：查看数值型列的汇总统计</li>
+<li>s.value_counts(dropna=False)：查看Series对象的唯一值和计数</li>
+<li>df.apply(pd.Series.value_counts)：查看DataFrame对象中每一列的唯一值和计数</li>
+</ol>
 </li>
-<li><p>C      //进程占用CPU的百分比 </p>
+<li><p>数据选取</p>
+<ol>
+<li>df[col]：根据列名，并以Series的形式返回列</li>
+<li>df[[col1, col2]]：以DataFrame形式返回多列</li>
+<li>s.iloc[0]：按位置选取数据</li>
+<li>s.loc[‘index_one’]：按索引选取数据</li>
+<li>df.iloc[0,:]：返回第一行</li>
+<li>df.iloc[0,0]：返回第一列的第一个元素</li>
+</ol>
 </li>
-<li><p>STIME  //进程启动到现在的时间</p>
+<li><p>数据清理</p>
+<ol>
+<li>df.columns = [‘a’,’b’,’c’]：重命名列名</li>
+<li>pd.isnull()：检查DataFrame对象中的空值，并返回一个Boolean数组</li>
+<li>pd.notnull()：检查DataFrame对象中的非空值，并返回一个Boolean数组</li>
+<li>df.dropna()：删除所有包含空值的行</li>
+<li>df.dropna(axis=1)：删除所有包含空值的列</li>
+<li>df.dropna(axis=1,thresh=n)：删除所有小于n个非空值的行</li>
+<li>df.fillna(x)：用x替换DataFrame对象中所有的空值</li>
+<li>s.astype(float)：将Series中的数据类型更改为float类型</li>
+<li>s.replace(1,’one’)：用‘one’代替所有等于1的值</li>
+<li>s.replace([1,3],[‘one’,’three’])：用’one’代替1，用’three’代替</li>
+<li>df.rename(columns=lambda x: x + 1)：批量更改列名</li>
+<li>df.rename(columns={‘old<em>name’: ‘new</em> name’})：选择性更改列名</li>
+<li>df.set_index(‘column_one’)：更改索引列</li>
+<li>df.rename(index=lambda x: x + 1)：批量重命名索引</li>
+</ol>
 </li>
-<li><p>TTY    //该进程在那个终端上运行，若与终端无关，则显示? 若为pts/0等，则表示由网络连接主机进程。 </p>
+<li><p>数据处理：Filter、Sort和GroupBy</p>
+<ol>
+<li>df[df[col] &gt; 0.5]：选择col列的值大于0.5的行</li>
+<li>df.sort_values(col1)：按照列col1排序数据，默认升序排列</li>
+<li>df.sort_values(col2, ascending=False)：按照列col1降序排列数据</li>
+<li>df.sort_values([col1,col2], ascending=[True,False])：先按列col1升序排列，后按col2降序排列数据</li>
+<li>df.groupby(col)：返回一个按列col进行分组的Groupby对象</li>
+<li>df.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象</li>
+<li>df.groupby(col1)[col2]：返回按列col1进行分组后，列col2的均值</li>
+<li>df.pivot_table(index=col1, values=[col2,col3], aggfunc=max)：创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表</li>
+<li>df.groupby(col1).agg(np.mean)：返回按列col1分组的所有列的均值</li>
+<li>data.apply(np.mean)：对DataFrame中的每一列应用函数np.mean</li>
+<li>data.apply(np.max,axis=1)：对DataFrame中的每一行应用函数np.max</li>
+</ol>
 </li>
-<li><p>CMD    //命令的名称和参数</p>
+<li><p>数据合并</p>
+<ol>
+<li>df1.append(df2)：将df2中的行添加到df1的尾部</li>
+<li>df.concat([df1, df2],axis=1)：将df2中的列添加到df1的尾部</li>
+<li>df1.join(df2,on=col1,how=’inner’)：对df1的列和df2的列执行SQL形式的join</li>
+</ol>
 </li>
-</ul>
-</li>
-<li><p>ps aux是BSD的格式显示<img src="/img/linux/ps_/ps_aux.png" alt=""></p>
-<ul>
-<li>USER    //用户名 </li>
-<li>%CPU    //进程占用的CPU百分比 </li>
-<li>%MEM    //占用内存的百分比</li>
-<li>VSZ     //该进程使用的虚拟內存量（KB） </li>
-<li>RSS     //该进程占用的固定內存量（KB）（驻留中页的数量)</li>
-<li>STAT    //进程的状态         </li>
-<li>START   //该进程被触发启动时间 </li>
-<li><p>TIME    //该进程实际使用CPU运行的时间</p>
-<p>  <strong>其中STAT状态位常见的状态字符有</strong> </p>
-<ul>
-<li>D    &nbsp;&nbsp;//无法中断的休眠状态（通常 IO 的进程）</li>
-<li>R    &nbsp;&nbsp;//正在运行可中在队列中可过行的；</li>
-<li>S    &nbsp;&nbsp;//处于休眠状态； </li>
-<li>T    &nbsp;&nbsp;//停止或被追踪； </li>
-<li>W    &nbsp;&nbsp;//进入内存交换 （从内核2.6开始无效）； </li>
-<li>X    &nbsp;&nbsp;//死掉的进程 （基本很少见）； </li>
-<li>Z    &nbsp;&nbsp;//僵尸进程； </li>
-<li>&lt;    &nbsp;&nbsp;//优先级高的进程 </li>
-<li>N    &nbsp;&nbsp;//优先级较低的进程 </li>
-<li>L    &nbsp;&nbsp;//有些页被锁进内存； </li>
-<li>s    &nbsp;&nbsp;//进程的领导者（在它之下有子进程）； </li>
-<li>l    &nbsp;&nbsp;//多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）； </li>
-<li>+    &nbsp;&nbsp;//位于后台的进程组；</li>
-</ul>
-</li>
-</ul>
+<li><p>数据统计</p>
+<ol>
+<li>df.describe()：查看数据值列的汇总统计</li>
+<li>df.mean()：返回所有列的均值</li>
+<li>df.corr()：返回列与列之间的相关系数</li>
+<li>df.count()：返回每一列中的非空值的个数</li>
+<li>df.max()：返回每一列的最大值</li>
+<li>df.min()：返回每一列的最小值</li>
+<li>df.median()：返回每一列的中位数</li>
+<li>df.std()：返回每一列的标准差</li>
+</ol>
 </li>
 </ul>
 
@@ -664,7 +939,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/24/正则整理/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/31/sublime/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -683,7 +958,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/24/正则整理/" itemprop="url">正则整理</a></h1>
+                <a class="post-title-link" href="/2017/08/31/sublime/" itemprop="url">sublime</a></h1>
         
 
         <div class="post-meta">
@@ -695,8 +970,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T23:49:46+08:00">
-                2017-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-31T11:03:29+08:00">
+                2017-08-31
               </time>
             
 
@@ -735,345 +1010,27 @@
       
         
           
-            <h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><ul>
-<li>^[0-9]*$ 数字</li>
-<li>^\d{n}$ n位的数字</li>
-<li>^\d{n,}$ 至少n位的数字</li>
-<li>^\d{m,n}$ m~n位的数字</li>
-<li>^(0[1-9][0-9]*)$ 零和非零开头的数字</li>
+            <h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
+<li>command + D 选中光标所在词，多次操作</li>
+<li>command + L 选中整行</li>
+<li>command + shift + L 先选中多行，再按快捷键，会在每行行尾有光标，同时编辑</li>
+<li>ctrl + M 光标移动至括号首尾</li>
+<li>command + 回车 在下行插入新行</li>
+<li>command + shift + 回车 在上行插入新行</li>
+<li>command + &lt;- 向左单位性的移动光标</li>
+<li>command + -&gt; 向右快速移动光标</li>
+<li>shift + 方向键 选中文本</li>
+<li>command + shift + 方向键 单位性的选中文本</li>
+<li>command + shift + d 复制当前行，插入到下一行</li>
+<li>command + K + K 光标处删除至行尾（ctrl+k）</li>
+<li>ctrl + shift + K 删除整行</li>
+<li>command + K + U 词转换为大写</li>
+<li>command + K + L 转换为小写</li>
+<li>ctrl + T 左右字母互换</li>
+<li>command + alt + F 搜索+替换</li>
+<li>ctrl + tab 切换标签页</li>
+<li>command + K + B 开启/关闭侧边栏</li>
 </ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/24/mongo整理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yangq">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/pic.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yangq blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/24/mongo整理/" itemprop="url">mongo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T23:44:07+08:00">
-                2017-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="基础整理"><a href="#基础整理" class="headerlink" title="基础整理"></a>基础整理</h1><h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ul>
-<li>mac安装<ol>
-<li>brew update</li>
-<li>brew install mongodb</li>
-</ol>
-</li>
-<li>启动<ol>
-<li>mongod</li>
-<li>mongo</li>
-</ol>
-</li>
-<li>关闭<ol>
-<li>ctrl+c</li>
-<li>mongo<br>> use admin db<br>> db.shutdownServer({force: true})<br><img src="/img/mongo/mongo_close.png" alt=""></li>
-</ol>
-</li>
-<li>修复：<ol>
-<li>删除mongo/mongod.lock</li>
-<li>mongod -f /etc/mongod.conf –repair</li>
-<li>另一教程里的：mongod –repair –dbpath /mongodb/ –repairpath /mongodb/repair/</li>
-</ol>
-</li>
-</ul>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="update"><a href="#update" class="headerlink" title="update:"></a>update:</h3><pre><code>1. false 如果不存在，不插入
-2. true 查出来的记录都更新
-</code></pre><h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul>
-<li>$gt 大于</li>
-<li>$lt 小于</li>
-<li>$gte 大于等于</li>
-<li>$lte 小于等于</li>
-</ul>
-<h4 id="样例"><a href="#样例" class="headerlink" title="样例:"></a>样例:</h4><blockquote>
-<p>大于0219小于0320<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;$gt:&quot;2017-02-19&quot;, $lt:&quot;2017-03-20&quot;&#125;</div></pre></td></tr></table></figure></p>
-<p>降序排列，限制2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.Hacked.find(&#123;&quot;keyword&quot;: &quot;fghk&quot;&#125;).sort(&#123;sqlite_id: -1&#125;).limit(2)</div></pre></td></tr></table></figure></p>
-<p>查status字段值为“p”或“d”的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.users.find(&#123;status: &#123;$in: [&quot;p&quot;, &quot;d&quot;]&#125;&#125;</div></pre></td></tr></table></figure></p>
-<p>status为a, age小于30的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.users.find(&#123;status: &quot;a&quot;, age:&#123;$lt:30&#125;&#125;)</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><blockquote>
-<p>mongodump -h dbhost -d dbname -o dbdirectory</p>
-</blockquote>
-<ul>
-<li>-h：MongoDB所在服务器地址</li>
-<li>-d：需要备份的数据库名</li>
-<li>-o：备份的数据存放目录（此目录需要提前建立，默认会建立dump/）</li>
-</ul>
-<h3 id="数据恢复"><a href="#数据恢复" class="headerlink" title="数据恢复"></a>数据恢复</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><blockquote>
-<p>mongorestore -h <hostname>&lt;:port&gt; -d dbname <path></path></hostname></p>
-</blockquote>
-<ul>
-<li>–host &lt;:port&gt;, -h &lt;:port&gt;：<ul>
-<li>服务器地址，默认为： localhost:27017</li>
-</ul>
-</li>
-<li>–db , -d ：<ul>
-<li>需要恢复的数据库实例，例如：test，当然这个名称也可以和备份时候的不一样，比如test2</li>
-</ul>
-</li>
-<li>–drop：<ul>
-<li>恢复的时候，先删除当前数据，然后恢复备份的数据。就是说，恢复后，备份后添加修改的数据都会被删除，慎用哦！</li>
-</ul>
-</li>
-<li>\<path></path>：<ul>
-<li>设置备份数据目录，例如：c:\data\dump\test。</li>
-<li>不能同时指定 <path></path> 和 –dir 选项</li>
-</ul>
-</li>
-<li>–dir：指定备份的目录<ul>
-<li>不能同时指定 <path></path> 和 –dir 选项。</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/24/tmuxp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yangq">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/pic.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yangq blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/24/tmuxp/" itemprop="url">tmux</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T23:43:38+08:00">
-                2017-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="快捷键-command-a后"><a href="#快捷键-command-a后" class="headerlink" title="快捷键(command+a后)"></a>快捷键(command+a后)</h2><h6 id="我的控制键为：Ctrl-a"><a href="#我的控制键为：Ctrl-a" class="headerlink" title="我的控制键为：Ctrl+a"></a>我的控制键为：Ctrl+a</h6><ol>
-<li>s：查看当前会话</li>
-<li>w：显示当前会话的所有窗口</li>
-<li>t：查看时间</li>
-<li>,：窗口重命名</li>
-<li>o：选择pane，轮训选择，逆时针，也可方向键。</li>
-<li>;：last pane</li>
-<li>q：输入序号选择</li>
-<li>!：使单独一个pane作为新的window</li>
-<li>空格：更换pane排版</li>
-<li>ctrl+o：按顺序移动pane位置</li>
-<li>{  ：往左、往上移动pane</li>
-<li>}  ：往右、往下移动pane</li>
-<li>：setw synchronize-panes(off)：同步所有窗口执行命令</li>
-<li>复制模式：（需要添加配置）<ul>
-<li>ctrl+a [</li>
-<li>h、j、k、l 上下左右</li>
-<li>alt + 上下箭头：一屏跳</li>
-<li>空格：选择，回车完成复制到剪贴板</li>
-<li>ctrl+a ] ：粘贴</li>
-</ul>
-</li>
-</ol>
 
           
         
@@ -1113,7 +1070,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1159,7 +1116,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1172,7 +1129,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
