@@ -96,6 +96,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Yangq blog" type="application/atom+xml" />
+
 
 
 
@@ -114,7 +116,7 @@
 <meta property="og:site_name" content="Yangq blog">
 <meta property="og:description" content="python的内建模块itertools：提供了一些用于操作迭代对象的函数“无限”迭代器&amp;gt;&amp;gt;&amp;gt; import itertools  count（）：会创建一个无限迭代器&amp;gt;&amp;gt;&amp;gt; natuals = itertools.count(1) &amp;gt;&amp;gt;&amp;gt; for n in natuals: ...     print n 1 2 3 ... cycle():">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-17T12:45:22.000Z">
+<meta property="og:updated_time" content="2017-09-20T15:06:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="itertools">
 <meta name="twitter:description" content="python的内建模块itertools：提供了一些用于操作迭代对象的函数“无限”迭代器&amp;gt;&amp;gt;&amp;gt; import itertools  count（）：会创建一个无限迭代器&amp;gt;&amp;gt;&amp;gt; natuals = itertools.count(1) &amp;gt;&amp;gt;&amp;gt; for n in natuals: ...     print n 1 2 3 ... cycle():">
@@ -126,7 +128,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -159,6 +161,16 @@
 
 
 
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3e7656215799067b8d6253d74e25a223";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -168,10 +180,8 @@
 
   
   
-    
-  
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container  page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -187,7 +197,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">My First、Study、Summary、Insist and Efforts</p>
       
   </div>
 
@@ -258,9 +268,24 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+    </div>
   
 </nav>
 
@@ -284,7 +309,7 @@
   
   
 
-  <article class="post post-type-python" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -329,6 +354,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -364,7 +411,8 @@
 2
 3
 ...
-</code></pre><h4 id="cycle-会把传入的序列无限重复下去"><a href="#cycle-会把传入的序列无限重复下去" class="headerlink" title="cycle(): 会把传入的序列无限重复下去"></a>cycle(): 会把传入的序列无限重复下去</h4><pre><code>&gt;&gt;&gt; cs = itertools.cycle(&quot;abc&quot;)
+</code></pre><h4 id="cycle-会把传入的序列无限重复下去"><a href="#cycle-会把传入的序列无限重复下去" class="headerlink" title="cycle(): 会把传入的序列无限重复下去"></a>cycle(): 会把传入的序列无限重复下去</h4><a id="more"></a>
+<pre><code>&gt;&gt;&gt; cs = itertools.cycle(&quot;abc&quot;)
 &gt;&gt;&gt; for c in cs:
 ...        print c
 ...
@@ -562,7 +610,7 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
                alt="yangq" />
           <p class="site-author-name" itemprop="name">yangq</p>
            
-              <p class="site-description motion-element" itemprop="description">My First、Study、Summary、Insist and Efforts</p>
+              <p class="site-description motion-element" itemprop="description">python linux more</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -576,6 +624,15 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
@@ -591,6 +648,13 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

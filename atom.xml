@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Yangq blog</title>
+  
+  <subtitle>My First、Study、Summary、Insist and Efforts</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.yangqingwt.top/"/>
+  <updated>2017-09-20T15:10:36.000Z</updated>
+  <id>http://www.yangqingwt.top/</id>
+  
+  <author>
+    <name>Yangq</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>scrapy</title>
+    <link href="http://www.yangqingwt.top/2017/09/17/scrapy/"/>
+    <id>http://www.yangqingwt.top/2017/09/17/scrapy/</id>
+    <published>2017-09-17T13:54:38.000Z</published>
+    <updated>2017-09-20T15:10:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+      
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://www.yangqingwt.top/categories/%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BeautifulSoup</title>
+    <link href="http://www.yangqingwt.top/2017/09/17/BeautifulSoup/"/>
+    <id>http://www.yangqingwt.top/2017/09/17/BeautifulSoup/</id>
+    <published>2017-09-17T13:00:53.000Z</published>
+    <updated>2017-09-20T15:04:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install beautifulsoup4</code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul><li><p>导入    </p><p>  from bs4 import beautifulsoup</p></li><li><p>创建一个字符串    </p></li></ul><a id="more"></a><pre><code>html = &quot;&quot;&quot;&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&apos;s story&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;title&quot; name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt;&lt;p class=&quot;story&quot;&gt;    Once upon a time there were three little sisters; and their names were    &lt;a href=&quot;http://example.com/elsie&quot; class=&quot;sister&quot; id=&quot;link1&quot;&gt;&lt;!-- Elsie --&gt;&lt;/a&gt;,    &lt;a href=&quot;http://example.com/tillie&quot; class=&quot;sister&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;;    and they lived at the bottom of a well.&lt;/p&gt;&lt;p class=&quot;story&quot;&gt;...&lt;/p&gt;&quot;&quot;&quot;</code></pre><ul><li><p>创建beautifulsoup对象</p><pre><code>soup = BeautifulSoup(html)</code></pre><ul><li><p>也可以用本地HTML文件来创建对象</p><pre><code>soup = BeautifulSoup(open(&apos;index.html&apos;))</code></pre></li></ul></li><li><p>格式化输出,打印出soup对象的内容</p><pre><code>print soup.prettify()</code></pre><p>  <img src="/img/python/爬虫/soup.png" alt=""></p></li></ul><h2 id="四大对象种类"><a href="#四大对象种类" class="headerlink" title="四大对象种类"></a>四大对象种类</h2><h3 id="1-Tag"><a href="#1-Tag" class="headerlink" title="1. Tag"></a>1. Tag</h3><h4 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h4><ul><li>是HTML中的一个个标签：title、 a等等HTML标签加上里面包括的内容<br>  <img src="/img/python/爬虫/soup_tag.png" alt=""></li><li><p>验证下这些对象的类型</p><pre><code>&gt;&gt;&gt; print type(soup.a)&lt;class &apos;bs4.element.Tag&apos;&gt;</code></pre></li></ul><h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><h5 id="name"><a href="#name" class="headerlink" title="name"></a>name</h5><pre><code>&gt;&gt;&gt; print soup.name[document]&gt;&gt;&gt; print soup.head.namehead</code></pre><ul><li>suop对象本身比较特殊，它的 name 即为 [document]，对于其他内部标签，输出的值便为标签本身的名称。</li></ul><h5 id="attrs"><a href="#attrs" class="headerlink" title="attrs"></a>attrs</h5><ul><li><p>把 p 的所有属性打印出来</p><pre><code>&gt;&gt;&gt; print soup.p.attrs{&apos;class&apos;: [&apos;title&apos;], &apos;name&apos;: &apos;dromouse&apos;}</code></pre></li><li><p>单独获取某个属性</p><pre><code>&gt;&gt;&gt; print soup.p[&apos;class&apos;][&apos;title&apos;]</code></pre></li><li><p>还可以用get方法</p><pre><code>&gt;&gt;&gt; print soup.p.get(&apos;class&apos;)[&apos;title&apos;]</code></pre></li><li><p>可以对这些属性和内容等等进行修改</p><pre><code>&gt;&gt;&gt; soup.p[&apos;class&apos;]=&quot;newClass&quot;&gt;&gt;&gt; print soup.p&lt;p class=&quot;newClass&quot; name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt;    </code></pre></li><li><p>对这个属性进行删除</p><pre><code>&gt;&gt;&gt; del soup.p[&apos;class&apos;]&gt;&gt;&gt; print soup.p&lt;p name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt;</code></pre></li></ul><h3 id="2-NavigableString"><a href="#2-NavigableString" class="headerlink" title="2. NavigableString"></a>2. NavigableString</h3><h4 id="获取标签内部的文字"><a href="#获取标签内部的文字" class="headerlink" title="获取标签内部的文字"></a>获取标签内部的文字</h4><pre><code>&gt;&gt;&gt; print soup.p.stringThe Dormouse&apos;s story    </code></pre><h4 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h4><pre><code>print type(soup.p.string)&lt;class &apos;bs4.element.NavigableString&apos;&gt;</code></pre><h3 id="3-BeautifulSoup"><a href="#3-BeautifulSoup" class="headerlink" title="3 BeautifulSoup"></a>3 BeautifulSoup</h3><ul><li>BeautifulSoup 对象表示的是一个文档的全部内容</li><li><p>大部分时候,可以把它当作 Tag 对象，是一个特殊的 Tag</p><pre><code>&gt;&gt;&gt; print type(soup.name)&lt;type &apos;unicode&apos;&gt;&gt;&gt;&gt; print soup.name [document]&gt;&gt;&gt; print soup.attrs {}         // 空字典</code></pre></li></ul><h3 id="4-comment"><a href="#4-comment" class="headerlink" title="4 comment"></a>4 comment</h3><ul><li>是一个特殊类型的 NavigableString 对象</li><li><p>其实输出的内容仍不包括注释符号    </p><pre><code>&gt;&gt;&gt; print soup.a&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;&lt;!-- Elsie --&gt;&lt;/a&gt;&gt;&gt;&gt; print soup.a.stringElsie &gt;&gt;&gt; print type(soup.a.string)&lt;class &apos;bs4.element.Comment&apos;&gt;</code></pre></li><li><p>a 里的内容实际上是注释，利用 .string 来输出它的内容，已经把注释符号去掉了( 所以这可能会给我们带来不必要的麻烦 )</p></li><li><p>在使用前最好做一下判断</p><pre><code>&gt;&gt;&gt; if type(soup.a.string)==bs4.element.Comment:...     print soup.a.string</code></pre></li></ul><h2 id="遍历文档树"><a href="#遍历文档树" class="headerlink" title="遍历文档树"></a>遍历文档树</h2><p>待续先，累了==</p><p><br></p><p>摘自： <a href="http://python.jobbole.com/81349/" target="_blank" rel="external">http://python.jobbole.com/81349/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;安装和使用&quot;&gt;&lt;a href=&quot;#安装和使用&quot; class=&quot;headerlink&quot; title=&quot;安装和使用&quot;&gt;&lt;/a&gt;安装和使用&lt;/h2&gt;&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;pip install beautifulsoup4
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;导入    &lt;/p&gt;
+&lt;p&gt;  from bs4 import beautifulsoup&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;创建一个字符串    &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="http://www.yangqingwt.top/categories/%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>itertools</title>
+    <link href="http://www.yangqingwt.top/2017/09/17/itertools/"/>
+    <id>http://www.yangqingwt.top/2017/09/17/itertools/</id>
+    <published>2017-09-17T09:26:27.000Z</published>
+    <updated>2017-09-20T15:06:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="python的内建模块itertools：提供了一些用于操作迭代对象的函数"><a href="#python的内建模块itertools：提供了一些用于操作迭代对象的函数" class="headerlink" title="python的内建模块itertools：提供了一些用于操作迭代对象的函数"></a>python的内建模块itertools：提供了一些用于操作迭代对象的函数</h2><h3 id="“无限”迭代器"><a href="#“无限”迭代器" class="headerlink" title="“无限”迭代器"></a>“无限”迭代器</h3><pre><code>&gt;&gt;&gt; import itertools </code></pre><h4 id="count（）：会创建一个无限迭代器"><a href="#count（）：会创建一个无限迭代器" class="headerlink" title="count（）：会创建一个无限迭代器"></a>count（）：会创建一个无限迭代器</h4><pre><code>&gt;&gt;&gt; natuals = itertools.count(1)&gt;&gt;&gt; for n in natuals:...     print n123...</code></pre><h4 id="cycle-会把传入的序列无限重复下去"><a href="#cycle-会把传入的序列无限重复下去" class="headerlink" title="cycle(): 会把传入的序列无限重复下去"></a>cycle(): 会把传入的序列无限重复下去</h4><a id="more"></a><pre><code>&gt;&gt;&gt; cs = itertools.cycle(&quot;abc&quot;)&gt;&gt;&gt; for c in cs:...        print c...&apos;a&apos;&apos;b&apos;&apos;c&apos;&apos;a&apos;...</code></pre><h4 id="repeat-把一个元素无限重复，第二个参数可以限定重复额次数"><a href="#repeat-把一个元素无限重复，第二个参数可以限定重复额次数" class="headerlink" title="repeat() 把一个元素无限重复，第二个参数可以限定重复额次数"></a>repeat() 把一个元素无限重复，第二个参数可以限定重复额次数</h4><pre><code>&gt;&gt;&gt; ns = itertools.repeat(&apos;a&apos;, 10)&gt;&gt;&gt; for n in ns:...        print n...打印10次&apos;a&apos;</code></pre><h3 id="迭代器操作函数"><a href="#迭代器操作函数" class="headerlink" title="迭代器操作函数"></a>迭代器操作函数</h3><h4 id="chain（）：把一组迭代对象串联起来，形成大的迭代器"><a href="#chain（）：把一组迭代对象串联起来，形成大的迭代器" class="headerlink" title="chain（）：把一组迭代对象串联起来，形成大的迭代器"></a>chain（）：把一组迭代对象串联起来，形成大的迭代器</h4><pre><code>&gt;&gt;&gt; for c in itertools.chain(&apos;abc&apos;, &apos;def&apos;):...        print c...&apos;a&apos;&apos;b&apos;&apos;c&apos;&apos;d&apos;&apos;e&apos;&apos;f&apos;</code></pre><h4 id="groupby-把迭代器中相邻的重复元素挑出来放在一起"><a href="#groupby-把迭代器中相邻的重复元素挑出来放在一起" class="headerlink" title="groupby(): 把迭代器中相邻的重复元素挑出来放在一起"></a>groupby(): 把迭代器中相邻的重复元素挑出来放在一起</h4><pre><code>&gt;&gt;&gt; for key, group in itertools.groupby(&apos;aabbcccaa&apos;):...     print key, list(group)...a [&apos;a&apos;, &apos;a&apos;]b [&apos;b&apos;, &apos;b&apos;]c [&apos;c&apos;, &apos;c&apos;, &apos;c&apos;]a [&apos;a&apos;, &apos;a&apos;]</code></pre><ul><li><p>可以添加调选规则</p><pre><code>让‘A’和‘a’都返回相同的key：&gt;&gt;&gt; for key, group in itertools.groupby(&apos;AaaBBbcCaAa&apos;, lambda c: c.upper()):...     print key, list(group)...A [&apos;A&apos;, &apos;a&apos;, &apos;a&apos;]B [&apos;B&apos;, &apos;B&apos;, &apos;b&apos;]C [&apos;c&apos;, &apos;C&apos;]A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]</code></pre><h4 id="imap-可以作用与无穷序列，如果两个序列长度不一致，以短的为准"><a href="#imap-可以作用与无穷序列，如果两个序列长度不一致，以短的为准" class="headerlink" title="imap(): 可以作用与无穷序列，如果两个序列长度不一致，以短的为准"></a>imap(): 可以作用与无穷序列，如果两个序列长度不一致，以短的为准</h4><pre><code>&gt;&gt;&gt; for x in itertools.imap(lambda x, y: x * y, [10, 20, 30], itertools.count(1)):...     print x...104090    </code></pre></li><li>imap()返回一个迭代对象，必须用for循环进行迭代，才会在循环中计算出下一个元素</li><li><p>map() 返回list，调用它试，已经计算完毕</p><pre><code>&gt;&gt;&gt; r = map(lambda x: x*x, [1, 2, 3])&gt;&gt;&gt; r         # r已经计算出来了[1, 4, 9]</code></pre></li><li>imap()实现了“惰性计算”，只在需要获得结果时才计算<h4 id="ifilter-fileter的惰性实现"><a href="#ifilter-fileter的惰性实现" class="headerlink" title="ifilter: fileter的惰性实现"></a>ifilter: fileter的惰性实现</h4></li></ul><h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul><li>itertools提供的全是处理迭代功能的函数，返回值是迭代对象，只有用for循环迭代试才真正计算        </li></ul><p><br><br><br><br>参考资源：<a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001415616001996f6b32d80b6454caca3d33c965a07611f000" target="_blank" rel="external">https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001415616001996f6b32d80b6454caca3d33c965a07611f000</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;python的内建模块itertools：提供了一些用于操作迭代对象的函数&quot;&gt;&lt;a href=&quot;#python的内建模块itertools：提供了一些用于操作迭代对象的函数&quot; class=&quot;headerlink&quot; title=&quot;python的内建模块itertools：提供了一些用于操作迭代对象的函数&quot;&gt;&lt;/a&gt;python的内建模块itertools：提供了一些用于操作迭代对象的函数&lt;/h2&gt;&lt;h3 id=&quot;“无限”迭代器&quot;&gt;&lt;a href=&quot;#“无限”迭代器&quot; class=&quot;headerlink&quot; title=&quot;“无限”迭代器&quot;&gt;&lt;/a&gt;“无限”迭代器&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import itertools 
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;count（）：会创建一个无限迭代器&quot;&gt;&lt;a href=&quot;#count（）：会创建一个无限迭代器&quot; class=&quot;headerlink&quot; title=&quot;count（）：会创建一个无限迭代器&quot;&gt;&lt;/a&gt;count（）：会创建一个无限迭代器&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; natuals = itertools.count(1)
+&amp;gt;&amp;gt;&amp;gt; for n in natuals:
+...     print n
+1
+2
+3
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;cycle-会把传入的序列无限重复下去&quot;&gt;&lt;a href=&quot;#cycle-会把传入的序列无限重复下去&quot; class=&quot;headerlink&quot; title=&quot;cycle(): 会把传入的序列无限重复下去&quot;&gt;&lt;/a&gt;cycle(): 会把传入的序列无限重复下去&lt;/h4&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://www.yangqingwt.top/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx</title>
+    <link href="http://www.yangqingwt.top/2017/09/16/nginx/"/>
+    <id>http://www.yangqingwt.top/2017/09/16/nginx/</id>
+    <published>2017-09-16T08:09:58.000Z</published>
+    <updated>2017-09-20T15:09:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是nginx"><a href="#什么是nginx" class="headerlink" title="什么是nginx"></a>什么是nginx</h2><p>nginx是服务器软件</p><p>功能：</p><ul><li>可以与服务器硬件结构，将程序放在nginx服务器上，将程序发布出去</li><li>作用：<ul><li>高性能的HTTP：发布网站</li><li>反向代理服务器：实现负载均衡</li><li>代理邮件服务器：收发邮件</li></ul></li><li>优点：<ul><li>高并发、部署简单、内存消耗少、成本低</li></ul></li><li>缺点：<ul><li>rewrite功能不够强大</li><li>模块没有Apache多</li></ul></li></ul><a id="more"></a><ul><li>补充知识：<ul><li>负载均衡：当同时又很多用户访问服务器时，为减少服务器压力，需要将用户分别引入各服务器，分担服务器的压力。</li></ul></li></ul><h3 id="不同服务器的优缺点："><a href="#不同服务器的优缺点：" class="headerlink" title="不同服务器的优缺点："></a>不同服务器的优缺点：</h3><ul><li>IIS：IIS服务器只能在Windows上运行，Windows服务器性能不如Linux一类服务器</li><li>Tomcat：面向Java，是一种重量级服务器</li><li>Nginx：轻量级，但能支持处理百万级的TCP连接，10万以上的并发连接，并且是一个很好的跨平台服务器</li><li>Apache：稳定、开源、跨平台，但不支持高并发</li></ul><h3 id="在Linux安装nginx服务器"><a href="#在Linux安装nginx服务器" class="headerlink" title="在Linux安装nginx服务器"></a>在Linux安装nginx服务器</h3><ul><li>进入终端</li><li>安装nginx</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;什么是nginx&quot;&gt;&lt;a href=&quot;#什么是nginx&quot; class=&quot;headerlink&quot; title=&quot;什么是nginx&quot;&gt;&lt;/a&gt;什么是nginx&lt;/h2&gt;&lt;p&gt;nginx是服务器软件&lt;/p&gt;
+&lt;p&gt;功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以与服务器硬件结构，将程序放在nginx服务器上，将程序发布出去&lt;/li&gt;
+&lt;li&gt;作用：&lt;ul&gt;
+&lt;li&gt;高性能的HTTP：发布网站&lt;/li&gt;
+&lt;li&gt;反向代理服务器：实现负载均衡&lt;/li&gt;
+&lt;li&gt;代理邮件服务器：收发邮件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;优点：&lt;ul&gt;
+&lt;li&gt;高并发、部署简单、内存消耗少、成本低&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;缺点：&lt;ul&gt;
+&lt;li&gt;rewrite功能不够强大&lt;/li&gt;
+&lt;li&gt;模块没有Apache多&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="操作系统" scheme="http://www.yangqingwt.top/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="nginx" scheme="http://www.yangqingwt.top/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python之编码</title>
+    <link href="http://www.yangqingwt.top/2017/09/13/python%E4%B9%8B%E7%BC%96%E7%A0%81/"/>
+    <id>http://www.yangqingwt.top/2017/09/13/python之编码/</id>
+    <published>2017-09-13T08:26:57.000Z</published>
+    <updated>2017-09-20T15:09:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="decode-和-encode"><a href="#decode-和-encode" class="headerlink" title="decode 和 encode"></a>decode 和 encode</h2><p> 字符串在Python内部的表示是unicode编码，因此，在做编码转换时，通常需要以unicode作为中间编码，即：先将其他编码的字符串解码（decode）成unicode，再从unicode编码（encode）成另一种编码。</p><ul><li><p>decode: 将其他编码的字符解码成Unicode编码</p><blockquote><p>strs.decode(‘gb2312’) 将gb2312编码的字符串strs转换成Unicode</p></blockquote></li><li><p>encode：将Unicode编码转换成其他编码的字符串</p><blockquote><p>strs.encode(‘gb2312’) 将Unicode编码的字符串strs转换成gb2312编码</p><ul><li>非Unicode编码的strs字符串encode会报错</li></ul></blockquote></li></ul><a id="more"></a><h2 id="判断是否为unicode"><a href="#判断是否为unicode" class="headerlink" title="判断是否为unicode"></a>判断是否为unicode</h2><blockquote><p>isinstance(strs, unicode)</p></blockquote><p>原文链接：<a href="http://cache.baiducontent.com/c?m=9d78d513d99516fe05bbc3690d67952d5f0edd3f2890904b708ed50ed1735a325a7bb3e57a770704a4943d315db8492bb6a7706f700123b799cf884ad9b18f7b6fce7c652e4b9b1745954af4950738c4239358eaaa19e4&amp;p=c663d115d9c342ac17add72d021481&amp;newp=81769a4795934eaf5beec62159578f231610db2151ddd301298ffe0cc4241a1a1a3aecbf2126130fd5ce7e6c07a54b5ae0f63c76310034f1f689df08d2ecce7e6c&amp;user=baidu&amp;fm=sc&amp;query=decode+python&amp;qid=ed9a1561000147fe&amp;p1=5" target="_blank" rel="external">http://cache.baiducontent.com/c?m=9d78d513d99516fe05bbc3690d67952d5f0edd3f2890904b708ed50ed1735a325a7bb3e57a770704a4943d315db8492bb6a7706f700123b799cf884ad9b18f7b6fce7c652e4b9b1745954af4950738c4239358eaaa19e4&amp;p=c663d115d9c342ac17add72d021481&amp;newp=81769a4795934eaf5beec62159578f231610db2151ddd301298ffe0cc4241a1a1a3aecbf2126130fd5ce7e6c07a54b5ae0f63c76310034f1f689df08d2ecce7e6c&amp;user=baidu&amp;fm=sc&amp;query=decode+python&amp;qid=ed9a1561000147fe&amp;p1=5</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;decode-和-encode&quot;&gt;&lt;a href=&quot;#decode-和-encode&quot; class=&quot;headerlink&quot; title=&quot;decode 和 encode&quot;&gt;&lt;/a&gt;decode 和 encode&lt;/h2&gt;&lt;p&gt; 字符串在Python内部的表示是unicode编码，因此，在做编码转换时，通常需要以unicode作为中间编码，即：先将其他编码的字符串解码（decode）成unicode，再从unicode编码（encode）成另一种编码。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;decode: 将其他编码的字符解码成Unicode编码&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;strs.decode(‘gb2312’) 将gb2312编码的字符串strs转换成Unicode&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;encode：将Unicode编码转换成其他编码的字符串&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;strs.encode(‘gb2312’) 将Unicode编码的字符串strs转换成gb2312编码&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;非Unicode编码的strs字符串encode会报错&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://www.yangqingwt.top/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python之pdb</title>
+    <link href="http://www.yangqingwt.top/2017/09/13/python%E4%B9%8Bpdb/"/>
+    <id>http://www.yangqingwt.top/2017/09/13/python之pdb/</id>
+    <published>2017-09-13T08:01:54.000Z</published>
+    <updated>2017-09-20T15:10:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="引入pdb模块"><a href="#引入pdb模块" class="headerlink" title="引入pdb模块"></a>引入pdb模块</h2><blockquote><p>import pdb</p><p>pdb.set_trace()</p></blockquote><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul><li>b / break: 设置断点</li><li>c / continue: 继续执行程序</li><li>l / list: 查看当前的代码段</li><li>s / step: 进入函数</li><li>r / return: 执行代码直到从当前函数返回</li><li>n / next: 执行下一行</li><li>q / exit: 中止并退出</li><li>p / pp: 打印变量的值</li><li>h / help: 帮助</li></ul><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;引入pdb模块&quot;&gt;&lt;a href=&quot;#引入pdb模块&quot; class=&quot;headerlink&quot; title=&quot;引入pdb模块&quot;&gt;&lt;/a&gt;引入pdb模块&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;import pdb&lt;/p&gt;
+&lt;p&gt;pdb.set_trace()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;b / break: 设置断点&lt;/li&gt;
+&lt;li&gt;c / continue: 继续执行程序&lt;/li&gt;
+&lt;li&gt;l / list: 查看当前的代码段&lt;/li&gt;
+&lt;li&gt;s / step: 进入函数&lt;/li&gt;
+&lt;li&gt;r / return: 执行代码直到从当前函数返回&lt;/li&gt;
+&lt;li&gt;n / next: 执行下一行&lt;/li&gt;
+&lt;li&gt;q / exit: 中止并退出&lt;/li&gt;
+&lt;li&gt;p / pp: 打印变量的值&lt;/li&gt;
+&lt;li&gt;h / help: 帮助&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://www.yangqingwt.top/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>电脑配置</title>
+    <link href="http://www.yangqingwt.top/2017/09/06/%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE/"/>
+    <id>http://www.yangqingwt.top/2017/09/06/电脑配置/</id>
+    <published>2017-09-06T13:48:27.000Z</published>
+    <updated>2017-09-20T15:04:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>看图吧先<br><img src="/img/电脑配置/center.png" alt=""></p><ol><li>CPU（处理器）<ul><li>inter：酷睿i3、酷睿i5、酷睿i7<ul><li>i5 5200U：中端处理器，第五代，编号200<img src="/img/电脑配置/computer.png" alt=""></li></ul></li><li>ADM</li><li>概述：<ul><li>i3：普通办公</li><li>i5：玩网游</li><li>i7：性能好，价格高。同时高耗能造成高发热</li></ul></li></ul></li><li>内存：可以自己更换（少数，如Mac、Surface等超薄的，内存条焊在主板上，无法自己更换）</li></ol><a id="more"></a><ol><li><p>显卡：（N卡：英伟达公司的，GT开头；A卡：AMD公司的)</p><ul><li>分为两种<ul><li>双显卡：独立显卡+核心显卡</li><li>核心显卡电脑</li></ul></li><li>根据型号判断显卡性能</li><li>独立显卡：<ul><li>通常显卡型号为GT abcM（abc为数字）<ul><li>a代表是第几代产品</li><li>bc为它的型号，b代表显卡的定位，5定位为中端，大于5高端，小于5为入门级别</li><li>末尾M代表它四笔记本电脑显卡</li><li>有的在GT后添加x，代表更好的性能</li><li>例：GT820M，第八代入门级别的笔记本显卡</li></ul></li></ul></li><li>核心显卡：<ul><li>理解为集成显卡，它把图形处理核心整合在了CPU当中</li><li>双显卡，在游戏等需要较大图形运算量时，才会自动切换为<strong>独立显卡</strong>，所以双显卡性能取决于其中高性能显卡所能达到的性能（一般是独立显卡）</li><li>HD4400, HD4600 &lt; HD5500, HD5600 &lt; HD6000 &lt; HD520, HD530 &lt; HD5100,HD540,HD550 &lt; HD6100 &lt; HD5200 &lt; HD6200</li><li>目前最好的HD6200的显卡大概是中端独立显卡性能水平。</li></ul></li></ul></li><li><p>硬盘：电脑的存储设备</p></li><li>主板：结合CPU、显卡、硬盘等综合考虑</li><li>台式机：还需注意：风扇、散热器、显示器</li></ol><p>摘自：<a href="https://www.zhihu.com/question/40463573/answer/87720343" target="_blank" rel="external">https://www.zhihu.com/question/40463573/answer/87720343</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;基础配置&quot;&gt;&lt;a href=&quot;#基础配置&quot; class=&quot;headerlink&quot; title=&quot;基础配置&quot;&gt;&lt;/a&gt;基础配置&lt;/h2&gt;&lt;p&gt;看图吧先&lt;br&gt;&lt;img src=&quot;/img/电脑配置/center.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;CPU（处理器）&lt;ul&gt;
+&lt;li&gt;inter：酷睿i3、酷睿i5、酷睿i7&lt;ul&gt;
+&lt;li&gt;i5 5200U：中端处理器，第五代，编号200&lt;img src=&quot;/img/电脑配置/computer.png&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ADM&lt;/li&gt;
+&lt;li&gt;概述：&lt;ul&gt;
+&lt;li&gt;i3：普通办公&lt;/li&gt;
+&lt;li&gt;i5：玩网游&lt;/li&gt;
+&lt;li&gt;i7：性能好，价格高。同时高耗能造成高发热&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;内存：可以自己更换（少数，如Mac、Surface等超薄的，内存条焊在主板上，无法自己更换）&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://www.yangqingwt.top/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="电脑配置" scheme="http://www.yangqingwt.top/tags/%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SmallSentiment</title>
+    <link href="http://www.yangqingwt.top/2017/09/05/SmallSentiment/"/>
+    <id>http://www.yangqingwt.top/2017/09/05/SmallSentiment/</id>
+    <published>2017-09-05T09:26:47.000Z</published>
+    <updated>2017-09-20T15:14:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python之pandas</title>
+    <link href="http://www.yangqingwt.top/2017/08/31/python%E4%B9%8Bpandas/"/>
+    <id>http://www.yangqingwt.top/2017/08/31/python之pandas/</id>
+    <published>2017-08-31T15:50:12.000Z</published>
+    <updated>2017-09-20T15:14:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基础整理"><a href="#基础整理" class="headerlink" title="基础整理"></a>基础整理</h1><ul><li>数据量达到亿的时候，可以用pandas处理</li><li><p>导入pandas库</p><blockquote><p>import pandas as pd<br>import numpy as np</p></blockquote></li><li><p>导入数据</p><ol><li>pd.read_csv(filename)：从CSV文件导入数据</li><li>pd.read_table(filename)：从限定分隔符的文本文件导入数据</li><li>pd.read_excel(filename)：从Excel文件导入数据</li><li>pd.read_sql(query, connection_object)：从SQL表/库导入数据</li><li>pd.read_json(json_string)：从JSON格式的字符串导入数据</li></ol></li></ul><a id="more"></a><pre><code>6. pd.read_html(url)：解析URL、字符串或者HTML文件，抽取其中的tables表格7. pd.read_clipboard()：从你的粘贴板获取内容，并传给read_table()8. pd.DataFrame(dict)：从字典对象导入数据，Key是列名，Value是数据</code></pre><ul><li><p>导出数据</p><ol><li>df.to_csv(filename)：导出数据到CSV文件</li><li>df.to_excel(filename)：导出数据到Excel文件</li><li>df.to_sql(table_name, connection_object)：导出数据到SQL表</li><li>df.to_json(filename)：以Json格式导出数据到文本文件</li></ol></li><li><p>创建测试对象</p><ol><li>pd.DataFrame(np.random.rand(20,5))：创建20行5列的随机数组成的DataFrame对象</li><li>pd.Series(my_list)：从可迭代对象my_list创建一个Series对象</li><li>df.index = pd.date_range(‘1900/1/30’, periods=df.shape[0])：增加一个日期索引</li></ol></li><li><p>查看、检查数据</p><ol><li>df.head(n)：查看DataFrame对象的前n行</li><li>df.tail(n)：查看DataFrame对象的最后n行</li><li>df.shape()：查看行数和列数</li><li>df.info() ：查看索引、数据类型和内存信息</li><li>df.describe()：查看数值型列的汇总统计</li><li>s.value_counts(dropna=False)：查看Series对象的唯一值和计数</li><li>df.apply(pd.Series.value_counts)：查看DataFrame对象中每一列的唯一值和计数</li></ol></li><li><p>数据选取</p><ol><li>df[col]：根据列名，并以Series的形式返回列</li><li>df[[col1, col2]]：以DataFrame形式返回多列</li><li>s.iloc[0]：按位置选取数据</li><li>s.loc[‘index_one’]：按索引选取数据</li><li>df.iloc[0,:]：返回第一行</li><li>df.iloc[0,0]：返回第一列的第一个元素</li></ol></li><li><p>数据清理</p><ol><li>df.columns = [‘a’,’b’,’c’]：重命名列名</li><li>pd.isnull()：检查DataFrame对象中的空值，并返回一个Boolean数组</li><li>pd.notnull()：检查DataFrame对象中的非空值，并返回一个Boolean数组</li><li>df.dropna()：删除所有包含空值的行</li><li>df.dropna(axis=1)：删除所有包含空值的列</li><li>df.dropna(axis=1,thresh=n)：删除所有小于n个非空值的行</li><li>df.fillna(x)：用x替换DataFrame对象中所有的空值</li><li>s.astype(float)：将Series中的数据类型更改为float类型</li><li>s.replace(1,’one’)：用‘one’代替所有等于1的值</li><li>s.replace([1,3],[‘one’,’three’])：用’one’代替1，用’three’代替</li><li>df.rename(columns=lambda x: x + 1)：批量更改列名</li><li>df.rename(columns={‘old<em>name’: ‘new</em> name’})：选择性更改列名</li><li>df.set_index(‘column_one’)：更改索引列</li><li>df.rename(index=lambda x: x + 1)：批量重命名索引</li></ol></li><li><p>数据处理：Filter、Sort和GroupBy</p><ol><li>df[df[col] &gt; 0.5]：选择col列的值大于0.5的行</li><li>df.sort_values(col1)：按照列col1排序数据，默认升序排列</li><li>df.sort_values(col2, ascending=False)：按照列col1降序排列数据</li><li>df.sort_values([col1,col2], ascending=[True,False])：先按列col1升序排列，后按col2降序排列数据</li><li>df.groupby(col)：返回一个按列col进行分组的Groupby对象</li><li>df.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象</li><li>df.groupby(col1)[col2]：返回按列col1进行分组后，列col2的均值</li><li>df.pivot_table(index=col1, values=[col2,col3], aggfunc=max)：创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表</li><li>df.groupby(col1).agg(np.mean)：返回按列col1分组的所有列的均值</li><li>data.apply(np.mean)：对DataFrame中的每一列应用函数np.mean</li><li>data.apply(np.max,axis=1)：对DataFrame中的每一行应用函数np.max</li></ol></li><li><p>数据合并</p><ol><li>df1.append(df2)：将df2中的行添加到df1的尾部</li><li>df.concat([df1, df2],axis=1)：将df2中的列添加到df1的尾部</li><li>df1.join(df2,on=col1,how=’inner’)：对df1的列和df2的列执行SQL形式的join</li></ol></li><li><p>数据统计</p><ol><li>df.describe()：查看数据值列的汇总统计</li><li>df.mean()：返回所有列的均值</li><li>df.corr()：返回列与列之间的相关系数</li><li>df.count()：返回每一列中的非空值的个数</li><li>df.max()：返回每一列的最大值</li><li>df.min()：返回每一列的最小值</li><li>df.median()：返回每一列的中位数</li><li>df.std()：返回每一列的标准差</li></ol></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;基础整理&quot;&gt;&lt;a href=&quot;#基础整理&quot; class=&quot;headerlink&quot; title=&quot;基础整理&quot;&gt;&lt;/a&gt;基础整理&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;数据量达到亿的时候，可以用pandas处理&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;导入pandas库&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;import pandas as pd&lt;br&gt;import numpy as np&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;导入数据&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;pd.read_csv(filename)：从CSV文件导入数据&lt;/li&gt;
+&lt;li&gt;pd.read_table(filename)：从限定分隔符的文本文件导入数据&lt;/li&gt;
+&lt;li&gt;pd.read_excel(filename)：从Excel文件导入数据&lt;/li&gt;
+&lt;li&gt;pd.read_sql(query, connection_object)：从SQL表/库导入数据&lt;/li&gt;
+&lt;li&gt;pd.read_json(json_string)：从JSON格式的字符串导入数据&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="编程语言" scheme="http://www.yangqingwt.top/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sublime</title>
+    <link href="http://www.yangqingwt.top/2017/08/31/sublime/"/>
+    <id>http://www.yangqingwt.top/2017/08/31/sublime/</id>
+    <published>2017-08-31T03:03:29.000Z</published>
+    <updated>2017-09-20T15:11:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul><li>command + D 选中光标所在词，多次操作</li><li>command + L 选中整行</li><li>command + shift + L 先选中多行，再按快捷键，会在每行行尾有光标，同时编辑</li><li>ctrl + M 光标移动至括号首尾</li><li>command + 回车 在下行插入新行</li><li>command + shift + 回车 在上行插入新行</li><li>command + &lt;- 向左单位性的移动光标</li><li>command + -&gt; 向右快速移动光标</li><li>shift + 方向键 选中文本</li><li>command + shift + 方向键 单位性的选中文本</li></ul><a id="more"></a><ul><li>command + shift + d 复制当前行，插入到下一行</li><li>command + K + K 光标处删除至行尾（ctrl+k）</li><li>ctrl + shift + K 删除整行</li><li>command + K + U 词转换为大写</li><li>command + K + L 转换为小写</li><li>ctrl + T 左右字母互换</li><li>command + alt + F 搜索+替换</li><li>ctrl + tab 切换标签页</li><li>command + K + B 开启/关闭侧边栏</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;快捷键&quot;&gt;&lt;a href=&quot;#快捷键&quot; class=&quot;headerlink&quot; title=&quot;快捷键&quot;&gt;&lt;/a&gt;快捷键&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;command + D 选中光标所在词，多次操作&lt;/li&gt;
+&lt;li&gt;command + L 选中整行&lt;/li&gt;
+&lt;li&gt;command + shift + L 先选中多行，再按快捷键，会在每行行尾有光标，同时编辑&lt;/li&gt;
+&lt;li&gt;ctrl + M 光标移动至括号首尾&lt;/li&gt;
+&lt;li&gt;command + 回车 在下行插入新行&lt;/li&gt;
+&lt;li&gt;command + shift + 回车 在上行插入新行&lt;/li&gt;
+&lt;li&gt;command + &amp;lt;- 向左单位性的移动光标&lt;/li&gt;
+&lt;li&gt;command + -&amp;gt; 向右快速移动光标&lt;/li&gt;
+&lt;li&gt;shift + 方向键 选中文本&lt;/li&gt;
+&lt;li&gt;command + shift + 方向键 单位性的选中文本&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="IDE" scheme="http://www.yangqingwt.top/categories/IDE/"/>
+    
+    
+      <category term="sublime" scheme="http://www.yangqingwt.top/tags/sublime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js</title>
+    <link href="http://www.yangqingwt.top/2017/08/31/js/"/>
+    <id>http://www.yangqingwt.top/2017/08/31/js/</id>
+    <published>2017-08-31T02:39:00.000Z</published>
+    <updated>2017-09-20T15:06:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><ul><li>注释 行注释//  段注释/<em> </em>/</li><li>== 会自动转换类型，一致后再比较</li><li>=== 不会自动转换类型，类型不一致返回false</li><li>NaN 与所有值都不相等，包括自己<blockquote><p>NaN === NaN; //false<br>用isNaN()函数判断<br>isNaN（NaN）; //true</p></blockquote></li><li>null：表示空的值（与python的None类似 ）</li><li>undefined: 表示未定义，在判断函数参数是否传递的情况下有用</li><li>变量名：大小写英文、数字、$和_的组合</li></ul><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;基础语法&quot;&gt;&lt;a href=&quot;#基础语法&quot; class=&quot;headerlink&quot; title=&quot;基础语法&quot;&gt;&lt;/a&gt;基础语法&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;注释 行注释//  段注释/&lt;em&gt; &lt;/em&gt;/&lt;/li&gt;
+&lt;li&gt;== 会自动转换类型，一致后再比较&lt;/li&gt;
+&lt;li&gt;=== 不会自动转换类型，类型不一致返回false&lt;/li&gt;
+&lt;li&gt;NaN 与所有值都不相等，包括自己&lt;blockquote&gt;
+&lt;p&gt;NaN === NaN; //false&lt;br&gt;用isNaN()函数判断&lt;br&gt;isNaN（NaN）; //true&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;null：表示空的值（与python的None类似 ）&lt;/li&gt;
+&lt;li&gt;undefined: 表示未定义，在判断函数参数是否传递的情况下有用&lt;/li&gt;
+&lt;li&gt;变量名：大小写英文、数字、$和_的组合&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yangqingwt.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="js" scheme="http://www.yangqingwt.top/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git整理</title>
+    <link href="http://www.yangqingwt.top/2017/08/30/git%E6%95%B4%E7%90%86/"/>
+    <id>http://www.yangqingwt.top/2017/08/30/git整理/</id>
+    <published>2017-08-30T14:19:56.000Z</published>
+    <updated>2017-09-20T15:05:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><ul><li>git checkout xxx.py 签出分支、特定文件等<ul><li>git checkout origin/yangq4</li></ul></li><li>git push origin test:master 提交本地分支test作为远程master分支</li><li>git branch 创建本地分支</li><li>git log –pretty=oneline 只显示提交版本号和内容<img src="/img/git/git_log.png" alt="图"></li><li>回退：<ol><li>git reset –hard HEAD ^ 回退到上个版本</li><li>git reset –hard 版本号</li></ol></li></ul><a id="more"></a><ul><li>git reflog 查看版本号<img src="/img/git/git_reflog.png" alt=""></li><li>git checkout –file 把文件在工作区做的修改撤销（未提交前，未放在暂存区的）</li><li>git branch -d name 删除分支<ul><li>有merge时，用-D</li></ul></li><li>git branch -m fix yangq4 分支重命名</li><li>git stash 当前工作现场隐藏</li><li>git stash list 工作现场查看</li><li>git stash apply 恢复（stash内容并不删除）</li><li>git stash drop 删除文件</li><li>git stash pop 恢复发同时文件也删除</li></ul><h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul><li>commit类别<ul><li>feat：新功能（feature）</li><li>fix：修补bug</li><li>docs：文档（documentation）</li><li>style： 格式（不影响代码运行的变动）</li><li>refactor：重构（即不是新增功能，也不是修改bug的代码变动）</li><li>test：增加测试</li><li>chore：构建过程或辅助工具的变动</li></ul></li><li>撤销上次推送    <ul><li>git reset –hard &lt;版本号&gt;</li><li>git push origin &lt;分支名&gt; –force</li></ul></li></ul><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul><li>error: you need to resolve your current index first<ul><li>git reset –merge</li></ul></li></ul><h2 id="套路"><a href="#套路" class="headerlink" title="套路"></a>套路</h2><ul><li>git pull</li><li>git checkout origin/xuhf</li><li>git checkout -b yangq4</li><li>(git merge origin/branch)</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;基本操作&quot;&gt;&lt;a href=&quot;#基本操作&quot; class=&quot;headerlink&quot; title=&quot;基本操作&quot;&gt;&lt;/a&gt;基本操作&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;git checkout xxx.py 签出分支、特定文件等&lt;ul&gt;
+&lt;li&gt;git checkout origin/yangq4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;git push origin test:master 提交本地分支test作为远程master分支&lt;/li&gt;
+&lt;li&gt;git branch 创建本地分支&lt;/li&gt;
+&lt;li&gt;git log –pretty=oneline 只显示提交版本号和内容&lt;img src=&quot;/img/git/git_log.png&quot; alt=&quot;图&quot;&gt;&lt;/li&gt;
+&lt;li&gt;回退：&lt;ol&gt;
+&lt;li&gt;git reset –hard HEAD ^ 回退到上个版本&lt;/li&gt;
+&lt;li&gt;git reset –hard 版本号&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="tools" scheme="http://www.yangqingwt.top/categories/tools/"/>
+    
+    
+      <category term="git" scheme="http://www.yangqingwt.top/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo 基础操作</title>
+    <link href="http://www.yangqingwt.top/2017/08/30/hexo-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/"/>
+    <id>http://www.yangqingwt.top/2017/08/30/hexo-基础操作/</id>
+    <published>2017-08-30T14:19:56.000Z</published>
+    <updated>2017-09-20T15:06:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="第一次部署"><a href="#第一次部署" class="headerlink" title="第一次部署"></a>第一次部署</h2><h3 id="前提：安装node"><a href="#前提：安装node" class="headerlink" title="前提：安装node"></a>前提：安装node</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g  <span class="comment">#安装hexo</span></div><div class="line">$ hexo init blog</div><div class="line">$ <span class="built_in">cd</span> blog</div><div class="line">$ npm install</div><div class="line">$ hexo server</div></pre></td></tr></table></figure><a id="more"></a><h3 id="启动本地服务localhost-4000"><a href="#启动本地服务localhost-4000" class="headerlink" title="启动本地服务localhost:4000"></a>启动本地服务localhost:4000</h3><h2 id="关于配置"><a href="#关于配置" class="headerlink" title="关于配置"></a>关于配置</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;第一次部署&quot;&gt;&lt;a href=&quot;#第一次部署&quot; class=&quot;headerlink&quot; title=&quot;第一次部署&quot;&gt;&lt;/a&gt;第一次部署&lt;/h2&gt;&lt;h3 id=&quot;前提：安装node&quot;&gt;&lt;a href=&quot;#前提：安装node&quot; class=&quot;headerlink&quot; title=&quot;前提：安装node&quot;&gt;&lt;/a&gt;前提：安装node&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ npm install hexo-cli -g  &lt;span class=&quot;comment&quot;&gt;#安装hexo&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ hexo init blog&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; blog&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ npm install&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ hexo server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="blog" scheme="http://www.yangqingwt.top/categories/blog/"/>
+    
+    
+      <category term="hexo" scheme="http://www.yangqingwt.top/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux</title>
+    <link href="http://www.yangqingwt.top/2017/08/24/linux/"/>
+    <id>http://www.yangqingwt.top/2017/08/24/linux/</id>
+    <published>2017-08-24T15:50:33.000Z</published>
+    <updated>2017-09-20T15:07:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h2><ul><li>uname: 显示内核类别 -a 显示详细</li><li>touch：创建不存在的文件（文件存在会更新时间戳）</li><li><p>chmod: R: 4   w: 2   X: 1</p><blockquote><p>改权限：chmod 777 file 都有读写、执行权限<br>root 所属用户组 其他用户</p></blockquote></li><li>chown</li></ul><a id="more"></a><h2 id="分主题整理"><a href="#分主题整理" class="headerlink" title="分主题整理"></a>分主题整理</h2><h3 id="pdsh"><a href="#pdsh" class="headerlink" title="pdsh:"></a>pdsh:</h3><ul><li>pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。</li><li>pdsh支持交互模式，当要执行的命令不确定时，可直接进入pdsh命令行</li><li>pdsh可以通过多种方式在远程主机上运行命令，默认是rsh方式，另外也支持ssh、mrsh、qsh、mqsh、krb4、xcpu等多种rcmd模块</li><li>-w host,host    指定远程主机，可以指定多个，每个主机用逗号隔开，host可以是主机名也可以是IP地址</li><li>-R    指定使用rcmd的模块名，默认是rsh</li><li>-l    指定在远程主机上使用的用户名称</li></ul><h3 id="pdsp"><a href="#pdsp" class="headerlink" title="pdsp:"></a>pdsp:</h3><ul><li>如果配置整个集群，要求所有的机器安装相同的软件，逐一拷贝效率较低，通常的做法是将所有要安装的软件拷贝到一台主机上，通过pdcp命令同步拷贝到其他机器上。</li><li>pdcp命令格式：pdcp [-参数] “源文件1” [源文件2…]  目标</li><li>参数-w：指定要拷贝文件的远程主机，多个主机用逗号隔开，可以是主机名也可以是IP地址</li></ul><h3 id="su-和-sudo-su"><a href="#su-和-sudo-su" class="headerlink" title="su 和 sudo su"></a>su 和 sudo su</h3><ul><li>su：不指明用户名时，默认为root。su yangq4</li><li>su -:切换用户后同时切换到新用户的工作环境</li><li>以上，切换用户需知晓对应用户的登录密码</li><li>sudo su<ul><li>sudo su <user>中的su将以root身份被执行，并要求输入root的password</user></li></ul></li></ul><h3 id="ps-aux-和-ps-ef"><a href="#ps-aux-和-ps-ef" class="headerlink" title="ps aux 和 ps -ef"></a>ps aux 和 ps -ef</h3><ul><li>都是Linux显示系统进程的命令，区别：输出略有不同</li><li><p>ps -ef是标准的格式显示进程<img src="/img/linux/ps_/ps_-ef.png" alt=""></p><ul><li><p>UID    //用户ID、但输出的是用户名</p></li><li><p>PID    //进程的ID</p></li><li><p>PPID   //父进程ID </p></li><li><p>C      //进程占用CPU的百分比 </p></li><li><p>STIME  //进程启动到现在的时间</p></li><li><p>TTY    //该进程在那个终端上运行，若与终端无关，则显示? 若为pts/0等，则表示由网络连接主机进程。 </p></li><li><p>CMD    //命令的名称和参数</p></li></ul></li><li><p>ps aux是BSD的格式显示<img src="/img/linux/ps_/ps_aux.png" alt=""></p><ul><li>USER    //用户名 </li><li>%CPU    //进程占用的CPU百分比 </li><li>%MEM    //占用内存的百分比</li><li>VSZ     //该进程使用的虚拟內存量（KB） </li><li>RSS     //该进程占用的固定內存量（KB）（驻留中页的数量)</li><li>STAT    //进程的状态         </li><li>START   //该进程被触发启动时间 </li><li><p>TIME    //该进程实际使用CPU运行的时间</p><p>  <strong>其中STAT状态位常见的状态字符有</strong> </p><ul><li>D    &nbsp;&nbsp;//无法中断的休眠状态（通常 IO 的进程）</li><li>R    &nbsp;&nbsp;//正在运行可中在队列中可过行的；</li><li>S    &nbsp;&nbsp;//处于休眠状态； </li><li>T    &nbsp;&nbsp;//停止或被追踪； </li><li>W    &nbsp;&nbsp;//进入内存交换 （从内核2.6开始无效）； </li><li>X    &nbsp;&nbsp;//死掉的进程 （基本很少见）； </li><li>Z    &nbsp;&nbsp;//僵尸进程； </li><li>&lt;    &nbsp;&nbsp;//优先级高的进程 </li><li>N    &nbsp;&nbsp;//优先级较低的进程 </li><li>L    &nbsp;&nbsp;//有些页被锁进内存； </li><li>s    &nbsp;&nbsp;//进程的领导者（在它之下有子进程）； </li><li>l    &nbsp;&nbsp;//多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）； </li><li>+    &nbsp;&nbsp;//位于后台的进程组；</li></ul></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;基础命令&quot;&gt;&lt;a href=&quot;#基础命令&quot; class=&quot;headerlink&quot; title=&quot;基础命令&quot;&gt;&lt;/a&gt;基础命令&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;uname: 显示内核类别 -a 显示详细&lt;/li&gt;
+&lt;li&gt;touch：创建不存在的文件（文件存在会更新时间戳）&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;chmod: R: 4   w: 2   X: 1&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;改权限：chmod 777 file 都有读写、执行权限&lt;br&gt;root 所属用户组 其他用户&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;chown&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://www.yangqingwt.top/categories/Linux/"/>
+    
+    
+      <category term="linux" scheme="http://www.yangqingwt.top/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>正则整理</title>
+    <link href="http://www.yangqingwt.top/2017/08/24/%E6%AD%A3%E5%88%99%E6%95%B4%E7%90%86/"/>
+    <id>http://www.yangqingwt.top/2017/08/24/正则整理/</id>
+    <published>2017-08-24T15:49:46.000Z</published>
+    <updated>2017-09-20T15:03:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><ul><li>^[0-9]*$ 数字</li><li>^\d{n}$ n位的数字</li><li>^\d{n,}$ 至少n位的数字</li><li>^\d{m,n}$ m~n位的数字</li><li>^(0[1-9][0-9]*)$ 零和非零开头的数字</li></ul><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;数字&quot;&gt;&lt;a href=&quot;#数字&quot; class=&quot;headerlink&quot; title=&quot;数字&quot;&gt;&lt;/a&gt;数字&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;^[0-9]*$ 数字&lt;/li&gt;
+&lt;li&gt;^\d{n}$ n位的数字&lt;/li&gt;
+&lt;li&gt;^\d{n,}$ 至少n位的数字&lt;/li&gt;
+&lt;li&gt;^\d{m,n}$ m~n位的数字&lt;/li&gt;
+&lt;li&gt;^(0[1-9][0-9]*)$ 零和非零开头的数字&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="正则表达式" scheme="http://www.yangqingwt.top/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+      <category term="正则整理" scheme="http://www.yangqingwt.top/tags/%E6%AD%A3%E5%88%99%E6%95%B4%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mongo</title>
+    <link href="http://www.yangqingwt.top/2017/08/24/mongo%E6%95%B4%E7%90%86/"/>
+    <id>http://www.yangqingwt.top/2017/08/24/mongo整理/</id>
+    <published>2017-08-24T15:44:07.000Z</published>
+    <updated>2017-09-20T15:08:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基础整理"><a href="#基础整理" class="headerlink" title="基础整理"></a>基础整理</h1><h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ul><li>mac安装<ol><li>brew update</li><li>brew install mongodb</li></ol></li><li>启动<ol><li>mongod</li><li>mongo</li></ol></li><li>关闭<ol><li>ctrl+c</li><li>mongo<br>> use admin db<br>> db.shutdownServer({force: true})<br><img src="/img/mongo/mongo_close.png" alt=""></li></ol></li></ul><a id="more"></a><ul><li>修复：<ol><li>删除mongo/mongod.lock</li><li>mongod -f /etc/mongod.conf –repair</li><li>另一教程里的：mongod –repair –dbpath /mongodb/ –repairpath /mongodb/repair/</li></ol></li></ul><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="update"><a href="#update" class="headerlink" title="update:"></a>update:</h3><pre><code>1. false 如果不存在，不插入2. true 查出来的记录都更新</code></pre><h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul><li>$gt 大于</li><li>$lt 小于</li><li>$gte 大于等于</li><li>$lte 小于等于</li></ul><h4 id="样例"><a href="#样例" class="headerlink" title="样例:"></a>样例:</h4><blockquote><p>大于0219小于0320<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;$gt:&quot;2017-02-19&quot;, $lt:&quot;2017-03-20&quot;&#125;</div></pre></td></tr></table></figure></p><p>降序排列，限制2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.Hacked.find(&#123;&quot;keyword&quot;: &quot;fghk&quot;&#125;).sort(&#123;sqlite_id: -1&#125;).limit(2)</div></pre></td></tr></table></figure></p><p>查status字段值为“p”或“d”的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.users.find(&#123;status: &#123;$in: [&quot;p&quot;, &quot;d&quot;]&#125;&#125;</div></pre></td></tr></table></figure></p><p>status为a, age小于30的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.users.find(&#123;status: &quot;a&quot;, age:&#123;$lt:30&#125;&#125;)</div></pre></td></tr></table></figure></p></blockquote><h3 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><blockquote><p>mongodump -h dbhost -d dbname -o dbdirectory</p></blockquote><ul><li>-h：MongoDB所在服务器地址</li><li>-d：需要备份的数据库名</li><li>-o：备份的数据存放目录（此目录需要提前建立，默认会建立dump/）</li></ul><h3 id="数据恢复"><a href="#数据恢复" class="headerlink" title="数据恢复"></a>数据恢复</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><blockquote><p>mongorestore -h <hostname>&lt;:port&gt; -d dbname <path></path></hostname></p></blockquote><ul><li>–host &lt;:port&gt;, -h &lt;:port&gt;：<ul><li>服务器地址，默认为： localhost:27017</li></ul></li><li>–db , -d ：<ul><li>需要恢复的数据库实例，例如：test，当然这个名称也可以和备份时候的不一样，比如test2</li></ul></li><li>–drop：<ul><li>恢复的时候，先删除当前数据，然后恢复备份的数据。就是说，恢复后，备份后添加修改的数据都会被删除，慎用哦！</li></ul></li><li>\<path></path>：<ul><li>设置备份数据目录，例如：c:\data\dump\test。</li><li>不能同时指定 <path></path> 和 –dir 选项</li></ul></li><li>–dir：指定备份的目录<ul><li>不能同时指定 <path></path> 和 –dir 选项。</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;基础整理&quot;&gt;&lt;a href=&quot;#基础整理&quot; class=&quot;headerlink&quot; title=&quot;基础整理&quot;&gt;&lt;/a&gt;基础整理&lt;/h1&gt;&lt;h2 id=&quot;操作&quot;&gt;&lt;a href=&quot;#操作&quot; class=&quot;headerlink&quot; title=&quot;操作&quot;&gt;&lt;/a&gt;操作&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;mac安装&lt;ol&gt;
+&lt;li&gt;brew update&lt;/li&gt;
+&lt;li&gt;brew install mongodb&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;启动&lt;ol&gt;
+&lt;li&gt;mongod&lt;/li&gt;
+&lt;li&gt;mongo&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;关闭&lt;ol&gt;
+&lt;li&gt;ctrl+c&lt;/li&gt;
+&lt;li&gt;mongo&lt;br&gt;&gt; use admin db&lt;br&gt;&gt; db.shutdownServer({force: true})&lt;br&gt;&lt;img src=&quot;/img/mongo/mongo_close.png&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://www.yangqingwt.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="mongo" scheme="http://www.yangqingwt.top/tags/mongo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tmux</title>
+    <link href="http://www.yangqingwt.top/2017/08/24/tmux/"/>
+    <id>http://www.yangqingwt.top/2017/08/24/tmux/</id>
+    <published>2017-08-24T15:43:38.000Z</published>
+    <updated>2017-09-20T15:12:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="快捷键-command-a后"><a href="#快捷键-command-a后" class="headerlink" title="快捷键(command+a后)"></a>快捷键(command+a后)</h2><h6 id="我的控制键为：Ctrl-a"><a href="#我的控制键为：Ctrl-a" class="headerlink" title="我的控制键为：Ctrl+a"></a>我的控制键为：Ctrl+a</h6><ol><li>s：查看当前会话</li><li>w：显示当前会话的所有窗口</li><li>t：查看时间</li><li>,：窗口重命名</li><li>o：选择pane，轮训选择，逆时针，也可方向键。</li><li>;：last pane</li><li>q：输入序号选择</li><li>!：使单独一个pane作为新的window</li><li>空格：更换pane排版</li></ol><a id="more"></a><ol><li>ctrl+o：按顺序移动pane位置</li><li>{  ：往左、往上移动pane</li><li>}  ：往右、往下移动pane</li><li>：setw synchronize-panes(off)：同步所有窗口执行命令</li><li>复制模式：（需要添加配置）<ul><li>ctrl+a [</li><li>h、j、k、l 上下左右</li><li>alt + 上下箭头：一屏跳</li><li>空格：选择，回车完成复制到剪贴板</li><li>ctrl+a ] ：粘贴</li></ul></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;快捷键-command-a后&quot;&gt;&lt;a href=&quot;#快捷键-command-a后&quot; class=&quot;headerlink&quot; title=&quot;快捷键(command+a后)&quot;&gt;&lt;/a&gt;快捷键(command+a后)&lt;/h2&gt;&lt;h6 id=&quot;我的控制键为：Ctrl-a&quot;&gt;&lt;a href=&quot;#我的控制键为：Ctrl-a&quot; class=&quot;headerlink&quot; title=&quot;我的控制键为：Ctrl+a&quot;&gt;&lt;/a&gt;我的控制键为：Ctrl+a&lt;/h6&gt;&lt;ol&gt;
+&lt;li&gt;s：查看当前会话&lt;/li&gt;
+&lt;li&gt;w：显示当前会话的所有窗口&lt;/li&gt;
+&lt;li&gt;t：查看时间&lt;/li&gt;
+&lt;li&gt;,：窗口重命名&lt;/li&gt;
+&lt;li&gt;o：选择pane，轮训选择，逆时针，也可方向键。&lt;/li&gt;
+&lt;li&gt;;：last pane&lt;/li&gt;
+&lt;li&gt;q：输入序号选择&lt;/li&gt;
+&lt;li&gt;!：使单独一个pane作为新的window&lt;/li&gt;
+&lt;li&gt;空格：更换pane排版&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="终端" scheme="http://www.yangqingwt.top/categories/%E7%BB%88%E7%AB%AF/"/>
+    
+    
+      <category term="tmux" scheme="http://www.yangqingwt.top/tags/tmux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vim整理</title>
+    <link href="http://www.yangqingwt.top/2017/08/23/vim%E6%95%B4%E7%90%86/"/>
+    <id>http://www.yangqingwt.top/2017/08/23/vim整理/</id>
+    <published>2017-08-23T09:04:50.000Z</published>
+    <updated>2017-09-20T15:13:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><ol><li><p>ctrl+z 退出vim编辑，返回终端，vim编辑在后台</p><ul><li>jobs :显示当前环境下所有任务编号</li><li>fg:（fg NUM）进入vim编辑</li></ul></li><li><p>进入粘贴模式</p><ul><li>:set paste</li></ul></li><li>开启新文件窗口:<ul><li>:tabnew .</li><li>gt 跳转</li><li>:tabn可以加数字</li><li>:tabp</li></ul></li></ol><a id="more"></a><ol><li>command+f,弹出查找模式，<ul><li>输入，tab,查找窗口自动变化内容，并将其复制。</li><li>shift+tab,将自动查找内容左边的选中并复制</li></ul></li><li>注释：<ul><li>V 选择模式，选中: normal i #</li><li>取消注释：V选择，d</li></ul></li><li>：e!  放弃更改（=重新打开）</li></ol><h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ol><li>最大化、最小化：command+shift</li><li>移到行尾 $ (shift+4）</li><li>移到行首 ^(shift+6)和0<ul><li>0是整段的跳转，6是行跳转</li></ul></li><li>前一单词：b、B</li><li>后一单词：w、W ；词尾：e、E</li><li>屏幕顶：H</li><li>屏幕底：L</li><li>向右移动一格：空格</li><li>整页翻页 <ul><li>ctrl-f </li><li>ctrl-b</li><li>f就是forword b就是backward</li></ul></li><li>翻半页<ul><li>ctrl-d ctlr-u</li><li>d=down u=up</li></ul></li><li>滚一行<ul><li>ctrl-e ctrl-y</li></ul></li><li>zz 让光标所杂的行居屏幕中央</li><li>zt 让光标所杂的行居屏幕最上一行 t=top</li><li>zb 让光标所杂的行居屏幕最下一行 b=bottom</li><li>删除后一字符：x</li><li>删除前一字符：X     3X</li><li>删除换行符：J      nJ：连接后面n行</li><li>U：撤销当前行的所有修改</li><li>A：行末插入</li><li>>&gt;：整行向右移动（3&gt;&gt;：下面3行包括自己，向右移）<ul><li>:20,30&gt;&gt;：把20到30行向右移动</li></ul></li><li>%：移动到与之匹配的括号上去</li><li>，逗号：移动到上次的修改处</li><li>+：移动到下一行的行首     -：上一行</li></ol><h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><ul><li>vim之不能复制<ul><li>启动了鼠标，鼠标相应了vim的选中，不是终端的选中，被vim截获了操作<br>“图片”</li></ul></li></ul><p><img src="" alt="">{ImgCap}{/ImgCap}</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;小技巧&quot;&gt;&lt;a href=&quot;#小技巧&quot; class=&quot;headerlink&quot; title=&quot;小技巧&quot;&gt;&lt;/a&gt;小技巧&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;ctrl+z 退出vim编辑，返回终端，vim编辑在后台&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;jobs :显示当前环境下所有任务编号&lt;/li&gt;
+&lt;li&gt;fg:（fg NUM）进入vim编辑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;进入粘贴模式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;:set paste&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;开启新文件窗口:&lt;ul&gt;
+&lt;li&gt;:tabnew .&lt;/li&gt;
+&lt;li&gt;gt 跳转&lt;/li&gt;
+&lt;li&gt;:tabn可以加数字&lt;/li&gt;
+&lt;li&gt;:tabp&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="IDE" scheme="http://www.yangqingwt.top/categories/IDE/"/>
+    
+    
+      <category term="vim" scheme="http://www.yangqingwt.top/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown基础语法</title>
+    <link href="http://www.yangqingwt.top/2017/08/20/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+    <id>http://www.yangqingwt.top/2017/08/20/Markdown基础语法/</id>
+    <published>2017-08-20T14:30:23.000Z</published>
+    <updated>2017-09-20T15:08:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><pre><code># 一级标题## 二级标题### 三级标题</code></pre><h5 id="总共六级标题"><a href="#总共六级标题" class="headerlink" title="总共六级标题"></a>总共六级标题</h5><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ul><li><p>无序标题：- 、+ 或 * </p></li><li><p>有序标题：1. 2. 3.（数字+英文句点）</p></li></ul><a id="more"></a><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote><p>引用：在文本前加入 &gt; 尖括号（大于号）</p></blockquote><h2 id="图片与链接"><a href="#图片与链接" class="headerlink" title="图片与链接"></a>图片与链接</h2><h5 id="图片为：-ImgCap-ImgCap"><a href="#图片为：-ImgCap-ImgCap" class="headerlink" title="图片为：{ImgCap}{/ImgCap}"></a>图片为：<img src="" alt="">{ImgCap}{/ImgCap}</h5><ul><li>一个惊叹号 !</li><li>一个方括号，里面放上图片的替代文字</li><li>一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上 选择性的 ‘title’ 文字。<br><img src="/img/1.png" alt="图"></li></ul><h5 id="链接为：方括号包起来"><a href="#链接为：方括号包起来" class="headerlink" title="链接为：方括号包起来"></a>链接为：方括号包起来<a href=""></a></h5><h2 id="强调：斜体、粗体"><a href="#强调：斜体、粗体" class="headerlink" title="强调：斜体、粗体"></a>强调：<em>斜体</em>、<strong>粗体</strong></h2><ul><li><em>斜体</em>： 一个 * 包含</li><li><strong>粗体</strong>： 两个 * 包含</li></ul><h5 id="如果你的-和-两边都有空白的话，它们就只会被当成普通的符号"><a href="#如果你的-和-两边都有空白的话，它们就只会被当成普通的符号" class="headerlink" title="如果你的 * 和 _ 两边都有空白的话，它们就只会被当成普通的符号"></a>如果你的 * 和 _ 两边都有空白的话，它们就只会被当成普通的符号</h5><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><table><thead><tr><th>table</th><th>1</th><th>2</th></tr></thead><tbody><tr><td>1</td><td>2</td><td>3</td></tr><tr><td>4</td><td>5</td><td>6</td></tr></tbody></table><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h5 id="两个-把中间的代码包裹起来"><a href="#两个-把中间的代码包裹起来" class="headerlink" title="两个 ` 把中间的代码包裹起来"></a>两个 ` 把中间的代码包裹起来</h5><p><code>print(hello markdown)</code></p><h2 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h2><pre><code>1. 缩进4个空格2. 1个制表符</code></pre><h5 id="一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）"><a href="#一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）" class="headerlink" title="一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）"></a>一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）</h5><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><pre><code>* * *********- - ---------</code></pre><p>实例：</p><hr><h2 id="反斜杠"><a href="#反斜杠" class="headerlink" title="反斜杠"></a>反斜杠</h2><h5 id="Markdown-可以利用反斜杠来插入一些在语法中有其它意义的符号"><a href="#Markdown-可以利用反斜杠来插入一些在语法中有其它意义的符号" class="headerlink" title="Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号"></a>Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号</h5><h5 id="例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。"><a href="#例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。" class="headerlink" title="例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。"></a>例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。</h5>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;# 一级标题
+## 二级标题
+### 三级标题
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;总共六级标题&quot;&gt;&lt;a href=&quot;#总共六级标题&quot; class=&quot;headerlink&quot; title=&quot;总共六级标题&quot;&gt;&lt;/a&gt;总共六级标题&lt;/h5&gt;&lt;h2 id=&quot;列表&quot;&gt;&lt;a href=&quot;#列表&quot; class=&quot;headerlink&quot; title=&quot;列表&quot;&gt;&lt;/a&gt;列表&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;无序标题：- 、+ 或 * &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;有序标题：1. 2. 3.（数字+英文句点）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="language" scheme="http://www.yangqingwt.top/categories/language/"/>
+    
+    
+      <category term="Markdown" scheme="http://www.yangqingwt.top/tags/Markdown/"/>
+    
+  </entry>
+  
+</feed>

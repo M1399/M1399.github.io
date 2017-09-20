@@ -96,6 +96,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Yangq blog" type="application/atom+xml" />
+
 
 
 
@@ -106,16 +108,16 @@
 
 
 
-<meta name="description" content="My First、Study、Summary、Insist and Efforts">
+<meta name="description" content="python linux more">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Yangq blog">
 <meta property="og:url" content="http://www.yangqingwt.top/index.html">
 <meta property="og:site_name" content="Yangq blog">
-<meta property="og:description" content="My First、Study、Summary、Insist and Efforts">
+<meta property="og:description" content="python linux more">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yangq blog">
-<meta name="twitter:description" content="My First、Study、Summary、Insist and Efforts">
+<meta name="twitter:description" content="python linux more">
 
 
 
@@ -124,7 +126,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -157,6 +159,16 @@
 
 
 
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3e7656215799067b8d6253d74e25a223";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -166,10 +178,8 @@
 
   
   
-    
-  
 
-  <div class="container sidebar-position-left 
+  <div class="container  
    page-home 
  ">
     <div class="headband"></div>
@@ -187,7 +197,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">My First、Study、Summary、Insist and Efforts</p>
       
   </div>
 
@@ -258,9 +268,24 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+    </div>
   
 </nav>
 
@@ -284,7 +309,7 @@
   
   
 
-  <article class="post post-type-爬虫" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -331,6 +356,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -360,7 +407,8 @@
       
         
           
-            
+            <a id="more"></a>
+
           
         
       
@@ -403,7 +451,7 @@
   
   
 
-  <article class="post post-type-爬虫" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -450,6 +498,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -478,114 +548,21 @@
 
       
         
-          
-            <h2 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install beautifulsoup4
+          <h2 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install beautifulsoup4
 </code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
 <li><p>导入    </p>
 <p>  from bs4 import beautifulsoup</p>
 </li>
 <li><p>创建一个字符串    </p>
-<pre><code>html = &quot;&quot;&quot;
-&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&apos;s story&lt;/title&gt;&lt;/head&gt;
-&lt;body&gt;
-&lt;p class=&quot;title&quot; name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt;
-&lt;p class=&quot;story&quot;&gt;
-    Once upon a time there were three little sisters; and their names were
-    &lt;a href=&quot;http://example.com/elsie&quot; class=&quot;sister&quot; id=&quot;link1&quot;&gt;&lt;!-- Elsie --&gt;&lt;/a&gt;,
-    &lt;a href=&quot;http://example.com/tillie&quot; class=&quot;sister&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;;
-    and they lived at the bottom of a well.
-&lt;/p&gt;
-&lt;p class=&quot;story&quot;&gt;...&lt;/p&gt;
-&quot;&quot;&quot;
-</code></pre></li>
-<li><p>创建beautifulsoup对象</p>
-<pre><code>soup = BeautifulSoup(html)
-</code></pre><ul>
-<li><p>也可以用本地HTML文件来创建对象</p>
-<pre><code>soup = BeautifulSoup(open(&apos;index.html&apos;))
-</code></pre></li>
-</ul>
-</li>
-<li><p>格式化输出,打印出soup对象的内容</p>
-<pre><code>print soup.prettify()
-</code></pre><p>  <img src="/img/python/爬虫/soup.png" alt=""></p>
 </li>
 </ul>
-<h2 id="四大对象种类"><a href="#四大对象种类" class="headerlink" title="四大对象种类"></a>四大对象种类</h2><h3 id="1-Tag"><a href="#1-Tag" class="headerlink" title="1. Tag"></a>1. Tag</h3><h4 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h4><ul>
-<li>是HTML中的一个个标签：title、 a等等HTML标签加上里面包括的内容<br>  <img src="/img/python/爬虫/soup_tag.png" alt=""></li>
-<li><p>验证下这些对象的类型</p>
-<pre><code>&gt;&gt;&gt; print type(soup.a)
-&lt;class &apos;bs4.element.Tag&apos;&gt;
-</code></pre></li>
-</ul>
-<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><h5 id="name"><a href="#name" class="headerlink" title="name"></a>name</h5><pre><code>&gt;&gt;&gt; print soup.name
-[document]
-&gt;&gt;&gt; print soup.head.name
-head
-</code></pre><ul>
-<li>suop对象本身比较特殊，它的 name 即为 [document]，对于其他内部标签，输出的值便为标签本身的名称。</li>
-</ul>
-<h5 id="attrs"><a href="#attrs" class="headerlink" title="attrs"></a>attrs</h5><ul>
-<li><p>把 p 的所有属性打印出来</p>
-<pre><code>&gt;&gt;&gt; print soup.p.attrs
-{&apos;class&apos;: [&apos;title&apos;], &apos;name&apos;: &apos;dromouse&apos;}
-</code></pre></li>
-<li><p>单独获取某个属性</p>
-<pre><code>&gt;&gt;&gt; print soup.p[&apos;class&apos;]
-[&apos;title&apos;]
-</code></pre></li>
-<li><p>还可以用get方法</p>
-<pre><code>&gt;&gt;&gt; print soup.p.get(&apos;class&apos;)
-[&apos;title&apos;]
-</code></pre></li>
-<li><p>可以对这些属性和内容等等进行修改</p>
-<pre><code>&gt;&gt;&gt; soup.p[&apos;class&apos;]=&quot;newClass&quot;
-&gt;&gt;&gt; print soup.p
-&lt;p class=&quot;newClass&quot; name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt;    
-</code></pre></li>
-<li><p>对这个属性进行删除</p>
-<pre><code>&gt;&gt;&gt; del soup.p[&apos;class&apos;]
-&gt;&gt;&gt; print soup.p
-&lt;p name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt;
-</code></pre></li>
-</ul>
-<h3 id="2-NavigableString"><a href="#2-NavigableString" class="headerlink" title="2. NavigableString"></a>2. NavigableString</h3><h4 id="获取标签内部的文字"><a href="#获取标签内部的文字" class="headerlink" title="获取标签内部的文字"></a>获取标签内部的文字</h4><pre><code>&gt;&gt;&gt; print soup.p.string
-The Dormouse&apos;s story    
-</code></pre><h4 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h4><pre><code>print type(soup.p.string)
-&lt;class &apos;bs4.element.NavigableString&apos;&gt;
-</code></pre><h3 id="3-BeautifulSoup"><a href="#3-BeautifulSoup" class="headerlink" title="3 BeautifulSoup"></a>3 BeautifulSoup</h3><ul>
-<li>BeautifulSoup 对象表示的是一个文档的全部内容</li>
-<li><p>大部分时候,可以把它当作 Tag 对象，是一个特殊的 Tag</p>
-<pre><code>&gt;&gt;&gt; print type(soup.name)
-&lt;type &apos;unicode&apos;&gt;
-&gt;&gt;&gt; print soup.name 
-[document]
-&gt;&gt;&gt; print soup.attrs 
-{}         // 空字典
-</code></pre></li>
-</ul>
-<h3 id="4-comment"><a href="#4-comment" class="headerlink" title="4 comment"></a>4 comment</h3><ul>
-<li>是一个特殊类型的 NavigableString 对象</li>
-<li><p>其实输出的内容仍不包括注释符号    </p>
-<pre><code>&gt;&gt;&gt; print soup.a
-&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;&lt;!-- Elsie --&gt;&lt;/a&gt;
-&gt;&gt;&gt; print soup.a.string
-Elsie 
-&gt;&gt;&gt; print type(soup.a.string)
-&lt;class &apos;bs4.element.Comment&apos;&gt;
-</code></pre></li>
-<li><p>a 里的内容实际上是注释，利用 .string 来输出它的内容，已经把注释符号去掉了( 所以这可能会给我们带来不必要的麻烦 )</p>
-</li>
-<li><p>在使用前最好做一下判断</p>
-<pre><code>&gt;&gt;&gt; if type(soup.a.string)==bs4.element.Comment:
-...     print soup.a.string
-</code></pre></li>
-</ul>
-<h2 id="遍历文档树"><a href="#遍历文档树" class="headerlink" title="遍历文档树"></a>遍历文档树</h2><p>待续先，累了==</p>
-<p><br></p>
-<p>摘自： <a href="http://python.jobbole.com/81349/" target="_blank" rel="external">http://python.jobbole.com/81349/</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/17/BeautifulSoup/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -627,7 +604,7 @@ Elsie
   
   
 
-  <article class="post post-type-python" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -674,6 +651,28 @@ Elsie
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -702,8 +701,7 @@ Elsie
 
       
         
-          
-            <h2 id="python的内建模块itertools：提供了一些用于操作迭代对象的函数"><a href="#python的内建模块itertools：提供了一些用于操作迭代对象的函数" class="headerlink" title="python的内建模块itertools：提供了一些用于操作迭代对象的函数"></a>python的内建模块itertools：提供了一些用于操作迭代对象的函数</h2><h3 id="“无限”迭代器"><a href="#“无限”迭代器" class="headerlink" title="“无限”迭代器"></a>“无限”迭代器</h3><pre><code>&gt;&gt;&gt; import itertools 
+          <h2 id="python的内建模块itertools：提供了一些用于操作迭代对象的函数"><a href="#python的内建模块itertools：提供了一些用于操作迭代对象的函数" class="headerlink" title="python的内建模块itertools：提供了一些用于操作迭代对象的函数"></a>python的内建模块itertools：提供了一些用于操作迭代对象的函数</h2><h3 id="“无限”迭代器"><a href="#“无限”迭代器" class="headerlink" title="“无限”迭代器"></a>“无限”迭代器</h3><pre><code>&gt;&gt;&gt; import itertools 
 </code></pre><h4 id="count（）：会创建一个无限迭代器"><a href="#count（）：会创建一个无限迭代器" class="headerlink" title="count（）：会创建一个无限迭代器"></a>count（）：会创建一个无限迭代器</h4><pre><code>&gt;&gt;&gt; natuals = itertools.count(1)
 &gt;&gt;&gt; for n in natuals:
 ...     print n
@@ -711,66 +709,14 @@ Elsie
 2
 3
 ...
-</code></pre><h4 id="cycle-会把传入的序列无限重复下去"><a href="#cycle-会把传入的序列无限重复下去" class="headerlink" title="cycle(): 会把传入的序列无限重复下去"></a>cycle(): 会把传入的序列无限重复下去</h4><pre><code>&gt;&gt;&gt; cs = itertools.cycle(&quot;abc&quot;)
-&gt;&gt;&gt; for c in cs:
-...        print c
-...
-&apos;a&apos;
-&apos;b&apos;
-&apos;c&apos;
-&apos;a&apos;
-...
-</code></pre><h4 id="repeat-把一个元素无限重复，第二个参数可以限定重复额次数"><a href="#repeat-把一个元素无限重复，第二个参数可以限定重复额次数" class="headerlink" title="repeat() 把一个元素无限重复，第二个参数可以限定重复额次数"></a>repeat() 把一个元素无限重复，第二个参数可以限定重复额次数</h4><pre><code>&gt;&gt;&gt; ns = itertools.repeat(&apos;a&apos;, 10)
-&gt;&gt;&gt; for n in ns:
-...        print n
-...打印10次&apos;a&apos;
-</code></pre><h3 id="迭代器操作函数"><a href="#迭代器操作函数" class="headerlink" title="迭代器操作函数"></a>迭代器操作函数</h3><h4 id="chain（）：把一组迭代对象串联起来，形成大的迭代器"><a href="#chain（）：把一组迭代对象串联起来，形成大的迭代器" class="headerlink" title="chain（）：把一组迭代对象串联起来，形成大的迭代器"></a>chain（）：把一组迭代对象串联起来，形成大的迭代器</h4><pre><code>&gt;&gt;&gt; for c in itertools.chain(&apos;abc&apos;, &apos;def&apos;):
-...        print c
-...
-&apos;a&apos;
-&apos;b&apos;
-&apos;c&apos;
-&apos;d&apos;
-&apos;e&apos;
-&apos;f&apos;
-</code></pre><h4 id="groupby-把迭代器中相邻的重复元素挑出来放在一起"><a href="#groupby-把迭代器中相邻的重复元素挑出来放在一起" class="headerlink" title="groupby(): 把迭代器中相邻的重复元素挑出来放在一起"></a>groupby(): 把迭代器中相邻的重复元素挑出来放在一起</h4><pre><code>&gt;&gt;&gt; for key, group in itertools.groupby(&apos;aabbcccaa&apos;):
-...     print key, list(group)
-...
-a [&apos;a&apos;, &apos;a&apos;]
-b [&apos;b&apos;, &apos;b&apos;]
-c [&apos;c&apos;, &apos;c&apos;, &apos;c&apos;]
-a [&apos;a&apos;, &apos;a&apos;]
-</code></pre><ul>
-<li><p>可以添加调选规则</p>
-<pre><code>让‘A’和‘a’都返回相同的key：
-&gt;&gt;&gt; for key, group in itertools.groupby(&apos;AaaBBbcCaAa&apos;, lambda c: c.upper()):
-...     print key, list(group)
-...
-A [&apos;A&apos;, &apos;a&apos;, &apos;a&apos;]
-B [&apos;B&apos;, &apos;B&apos;, &apos;b&apos;]
-C [&apos;c&apos;, &apos;C&apos;]
-A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
-</code></pre><h4 id="imap-可以作用与无穷序列，如果两个序列长度不一致，以短的为准"><a href="#imap-可以作用与无穷序列，如果两个序列长度不一致，以短的为准" class="headerlink" title="imap(): 可以作用与无穷序列，如果两个序列长度不一致，以短的为准"></a>imap(): 可以作用与无穷序列，如果两个序列长度不一致，以短的为准</h4><pre><code>&gt;&gt;&gt; for x in itertools.imap(lambda x, y: x * y, [10, 20, 30], itertools.count(1)):
-...     print x
-...
-10
-40
-90    
-</code></pre></li>
-<li>imap()返回一个迭代对象，必须用for循环进行迭代，才会在循环中计算出下一个元素</li>
-<li><p>map() 返回list，调用它试，已经计算完毕</p>
-<pre><code>&gt;&gt;&gt; r = map(lambda x: x*x, [1, 2, 3])
-&gt;&gt;&gt; r         # r已经计算出来了
-[1, 4, 9]
-</code></pre></li>
-<li>imap()实现了“惰性计算”，只在需要获得结果时才计算<h4 id="ifilter-fileter的惰性实现"><a href="#ifilter-fileter的惰性实现" class="headerlink" title="ifilter: fileter的惰性实现"></a>ifilter: fileter的惰性实现</h4></li>
-</ul>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
-<li>itertools提供的全是处理迭代功能的函数，返回值是迭代对象，只有用for循环迭代试才真正计算        </li>
-</ul>
-<p><br><br><br><br>参考资源：<a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001415616001996f6b32d80b6454caca3d33c965a07611f000" target="_blank" rel="external">https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001415616001996f6b32d80b6454caca3d33c965a07611f000</a></p>
-
-          
+</code></pre><h4 id="cycle-会把传入的序列无限重复下去"><a href="#cycle-会把传入的序列无限重复下去" class="headerlink" title="cycle(): 会把传入的序列无限重复下去"></a>cycle(): 会把传入的序列无限重复下去</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/17/itertools/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -812,7 +758,7 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
   
   
 
-  <article class="post post-type-操作系统" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -859,6 +805,28 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -887,8 +855,7 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
 
       
         
-          
-            <h2 id="什么是nginx"><a href="#什么是nginx" class="headerlink" title="什么是nginx"></a>什么是nginx</h2><p>nginx是服务器软件</p>
+          <h2 id="什么是nginx"><a href="#什么是nginx" class="headerlink" title="什么是nginx"></a>什么是nginx</h2><p>nginx是服务器软件</p>
 <p>功能：</p>
 <ul>
 <li>可以与服务器硬件结构，将程序放在nginx服务器上，将程序发布出去</li>
@@ -907,23 +874,14 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
 <li>模块没有Apache多</li>
 </ul>
 </li>
-<li>补充知识：<ul>
-<li>负载均衡：当同时又很多用户访问服务器时，为减少服务器压力，需要将用户分别引入各服务器，分担服务器的压力。</li>
 </ul>
-</li>
-</ul>
-<h3 id="不同服务器的优缺点："><a href="#不同服务器的优缺点：" class="headerlink" title="不同服务器的优缺点："></a>不同服务器的优缺点：</h3><ul>
-<li>IIS：IIS服务器只能在Windows上运行，Windows服务器性能不如Linux一类服务器</li>
-<li>Tomcat：面向Java，是一种重量级服务器</li>
-<li>Nginx：轻量级，但能支持处理百万级的TCP连接，10万以上的并发连接，并且是一个很好的跨平台服务器</li>
-<li>Apache：稳定、开源、跨平台，但不支持高并发</li>
-</ul>
-<h3 id="在Linux安装nginx服务器"><a href="#在Linux安装nginx服务器" class="headerlink" title="在Linux安装nginx服务器"></a>在Linux安装nginx服务器</h3><ul>
-<li>进入终端</li>
-<li>安装nginx</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/16/nginx/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1012,6 +970,28 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1040,8 +1020,7 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
 
       
         
-          
-            <h2 id="decode-和-encode"><a href="#decode-和-encode" class="headerlink" title="decode 和 encode"></a>decode 和 encode</h2><p> 字符串在Python内部的表示是unicode编码，因此，在做编码转换时，通常需要以unicode作为中间编码，即：先将其他编码的字符串解码（decode）成unicode，再从unicode编码（encode）成另一种编码。</p>
+          <h2 id="decode-和-encode"><a href="#decode-和-encode" class="headerlink" title="decode 和 encode"></a>decode 和 encode</h2><p> 字符串在Python内部的表示是unicode编码，因此，在做编码转换时，通常需要以unicode作为中间编码，即：先将其他编码的字符串解码（decode）成unicode，再从unicode编码（encode）成另一种编码。</p>
 <ul>
 <li><p>decode: 将其他编码的字符解码成Unicode编码</p>
 <blockquote>
@@ -1057,12 +1036,13 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
 </blockquote>
 </li>
 </ul>
-<h2 id="判断是否为unicode"><a href="#判断是否为unicode" class="headerlink" title="判断是否为unicode"></a>判断是否为unicode</h2><blockquote>
-<p>isinstance(strs, unicode)</p>
-</blockquote>
-<p>原文链接：<a href="http://cache.baiducontent.com/c?m=9d78d513d99516fe05bbc3690d67952d5f0edd3f2890904b708ed50ed1735a325a7bb3e57a770704a4943d315db8492bb6a7706f700123b799cf884ad9b18f7b6fce7c652e4b9b1745954af4950738c4239358eaaa19e4&amp;p=c663d115d9c342ac17add72d021481&amp;newp=81769a4795934eaf5beec62159578f231610db2151ddd301298ffe0cc4241a1a1a3aecbf2126130fd5ce7e6c07a54b5ae0f63c76310034f1f689df08d2ecce7e6c&amp;user=baidu&amp;fm=sc&amp;query=decode+python&amp;qid=ed9a1561000147fe&amp;p1=5" target="_blank" rel="external">http://cache.baiducontent.com/c?m=9d78d513d99516fe05bbc3690d67952d5f0edd3f2890904b708ed50ed1735a325a7bb3e57a770704a4943d315db8492bb6a7706f700123b799cf884ad9b18f7b6fce7c652e4b9b1745954af4950738c4239358eaaa19e4&amp;p=c663d115d9c342ac17add72d021481&amp;newp=81769a4795934eaf5beec62159578f231610db2151ddd301298ffe0cc4241a1a1a3aecbf2126130fd5ce7e6c07a54b5ae0f63c76310034f1f689df08d2ecce7e6c&amp;user=baidu&amp;fm=sc&amp;query=decode+python&amp;qid=ed9a1561000147fe&amp;p1=5</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/13/python之编码/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1138,7 +1118,7 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
                alt="yangq" />
           <p class="site-author-name" itemprop="name">yangq</p>
            
-              <p class="site-description motion-element" itemprop="description">My First、Study、Summary、Insist and Efforts</p>
+              <p class="site-description motion-element" itemprop="description">python linux more</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -1152,6 +1132,15 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
@@ -1167,6 +1156,13 @@ A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

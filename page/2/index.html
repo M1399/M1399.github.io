@@ -96,6 +96,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Yangq blog" type="application/atom+xml" />
+
 
 
 
@@ -106,16 +108,16 @@
 
 
 
-<meta name="description" content="My First、Study、Summary、Insist and Efforts">
+<meta name="description" content="python linux more">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Yangq blog">
 <meta property="og:url" content="http://www.yangqingwt.top/page/2/index.html">
 <meta property="og:site_name" content="Yangq blog">
-<meta property="og:description" content="My First、Study、Summary、Insist and Efforts">
+<meta property="og:description" content="python linux more">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yangq blog">
-<meta name="twitter:description" content="My First、Study、Summary、Insist and Efforts">
+<meta name="twitter:description" content="python linux more">
 
 
 
@@ -124,7 +126,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -157,6 +159,16 @@
 
 
 
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3e7656215799067b8d6253d74e25a223";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -166,10 +178,8 @@
 
   
   
-    
-  
 
-  <div class="container sidebar-position-left 
+  <div class="container  
    page-home 
  ">
     <div class="headband"></div>
@@ -187,7 +197,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">My First、Study、Summary、Insist and Efforts</p>
       
   </div>
 
@@ -258,9 +268,24 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+    </div>
   
 </nav>
 
@@ -331,6 +356,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -359,8 +406,7 @@
 
       
         
-          
-            <h2 id="引入pdb模块"><a href="#引入pdb模块" class="headerlink" title="引入pdb模块"></a>引入pdb模块</h2><blockquote>
+          <h2 id="引入pdb模块"><a href="#引入pdb模块" class="headerlink" title="引入pdb模块"></a>引入pdb模块</h2><blockquote>
 <p>import pdb</p>
 <p>pdb.set_trace()</p>
 </blockquote>
@@ -375,8 +421,13 @@
 <li>p / pp: 打印变量的值</li>
 <li>h / help: 帮助</li>
 </ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/13/python之pdb/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -465,6 +516,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -493,8 +566,7 @@
 
       
         
-          
-            <h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>看图吧先<br><img src="/img/电脑配置/center.png" alt=""></p>
+          <h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>看图吧先<br><img src="/img/电脑配置/center.png" alt=""></p>
 <ol>
 <li>CPU（处理器）<ul>
 <li>inter：酷睿i3、酷睿i5、酷睿i7<ul>
@@ -511,42 +583,14 @@
 </ul>
 </li>
 <li>内存：可以自己更换（少数，如Mac、Surface等超薄的，内存条焊在主板上，无法自己更换）</li>
-<li><p>显卡：（N卡：英伟达公司的，GT开头；A卡：AMD公司的)</p>
-<ul>
-<li>分为两种<ul>
-<li>双显卡：独立显卡+核心显卡</li>
-<li>核心显卡电脑</li>
-</ul>
-</li>
-<li>根据型号判断显卡性能</li>
-<li>独立显卡：<ul>
-<li>通常显卡型号为GT abcM（abc为数字）<ul>
-<li>a代表是第几代产品</li>
-<li>bc为它的型号，b代表显卡的定位，5定位为中端，大于5高端，小于5为入门级别</li>
-<li>末尾M代表它四笔记本电脑显卡</li>
-<li>有的在GT后添加x，代表更好的性能</li>
-<li>例：GT820M，第八代入门级别的笔记本显卡</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>核心显卡：<ul>
-<li>理解为集成显卡，它把图形处理核心整合在了CPU当中</li>
-<li>双显卡，在游戏等需要较大图形运算量时，才会自动切换为<strong>独立显卡</strong>，所以双显卡性能取决于其中高性能显卡所能达到的性能（一般是独立显卡）</li>
-<li>HD4400, HD4600 &lt; HD5500, HD5600 &lt; HD6000 &lt; HD520, HD530 &lt; HD5100,HD540,HD550 &lt; HD6100 &lt; HD5200 &lt; HD6200</li>
-<li>目前最好的HD6200的显卡大概是中端独立显卡性能水平。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>硬盘：电脑的存储设备</p>
-</li>
-<li>主板：结合CPU、显卡、硬盘等综合考虑</li>
-<li>台式机：还需注意：风扇、散热器、显示器</li>
 </ol>
-<p>摘自：<a href="https://www.zhihu.com/question/40463573/answer/87720343" target="_blank" rel="external">https://www.zhihu.com/question/40463573/answer/87720343</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/06/电脑配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -664,7 +708,8 @@
       
         
           
-            
+            <a id="more"></a>
+
           
         
       
@@ -754,6 +799,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -782,8 +849,7 @@
 
       
         
-          
-            <h1 id="基础整理"><a href="#基础整理" class="headerlink" title="基础整理"></a>基础整理</h1><ul>
+          <h1 id="基础整理"><a href="#基础整理" class="headerlink" title="基础整理"></a>基础整理</h1><ul>
 <li>数据量达到亿的时候，可以用pandas处理</li>
 <li><p>导入pandas库</p>
 <blockquote>
@@ -797,102 +863,16 @@
 <li>pd.read_excel(filename)：从Excel文件导入数据</li>
 <li>pd.read_sql(query, connection_object)：从SQL表/库导入数据</li>
 <li>pd.read_json(json_string)：从JSON格式的字符串导入数据</li>
-<li>pd.read_html(url)：解析URL、字符串或者HTML文件，抽取其中的tables表格</li>
-<li>pd.read_clipboard()：从你的粘贴板获取内容，并传给read_table()</li>
-<li>pd.DataFrame(dict)：从字典对象导入数据，Key是列名，Value是数据</li>
-</ol>
-</li>
-<li><p>导出数据</p>
-<ol>
-<li>df.to_csv(filename)：导出数据到CSV文件</li>
-<li>df.to_excel(filename)：导出数据到Excel文件</li>
-<li>df.to_sql(table_name, connection_object)：导出数据到SQL表</li>
-<li>df.to_json(filename)：以Json格式导出数据到文本文件</li>
-</ol>
-</li>
-<li><p>创建测试对象</p>
-<ol>
-<li>pd.DataFrame(np.random.rand(20,5))：创建20行5列的随机数组成的DataFrame对象</li>
-<li>pd.Series(my_list)：从可迭代对象my_list创建一个Series对象</li>
-<li>df.index = pd.date_range(‘1900/1/30’, periods=df.shape[0])：增加一个日期索引</li>
-</ol>
-</li>
-<li><p>查看、检查数据</p>
-<ol>
-<li>df.head(n)：查看DataFrame对象的前n行</li>
-<li>df.tail(n)：查看DataFrame对象的最后n行</li>
-<li>df.shape()：查看行数和列数</li>
-<li>df.info() ：查看索引、数据类型和内存信息</li>
-<li>df.describe()：查看数值型列的汇总统计</li>
-<li>s.value_counts(dropna=False)：查看Series对象的唯一值和计数</li>
-<li>df.apply(pd.Series.value_counts)：查看DataFrame对象中每一列的唯一值和计数</li>
-</ol>
-</li>
-<li><p>数据选取</p>
-<ol>
-<li>df[col]：根据列名，并以Series的形式返回列</li>
-<li>df[[col1, col2]]：以DataFrame形式返回多列</li>
-<li>s.iloc[0]：按位置选取数据</li>
-<li>s.loc[‘index_one’]：按索引选取数据</li>
-<li>df.iloc[0,:]：返回第一行</li>
-<li>df.iloc[0,0]：返回第一列的第一个元素</li>
-</ol>
-</li>
-<li><p>数据清理</p>
-<ol>
-<li>df.columns = [‘a’,’b’,’c’]：重命名列名</li>
-<li>pd.isnull()：检查DataFrame对象中的空值，并返回一个Boolean数组</li>
-<li>pd.notnull()：检查DataFrame对象中的非空值，并返回一个Boolean数组</li>
-<li>df.dropna()：删除所有包含空值的行</li>
-<li>df.dropna(axis=1)：删除所有包含空值的列</li>
-<li>df.dropna(axis=1,thresh=n)：删除所有小于n个非空值的行</li>
-<li>df.fillna(x)：用x替换DataFrame对象中所有的空值</li>
-<li>s.astype(float)：将Series中的数据类型更改为float类型</li>
-<li>s.replace(1,’one’)：用‘one’代替所有等于1的值</li>
-<li>s.replace([1,3],[‘one’,’three’])：用’one’代替1，用’three’代替</li>
-<li>df.rename(columns=lambda x: x + 1)：批量更改列名</li>
-<li>df.rename(columns={‘old<em>name’: ‘new</em> name’})：选择性更改列名</li>
-<li>df.set_index(‘column_one’)：更改索引列</li>
-<li>df.rename(index=lambda x: x + 1)：批量重命名索引</li>
-</ol>
-</li>
-<li><p>数据处理：Filter、Sort和GroupBy</p>
-<ol>
-<li>df[df[col] &gt; 0.5]：选择col列的值大于0.5的行</li>
-<li>df.sort_values(col1)：按照列col1排序数据，默认升序排列</li>
-<li>df.sort_values(col2, ascending=False)：按照列col1降序排列数据</li>
-<li>df.sort_values([col1,col2], ascending=[True,False])：先按列col1升序排列，后按col2降序排列数据</li>
-<li>df.groupby(col)：返回一个按列col进行分组的Groupby对象</li>
-<li>df.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象</li>
-<li>df.groupby(col1)[col2]：返回按列col1进行分组后，列col2的均值</li>
-<li>df.pivot_table(index=col1, values=[col2,col3], aggfunc=max)：创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表</li>
-<li>df.groupby(col1).agg(np.mean)：返回按列col1分组的所有列的均值</li>
-<li>data.apply(np.mean)：对DataFrame中的每一列应用函数np.mean</li>
-<li>data.apply(np.max,axis=1)：对DataFrame中的每一行应用函数np.max</li>
-</ol>
-</li>
-<li><p>数据合并</p>
-<ol>
-<li>df1.append(df2)：将df2中的行添加到df1的尾部</li>
-<li>df.concat([df1, df2],axis=1)：将df2中的列添加到df1的尾部</li>
-<li>df1.join(df2,on=col1,how=’inner’)：对df1的列和df2的列执行SQL形式的join</li>
-</ol>
-</li>
-<li><p>数据统计</p>
-<ol>
-<li>df.describe()：查看数据值列的汇总统计</li>
-<li>df.mean()：返回所有列的均值</li>
-<li>df.corr()：返回列与列之间的相关系数</li>
-<li>df.count()：返回每一列中的非空值的个数</li>
-<li>df.max()：返回每一列的最大值</li>
-<li>df.min()：返回每一列的最小值</li>
-<li>df.median()：返回每一列的中位数</li>
-<li>df.std()：返回每一列的标准差</li>
 </ol>
 </li>
 </ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/31/python之pandas/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -981,6 +961,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IDE/" itemprop="url" rel="index">
+                    <span itemprop="name">IDE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1009,8 +1011,7 @@
 
       
         
-          
-            <h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
+          <h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
 <li>command + D 选中光标所在词，多次操作</li>
 <li>command + L 选中整行</li>
 <li>command + shift + L 先选中多行，再按快捷键，会在每行行尾有光标，同时编辑</li>
@@ -1021,18 +1022,14 @@
 <li>command + -&gt; 向右快速移动光标</li>
 <li>shift + 方向键 选中文本</li>
 <li>command + shift + 方向键 单位性的选中文本</li>
-<li>command + shift + d 复制当前行，插入到下一行</li>
-<li>command + K + K 光标处删除至行尾（ctrl+k）</li>
-<li>ctrl + shift + K 删除整行</li>
-<li>command + K + U 词转换为大写</li>
-<li>command + K + L 转换为小写</li>
-<li>ctrl + T 左右字母互换</li>
-<li>command + alt + F 搜索+替换</li>
-<li>ctrl + tab 切换标签页</li>
-<li>command + K + B 开启/关闭侧边栏</li>
 </ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/31/sublime/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1108,7 +1105,7 @@
                alt="yangq" />
           <p class="site-author-name" itemprop="name">yangq</p>
            
-              <p class="site-description motion-element" itemprop="description">My First、Study、Summary、Insist and Efforts</p>
+              <p class="site-description motion-element" itemprop="description">python linux more</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -1122,6 +1119,15 @@
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
@@ -1137,6 +1143,13 @@
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

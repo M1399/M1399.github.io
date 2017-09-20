@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[scrapy]]></title>
+    <url>%2F2017%2F09%2F17%2Fscrapy%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[BeautifulSoup]]></title>
+    <url>%2F2017%2F09%2F17%2FBeautifulSoup%2F</url>
+    <content type="text"><![CDATA[安装和使用安装pip install beautifulsoup4 使用 导入 from bs4 import beautifulsoup 创建一个字符串 html = &quot;&quot;&quot; &lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&apos;s story&lt;/title&gt;&lt;/head&gt; &lt;body&gt; &lt;p class=&quot;title&quot; name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt; &lt;p class=&quot;story&quot;&gt; Once upon a time there were three little sisters; and their names were &lt;a href=&quot;http://example.com/elsie&quot; class=&quot;sister&quot; id=&quot;link1&quot;&gt;&lt;!-- Elsie --&gt;&lt;/a&gt;, &lt;a href=&quot;http://example.com/tillie&quot; class=&quot;sister&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;; and they lived at the bottom of a well. &lt;/p&gt; &lt;p class=&quot;story&quot;&gt;...&lt;/p&gt; &quot;&quot;&quot; 创建beautifulsoup对象 soup = BeautifulSoup(html) 也可以用本地HTML文件来创建对象 soup = BeautifulSoup(open(&apos;index.html&apos;)) 格式化输出,打印出soup对象的内容 print soup.prettify() 四大对象种类1. Tag是什么 是HTML中的一个个标签：title、 a等等HTML标签加上里面包括的内容 验证下这些对象的类型 &gt;&gt;&gt; print type(soup.a) &lt;class &apos;bs4.element.Tag&apos;&gt; 属性name&gt;&gt;&gt; print soup.name [document] &gt;&gt;&gt; print soup.head.name head suop对象本身比较特殊，它的 name 即为 [document]，对于其他内部标签，输出的值便为标签本身的名称。 attrs 把 p 的所有属性打印出来 &gt;&gt;&gt; print soup.p.attrs {&apos;class&apos;: [&apos;title&apos;], &apos;name&apos;: &apos;dromouse&apos;} 单独获取某个属性 &gt;&gt;&gt; print soup.p[&apos;class&apos;] [&apos;title&apos;] 还可以用get方法 &gt;&gt;&gt; print soup.p.get(&apos;class&apos;) [&apos;title&apos;] 可以对这些属性和内容等等进行修改 &gt;&gt;&gt; soup.p[&apos;class&apos;]=&quot;newClass&quot; &gt;&gt;&gt; print soup.p &lt;p class=&quot;newClass&quot; name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt; 对这个属性进行删除 &gt;&gt;&gt; del soup.p[&apos;class&apos;] &gt;&gt;&gt; print soup.p &lt;p name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt; 2. NavigableString获取标签内部的文字&gt;&gt;&gt; print soup.p.string The Dormouse&apos;s story 类型print type(soup.p.string) &lt;class &apos;bs4.element.NavigableString&apos;&gt; 3 BeautifulSoup BeautifulSoup 对象表示的是一个文档的全部内容 大部分时候,可以把它当作 Tag 对象，是一个特殊的 Tag &gt;&gt;&gt; print type(soup.name) &lt;type &apos;unicode&apos;&gt; &gt;&gt;&gt; print soup.name [document] &gt;&gt;&gt; print soup.attrs {} // 空字典 4 comment 是一个特殊类型的 NavigableString 对象 其实输出的内容仍不包括注释符号 &gt;&gt;&gt; print soup.a &lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;&lt;!-- Elsie --&gt;&lt;/a&gt; &gt;&gt;&gt; print soup.a.string Elsie &gt;&gt;&gt; print type(soup.a.string) &lt;class &apos;bs4.element.Comment&apos;&gt; a 里的内容实际上是注释，利用 .string 来输出它的内容，已经把注释符号去掉了( 所以这可能会给我们带来不必要的麻烦 ) 在使用前最好做一下判断 &gt;&gt;&gt; if type(soup.a.string)==bs4.element.Comment: ... print soup.a.string 遍历文档树待续先，累了== 摘自： http://python.jobbole.com/81349/]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[itertools]]></title>
+    <url>%2F2017%2F09%2F17%2Fitertools%2F</url>
+    <content type="text"><![CDATA[python的内建模块itertools：提供了一些用于操作迭代对象的函数“无限”迭代器&gt;&gt;&gt; import itertools count（）：会创建一个无限迭代器&gt;&gt;&gt; natuals = itertools.count(1) &gt;&gt;&gt; for n in natuals: ... print n 1 2 3 ... cycle(): 会把传入的序列无限重复下去 &gt;&gt;&gt; cs = itertools.cycle(&quot;abc&quot;) &gt;&gt;&gt; for c in cs: ... print c ... &apos;a&apos; &apos;b&apos; &apos;c&apos; &apos;a&apos; ... repeat() 把一个元素无限重复，第二个参数可以限定重复额次数&gt;&gt;&gt; ns = itertools.repeat(&apos;a&apos;, 10) &gt;&gt;&gt; for n in ns: ... print n ...打印10次&apos;a&apos; 迭代器操作函数chain（）：把一组迭代对象串联起来，形成大的迭代器&gt;&gt;&gt; for c in itertools.chain(&apos;abc&apos;, &apos;def&apos;): ... print c ... &apos;a&apos; &apos;b&apos; &apos;c&apos; &apos;d&apos; &apos;e&apos; &apos;f&apos; groupby(): 把迭代器中相邻的重复元素挑出来放在一起&gt;&gt;&gt; for key, group in itertools.groupby(&apos;aabbcccaa&apos;): ... print key, list(group) ... a [&apos;a&apos;, &apos;a&apos;] b [&apos;b&apos;, &apos;b&apos;] c [&apos;c&apos;, &apos;c&apos;, &apos;c&apos;] a [&apos;a&apos;, &apos;a&apos;] 可以添加调选规则 让‘A’和‘a’都返回相同的key： &gt;&gt;&gt; for key, group in itertools.groupby(&apos;AaaBBbcCaAa&apos;, lambda c: c.upper()): ... print key, list(group) ... A [&apos;A&apos;, &apos;a&apos;, &apos;a&apos;] B [&apos;B&apos;, &apos;B&apos;, &apos;b&apos;] C [&apos;c&apos;, &apos;C&apos;] A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;] imap(): 可以作用与无穷序列，如果两个序列长度不一致，以短的为准&gt;&gt;&gt; for x in itertools.imap(lambda x, y: x * y, [10, 20, 30], itertools.count(1)): ... print x ... 10 40 90 imap()返回一个迭代对象，必须用for循环进行迭代，才会在循环中计算出下一个元素 map() 返回list，调用它试，已经计算完毕 &gt;&gt;&gt; r = map(lambda x: x*x, [1, 2, 3]) &gt;&gt;&gt; r # r已经计算出来了 [1, 4, 9] imap()实现了“惰性计算”，只在需要获得结果时才计算ifilter: fileter的惰性实现 总结： itertools提供的全是处理迭代功能的函数，返回值是迭代对象，只有用for循环迭代试才真正计算 参考资源：https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001415616001996f6b32d80b6454caca3d33c965a07611f000]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[nginx]]></title>
+    <url>%2F2017%2F09%2F16%2Fnginx%2F</url>
+    <content type="text"><![CDATA[什么是nginxnginx是服务器软件 功能： 可以与服务器硬件结构，将程序放在nginx服务器上，将程序发布出去 作用： 高性能的HTTP：发布网站 反向代理服务器：实现负载均衡 代理邮件服务器：收发邮件 优点： 高并发、部署简单、内存消耗少、成本低 缺点： rewrite功能不够强大 模块没有Apache多 补充知识： 负载均衡：当同时又很多用户访问服务器时，为减少服务器压力，需要将用户分别引入各服务器，分担服务器的压力。 不同服务器的优缺点： IIS：IIS服务器只能在Windows上运行，Windows服务器性能不如Linux一类服务器 Tomcat：面向Java，是一种重量级服务器 Nginx：轻量级，但能支持处理百万级的TCP连接，10万以上的并发连接，并且是一个很好的跨平台服务器 Apache：稳定、开源、跨平台，但不支持高并发 在Linux安装nginx服务器 进入终端 安装nginx]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python之编码]]></title>
+    <url>%2F2017%2F09%2F13%2Fpython%E4%B9%8B%E7%BC%96%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[decode 和 encode 字符串在Python内部的表示是unicode编码，因此，在做编码转换时，通常需要以unicode作为中间编码，即：先将其他编码的字符串解码（decode）成unicode，再从unicode编码（encode）成另一种编码。 decode: 将其他编码的字符解码成Unicode编码 strs.decode(‘gb2312’) 将gb2312编码的字符串strs转换成Unicode encode：将Unicode编码转换成其他编码的字符串 strs.encode(‘gb2312’) 将Unicode编码的字符串strs转换成gb2312编码 非Unicode编码的strs字符串encode会报错 判断是否为unicode isinstance(strs, unicode) 原文链接：http://cache.baiducontent.com/c?m=9d78d513d99516fe05bbc3690d67952d5f0edd3f2890904b708ed50ed1735a325a7bb3e57a770704a4943d315db8492bb6a7706f700123b799cf884ad9b18f7b6fce7c652e4b9b1745954af4950738c4239358eaaa19e4&amp;p=c663d115d9c342ac17add72d021481&amp;newp=81769a4795934eaf5beec62159578f231610db2151ddd301298ffe0cc4241a1a1a3aecbf2126130fd5ce7e6c07a54b5ae0f63c76310034f1f689df08d2ecce7e6c&amp;user=baidu&amp;fm=sc&amp;query=decode+python&amp;qid=ed9a1561000147fe&amp;p1=5]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python之pdb]]></title>
+    <url>%2F2017%2F09%2F13%2Fpython%E4%B9%8Bpdb%2F</url>
+    <content type="text"><![CDATA[引入pdb模块 import pdb pdb.set_trace() 总结 b / break: 设置断点 c / continue: 继续执行程序 l / list: 查看当前的代码段 s / step: 进入函数 r / return: 执行代码直到从当前函数返回 n / next: 执行下一行 q / exit: 中止并退出 p / pp: 打印变量的值 h / help: 帮助]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[电脑配置]]></title>
+    <url>%2F2017%2F09%2F06%2F%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[基础配置看图吧先 CPU（处理器） inter：酷睿i3、酷睿i5、酷睿i7 i5 5200U：中端处理器，第五代，编号200 ADM 概述： i3：普通办公 i5：玩网游 i7：性能好，价格高。同时高耗能造成高发热 内存：可以自己更换（少数，如Mac、Surface等超薄的，内存条焊在主板上，无法自己更换） 显卡：（N卡：英伟达公司的，GT开头；A卡：AMD公司的) 分为两种 双显卡：独立显卡+核心显卡 核心显卡电脑 根据型号判断显卡性能 独立显卡： 通常显卡型号为GT abcM（abc为数字） a代表是第几代产品 bc为它的型号，b代表显卡的定位，5定位为中端，大于5高端，小于5为入门级别 末尾M代表它四笔记本电脑显卡 有的在GT后添加x，代表更好的性能 例：GT820M，第八代入门级别的笔记本显卡 核心显卡： 理解为集成显卡，它把图形处理核心整合在了CPU当中 双显卡，在游戏等需要较大图形运算量时，才会自动切换为独立显卡，所以双显卡性能取决于其中高性能显卡所能达到的性能（一般是独立显卡） HD4400, HD4600 &lt; HD5500, HD5600 &lt; HD6000 &lt; HD520, HD530 &lt; HD5100,HD540,HD550 &lt; HD6100 &lt; HD5200 &lt; HD6200 目前最好的HD6200的显卡大概是中端独立显卡性能水平。 硬盘：电脑的存储设备 主板：结合CPU、显卡、硬盘等综合考虑 台式机：还需注意：风扇、散热器、显示器 摘自：https://www.zhihu.com/question/40463573/answer/87720343]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>电脑配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SmallSentiment]]></title>
+    <url>%2F2017%2F09%2F05%2FSmallSentiment%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[python之pandas]]></title>
+    <url>%2F2017%2F08%2F31%2Fpython%E4%B9%8Bpandas%2F</url>
+    <content type="text"><![CDATA[基础整理 数据量达到亿的时候，可以用pandas处理 导入pandas库 import pandas as pdimport numpy as np 导入数据 pd.read_csv(filename)：从CSV文件导入数据 pd.read_table(filename)：从限定分隔符的文本文件导入数据 pd.read_excel(filename)：从Excel文件导入数据 pd.read_sql(query, connection_object)：从SQL表/库导入数据 pd.read_json(json_string)：从JSON格式的字符串导入数据 6. pd.read_html(url)：解析URL、字符串或者HTML文件，抽取其中的tables表格 7. pd.read_clipboard()：从你的粘贴板获取内容，并传给read_table() 8. pd.DataFrame(dict)：从字典对象导入数据，Key是列名，Value是数据 导出数据 df.to_csv(filename)：导出数据到CSV文件 df.to_excel(filename)：导出数据到Excel文件 df.to_sql(table_name, connection_object)：导出数据到SQL表 df.to_json(filename)：以Json格式导出数据到文本文件 创建测试对象 pd.DataFrame(np.random.rand(20,5))：创建20行5列的随机数组成的DataFrame对象 pd.Series(my_list)：从可迭代对象my_list创建一个Series对象 df.index = pd.date_range(‘1900/1/30’, periods=df.shape[0])：增加一个日期索引 查看、检查数据 df.head(n)：查看DataFrame对象的前n行 df.tail(n)：查看DataFrame对象的最后n行 df.shape()：查看行数和列数 df.info() ：查看索引、数据类型和内存信息 df.describe()：查看数值型列的汇总统计 s.value_counts(dropna=False)：查看Series对象的唯一值和计数 df.apply(pd.Series.value_counts)：查看DataFrame对象中每一列的唯一值和计数 数据选取 df[col]：根据列名，并以Series的形式返回列 df[[col1, col2]]：以DataFrame形式返回多列 s.iloc[0]：按位置选取数据 s.loc[‘index_one’]：按索引选取数据 df.iloc[0,:]：返回第一行 df.iloc[0,0]：返回第一列的第一个元素 数据清理 df.columns = [‘a’,’b’,’c’]：重命名列名 pd.isnull()：检查DataFrame对象中的空值，并返回一个Boolean数组 pd.notnull()：检查DataFrame对象中的非空值，并返回一个Boolean数组 df.dropna()：删除所有包含空值的行 df.dropna(axis=1)：删除所有包含空值的列 df.dropna(axis=1,thresh=n)：删除所有小于n个非空值的行 df.fillna(x)：用x替换DataFrame对象中所有的空值 s.astype(float)：将Series中的数据类型更改为float类型 s.replace(1,’one’)：用‘one’代替所有等于1的值 s.replace([1,3],[‘one’,’three’])：用’one’代替1，用’three’代替 df.rename(columns=lambda x: x + 1)：批量更改列名 df.rename(columns={‘oldname’: ‘new name’})：选择性更改列名 df.set_index(‘column_one’)：更改索引列 df.rename(index=lambda x: x + 1)：批量重命名索引 数据处理：Filter、Sort和GroupBy df[df[col] &gt; 0.5]：选择col列的值大于0.5的行 df.sort_values(col1)：按照列col1排序数据，默认升序排列 df.sort_values(col2, ascending=False)：按照列col1降序排列数据 df.sort_values([col1,col2], ascending=[True,False])：先按列col1升序排列，后按col2降序排列数据 df.groupby(col)：返回一个按列col进行分组的Groupby对象 df.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象 df.groupby(col1)[col2]：返回按列col1进行分组后，列col2的均值 df.pivot_table(index=col1, values=[col2,col3], aggfunc=max)：创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表 df.groupby(col1).agg(np.mean)：返回按列col1分组的所有列的均值 data.apply(np.mean)：对DataFrame中的每一列应用函数np.mean data.apply(np.max,axis=1)：对DataFrame中的每一行应用函数np.max 数据合并 df1.append(df2)：将df2中的行添加到df1的尾部 df.concat([df1, df2],axis=1)：将df2中的列添加到df1的尾部 df1.join(df2,on=col1,how=’inner’)：对df1的列和df2的列执行SQL形式的join 数据统计 df.describe()：查看数据值列的汇总统计 df.mean()：返回所有列的均值 df.corr()：返回列与列之间的相关系数 df.count()：返回每一列中的非空值的个数 df.max()：返回每一列的最大值 df.min()：返回每一列的最小值 df.median()：返回每一列的中位数 df.std()：返回每一列的标准差]]></content>
+      <categories>
+        <category>编程语言</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sublime]]></title>
+    <url>%2F2017%2F08%2F31%2Fsublime%2F</url>
+    <content type="text"><![CDATA[快捷键 command + D 选中光标所在词，多次操作 command + L 选中整行 command + shift + L 先选中多行，再按快捷键，会在每行行尾有光标，同时编辑 ctrl + M 光标移动至括号首尾 command + 回车 在下行插入新行 command + shift + 回车 在上行插入新行 command + &lt;- 向左单位性的移动光标 command + -&gt; 向右快速移动光标 shift + 方向键 选中文本 command + shift + 方向键 单位性的选中文本 command + shift + d 复制当前行，插入到下一行 command + K + K 光标处删除至行尾（ctrl+k） ctrl + shift + K 删除整行 command + K + U 词转换为大写 command + K + L 转换为小写 ctrl + T 左右字母互换 command + alt + F 搜索+替换 ctrl + tab 切换标签页 command + K + B 开启/关闭侧边栏]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
+      <tags>
+        <tag>sublime</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[js]]></title>
+    <url>%2F2017%2F08%2F31%2Fjs%2F</url>
+    <content type="text"><![CDATA[基础语法 注释 行注释// 段注释/ / == 会自动转换类型，一致后再比较 === 不会自动转换类型，类型不一致返回false NaN 与所有值都不相等，包括自己 NaN === NaN; //false用isNaN()函数判断isNaN（NaN）; //true null：表示空的值（与python的None类似 ） undefined: 表示未定义，在判断函数参数是否传递的情况下有用 变量名：大小写英文、数字、$和_的组合]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git整理]]></title>
+    <url>%2F2017%2F08%2F30%2Fgit%E6%95%B4%E7%90%86%2F</url>
+    <content type="text"><![CDATA[基本操作 git checkout xxx.py 签出分支、特定文件等 git checkout origin/yangq4 git push origin test:master 提交本地分支test作为远程master分支 git branch 创建本地分支 git log –pretty=oneline 只显示提交版本号和内容 回退： git reset –hard HEAD ^ 回退到上个版本 git reset –hard 版本号 git reflog 查看版本号 git checkout –file 把文件在工作区做的修改撤销（未提交前，未放在暂存区的） git branch -d name 删除分支 有merge时，用-D git branch -m fix yangq4 分支重命名 git stash 当前工作现场隐藏 git stash list 工作现场查看 git stash apply 恢复（stash内容并不删除） git stash drop 删除文件 git stash pop 恢复发同时文件也删除 补充 commit类别 feat：新功能（feature） fix：修补bug docs：文档（documentation） style： 格式（不影响代码运行的变动） refactor：重构（即不是新增功能，也不是修改bug的代码变动） test：增加测试 chore：构建过程或辅助工具的变动 撤销上次推送 git reset –hard &lt;版本号&gt; git push origin &lt;分支名&gt; –force 问题 error: you need to resolve your current index first git reset –merge 套路 git pull git checkout origin/xuhf git checkout -b yangq4 (git merge origin/branch)]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo 基础操作]]></title>
+    <url>%2F2017%2F08%2F30%2Fhexo-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[第一次部署前提：安装node12345$ npm install hexo-cli -g #安装hexo$ hexo init blog$ cd blog$ npm install$ hexo server 启动本地服务localhost:4000关于配置]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux]]></title>
+    <url>%2F2017%2F08%2F24%2Flinux%2F</url>
+    <content type="text"><![CDATA[基础命令 uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4 w: 2 X: 1 改权限：chmod 777 file 都有读写、执行权限root 所属用户组 其他用户 chown 分主题整理pdsh: pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。 pdsh支持交互模式，当要执行的命令不确定时，可直接进入pdsh命令行 pdsh可以通过多种方式在远程主机上运行命令，默认是rsh方式，另外也支持ssh、mrsh、qsh、mqsh、krb4、xcpu等多种rcmd模块 -w host,host 指定远程主机，可以指定多个，每个主机用逗号隔开，host可以是主机名也可以是IP地址 -R 指定使用rcmd的模块名，默认是rsh -l 指定在远程主机上使用的用户名称 pdsp: 如果配置整个集群，要求所有的机器安装相同的软件，逐一拷贝效率较低，通常的做法是将所有要安装的软件拷贝到一台主机上，通过pdcp命令同步拷贝到其他机器上。 pdcp命令格式：pdcp [-参数] “源文件1” [源文件2…] 目标 参数-w：指定要拷贝文件的远程主机，多个主机用逗号隔开，可以是主机名也可以是IP地址 su 和 sudo su su：不指明用户名时，默认为root。su yangq4 su -:切换用户后同时切换到新用户的工作环境 以上，切换用户需知晓对应用户的登录密码 sudo su sudo su 中的su将以root身份被执行，并要求输入root的password ps aux 和 ps -ef 都是Linux显示系统进程的命令，区别：输出略有不同 ps -ef是标准的格式显示进程 UID //用户ID、但输出的是用户名 PID //进程的ID PPID //父进程ID C //进程占用CPU的百分比 STIME //进程启动到现在的时间 TTY //该进程在那个终端上运行，若与终端无关，则显示? 若为pts/0等，则表示由网络连接主机进程。 CMD //命令的名称和参数 ps aux是BSD的格式显示 USER //用户名 %CPU //进程占用的CPU百分比 %MEM //占用内存的百分比 VSZ //该进程使用的虚拟內存量（KB） RSS //该进程占用的固定內存量（KB）（驻留中页的数量) STAT //进程的状态 START //该进程被触发启动时间 TIME //该进程实际使用CPU运行的时间 其中STAT状态位常见的状态字符有 D &nbsp;&nbsp;//无法中断的休眠状态（通常 IO 的进程） R &nbsp;&nbsp;//正在运行可中在队列中可过行的； S &nbsp;&nbsp;//处于休眠状态； T &nbsp;&nbsp;//停止或被追踪； W &nbsp;&nbsp;//进入内存交换 （从内核2.6开始无效）； X &nbsp;&nbsp;//死掉的进程 （基本很少见）； Z &nbsp;&nbsp;//僵尸进程； &lt; &nbsp;&nbsp;//优先级高的进程 N &nbsp;&nbsp;//优先级较低的进程 L &nbsp;&nbsp;//有些页被锁进内存； s &nbsp;&nbsp;//进程的领导者（在它之下有子进程）； l &nbsp;&nbsp;//多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）； + &nbsp;&nbsp;//位于后台的进程组；]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[正则整理]]></title>
+    <url>%2F2017%2F08%2F24%2F%E6%AD%A3%E5%88%99%E6%95%B4%E7%90%86%2F</url>
+    <content type="text"><![CDATA[数字 ^[0-9]*$ 数字 ^\d{n}$ n位的数字 ^\d{n,}$ 至少n位的数字 ^\d{m,n}$ m~n位的数字 ^(0[1-9][0-9]*)$ 零和非零开头的数字]]></content>
+      <categories>
+        <category>正则表达式</category>
+      </categories>
+      <tags>
+        <tag>正则整理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mongo]]></title>
+    <url>%2F2017%2F08%2F24%2Fmongo%E6%95%B4%E7%90%86%2F</url>
+    <content type="text"><![CDATA[基础整理操作 mac安装 brew update brew install mongodb 启动 mongod mongo 关闭 ctrl+c mongo> use admin db> db.shutdownServer({force: true}) 修复： 删除mongo/mongod.lock mongod -f /etc/mongod.conf –repair 另一教程里的：mongod –repair –dbpath /mongodb/ –repairpath /mongodb/repair/ 语法update:1. false 如果不存在，不插入 2. true 查出来的记录都更新 运算符 $gt 大于 $lt 小于 $gte 大于等于 $lte 小于等于 样例: 大于0219小于03201&#123;$gt:&quot;2017-02-19&quot;, $lt:&quot;2017-03-20&quot;&#125; 降序排列，限制21db.Hacked.find(&#123;&quot;keyword&quot;: &quot;fghk&quot;&#125;).sort(&#123;sqlite_id: -1&#125;).limit(2) 查status字段值为“p”或“d”的1db.users.find(&#123;status: &#123;$in: [&quot;p&quot;, &quot;d&quot;]&#125;&#125; status为a, age小于30的1db.users.find(&#123;status: &quot;a&quot;, age:&#123;$lt:30&#125;&#125;) 数据备份语法 mongodump -h dbhost -d dbname -o dbdirectory -h：MongoDB所在服务器地址 -d：需要备份的数据库名 -o：备份的数据存放目录（此目录需要提前建立，默认会建立dump/） 数据恢复语法 mongorestore -h &lt;:port&gt; -d dbname –host &lt;:port&gt;, -h &lt;:port&gt;： 服务器地址，默认为： localhost:27017 –db , -d ： 需要恢复的数据库实例，例如：test，当然这个名称也可以和备份时候的不一样，比如test2 –drop： 恢复的时候，先删除当前数据，然后恢复备份的数据。就是说，恢复后，备份后添加修改的数据都会被删除，慎用哦！ \： 设置备份数据目录，例如：c:\data\dump\test。 不能同时指定 和 –dir 选项 –dir：指定备份的目录 不能同时指定 和 –dir 选项。]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mongo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[tmux]]></title>
+    <url>%2F2017%2F08%2F24%2Ftmux%2F</url>
+    <content type="text"><![CDATA[快捷键(command+a后)我的控制键为：Ctrl+a s：查看当前会话 w：显示当前会话的所有窗口 t：查看时间 ,：窗口重命名 o：选择pane，轮训选择，逆时针，也可方向键。 ;：last pane q：输入序号选择 !：使单独一个pane作为新的window 空格：更换pane排版 ctrl+o：按顺序移动pane位置 { ：往左、往上移动pane } ：往右、往下移动pane ：setw synchronize-panes(off)：同步所有窗口执行命令 复制模式：（需要添加配置） ctrl+a [ h、j、k、l 上下左右 alt + 上下箭头：一屏跳 空格：选择，回车完成复制到剪贴板 ctrl+a ] ：粘贴]]></content>
+      <categories>
+        <category>终端</category>
+      </categories>
+      <tags>
+        <tag>tmux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vim整理]]></title>
+    <url>%2F2017%2F08%2F23%2Fvim%E6%95%B4%E7%90%86%2F</url>
+    <content type="text"><![CDATA[小技巧 ctrl+z 退出vim编辑，返回终端，vim编辑在后台 jobs :显示当前环境下所有任务编号 fg:（fg NUM）进入vim编辑 进入粘贴模式 :set paste 开启新文件窗口: :tabnew . gt 跳转 :tabn可以加数字 :tabp command+f,弹出查找模式， 输入，tab,查找窗口自动变化内容，并将其复制。 shift+tab,将自动查找内容左边的选中并复制 注释： V 选择模式，选中: normal i # 取消注释：V选择，d ：e! 放弃更改（=重新打开） 快捷键 最大化、最小化：command+shift 移到行尾 $ (shift+4） 移到行首 ^(shift+6)和0 0是整段的跳转，6是行跳转 前一单词：b、B 后一单词：w、W ；词尾：e、E 屏幕顶：H 屏幕底：L 向右移动一格：空格 整页翻页 ctrl-f ctrl-b f就是forword b就是backward 翻半页 ctrl-d ctlr-u d=down u=up 滚一行 ctrl-e ctrl-y zz 让光标所杂的行居屏幕中央 zt 让光标所杂的行居屏幕最上一行 t=top zb 让光标所杂的行居屏幕最下一行 b=bottom 删除后一字符：x 删除前一字符：X 3X 删除换行符：J nJ：连接后面n行 U：撤销当前行的所有修改 A：行末插入 >&gt;：整行向右移动（3&gt;&gt;：下面3行包括自己，向右移） :20,30&gt;&gt;：把20到30行向右移动 %：移动到与之匹配的括号上去 ，逗号：移动到上次的修改处 +：移动到下一行的行首 -：上一行 异常 vim之不能复制 启动了鼠标，鼠标相应了vim的选中，不是终端的选中，被vim截获了操作“图片” {ImgCap}{/ImgCap}]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
+      <tags>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Markdown基础语法]]></title>
+    <url>%2F2017%2F08%2F20%2FMarkdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[标题# 一级标题 ## 二级标题 ### 三级标题 总共六级标题列表 无序标题：- 、+ 或 * 有序标题：1. 2. 3.（数字+英文句点） 引用 引用：在文本前加入 &gt; 尖括号（大于号） 图片与链接图片为：{ImgCap}{/ImgCap} 一个惊叹号 ! 一个方括号，里面放上图片的替代文字 一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上 选择性的 ‘title’ 文字。 链接为：方括号包起来强调：斜体、粗体 斜体： 一个 * 包含 粗体： 两个 * 包含 如果你的 * 和 _ 两边都有空白的话，它们就只会被当成普通的符号表格 table 1 2 1 2 3 4 5 6 代码两个 ` 把中间的代码包裹起来print(hello markdown) 代码区块1. 缩进4个空格 2. 1个制表符 一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）分割线* * * *** ***** - - - -------- 实例： 反斜杠Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。]]></content>
+      <categories>
+        <category>language</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+</search>
