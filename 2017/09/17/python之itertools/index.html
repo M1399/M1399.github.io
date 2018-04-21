@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yangq blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="python的内建模块itertools：提供了一些用于操作迭代对象的函数“无限”迭代器&amp;gt;&amp;gt;&amp;gt; import itertools  count（）：会创建一个无限迭代器&amp;gt;&amp;gt;&amp;gt; natuals = itertools.count(1) &amp;gt;&amp;gt;&amp;gt; for n in natuals: ...     print n 1 2 3 ... cycle():">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="itertools">
+<meta property="og:url" content="http://www.yangqingwt.top/2017/09/17/python之itertools/index.html">
+<meta property="og:site_name" content="Yangq blog">
+<meta property="og:description" content="python的内建模块itertools：提供了一些用于操作迭代对象的函数“无限”迭代器&amp;gt;&amp;gt;&amp;gt; import itertools  count（）：会创建一个无限迭代器&amp;gt;&amp;gt;&amp;gt; natuals = itertools.count(1) &amp;gt;&amp;gt;&amp;gt; for n in natuals: ...     print n 1 2 3 ... cycle():">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-20T15:06:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="itertools">
+<meta name="twitter:description" content="python的内建模块itertools：提供了一些用于操作迭代对象的函数“无限”迭代器&amp;gt;&amp;gt;&amp;gt; import itertools  count（）：会创建一个无限迭代器&amp;gt;&amp;gt;&amp;gt; natuals = itertools.count(1) &amp;gt;&amp;gt;&amp;gt; for n in natuals: ...     print n 1 2 3 ... cycle():">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangqingwt.top/2017/09/17/python之itertools/"/>
+
+
+
+
+
+  <title>itertools | Yangq blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3e7656215799067b8d6253d74e25a223";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+
+  <div class="container  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yangq blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">My First、Study、Summary、Insist and Efforts</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/17/python之itertools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yangq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/pic.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangq blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">itertools</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T17:26:27+08:00">
+                2017-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="python的内建模块itertools：提供了一些用于操作迭代对象的函数"><a href="#python的内建模块itertools：提供了一些用于操作迭代对象的函数" class="headerlink" title="python的内建模块itertools：提供了一些用于操作迭代对象的函数"></a>python的内建模块itertools：提供了一些用于操作迭代对象的函数</h2><h3 id="“无限”迭代器"><a href="#“无限”迭代器" class="headerlink" title="“无限”迭代器"></a>“无限”迭代器</h3><pre><code>&gt;&gt;&gt; import itertools 
+</code></pre><h4 id="count（）：会创建一个无限迭代器"><a href="#count（）：会创建一个无限迭代器" class="headerlink" title="count（）：会创建一个无限迭代器"></a>count（）：会创建一个无限迭代器</h4><pre><code>&gt;&gt;&gt; natuals = itertools.count(1)
+&gt;&gt;&gt; for n in natuals:
+...     print n
+1
+2
+3
+...
+</code></pre><h4 id="cycle-会把传入的序列无限重复下去"><a href="#cycle-会把传入的序列无限重复下去" class="headerlink" title="cycle(): 会把传入的序列无限重复下去"></a>cycle(): 会把传入的序列无限重复下去</h4><a id="more"></a>
+<pre><code>&gt;&gt;&gt; cs = itertools.cycle(&quot;abc&quot;)
+&gt;&gt;&gt; for c in cs:
+...        print c
+...
+&apos;a&apos;
+&apos;b&apos;
+&apos;c&apos;
+&apos;a&apos;
+...
+</code></pre><h4 id="repeat-把一个元素无限重复，第二个参数可以限定重复额次数"><a href="#repeat-把一个元素无限重复，第二个参数可以限定重复额次数" class="headerlink" title="repeat() 把一个元素无限重复，第二个参数可以限定重复额次数"></a>repeat() 把一个元素无限重复，第二个参数可以限定重复额次数</h4><pre><code>&gt;&gt;&gt; ns = itertools.repeat(&apos;a&apos;, 10)
+&gt;&gt;&gt; for n in ns:
+...        print n
+...打印10次&apos;a&apos;
+</code></pre><h3 id="迭代器操作函数"><a href="#迭代器操作函数" class="headerlink" title="迭代器操作函数"></a>迭代器操作函数</h3><h4 id="chain（）：把一组迭代对象串联起来，形成大的迭代器"><a href="#chain（）：把一组迭代对象串联起来，形成大的迭代器" class="headerlink" title="chain（）：把一组迭代对象串联起来，形成大的迭代器"></a>chain（）：把一组迭代对象串联起来，形成大的迭代器</h4><pre><code>&gt;&gt;&gt; for c in itertools.chain(&apos;abc&apos;, &apos;def&apos;):
+...        print c
+...
+&apos;a&apos;
+&apos;b&apos;
+&apos;c&apos;
+&apos;d&apos;
+&apos;e&apos;
+&apos;f&apos;
+</code></pre><h4 id="groupby-把迭代器中相邻的重复元素挑出来放在一起"><a href="#groupby-把迭代器中相邻的重复元素挑出来放在一起" class="headerlink" title="groupby(): 把迭代器中相邻的重复元素挑出来放在一起"></a>groupby(): 把迭代器中相邻的重复元素挑出来放在一起</h4><pre><code>&gt;&gt;&gt; for key, group in itertools.groupby(&apos;aabbcccaa&apos;):
+...     print key, list(group)
+...
+a [&apos;a&apos;, &apos;a&apos;]
+b [&apos;b&apos;, &apos;b&apos;]
+c [&apos;c&apos;, &apos;c&apos;, &apos;c&apos;]
+a [&apos;a&apos;, &apos;a&apos;]
+</code></pre><ul>
+<li><p>可以添加调选规则</p>
+<pre><code>让‘A’和‘a’都返回相同的key：
+&gt;&gt;&gt; for key, group in itertools.groupby(&apos;AaaBBbcCaAa&apos;, lambda c: c.upper()):
+...     print key, list(group)
+...
+A [&apos;A&apos;, &apos;a&apos;, &apos;a&apos;]
+B [&apos;B&apos;, &apos;B&apos;, &apos;b&apos;]
+C [&apos;c&apos;, &apos;C&apos;]
+A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;]
+</code></pre><h4 id="imap-可以作用与无穷序列，如果两个序列长度不一致，以短的为准"><a href="#imap-可以作用与无穷序列，如果两个序列长度不一致，以短的为准" class="headerlink" title="imap(): 可以作用与无穷序列，如果两个序列长度不一致，以短的为准"></a>imap(): 可以作用与无穷序列，如果两个序列长度不一致，以短的为准</h4><pre><code>&gt;&gt;&gt; for x in itertools.imap(lambda x, y: x * y, [10, 20, 30], itertools.count(1)):
+...     print x
+...
+10
+40
+90    
+</code></pre></li>
+<li>imap()返回一个迭代对象，必须用for循环进行迭代，才会在循环中计算出下一个元素</li>
+<li><p>map() 返回list，调用它试，已经计算完毕</p>
+<pre><code>&gt;&gt;&gt; r = map(lambda x: x*x, [1, 2, 3])
+&gt;&gt;&gt; r         # r已经计算出来了
+[1, 4, 9]
+</code></pre></li>
+<li>imap()实现了“惰性计算”，只在需要获得结果时才计算<h4 id="ifilter-fileter的惰性实现"><a href="#ifilter-fileter的惰性实现" class="headerlink" title="ifilter: fileter的惰性实现"></a>ifilter: fileter的惰性实现</h4></li>
+</ul>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li>itertools提供的全是处理迭代功能的函数，返回值是迭代对象，只有用for循环迭代试才真正计算        </li>
+</ul>
+<p><br><br><br><br>参考资源：<a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001415616001996f6b32d80b6454caca3d33c965a07611f000" target="_blank" rel="external">https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001415616001996f6b32d80b6454caca3d33c965a07611f000</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>添加个小功能~(๑•̀ㅂ•́)و✧</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="yangq WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="yangq Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/16/nginx/" rel="next" title="nginx">
+                <i class="fa fa-chevron-left"></i> nginx
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/17/BeautifulSoup/" rel="prev" title="BeautifulSoup">
+                BeautifulSoup <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/img/pic.jpeg"
+               alt="yangq" />
+          <p class="site-author-name" itemprop="name">yangq</p>
+           
+              <p class="site-description motion-element" itemprop="description">python linux more</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      豆瓣
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#python的内建模块itertools：提供了一些用于操作迭代对象的函数"><span class="nav-number">1.</span> <span class="nav-text">python的内建模块itertools：提供了一些用于操作迭代对象的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#“无限”迭代器"><span class="nav-number">1.1.</span> <span class="nav-text">“无限”迭代器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#count（）：会创建一个无限迭代器"><span class="nav-number">1.1.1.</span> <span class="nav-text">count（）：会创建一个无限迭代器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cycle-会把传入的序列无限重复下去"><span class="nav-number">1.1.2.</span> <span class="nav-text">cycle(): 会把传入的序列无限重复下去</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#repeat-把一个元素无限重复，第二个参数可以限定重复额次数"><span class="nav-number">1.1.3.</span> <span class="nav-text">repeat() 把一个元素无限重复，第二个参数可以限定重复额次数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器操作函数"><span class="nav-number">1.2.</span> <span class="nav-text">迭代器操作函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#chain（）：把一组迭代对象串联起来，形成大的迭代器"><span class="nav-number">1.2.1.</span> <span class="nav-text">chain（）：把一组迭代对象串联起来，形成大的迭代器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#groupby-把迭代器中相邻的重复元素挑出来放在一起"><span class="nav-number">1.2.2.</span> <span class="nav-text">groupby(): 把迭代器中相邻的重复元素挑出来放在一起</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#imap-可以作用与无穷序列，如果两个序列长度不一致，以短的为准"><span class="nav-number">1.2.3.</span> <span class="nav-text">imap(): 可以作用与无穷序列，如果两个序列长度不一致，以短的为准</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ifilter-fileter的惰性实现"><span class="nav-number">1.2.4.</span> <span class="nav-text">ifilter: fileter的惰性实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结："><span class="nav-number">1.3.</span> <span class="nav-text">总结：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yangq</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Mist
+    </a>
+  </div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

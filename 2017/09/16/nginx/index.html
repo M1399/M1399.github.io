@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Yangq blog">
 <meta property="og:description" content="什么是nginxnginx是服务器软件 功能：  可以与服务器硬件结构，将程序放在nginx服务器上，将程序发布出去 作用： 高性能的HTTP：发布网站 反向代理服务器：实现负载均衡 代理邮件服务器：收发邮件   优点： 高并发、部署简单、内存消耗少、成本低   缺点： rewrite功能不够强大 模块没有Apache多">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-20T15:09:16.000Z">
+<meta property="og:updated_time" content="2018-04-21T08:54:26.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx">
 <meta name="twitter:description" content="什么是nginxnginx是服务器软件 功能：  可以与服务器硬件结构，将程序放在nginx服务器上，将程序发布出去 作用： 高性能的HTTP：发布网站 反向代理服务器：实现负载均衡 代理邮件服务器：收发邮件   优点： 高并发、部署简单、内存消耗少、成本低   缺点： rewrite功能不够强大 模块没有Apache多">
@@ -438,9 +438,38 @@
 </ul>
 <h3 id="在Linux安装nginx服务器"><a href="#在Linux安装nginx服务器" class="headerlink" title="在Linux安装nginx服务器"></a>在Linux安装nginx服务器</h3><ul>
 <li>进入终端</li>
-<li>安装nginx</li>
+<li><p>安装nginx</p>
+<ol>
+<li><p>下载nginx安装包：</p>
+<pre><code>wget http://nginx.org/download/nginx-1.6.2.tar.gz 
+</code></pre></li>
+<li><p>解压：</p>
+<pre><code>tar zxvf nginx-1.6.2
+cd nginx-1.6.2
+</code></pre></li>
+<li><p>编译：</p>
+<p> make<br> make install</p>
+</li>
+</ol>
+</li>
+<li><p>运行：</p>
+<pre><code>/usr/local/bin/nginx
+</code></pre><ul>
+<li>-s reload 重新载入配置文件</li>
+<li>-s reopen 重启nginx</li>
+<li>-s stop 停止nginx</li>
 </ul>
-
+</li>
+<li><p>路径:</p>
+<ul>
+<li>配置所在路径：usr/local/etc/nginx</li>
+<li>运行程序所在路径：/usr/local/bin</li>
+</ul>
+</li>
+<li><p>配置:</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">user yangq4 staff; </div><div class="line">	# 启动进程，通常设置成和CPU的数量相等</div><div class="line">worker_processes  1;</div><div class="line"></div><div class="line">	# 全局错误日志</div><div class="line">	# error_log  logs/error.log;</div><div class="line">	# error_log  logs/error.log  notice;</div><div class="line">	# error_log  logs/error.log  info;</div><div class="line">	</div><div class="line">	# 记录当前启动的NGINX的进程ID</div><div class="line">	# pid        logs/nginx.pid;</div><div class="line"></div><div class="line">	# 工作模式及连接数上限</div><div class="line">events &#123;</div><div class="line">    worker_connections  1024;   # 单个后台进程的最大并发链接数</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">http &#123;</div><div class="line">    include       mime.types;</div><div class="line">    default_type  application/octet-stream;</div><div class="line"></div><div class="line">    log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</div><div class="line">                      &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</div><div class="line">                      &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</div><div class="line"></div><div class="line">	# access_log  logs/access.log  main;</div><div class="line">    rewrite_log  on;</div><div class="line"></div><div class="line">    sendfile        on;</div><div class="line"></div><div class="line">    keepalive_timeout  120;</div><div class="line">    tcp_nopush     on;</div><div class="line"></div><div class="line">    #gzip  on;</div><div class="line"></div><div class="line">    # 设定实际的服务器列表</div><div class="line">    upstream zp_server1&#123;</div><div class="line">        server 127.0.0.1:8090;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    # HTTP服务器</div><div class="line">    server &#123;</div><div class="line">        listen       80;</div><div class="line">        server_name  www.yangq4_test.com;</div><div class="line"></div><div class="line">        #charset koi8-r;</div><div class="line"></div><div class="line">        #access_log  logs/host.access.log  main;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">            # root   /Users/boleng/Desktop/W3E/src/frontend;</div><div class="line">            root   /Users/yangqing/Desktop/test/api.py;</div><div class="line">            index  index.html index.html;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        charset utf-8;</div><div class="line"></div><div class="line">		# 代理配置参数</div><div class="line">        proxy_connect_timeout 180;</div><div class="line">        proxy_send_timeout 180;</div><div class="line">        proxy_read_timeout 180;</div><div class="line">        proxy_set_header Host $host;</div><div class="line">        proxy_set_header X-Forwarder-For $remote_addr;</div><div class="line"></div><div class="line">        #error_page  404              /404.html;</div><div class="line"></div><div class="line">        # redirect server error pages to the static page /50x.html</div><div class="line">        #</div><div class="line">        error_page   500 502 503 504  /50x.html;</div><div class="line">        location = /50x.html &#123;</div><div class="line">            root   html;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -509,7 +538,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/17/itertools/" rel="prev" title="itertools">
+              <a href="/2017/09/17/python之itertools/" rel="prev" title="itertools">
                 itertools <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -588,7 +617,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -599,7 +628,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -610,7 +639,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -709,8 +738,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

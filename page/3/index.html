@@ -314,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/31/js/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/17/python之itertools/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -333,7 +333,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/31/js/" itemprop="url">js</a></h1>
+                <a class="post-title-link" href="/2017/09/17/python之itertools/" itemprop="url">itertools</a></h1>
         
 
         <div class="post-meta">
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-31T10:39:00+08:00">
-                2017-08-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T17:26:27+08:00">
+                2017-09-17
               </time>
             
 
@@ -368,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -406,21 +406,18 @@
 
       
         
-          <h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><ul>
-<li>注释 行注释//  段注释/<em> </em>/</li>
-<li>== 会自动转换类型，一致后再比较</li>
-<li>=== 不会自动转换类型，类型不一致返回false</li>
-<li>NaN 与所有值都不相等，包括自己<blockquote>
-<p>NaN === NaN; //false<br>用isNaN()函数判断<br>isNaN（NaN）; //true</p>
-</blockquote>
-</li>
-<li>null：表示空的值（与python的None类似 ）</li>
-<li>undefined: 表示未定义，在判断函数参数是否传递的情况下有用</li>
-<li>变量名：大小写英文、数字、$和_的组合</li>
-</ul>
+          <h2 id="python的内建模块itertools：提供了一些用于操作迭代对象的函数"><a href="#python的内建模块itertools：提供了一些用于操作迭代对象的函数" class="headerlink" title="python的内建模块itertools：提供了一些用于操作迭代对象的函数"></a>python的内建模块itertools：提供了一些用于操作迭代对象的函数</h2><h3 id="“无限”迭代器"><a href="#“无限”迭代器" class="headerlink" title="“无限”迭代器"></a>“无限”迭代器</h3><pre><code>&gt;&gt;&gt; import itertools 
+</code></pre><h4 id="count（）：会创建一个无限迭代器"><a href="#count（）：会创建一个无限迭代器" class="headerlink" title="count（）：会创建一个无限迭代器"></a>count（）：会创建一个无限迭代器</h4><pre><code>&gt;&gt;&gt; natuals = itertools.count(1)
+&gt;&gt;&gt; for n in natuals:
+...     print n
+1
+2
+3
+...
+</code></pre><h4 id="cycle-会把传入的序列无限重复下去"><a href="#cycle-会把传入的序列无限重复下去" class="headerlink" title="cycle(): 会把传入的序列无限重复下去"></a>cycle(): 会把传入的序列无限重复下去</h4>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/08/31/js/#more" rel="contents">
+            <a class="btn" href="/2017/09/17/python之itertools/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -471,7 +468,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/30/git整理/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/16/nginx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -490,7 +487,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/30/git整理/" itemprop="url">git整理</a></h1>
+                <a class="post-title-link" href="/2017/09/16/nginx/" itemprop="url">nginx</a></h1>
         
 
         <div class="post-meta">
@@ -502,8 +499,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-30T22:19:56+08:00">
-                2017-08-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-16T16:09:58+08:00">
+                2017-09-16
               </time>
             
 
@@ -525,8 +522,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">tools</span>
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
                   </a>
                 </span>
 
@@ -563,23 +560,29 @@
 
       
         
-          <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><ul>
-<li>git checkout xxx.py 签出分支、特定文件等<ul>
-<li>git checkout origin/yangq4</li>
+          <h2 id="什么是nginx"><a href="#什么是nginx" class="headerlink" title="什么是nginx"></a>什么是nginx</h2><p>nginx是服务器软件</p>
+<p>功能：</p>
+<ul>
+<li>可以与服务器硬件结构，将程序放在nginx服务器上，将程序发布出去</li>
+<li>作用：<ul>
+<li>高性能的HTTP：发布网站</li>
+<li>反向代理服务器：实现负载均衡</li>
+<li>代理邮件服务器：收发邮件</li>
 </ul>
 </li>
-<li>git push origin test:master 提交本地分支test作为远程master分支</li>
-<li>git branch 创建本地分支</li>
-<li>git log –pretty=oneline 只显示提交版本号和内容<img src="/img/git/git_log.png" alt="图"></li>
-<li>回退：<ol>
-<li>git reset –hard HEAD ^ 回退到上个版本</li>
-<li>git reset –hard 版本号</li>
-</ol>
+<li>优点：<ul>
+<li>高并发、部署简单、内存消耗少、成本低</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>rewrite功能不够强大</li>
+<li>模块没有Apache多</li>
+</ul>
 </li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/08/30/git整理/#more" rel="contents">
+            <a class="btn" href="/2017/09/16/nginx/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -630,7 +633,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/30/hexo-基础操作/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/13/python之编码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -649,7 +652,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/30/hexo-基础操作/" itemprop="url">hexo 基础操作</a></h1>
+                <a class="post-title-link" href="/2017/09/13/python之编码/" itemprop="url">python之编码</a></h1>
         
 
         <div class="post-meta">
@@ -661,8 +664,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-30T22:19:56+08:00">
-                2017-08-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T16:26:57+08:00">
+                2017-09-13
               </time>
             
 
@@ -684,8 +687,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -722,165 +725,25 @@
 
       
         
-          <h2 id="第一次部署"><a href="#第一次部署" class="headerlink" title="第一次部署"></a>第一次部署</h2><h3 id="前提：安装node"><a href="#前提：安装node" class="headerlink" title="前提：安装node"></a>前提：安装node</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g  <span class="comment">#安装hexo</span></div><div class="line">$ hexo init blog</div><div class="line">$ <span class="built_in">cd</span> blog</div><div class="line">$ npm install</div><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/30/hexo-基础操作/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/24/linux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yangq">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/pic.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yangq blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/24/linux/" itemprop="url">linux</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T23:50:33+08:00">
-                2017-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h2><ul>
-<li>uname: 显示内核类别 -a 显示详细</li>
-<li>touch：创建不存在的文件（文件存在会更新时间戳）</li>
-<li><p>chmod: R: 4   w: 2   X: 1</p>
+          <h2 id="decode-和-encode"><a href="#decode-和-encode" class="headerlink" title="decode 和 encode"></a>decode 和 encode</h2><p> 字符串在Python内部的表示是unicode编码，因此，在做编码转换时，通常需要以unicode作为中间编码，即：先将其他编码的字符串解码（decode）成unicode，再从unicode编码（encode）成另一种编码。</p>
+<ul>
+<li><p>decode: 将其他编码的字符解码成Unicode编码</p>
 <blockquote>
-<p>改权限：chmod 777 file 都有读写、执行权限<br>root 所属用户组 其他用户</p>
+<p>strs.decode(‘gb2312’) 将gb2312编码的字符串strs转换成Unicode</p>
 </blockquote>
 </li>
-<li>chown</li>
+<li><p>encode：将Unicode编码转换成其他编码的字符串</p>
+<blockquote>
+<p>strs.encode(‘gb2312’) 将Unicode编码的字符串strs转换成gb2312编码</p>
+<ul>
+<li>非Unicode编码的strs字符串encode会报错</li>
+</ul>
+</blockquote>
+</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/08/24/linux/#more" rel="contents">
+            <a class="btn" href="/2017/09/13/python之编码/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -931,7 +794,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/08/24/正则整理/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/13/python之pdb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -950,7 +813,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/24/正则整理/" itemprop="url">正则整理</a></h1>
+                <a class="post-title-link" href="/2017/09/13/python之pdb/" itemprop="url">调试</a></h1>
         
 
         <div class="post-meta">
@@ -962,8 +825,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T23:49:46+08:00">
-                2017-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T16:01:54+08:00">
+                2017-09-13
               </time>
             
 
@@ -985,8 +848,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/正则表达式/" itemprop="url" rel="index">
-                    <span itemprop="name">正则表达式</span>
+                  <a href="/categories/调试/" itemprop="url" rel="index">
+                    <span itemprop="name">调试</span>
                   </a>
                 </span>
 
@@ -1023,16 +886,183 @@
 
       
         
-          <h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><ul>
-<li>^[0-9]*$ 数字</li>
-<li>^\d{n}$ n位的数字</li>
-<li>^\d{n,}$ 至少n位的数字</li>
-<li>^\d{m,n}$ m~n位的数字</li>
-<li>^(0[1-9][0-9]*)$ 零和非零开头的数字</li>
+          <h2 id="从脚本内部运行"><a href="#从脚本内部运行" class="headerlink" title="从脚本内部运行"></a>从脚本内部运行</h2><h3 id="引入pdb模块"><a href="#引入pdb模块" class="headerlink" title="引入pdb模块"></a>引入pdb模块</h3><blockquote>
+<p>import pdb</p>
+<p>pdb.set_trace()</p>
+</blockquote>
+<h3 id="命令列表"><a href="#命令列表" class="headerlink" title="命令列表"></a>命令列表</h3><ul>
+<li>b / break: 设置断点</li>
+<li>c / continue: 继续执行程序</li>
+<li>l / list: 查看当前的代码段</li>
+<li>s / step: 进入函数</li>
+<li>r / return: 执行代码直到从当前函数返回</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/08/24/正则整理/#more" rel="contents">
+            <a class="btn" href="/2017/09/13/python之pdb/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/06/电脑配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yangq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/pic.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangq blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/06/电脑配置/" itemprop="url">电脑配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-06T21:48:27+08:00">
+                2017-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>看图吧先<br><img src="/img/电脑配置/center.png" alt=""></p>
+<ol>
+<li>CPU（处理器）<ul>
+<li>inter：酷睿i3、酷睿i5、酷睿i7<ul>
+<li>i5 5200U：中端处理器，第五代，编号200<img src="/img/电脑配置/computer.png" alt=""></li>
+</ul>
+</li>
+<li>ADM</li>
+<li>概述：<ul>
+<li>i3：普通办公</li>
+<li>i5：玩网游</li>
+<li>i7：性能好，价格高。同时高耗能造成高发热</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>内存：可以自己更换（少数，如Mac、Surface等超薄的，内存条焊在主板上，无法自己更换）</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/06/电脑配置/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1074,7 +1104,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1120,7 +1150,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1131,7 +1161,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1142,7 +1172,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1225,8 +1255,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

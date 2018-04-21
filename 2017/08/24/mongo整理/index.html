@@ -117,7 +117,7 @@
 <meta property="og:description" content="基础整理操作 mac安装 brew update brew install mongodb   启动 mongod mongo   关闭 ctrl+c mongo&amp;gt; use admin db&amp;gt; db.shutdownServer({force: true})">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.yangqingwt.top/img/mongo/mongo_close.png">
-<meta property="og:updated_time" content="2017-09-20T15:08:13.000Z">
+<meta property="og:updated_time" content="2017-11-24T02:57:36.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mongo">
 <meta name="twitter:description" content="基础整理操作 mac安装 brew update brew install mongodb   启动 mongod mongo   关闭 ctrl+c mongo&amp;gt; use admin db&amp;gt; db.shutdownServer({force: true})">
@@ -479,6 +479,15 @@
 </ul>
 </li>
 </ul>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="我的配置文件在-usr-local-opt-mongo-bin-mongod-conf-不知道配置文件在哪，可以用locate-mongod查找"><a href="#我的配置文件在-usr-local-opt-mongo-bin-mongod-conf-不知道配置文件在哪，可以用locate-mongod查找" class="headerlink" title="我的配置文件在/usr/local/opt/mongo/bin/mongod.conf(不知道配置文件在哪，可以用locate mongod查找)"></a>我的配置文件在/usr/local/opt/mongo/bin/mongod.conf(不知道配置文件在哪，可以用locate mongod查找)</h4><ul>
+<li><p>bind_ip = 127.0.0.1 mongodb绑定IP地址，只能本地访问数据库，不能指定默认本地所有IP</p>
+</li>
+<li><p>使配置生效：</p>
+<blockquote>
+<p>mongod –fork –config mongod.conf      </p>
+</blockquote>
+</li>
+</ul>
 
       
     </div>
@@ -627,7 +636,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -638,7 +647,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -649,7 +658,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -726,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础整理"><span class="nav-number">1.</span> <span class="nav-text">基础整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作"><span class="nav-number">1.1.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">1.2.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#update"><span class="nav-number">1.2.1.</span> <span class="nav-text">update:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符"><span class="nav-number">1.2.2.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#样例"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">样例:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据备份"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据备份</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-1"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据恢复"><span class="nav-number">1.2.4.</span> <span class="nav-text">数据恢复</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-2"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">语法</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础整理"><span class="nav-number">1.</span> <span class="nav-text">基础整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作"><span class="nav-number">1.1.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">1.2.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#update"><span class="nav-number">1.2.1.</span> <span class="nav-text">update:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符"><span class="nav-number">1.2.2.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#样例"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">样例:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据备份"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据备份</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-1"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据恢复"><span class="nav-number">1.2.4.</span> <span class="nav-text">数据恢复</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-2"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.2.5.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#我的配置文件在-usr-local-opt-mongo-bin-mongod-conf-不知道配置文件在哪，可以用locate-mongod查找"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">我的配置文件在/usr/local/opt/mongo/bin/mongod.conf(不知道配置文件在哪，可以用locate mongod查找)</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -748,8 +757,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

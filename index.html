@@ -314,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/17/scrapy/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2018/04/21/uWSGI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -333,7 +333,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/17/scrapy/" itemprop="url">scrapy</a></h1>
+                <a class="post-title-link" href="/2018/04/21/uWSGI/" itemprop="url">uWSGI</a></h1>
         
 
         <div class="post-meta">
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T21:54:38+08:00">
-                2017-09-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-21T17:01:38+08:00">
+                2018-04-21
               </time>
             
 
@@ -368,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/爬虫/" itemprop="url" rel="index">
-                    <span itemprop="name">爬虫</span>
+                  <a href="/categories/服务器/" itemprop="url" rel="index">
+                    <span itemprop="name">服务器</span>
                   </a>
                 </span>
 
@@ -406,159 +406,18 @@
 
       
         
-          
-            <a id="more"></a>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/17/BeautifulSoup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yangq">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/pic.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yangq blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/17/BeautifulSoup/" itemprop="url">BeautifulSoup</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T21:00:53+08:00">
-                2017-09-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/爬虫/" itemprop="url" rel="index">
-                    <span itemprop="name">爬虫</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install beautifulsoup4
-</code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
-<li><p>导入    </p>
-<p>  from bs4 import beautifulsoup</p>
-</li>
-<li><p>创建一个字符串    </p>
+          <h1 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h1><ul>
+<li>WSGI：一种描述web server如何与web application通信的规范，当前运行在WSGI协议之上的web框架有Bottle、Flask、Django。</li>
+<li>uwsgi: uWSGI服务器的独占协议，用于定义传输信息的类型，每一个uwsgi packet前4byte为传输信息类型的描述。该协议是fcgi协议的10倍快。</li>
+<li>uWSGI：web服务器，实现了WSGI协议、uwsgi协议、http协议等。<ul>
+<li>超快性能、低内存占用、多app管理、详尽的日志功能、高度可定制</li>
+<li>uWSGI自己实现了基于uwsgi协议的server部分，只需在uwsgi的配置中指定application地址，uWSGI就能直接和应用框架中的WSGI application通信</li>
+</ul>
 </li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/09/17/BeautifulSoup/#more" rel="contents">
+            <a class="btn" href="/2018/04/21/uWSGI/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -609,7 +468,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/17/itertools/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/10/23/黑产资源收集/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -628,7 +487,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/17/itertools/" itemprop="url">itertools</a></h1>
+                <a class="post-title-link" href="/2017/10/23/黑产资源收集/" itemprop="url">黑产资源收集</a></h1>
         
 
         <div class="post-meta">
@@ -640,8 +499,140 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T17:26:27+08:00">
-                2017-09-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-23T17:40:24+08:00">
+                2017-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="黑产"><a href="#黑产" class="headerlink" title="黑产"></a>黑产</h1><h2 id="收集目标为三大类：打码接码平台、云控群控平台、套现中介。"><a href="#收集目标为三大类：打码接码平台、云控群控平台、套现中介。" class="headerlink" title="收集目标为三大类：打码接码平台、云控群控平台、套现中介。"></a>收集目标为三大类：打码接码平台、云控群控平台、套现中介。</h2><h3 id="打码、接码"><a href="#打码、接码" class="headerlink" title="打码、接码"></a>打码、接码</h3><h4 id="打码"><a href="#打码" class="headerlink" title="打码"></a>打码</h4><ul>
+<li><p>打码平台，就是打验证码。很多软件需要输入验证码后才能登陆。</p>
+</li>
+<li><p>程序将验证码传给打码平台的识别接口，打码平台将验证码发给后端的“打码工”进行识别，并获取识别结果。这样基于此类的人工打码平台，即可实现程序的自动化。</p>
+</li>
+<li><p>例子：羊毛党要去某网站刷活动优惠券，但该网站有较复杂的图像验证码。通常羊毛党会在打码平台注册账号并充值，并通过打码平台提供的api接口，提交验证码识别。打码平台将验证码分发到各个佣工的客户端里，获取佣工的识别结果，并最终反馈给羊毛党。</p>
+</li>
+<li>打码平台普通的四位验证码0.6~1分钱，语音平台一元一条，接码0.1一条</li>
+</ul>
+<h4 id="接码平台"><a href="#接码平台" class="headerlink" title="接码平台"></a>接码平台</h4><ul>
+<li>接码平台就是接受验证码。当注册某平台，不想用自己手机号或者自己手机号已经用过了，就可以利用接码平台，获取验证码，进行注册。</li>
+<li>接码平台，提供大量的手机号，并能够发送和接收短信。只需调用手机打码平台相关接口，获取手机号并获取短信内容即可进行批量注册。</li>
+</ul>
+<h3 id="云控、群控"><a href="#云控、群控" class="headerlink" title="云控、群控"></a>云控、群控</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/10/23/python之map、filter、reduce/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yangq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/pic.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangq blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/23/python之map、filter、reduce/" itemprop="url">python之map、filter、reduce</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-23T16:11:57+08:00">
+                2017-10-23
               </time>
             
 
@@ -701,18 +692,14 @@
 
       
         
-          <h2 id="python的内建模块itertools：提供了一些用于操作迭代对象的函数"><a href="#python的内建模块itertools：提供了一些用于操作迭代对象的函数" class="headerlink" title="python的内建模块itertools：提供了一些用于操作迭代对象的函数"></a>python的内建模块itertools：提供了一些用于操作迭代对象的函数</h2><h3 id="“无限”迭代器"><a href="#“无限”迭代器" class="headerlink" title="“无限”迭代器"></a>“无限”迭代器</h3><pre><code>&gt;&gt;&gt; import itertools 
-</code></pre><h4 id="count（）：会创建一个无限迭代器"><a href="#count（）：会创建一个无限迭代器" class="headerlink" title="count（）：会创建一个无限迭代器"></a>count（）：会创建一个无限迭代器</h4><pre><code>&gt;&gt;&gt; natuals = itertools.count(1)
-&gt;&gt;&gt; for n in natuals:
-...     print n
-1
-2
-3
-...
-</code></pre><h4 id="cycle-会把传入的序列无限重复下去"><a href="#cycle-会把传入的序列无限重复下去" class="headerlink" title="cycle(): 会把传入的序列无限重复下去"></a>cycle(): 会把传入的序列无限重复下去</h4>
+          <h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><ul>
+<li>Map会将一个函数映射到一个输入列表的所有元素上</li>
+<li>规范：map(function_to_apply, list_of_imputs)</li>
+<li>把列表中所有元素一个个传递给一个函数，并收集输出<br>  <img src="/img/python/map1.png" alt=""></li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/09/17/itertools/#more" rel="contents">
+            <a class="btn" href="/2017/10/23/python之map、filter、reduce/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -763,7 +750,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/16/nginx/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/10/17/Linux之cut/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -782,7 +769,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/16/nginx/" itemprop="url">nginx</a></h1>
+                <a class="post-title-link" href="/2017/10/17/Linux之cut/" itemprop="url">Linux之cut</a></h1>
         
 
         <div class="post-meta">
@@ -794,8 +781,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-16T16:09:58+08:00">
-                2017-09-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-17T16:08:19+08:00">
+                2017-10-17
               </time>
             
 
@@ -804,28 +791,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/操作系统/" itemprop="url" rel="index">
-                    <span itemprop="name">操作系统</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -855,33 +820,9 @@
 
       
         
-          <h2 id="什么是nginx"><a href="#什么是nginx" class="headerlink" title="什么是nginx"></a>什么是nginx</h2><p>nginx是服务器软件</p>
-<p>功能：</p>
-<ul>
-<li>可以与服务器硬件结构，将程序放在nginx服务器上，将程序发布出去</li>
-<li>作用：<ul>
-<li>高性能的HTTP：发布网站</li>
-<li>反向代理服务器：实现负载均衡</li>
-<li>代理邮件服务器：收发邮件</li>
-</ul>
-</li>
-<li>优点：<ul>
-<li>高并发、部署简单、内存消耗少、成本低</li>
-</ul>
-</li>
-<li>缺点：<ul>
-<li>rewrite功能不够强大</li>
-<li>模块没有Apache多</li>
-</ul>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/16/nginx/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            
+          
         
       
     </div>
@@ -928,7 +869,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/13/python之编码/">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/09/21/Collections/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangq">
@@ -947,7 +888,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/13/python之编码/" itemprop="url">python之编码</a></h1>
+                <a class="post-title-link" href="/2017/09/21/Collections/" itemprop="url">Collections</a></h1>
         
 
         <div class="post-meta">
@@ -959,8 +900,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T16:26:57+08:00">
-                2017-09-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T18:29:01+08:00">
+                2017-09-21
               </time>
             
 
@@ -982,8 +923,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/python内建模块/" itemprop="url" rel="index">
+                    <span itemprop="name">python内建模块</span>
                   </a>
                 </span>
 
@@ -1020,29 +961,115 @@
 
       
         
-          <h2 id="decode-和-encode"><a href="#decode-和-encode" class="headerlink" title="decode 和 encode"></a>decode 和 encode</h2><p> 字符串在Python内部的表示是unicode编码，因此，在做编码转换时，通常需要以unicode作为中间编码，即：先将其他编码的字符串解码（decode）成unicode，再从unicode编码（encode）成另一种编码。</p>
-<ul>
-<li><p>decode: 将其他编码的字符解码成Unicode编码</p>
-<blockquote>
-<p>strs.decode(‘gb2312’) 将gb2312编码的字符串strs转换成Unicode</p>
+          
+            <h2 id="Collections是什么"><a href="#Collections是什么" class="headerlink" title="Collections是什么"></a>Collections是什么</h2><p>Collections是python内建的一个集合模块，提供了许多有用的集合类</p>
+<h2 id="提供的集合类"><a href="#提供的集合类" class="headerlink" title="提供的集合类"></a>提供的集合类</h2><h3 id="defaultdict"><a href="#defaultdict" class="headerlink" title="defaultdict"></a>defaultdict</h3><blockquote>
+<p>from collections import defaultdict</p>
 </blockquote>
-</li>
-<li><p>encode：将Unicode编码转换成其他编码的字符串</p>
-<blockquote>
-<p>strs.encode(‘gb2312’) 将Unicode编码的字符串strs转换成gb2312编码</p>
+<h3 id="counter"><a href="#counter" class="headerlink" title="counter"></a>counter</h3><ul>
+<li><p>计数器，可以针对某项数据进行计数</p>
+<pre><code>&gt; from collections import Counter
+&gt; colours = (
+    (&apos;Yasoob&apos;, &apos;Yellow&apos;),
+    (&apos;Ali&apos;, &apos;Blue&apos;),
+    (&apos;Arham&apos;, &apos;Green&apos;),
+    (&apos;Ali&apos;, &apos;Black&apos;),
+    (&apos;Yasoob&apos;, &apos;Red&apos;),
+    (&apos;Ahmed&apos;, &apos;Silver&apos;),
+)
+&gt; favs = Counter(name for name, colour in colours)
+&gt; print(favs)
+## 输出:
+## Counter({
+##     &apos;Yasoob&apos;: 2,
+##     &apos;Ali&apos;: 2,
+##     &apos;Arham&apos;: 1,
+##     &apos;Ahmed&apos;: 1
+##  })
+</code></pre></li>
+</ul>
+<h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3><ul>
+<li>它提供了一个双端队列，可以从头或尾两端添加或删除元素</li>
+<li><p>用法类型python的list</p>
+<pre><code>&gt; from collections import deque
+&gt; d = deque()
+&gt; d.append(&apos;1&apos;)
+&gt; d.append(&apos;2&apos;)
+&gt; d.append(&apos;3&apos;）
+&gt; print(len(d))
+... 3
+&gt; print(d[0])
+... 1
+</code></pre></li>
+<li><p>可以从两端取出(pop)数据：</p>
+<pre><code>&gt; d = deque（range(5))
+&gt; print(len(d))
+... 5
+&gt; d.popleft()
+... 0
+&gt; d.pop()
+... 4
+&gt; print(d)
+... deque([1, 2, 3])
+</code></pre></li>
+<li><p>可以限制这个列表的大小，当超出你设定的限制时，数据会从对队列另一端被挤出去(pop)</p>
+<pre><code>d = deque(maxlen=30)
+</code></pre></li>
+<li><p>可以从任一端扩展这个队列中的数据：</p>
+<pre><code>&gt; d = deque([1,2,3,4,5])
+&gt; d.extendleft([0])
+&gt; d.extend([6,7,8])
+&gt; print(d)
+... deque([0, 1, 2, 3, 4, 5, 6, 7, 8])
+</code></pre></li>
+</ul>
+<h3 id="namedtuple"><a href="#namedtuple" class="headerlink" title="namedtuple"></a>namedtuple</h3><h4 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h4><ul>
+<li>一个元组是一个不可变的列表，你可以存储一个数据的序列，它和命名元组(namedtuples)非常像，但有几个关键的不同。</li>
+<li><p>主要相似点: </p>
 <ul>
-<li>非Unicode编码的strs字符串encode会报错</li>
+<li>不能修改元组中的数据。</li>
+<li><p>获取元组中的数据，需要使用整数作为索引：</p>
+<pre><code>&gt; man = (&apos;Ali&apos;, 30)
+&gt; print(man[0])
+... Ali
+</code></pre></li>
 </ul>
-</blockquote>
 </li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/13/python之编码/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<h4 id="命名元组"><a href="#命名元组" class="headerlink" title="命名元组"></a>命名元组</h4><ul>
+<li><p>namedtuples: 把元组变成一个针对简单任务的容器。</p>
+<ul>
+<li>可以像字典一样访问namedtuples</li>
+<li><p>但namedtuples是不可变的。</p>
+<pre><code>&gt; from collections import namedtuple
+&gt; Animal = namedtuple(&apos;Animal&apos;, &apos;name age type&apos;)
+&gt; perry = Animal(name=&quot;perry&quot;, age=31, type=&quot;cat&quot;)
+&gt; print(perry)
+... Animal(name=&apos;perry&apos;, age=31, type=&apos;cat&apos;)
+&gt; print(perry.name)
+... &apos;perry&apos;
+</code></pre></li>
+<li><p>上例中，元组名称是Animal，字段名称是’name’，’age’和’type’。</p>
+</li>
+</ul>
+</li>
+<li>namedtuple优点：<ul>
+<li>让你的元组变得自文档了。你只要看一眼就很容易理解代码是做什么的</li>
+<li>你也不必使用整数索引来访问一个命名元组，这让你的代码更易于维护。</li>
+<li>namedtuple的每个实例没有对象字典，所以它们很轻量，与普通的元组比，并不需要更多的内存。这使得它们比字典更快。</li>
+</ul>
+</li>
+<li><p>可以将命名元祖转化为字典</p>
+<pre><code>&gt; from collections import namedtuple
+&gt; Animal = namedtuple(&apos;Animal&apos;, &apos;name age type&apos;)
+&gt; perry = Animal(name=&quot;Perry&quot;, age=31, type=&quot;cat&quot;)
+&gt; print(perry._asdict())
+... OrderedDict([(&apos;name&apos;, &apos;Perry&apos;), (&apos;age&apos;, 31), (&apos;type&apos;, &apos;cat&apos;)])
+</code></pre></li>
+</ul>
+<h3 id="enum-Enum-Python-3-4"><a href="#enum-Enum-Python-3-4" class="headerlink" title="enum.Enum (Python 3.4+)"></a>enum.Enum (Python 3.4+)</h3><p>枚举对象</p>
+
+          
         
       
     </div>
@@ -1080,7 +1107,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1126,7 +1153,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1137,7 +1164,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1148,7 +1175,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1231,8 +1258,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

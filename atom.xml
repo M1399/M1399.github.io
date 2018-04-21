@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yangqingwt.top/"/>
-  <updated>2017-09-20T15:10:36.000Z</updated>
+  <updated>2018-04-21T10:03:57.571Z</updated>
   <id>http://www.yangqingwt.top/</id>
   
   <author>
@@ -15,6 +15,217 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>uWSGI</title>
+    <link href="http://www.yangqingwt.top/2018/04/21/uWSGI/"/>
+    <id>http://www.yangqingwt.top/2018/04/21/uWSGI/</id>
+    <published>2018-04-21T09:01:38.000Z</published>
+    <updated>2018-04-21T10:03:57.571Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h1><ul><li>WSGI：一种描述web server如何与web application通信的规范，当前运行在WSGI协议之上的web框架有Bottle、Flask、Django。</li><li>uwsgi: uWSGI服务器的独占协议，用于定义传输信息的类型，每一个uwsgi packet前4byte为传输信息类型的描述。该协议是fcgi协议的10倍快。</li><li>uWSGI：web服务器，实现了WSGI协议、uwsgi协议、http协议等。<ul><li>超快性能、低内存占用、多app管理、详尽的日志功能、高度可定制</li><li>uWSGI自己实现了基于uwsgi协议的server部分，只需在uwsgi的配置中指定application地址，uWSGI就能直接和应用框架中的WSGI application通信</li></ul></li></ul><a id="more"></a><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h3><ul><li>有多种方法安装</li></ul><ol><li>pip install uwsgi</li><li>使用网络安装器下载安装</li></ol><figure class="highlight plain"><figcaption><span>| bash -s default</span><a href="/tmp/uwsgi```">link</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">3. 通过下载源tarball文件</div><div class="line"></div><div class="line">1. wget http://projects.unbit.it/downloads/uwsgi-latest.tar.gz</div><div class="line">2. tar zxvf uwsgi-latest.tar.gz</div><div class="line">3. cd uwsgi-latest</div><div class="line">4. make</div><div class="line"></div><div class="line">### 2. 部署在HTTP端口</div></pre></td></tr></table></figure><p>uwsgi –http :3031 –wsgi-file file.py –master –processes 4 –threads 2 –stats 127.0.0.1:3031<br>uwsgi -s :3031 -w file.py -p 4 -t 2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* --processes 4 生成4个进程</div><div class="line">* --threads 2 每个进程2个线程</div><div class="line">* stats子系统允许你将uWSGI的内部统计数据作为JSON导出</div><div class="line"></div><div class="line"></div><div class="line">* 如果你的代理/web服务器/路由器使用HTTP，那么你必须告诉uWSGI本地使用http协议 (这与会自己生成一个代理的–http不同):</div><div class="line"></div><div class="line">```uwsgi --http-socket 127.0.0.1:3031 --wsgi-file foobar.py --master --processes 4 --threads 2 --stats 127.0.0.1:9191</div></pre></td></tr></table></figure></p><h3 id="3-部署Django"><a href="#3-部署Django" class="headerlink" title="3. 部署Django"></a>3. 部署Django</h3><figure class="highlight plain"><figcaption><span>--socket 127.0.0.1:3031 --chdir dir/diango --wsgi-file wsgi.py --master --processes 4 --threads 2 --stats 127.0.0.1:9091```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* --chdir 移到指定的目录下，在Django中，需要这样来正确加载模块</div><div class="line">* 这样的长命令，累赘又麻烦愚蠢，容易犯错==，丢掉丢掉，使用.ini文件</div></pre></td></tr></table></figure><p>socket = 127.0.0.1:3031<br>chdir = dir/diango<br>wsgi-file = wsgi.py<br>processes = 4<br>thread = 2<br>stats = 127.0.0.1:9091<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* 运行 uwsgi config.ini</div><div class="line"></div><div class="line">### 4. 部署Flask</div><div class="line"></div><div class="line">* flask.py</div></pre></td></tr></table></figure></p><p>from flask import Flask</p><p>app = Flask(<strong>name</strong>)</p><p>@app.route(‘/‘)<br>def index():<br>    return “<span style="color:blue">lalala, test flask</span>“<br>```</p><ul><li>WSGI函数application导出为app，需要指示uWSGI使用它<ul><li>-callable app</li></ul></li></ul><h3 id="5-python线程注意事项"><a href="#5-python线程注意事项" class="headerlink" title="5. python线程注意事项"></a>5. python线程注意事项</h3><ul><li>不适用线程的情况下启动uWSGI，python GIL（全局锁）将不会启动，因此你的应用生成的线程将不会运行。</li><li><p>如果想维护python线程支持，而不为你的应用启动多线程，添加–enable-threads选项</p><ul><li>enable-threads = true    (.ini文件)</li></ul></li></ul><p>原文链接：</p><p><a href="https://www.jianshu.com/p/679dee0a4193" target="_blank" rel="external">https://www.jianshu.com/p/679dee0a4193</a><br><a href="http://uwsgi-docs-zh.readthedocs.io/zh_CN/latest/WSGIquickstart.html" target="_blank" rel="external">http://uwsgi-docs-zh.readthedocs.io/zh_CN/latest/WSGIquickstart.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;概念：&quot;&gt;&lt;a href=&quot;#概念：&quot; class=&quot;headerlink&quot; title=&quot;概念：&quot;&gt;&lt;/a&gt;概念：&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;WSGI：一种描述web server如何与web application通信的规范，当前运行在WSGI协议之上的web框架有Bottle、Flask、Django。&lt;/li&gt;
+&lt;li&gt;uwsgi: uWSGI服务器的独占协议，用于定义传输信息的类型，每一个uwsgi packet前4byte为传输信息类型的描述。该协议是fcgi协议的10倍快。&lt;/li&gt;
+&lt;li&gt;uWSGI：web服务器，实现了WSGI协议、uwsgi协议、http协议等。&lt;ul&gt;
+&lt;li&gt;超快性能、低内存占用、多app管理、详尽的日志功能、高度可定制&lt;/li&gt;
+&lt;li&gt;uWSGI自己实现了基于uwsgi协议的server部分，只需在uwsgi的配置中指定application地址，uWSGI就能直接和应用框架中的WSGI application通信&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="服务器" scheme="http://www.yangqingwt.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="web服务器" scheme="http://www.yangqingwt.top/tags/web%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>黑产资源收集</title>
+    <link href="http://www.yangqingwt.top/2017/10/23/%E9%BB%91%E4%BA%A7%E8%B5%84%E6%BA%90%E6%94%B6%E9%9B%86/"/>
+    <id>http://www.yangqingwt.top/2017/10/23/黑产资源收集/</id>
+    <published>2017-10-23T09:40:24.000Z</published>
+    <updated>2017-10-23T16:23:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="黑产"><a href="#黑产" class="headerlink" title="黑产"></a>黑产</h1><h2 id="收集目标为三大类：打码接码平台、云控群控平台、套现中介。"><a href="#收集目标为三大类：打码接码平台、云控群控平台、套现中介。" class="headerlink" title="收集目标为三大类：打码接码平台、云控群控平台、套现中介。"></a>收集目标为三大类：打码接码平台、云控群控平台、套现中介。</h2><h3 id="打码、接码"><a href="#打码、接码" class="headerlink" title="打码、接码"></a>打码、接码</h3><h4 id="打码"><a href="#打码" class="headerlink" title="打码"></a>打码</h4><ul><li><p>打码平台，就是打验证码。很多软件需要输入验证码后才能登陆。</p></li><li><p>程序将验证码传给打码平台的识别接口，打码平台将验证码发给后端的“打码工”进行识别，并获取识别结果。这样基于此类的人工打码平台，即可实现程序的自动化。</p></li><li><p>例子：羊毛党要去某网站刷活动优惠券，但该网站有较复杂的图像验证码。通常羊毛党会在打码平台注册账号并充值，并通过打码平台提供的api接口，提交验证码识别。打码平台将验证码分发到各个佣工的客户端里，获取佣工的识别结果，并最终反馈给羊毛党。</p></li><li>打码平台普通的四位验证码0.6~1分钱，语音平台一元一条，接码0.1一条</li></ul><h4 id="接码平台"><a href="#接码平台" class="headerlink" title="接码平台"></a>接码平台</h4><ul><li>接码平台就是接受验证码。当注册某平台，不想用自己手机号或者自己手机号已经用过了，就可以利用接码平台，获取验证码，进行注册。</li><li>接码平台，提供大量的手机号，并能够发送和接收短信。只需调用手机打码平台相关接口，获取手机号并获取短信内容即可进行批量注册。</li></ul><h3 id="云控、群控"><a href="#云控、群控" class="headerlink" title="云控、群控"></a>云控、群控</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;黑产&quot;&gt;&lt;a href=&quot;#黑产&quot; class=&quot;headerlink&quot; title=&quot;黑产&quot;&gt;&lt;/a&gt;黑产&lt;/h1&gt;&lt;h2 id=&quot;收集目标为三大类：打码接码平台、云控群控平台、套现中介。&quot;&gt;&lt;a href=&quot;#收集目标为三大类：打码接码平台、云控群控平台、套现
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python之map、filter、reduce</title>
+    <link href="http://www.yangqingwt.top/2017/10/23/python%E4%B9%8Bmap%E3%80%81filter%E3%80%81reduce/"/>
+    <id>http://www.yangqingwt.top/2017/10/23/python之map、filter、reduce/</id>
+    <published>2017-10-23T08:11:57.000Z</published>
+    <updated>2017-10-24T08:23:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><ul><li>Map会将一个函数映射到一个输入列表的所有元素上</li><li>规范：map(function_to_apply, list_of_imputs)</li><li>把列表中所有元素一个个传递给一个函数，并收集输出<br>  <img src="/img/python/map1.png" alt=""></li></ul><a id="more"></a><ul><li><p>使用map<br><img src="/img/python/map2.png" alt=""></p></li><li><p>使用匿名函数lambda来配合map<br>  <img src="/img/python/map3.png" alt=""></p><ul><li>print加了list转换，是为了python2/3的兼容性</li><li>在python2中map直接返回列表，但python3返回迭代器</li></ul></li></ul><h2 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h2><ul><li><p>filter过滤列表中的元素，并且返回一个由所有符合要求的元素所构成的列表。<br><img src="/img/python/filter.png" alt=""></p></li><li><p>filter类似于一个for循环，但它是一个内置函数，并且更快</p></li></ul><h2 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce"></a>Reduce</h2><ul><li>reduce：对列表进行计算并返回结果</li><li>例：计算一个整数列表的乘积<br><img src="/img/python/reduce.png" alt=""></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Map&quot;&gt;&lt;a href=&quot;#Map&quot; class=&quot;headerlink&quot; title=&quot;Map&quot;&gt;&lt;/a&gt;Map&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Map会将一个函数映射到一个输入列表的所有元素上&lt;/li&gt;
+&lt;li&gt;规范：map(function_to_apply, list_of_imputs)&lt;/li&gt;
+&lt;li&gt;把列表中所有元素一个个传递给一个函数，并收集输出&lt;br&gt;  &lt;img src=&quot;/img/python/map1.png&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://www.yangqingwt.top/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux之cut</title>
+    <link href="http://www.yangqingwt.top/2017/10/17/Linux%E4%B9%8Bcut/"/>
+    <id>http://www.yangqingwt.top/2017/10/17/Linux之cut/</id>
+    <published>2017-10-17T08:08:19.000Z</published>
+    <updated>2017-10-17T08:08:19.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Collections</title>
+    <link href="http://www.yangqingwt.top/2017/09/21/Collections/"/>
+    <id>http://www.yangqingwt.top/2017/09/21/Collections/</id>
+    <published>2017-09-21T10:29:01.000Z</published>
+    <updated>2017-09-24T01:12:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Collections是什么"><a href="#Collections是什么" class="headerlink" title="Collections是什么"></a>Collections是什么</h2><p>Collections是python内建的一个集合模块，提供了许多有用的集合类</p><h2 id="提供的集合类"><a href="#提供的集合类" class="headerlink" title="提供的集合类"></a>提供的集合类</h2><h3 id="defaultdict"><a href="#defaultdict" class="headerlink" title="defaultdict"></a>defaultdict</h3><blockquote><p>from collections import defaultdict</p></blockquote><h3 id="counter"><a href="#counter" class="headerlink" title="counter"></a>counter</h3><ul><li><p>计数器，可以针对某项数据进行计数</p><pre><code>&gt; from collections import Counter&gt; colours = (    (&apos;Yasoob&apos;, &apos;Yellow&apos;),    (&apos;Ali&apos;, &apos;Blue&apos;),    (&apos;Arham&apos;, &apos;Green&apos;),    (&apos;Ali&apos;, &apos;Black&apos;),    (&apos;Yasoob&apos;, &apos;Red&apos;),    (&apos;Ahmed&apos;, &apos;Silver&apos;),)&gt; favs = Counter(name for name, colour in colours)&gt; print(favs)## 输出:## Counter({##     &apos;Yasoob&apos;: 2,##     &apos;Ali&apos;: 2,##     &apos;Arham&apos;: 1,##     &apos;Ahmed&apos;: 1##  })</code></pre></li></ul><h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3><ul><li>它提供了一个双端队列，可以从头或尾两端添加或删除元素</li><li><p>用法类型python的list</p><pre><code>&gt; from collections import deque&gt; d = deque()&gt; d.append(&apos;1&apos;)&gt; d.append(&apos;2&apos;)&gt; d.append(&apos;3&apos;）&gt; print(len(d))... 3&gt; print(d[0])... 1</code></pre></li><li><p>可以从两端取出(pop)数据：</p><pre><code>&gt; d = deque（range(5))&gt; print(len(d))... 5&gt; d.popleft()... 0&gt; d.pop()... 4&gt; print(d)... deque([1, 2, 3])</code></pre></li><li><p>可以限制这个列表的大小，当超出你设定的限制时，数据会从对队列另一端被挤出去(pop)</p><pre><code>d = deque(maxlen=30)</code></pre></li><li><p>可以从任一端扩展这个队列中的数据：</p><pre><code>&gt; d = deque([1,2,3,4,5])&gt; d.extendleft([0])&gt; d.extend([6,7,8])&gt; print(d)... deque([0, 1, 2, 3, 4, 5, 6, 7, 8])</code></pre></li></ul><h3 id="namedtuple"><a href="#namedtuple" class="headerlink" title="namedtuple"></a>namedtuple</h3><h4 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h4><ul><li>一个元组是一个不可变的列表，你可以存储一个数据的序列，它和命名元组(namedtuples)非常像，但有几个关键的不同。</li><li><p>主要相似点: </p><ul><li>不能修改元组中的数据。</li><li><p>获取元组中的数据，需要使用整数作为索引：</p><pre><code>&gt; man = (&apos;Ali&apos;, 30)&gt; print(man[0])... Ali</code></pre></li></ul></li></ul><h4 id="命名元组"><a href="#命名元组" class="headerlink" title="命名元组"></a>命名元组</h4><ul><li><p>namedtuples: 把元组变成一个针对简单任务的容器。</p><ul><li>可以像字典一样访问namedtuples</li><li><p>但namedtuples是不可变的。</p><pre><code>&gt; from collections import namedtuple&gt; Animal = namedtuple(&apos;Animal&apos;, &apos;name age type&apos;)&gt; perry = Animal(name=&quot;perry&quot;, age=31, type=&quot;cat&quot;)&gt; print(perry)... Animal(name=&apos;perry&apos;, age=31, type=&apos;cat&apos;)&gt; print(perry.name)... &apos;perry&apos;</code></pre></li><li><p>上例中，元组名称是Animal，字段名称是’name’，’age’和’type’。</p></li></ul></li><li>namedtuple优点：<ul><li>让你的元组变得自文档了。你只要看一眼就很容易理解代码是做什么的</li><li>你也不必使用整数索引来访问一个命名元组，这让你的代码更易于维护。</li><li>namedtuple的每个实例没有对象字典，所以它们很轻量，与普通的元组比，并不需要更多的内存。这使得它们比字典更快。</li></ul></li><li><p>可以将命名元祖转化为字典</p><pre><code>&gt; from collections import namedtuple&gt; Animal = namedtuple(&apos;Animal&apos;, &apos;name age type&apos;)&gt; perry = Animal(name=&quot;Perry&quot;, age=31, type=&quot;cat&quot;)&gt; print(perry._asdict())... OrderedDict([(&apos;name&apos;, &apos;Perry&apos;), (&apos;age&apos;, 31), (&apos;type&apos;, &apos;cat&apos;)])</code></pre></li></ul><h3 id="enum-Enum-Python-3-4"><a href="#enum-Enum-Python-3-4" class="headerlink" title="enum.Enum (Python 3.4+)"></a>enum.Enum (Python 3.4+)</h3><p>枚举对象</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Collections是什么&quot;&gt;&lt;a href=&quot;#Collections是什么&quot; class=&quot;headerlink&quot; title=&quot;Collections是什么&quot;&gt;&lt;/a&gt;Collections是什么&lt;/h2&gt;&lt;p&gt;Collections是python内建的一
+      
+    
+    </summary>
+    
+      <category term="python内建模块" scheme="http://www.yangqingwt.top/categories/python%E5%86%85%E5%BB%BA%E6%A8%A1%E5%9D%97/"/>
+    
+    
+      <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>virtualenv</title>
+    <link href="http://www.yangqingwt.top/2017/09/21/virtualenv/"/>
+    <id>http://www.yangqingwt.top/2017/09/21/virtualenv/</id>
+    <published>2017-09-21T10:02:59.000Z</published>
+    <updated>2017-09-21T10:26:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="virtualenv是什么"><a href="#virtualenv是什么" class="headerlink" title="virtualenv是什么"></a>virtualenv是什么</h2><ul><li>virtualenv是一个工具，能够创建一个独立的python环境</li></ul><h2 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><blockquote><p>pip install virtualenv</p></blockquote><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>1). 创建一个隔离的virtualenv环境</p><blockquote><p>virtualenv project</p></blockquote><a id="more"></a><ul><li>让virtualenv使用全局模块</li></ul><blockquote><p>virtualenv –system-site-packages project</p></blockquote><ul><li>第三方包不复制，得到不带任何第三方包的“干净”的Python运行环境</li></ul><blockquote><p>virtualenv —no-site-packages project</p></blockquote><p>2). 激活环境</p><blockquote><p>source myproject/bin/activate</p></blockquote><p>3). 退出虚拟环境</p><blockquote><p>deactivate</p></blockquote><p>4). 删除虚拟环境</p><blockquote><p>rm -r project</p></blockquote><h2 id="Virtualenvwrapper"><a href="#Virtualenvwrapper" class="headerlink" title="Virtualenvwrapper"></a>Virtualenvwrapper</h2><ul><li>终端用fish的，使用virtualfish代替</li></ul><h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><blockquote><p>pip install Virtualenvwrapper</p></blockquote><h3 id="配置："><a href="#配置：" class="headerlink" title="配置："></a>配置：</h3><ul><li>export WORKON_HOME=‘~/.virtualenv’</li><li>Source /usr/local/bin/virtualenvwrapper.sh<ul><li>由于每次都需要执行这两步操作，可以将其写入终端的配置文件中。例如，如果使用 bash，则添加到 ~/.bashrc 中；如果使用 zsh，则添加到 ~/.zshrc 中。这样每次启动终端的时候都会自动运行，终端启动之后 virtualenvwrapper 就可以用了。</li></ul></li></ul><h3 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h3><ul><li>这里创建的是系统默认的python版本的环境，用 which python 查看默认版本。 建议用下面的命令来制定版本。</li></ul><blockquote><p>$ mkvirtualenv spider              </p></blockquote><ul><li>指定建立3.4的python环境</li></ul><blockquote><p>$ mkvirtualenv -p /Users/heliclei/.localpython/bin/python3.4  env34     </p></blockquote><ul><li>指定建立2.7的python环境</li></ul><blockquote><p>$ mkvirtualenv -p /Users/heliclei/.localpython/bin/python2.7  env27 </p></blockquote><ul><li>进入：workon enve</li><li>离开：deactivate</li><li>删除：rmvirtualenv enve</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;virtualenv是什么&quot;&gt;&lt;a href=&quot;#virtualenv是什么&quot; class=&quot;headerlink&quot; title=&quot;virtualenv是什么&quot;&gt;&lt;/a&gt;virtualenv是什么&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;virtualenv是一个工具，能够创建一个独立的python环境&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;安装使用&quot;&gt;&lt;a href=&quot;#安装使用&quot; class=&quot;headerlink&quot; title=&quot;安装使用&quot;&gt;&lt;/a&gt;安装使用&lt;/h2&gt;&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;pip install virtualenv&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h3&gt;&lt;p&gt;1). 创建一个隔离的virtualenv环境&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;virtualenv project&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://www.yangqingwt.top/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>生成器-Generators</title>
+    <link href="http://www.yangqingwt.top/2017/09/21/python%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8-Generators/"/>
+    <id>http://www.yangqingwt.top/2017/09/21/python之生成器-Generators/</id>
+    <published>2017-09-21T07:11:24.000Z</published>
+    <updated>2017-10-23T08:09:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Generators-生成器"><a href="#Generators-生成器" class="headerlink" title="Generators(生成器)"></a>Generators(生成器)</h2><ul><li>一种迭代器，但是只能对其迭代一次。<ul><li>因为它们并没有把所有的值存在内存中，而是在运行是生成值.</li></ul></li><li>通过遍历来使用<ul><li>“for”循环</li><li>传递转给任意可以进行迭代的函数和结构。（大多是以函数来实现）</li></ul></li><li>不返回一个值，而是yield一个值。</li></ul><a id="more"></a><p><img src="/img/python/generators/generators.png" alt=""></p><ul><li>生成器占很少的资源</li><li><p>eg:计算斐波那契数列的生成器：</p><ul><li>这种方式我们不用担心它会使用大量资源<br><img src="/img/python/generators/generators2.png" alt=""></li><li>这种方法也许会在计算很大的输入参数时，用尽所有的资源。<br><img src="/img/python/generators/generators3.png" alt=""><h4 id="next"><a href="#next" class="headerlink" title="next()"></a>next()</h4></li></ul><ul><li><p>允许获取序列的下一个元素<br><img src="/img/python/generators/generators4.png" alt=""></p></li><li><p>在yield所有值后，next（）触发了StopIteration的异常。但是在for循环时没有这个异常，因为for循环会自动捕捉到这个异常并停止调用next（）</p></li><li><p>python内置数据类型也支持迭代的<br><img src="/img/python/generators/generators5.png" alt=""></p><ul><li>str对象不是一个迭代器，它是一个可迭代对象。支持迭代，但不能直接对其进行迭代操作</li><li>对其实施迭代：使用iter,它将根据一个可迭代对象返回一个迭代器对象<br><img src="/img/python/generators/generators6.png" alt=""></li></ul></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Generators-生成器&quot;&gt;&lt;a href=&quot;#Generators-生成器&quot; class=&quot;headerlink&quot; title=&quot;Generators(生成器)&quot;&gt;&lt;/a&gt;Generators(生成器)&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;一种迭代器，但是只能对其迭代一次。&lt;ul&gt;
+&lt;li&gt;因为它们并没有把所有的值存在内存中，而是在运行是生成值.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;通过遍历来使用&lt;ul&gt;
+&lt;li&gt;“for”循环&lt;/li&gt;
+&lt;li&gt;传递转给任意可以进行迭代的函数和结构。（大多是以函数来实现）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;不返回一个值，而是yield一个值。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://www.yangqingwt.top/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>*args和\*\*kwargs</title>
+    <link href="http://www.yangqingwt.top/2017/09/21/python%E4%B9%8B*args%E5%92%8C*kwargs/"/>
+    <id>http://www.yangqingwt.top/2017/09/21/python之*args和*kwargs/</id>
+    <published>2017-09-21T02:15:51.000Z</published>
+    <updated>2017-09-21T07:04:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><ul><li><p>它们主要用于函数定义，可以将不定数量的参数传递给一个函数</p><h2 id="args的用法"><a href="#args的用法" class="headerlink" title="*args的用法"></a>*args的用法</h2></li><li><p>*args是发送一个非键值对的可变数量的参数列表给一个函数</p></li><li>例：<img src="/img/python/args_kwargs/args.png" alt=""></li></ul><h2 id="kwargs的用法"><a href="#kwargs的用法" class="headerlink" title="**kwargs的用法"></a>**kwargs的用法</h2><ul><li><em>*kwargs允许将不定长度的键值对，作为参数传递给一个函数。如果想要在一个函数里处理带名字的参数，应该用\</em>*kwargs</li></ul><a id="more"></a><h2 id="使用args和-kwargs调用参数为列表或字典的函数"><a href="#使用args和-kwargs调用参数为列表或字典的函数" class="headerlink" title="使用args和\*kwargs调用参数为列表或字典的函数"></a>使用<em>args和\</em>*kwargs调用参数为列表或字典的函数</h2><p><img src="/img/python/args_kwargs/3.png" alt=""></p><ul><li>同时使用标准参数、*args与**kwargs时的顺序<blockquote><p>some_func(fargs, <em>args, \</em>*kwargs)</p></blockquote></li></ul><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h4 id="最常见在写函数装饰器的时候用"><a href="#最常见在写函数装饰器的时候用" class="headerlink" title="最常见在写函数装饰器的时候用"></a>最常见在写函数装饰器的时候用</h4><h4 id="也可用来做猴子补丁"><a href="#也可用来做猴子补丁" class="headerlink" title="也可用来做猴子补丁"></a>也可用来做猴子补丁</h4><ul><li>猴子补丁：在程序运行是修改某些代码<ul><li>例：有一个类，里面有个叫get_info的函数会调用一个API并返回相应的数据。如果我们想测试它，可以把API调用替换成一些测试数据<blockquote><p>import someclass<br>def get_info(self, *args):<br>   return “Test data”<br>someclass.get_info = get_info</p></blockquote></li></ul></li></ul><p>摘自：<a href="https://github.com/eastlakeside/interpy-zh/blob/master/SUMMARY.md" target="_blank" rel="external">https://github.com/eastlakeside/interpy-zh/blob/master/SUMMARY.md</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;用法&quot;&gt;&lt;a href=&quot;#用法&quot; class=&quot;headerlink&quot; title=&quot;用法&quot;&gt;&lt;/a&gt;用法&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;它们主要用于函数定义，可以将不定数量的参数传递给一个函数&lt;/p&gt;
+&lt;h2 id=&quot;args的用法&quot;&gt;&lt;a href=&quot;#args的用法&quot; class=&quot;headerlink&quot; title=&quot;*args的用法&quot;&gt;&lt;/a&gt;*args的用法&lt;/h2&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;*args是发送一个非键值对的可变数量的参数列表给一个函数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;例：&lt;img src=&quot;/img/python/args_kwargs/args.png&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;kwargs的用法&quot;&gt;&lt;a href=&quot;#kwargs的用法&quot; class=&quot;headerlink&quot; title=&quot;**kwargs的用法&quot;&gt;&lt;/a&gt;**kwargs的用法&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;*kwargs允许将不定长度的键值对，作为参数传递给一个函数。如果想要在一个函数里处理带名字的参数，应该用\&lt;/em&gt;*kwargs&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://www.yangqingwt.top/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>scrapy</title>
@@ -73,8 +284,8 @@
   
   <entry>
     <title>itertools</title>
-    <link href="http://www.yangqingwt.top/2017/09/17/itertools/"/>
-    <id>http://www.yangqingwt.top/2017/09/17/itertools/</id>
+    <link href="http://www.yangqingwt.top/2017/09/17/python%E4%B9%8Bitertools/"/>
+    <id>http://www.yangqingwt.top/2017/09/17/python之itertools/</id>
     <published>2017-09-17T09:26:27.000Z</published>
     <updated>2017-09-20T15:06:39.000Z</updated>
     
@@ -106,9 +317,9 @@
     <link href="http://www.yangqingwt.top/2017/09/16/nginx/"/>
     <id>http://www.yangqingwt.top/2017/09/16/nginx/</id>
     <published>2017-09-16T08:09:58.000Z</published>
-    <updated>2017-09-20T15:09:16.000Z</updated>
+    <updated>2018-04-21T08:54:26.578Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="什么是nginx"><a href="#什么是nginx" class="headerlink" title="什么是nginx"></a>什么是nginx</h2><p>nginx是服务器软件</p><p>功能：</p><ul><li>可以与服务器硬件结构，将程序放在nginx服务器上，将程序发布出去</li><li>作用：<ul><li>高性能的HTTP：发布网站</li><li>反向代理服务器：实现负载均衡</li><li>代理邮件服务器：收发邮件</li></ul></li><li>优点：<ul><li>高并发、部署简单、内存消耗少、成本低</li></ul></li><li>缺点：<ul><li>rewrite功能不够强大</li><li>模块没有Apache多</li></ul></li></ul><a id="more"></a><ul><li>补充知识：<ul><li>负载均衡：当同时又很多用户访问服务器时，为减少服务器压力，需要将用户分别引入各服务器，分担服务器的压力。</li></ul></li></ul><h3 id="不同服务器的优缺点："><a href="#不同服务器的优缺点：" class="headerlink" title="不同服务器的优缺点："></a>不同服务器的优缺点：</h3><ul><li>IIS：IIS服务器只能在Windows上运行，Windows服务器性能不如Linux一类服务器</li><li>Tomcat：面向Java，是一种重量级服务器</li><li>Nginx：轻量级，但能支持处理百万级的TCP连接，10万以上的并发连接，并且是一个很好的跨平台服务器</li><li>Apache：稳定、开源、跨平台，但不支持高并发</li></ul><h3 id="在Linux安装nginx服务器"><a href="#在Linux安装nginx服务器" class="headerlink" title="在Linux安装nginx服务器"></a>在Linux安装nginx服务器</h3><ul><li>进入终端</li><li>安装nginx</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="什么是nginx"><a href="#什么是nginx" class="headerlink" title="什么是nginx"></a>什么是nginx</h2><p>nginx是服务器软件</p><p>功能：</p><ul><li>可以与服务器硬件结构，将程序放在nginx服务器上，将程序发布出去</li><li>作用：<ul><li>高性能的HTTP：发布网站</li><li>反向代理服务器：实现负载均衡</li><li>代理邮件服务器：收发邮件</li></ul></li><li>优点：<ul><li>高并发、部署简单、内存消耗少、成本低</li></ul></li><li>缺点：<ul><li>rewrite功能不够强大</li><li>模块没有Apache多</li></ul></li></ul><a id="more"></a><ul><li>补充知识：<ul><li>负载均衡：当同时又很多用户访问服务器时，为减少服务器压力，需要将用户分别引入各服务器，分担服务器的压力。</li></ul></li></ul><h3 id="不同服务器的优缺点："><a href="#不同服务器的优缺点：" class="headerlink" title="不同服务器的优缺点："></a>不同服务器的优缺点：</h3><ul><li>IIS：IIS服务器只能在Windows上运行，Windows服务器性能不如Linux一类服务器</li><li>Tomcat：面向Java，是一种重量级服务器</li><li>Nginx：轻量级，但能支持处理百万级的TCP连接，10万以上的并发连接，并且是一个很好的跨平台服务器</li><li>Apache：稳定、开源、跨平台，但不支持高并发</li></ul><h3 id="在Linux安装nginx服务器"><a href="#在Linux安装nginx服务器" class="headerlink" title="在Linux安装nginx服务器"></a>在Linux安装nginx服务器</h3><ul><li>进入终端</li><li><p>安装nginx</p><ol><li><p>下载nginx安装包：</p><pre><code>wget http://nginx.org/download/nginx-1.6.2.tar.gz </code></pre></li><li><p>解压：</p><pre><code>tar zxvf nginx-1.6.2cd nginx-1.6.2</code></pre></li><li><p>编译：</p><p> make<br> make install</p></li></ol></li><li><p>运行：</p><pre><code>/usr/local/bin/nginx</code></pre><ul><li>-s reload 重新载入配置文件</li><li>-s reopen 重启nginx</li><li>-s stop 停止nginx</li></ul></li><li><p>路径:</p><ul><li>配置所在路径：usr/local/etc/nginx</li><li>运行程序所在路径：/usr/local/bin</li></ul></li><li><p>配置:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">user yangq4 staff; </div><div class="line"># 启动进程，通常设置成和CPU的数量相等</div><div class="line">worker_processes  1;</div><div class="line"></div><div class="line"># 全局错误日志</div><div class="line"># error_log  logs/error.log;</div><div class="line"># error_log  logs/error.log  notice;</div><div class="line"># error_log  logs/error.log  info;</div><div class="line"></div><div class="line"># 记录当前启动的NGINX的进程ID</div><div class="line"># pid        logs/nginx.pid;</div><div class="line"></div><div class="line"># 工作模式及连接数上限</div><div class="line">events &#123;</div><div class="line">    worker_connections  1024;   # 单个后台进程的最大并发链接数</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">http &#123;</div><div class="line">    include       mime.types;</div><div class="line">    default_type  application/octet-stream;</div><div class="line"></div><div class="line">    log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</div><div class="line">                      &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</div><div class="line">                      &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</div><div class="line"></div><div class="line"># access_log  logs/access.log  main;</div><div class="line">    rewrite_log  on;</div><div class="line"></div><div class="line">    sendfile        on;</div><div class="line"></div><div class="line">    keepalive_timeout  120;</div><div class="line">    tcp_nopush     on;</div><div class="line"></div><div class="line">    #gzip  on;</div><div class="line"></div><div class="line">    # 设定实际的服务器列表</div><div class="line">    upstream zp_server1&#123;</div><div class="line">        server 127.0.0.1:8090;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    # HTTP服务器</div><div class="line">    server &#123;</div><div class="line">        listen       80;</div><div class="line">        server_name  www.yangq4_test.com;</div><div class="line"></div><div class="line">        #charset koi8-r;</div><div class="line"></div><div class="line">        #access_log  logs/host.access.log  main;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">            # root   /Users/boleng/Desktop/W3E/src/frontend;</div><div class="line">            root   /Users/yangqing/Desktop/test/api.py;</div><div class="line">            index  index.html index.html;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        charset utf-8;</div><div class="line"></div><div class="line"># 代理配置参数</div><div class="line">        proxy_connect_timeout 180;</div><div class="line">        proxy_send_timeout 180;</div><div class="line">        proxy_read_timeout 180;</div><div class="line">        proxy_set_header Host $host;</div><div class="line">        proxy_set_header X-Forwarder-For $remote_addr;</div><div class="line"></div><div class="line">        #error_page  404              /404.html;</div><div class="line"></div><div class="line">        # redirect server error pages to the static page /50x.html</div><div class="line">        #</div><div class="line">        error_page   500 502 503 504  /50x.html;</div><div class="line">        location = /50x.html &#123;</div><div class="line">            root   html;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -180,35 +391,31 @@
   </entry>
   
   <entry>
-    <title>python之pdb</title>
+    <title>调试</title>
     <link href="http://www.yangqingwt.top/2017/09/13/python%E4%B9%8Bpdb/"/>
     <id>http://www.yangqingwt.top/2017/09/13/python之pdb/</id>
     <published>2017-09-13T08:01:54.000Z</published>
-    <updated>2017-09-20T15:10:20.000Z</updated>
+    <updated>2017-09-21T07:09:44.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="引入pdb模块"><a href="#引入pdb模块" class="headerlink" title="引入pdb模块"></a>引入pdb模块</h2><blockquote><p>import pdb</p><p>pdb.set_trace()</p></blockquote><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul><li>b / break: 设置断点</li><li>c / continue: 继续执行程序</li><li>l / list: 查看当前的代码段</li><li>s / step: 进入函数</li><li>r / return: 执行代码直到从当前函数返回</li><li>n / next: 执行下一行</li><li>q / exit: 中止并退出</li><li>p / pp: 打印变量的值</li><li>h / help: 帮助</li></ul><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<h2 id="从脚本内部运行"><a href="#从脚本内部运行" class="headerlink" title="从脚本内部运行"></a>从脚本内部运行</h2><h3 id="引入pdb模块"><a href="#引入pdb模块" class="headerlink" title="引入pdb模块"></a>引入pdb模块</h3><blockquote><p>import pdb</p><p>pdb.set_trace()</p></blockquote><h3 id="命令列表"><a href="#命令列表" class="headerlink" title="命令列表"></a>命令列表</h3><ul><li>b / break: 设置断点</li><li>c / continue: 继续执行程序</li><li>l / list: 查看当前的代码段</li><li>s / step: 进入函数</li><li>r / return: 执行代码直到从当前函数返回</li></ul><a id="more"></a><ul><li>n / next: 执行下一行</li><li>q / exit: 中止并退出</li><li>p / pp: 打印变量的值</li><li>h / help: 帮助</li><li>w: 显示当前正在执行的代码行的上下文信息</li></ul><h2 id="从命令行运行"><a href="#从命令行运行" class="headerlink" title="从命令行运行"></a>从命令行运行</h2><ul><li>在命令行使用Python debugger运行一个脚本</li></ul><blockquote><p>python -m pdb test.py</p></blockquote>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;引入pdb模块&quot;&gt;&lt;a href=&quot;#引入pdb模块&quot; class=&quot;headerlink&quot; title=&quot;引入pdb模块&quot;&gt;&lt;/a&gt;引入pdb模块&lt;/h2&gt;&lt;blockquote&gt;
+      &lt;h2 id=&quot;从脚本内部运行&quot;&gt;&lt;a href=&quot;#从脚本内部运行&quot; class=&quot;headerlink&quot; title=&quot;从脚本内部运行&quot;&gt;&lt;/a&gt;从脚本内部运行&lt;/h2&gt;&lt;h3 id=&quot;引入pdb模块&quot;&gt;&lt;a href=&quot;#引入pdb模块&quot; class=&quot;headerlink&quot; title=&quot;引入pdb模块&quot;&gt;&lt;/a&gt;引入pdb模块&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;import pdb&lt;/p&gt;
 &lt;p&gt;pdb.set_trace()&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;ul&gt;
+&lt;h3 id=&quot;命令列表&quot;&gt;&lt;a href=&quot;#命令列表&quot; class=&quot;headerlink&quot; title=&quot;命令列表&quot;&gt;&lt;/a&gt;命令列表&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;b / break: 设置断点&lt;/li&gt;
 &lt;li&gt;c / continue: 继续执行程序&lt;/li&gt;
 &lt;li&gt;l / list: 查看当前的代码段&lt;/li&gt;
 &lt;li&gt;s / step: 进入函数&lt;/li&gt;
 &lt;li&gt;r / return: 执行代码直到从当前函数返回&lt;/li&gt;
-&lt;li&gt;n / next: 执行下一行&lt;/li&gt;
-&lt;li&gt;q / exit: 中止并退出&lt;/li&gt;
-&lt;li&gt;p / pp: 打印变量的值&lt;/li&gt;
-&lt;li&gt;h / help: 帮助&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>
     
-      <category term="python" scheme="http://www.yangqingwt.top/categories/python/"/>
+      <category term="调试" scheme="http://www.yangqingwt.top/categories/%E8%B0%83%E8%AF%95/"/>
     
     
       <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
@@ -412,228 +619,6 @@
     
     
       <category term="git" scheme="http://www.yangqingwt.top/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo 基础操作</title>
-    <link href="http://www.yangqingwt.top/2017/08/30/hexo-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/"/>
-    <id>http://www.yangqingwt.top/2017/08/30/hexo-基础操作/</id>
-    <published>2017-08-30T14:19:56.000Z</published>
-    <updated>2017-09-20T15:06:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="第一次部署"><a href="#第一次部署" class="headerlink" title="第一次部署"></a>第一次部署</h2><h3 id="前提：安装node"><a href="#前提：安装node" class="headerlink" title="前提：安装node"></a>前提：安装node</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g  <span class="comment">#安装hexo</span></div><div class="line">$ hexo init blog</div><div class="line">$ <span class="built_in">cd</span> blog</div><div class="line">$ npm install</div><div class="line">$ hexo server</div></pre></td></tr></table></figure><a id="more"></a><h3 id="启动本地服务localhost-4000"><a href="#启动本地服务localhost-4000" class="headerlink" title="启动本地服务localhost:4000"></a>启动本地服务localhost:4000</h3><h2 id="关于配置"><a href="#关于配置" class="headerlink" title="关于配置"></a>关于配置</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第一次部署&quot;&gt;&lt;a href=&quot;#第一次部署&quot; class=&quot;headerlink&quot; title=&quot;第一次部署&quot;&gt;&lt;/a&gt;第一次部署&lt;/h2&gt;&lt;h3 id=&quot;前提：安装node&quot;&gt;&lt;a href=&quot;#前提：安装node&quot; class=&quot;headerlink&quot; title=&quot;前提：安装node&quot;&gt;&lt;/a&gt;前提：安装node&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ npm install hexo-cli -g  &lt;span class=&quot;comment&quot;&gt;#安装hexo&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ hexo init blog&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; blog&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ npm install&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ hexo server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="blog" scheme="http://www.yangqingwt.top/categories/blog/"/>
-    
-    
-      <category term="hexo" scheme="http://www.yangqingwt.top/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux</title>
-    <link href="http://www.yangqingwt.top/2017/08/24/linux/"/>
-    <id>http://www.yangqingwt.top/2017/08/24/linux/</id>
-    <published>2017-08-24T15:50:33.000Z</published>
-    <updated>2017-09-20T15:07:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h2><ul><li>uname: 显示内核类别 -a 显示详细</li><li>touch：创建不存在的文件（文件存在会更新时间戳）</li><li><p>chmod: R: 4   w: 2   X: 1</p><blockquote><p>改权限：chmod 777 file 都有读写、执行权限<br>root 所属用户组 其他用户</p></blockquote></li><li>chown</li></ul><a id="more"></a><h2 id="分主题整理"><a href="#分主题整理" class="headerlink" title="分主题整理"></a>分主题整理</h2><h3 id="pdsh"><a href="#pdsh" class="headerlink" title="pdsh:"></a>pdsh:</h3><ul><li>pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。</li><li>pdsh支持交互模式，当要执行的命令不确定时，可直接进入pdsh命令行</li><li>pdsh可以通过多种方式在远程主机上运行命令，默认是rsh方式，另外也支持ssh、mrsh、qsh、mqsh、krb4、xcpu等多种rcmd模块</li><li>-w host,host    指定远程主机，可以指定多个，每个主机用逗号隔开，host可以是主机名也可以是IP地址</li><li>-R    指定使用rcmd的模块名，默认是rsh</li><li>-l    指定在远程主机上使用的用户名称</li></ul><h3 id="pdsp"><a href="#pdsp" class="headerlink" title="pdsp:"></a>pdsp:</h3><ul><li>如果配置整个集群，要求所有的机器安装相同的软件，逐一拷贝效率较低，通常的做法是将所有要安装的软件拷贝到一台主机上，通过pdcp命令同步拷贝到其他机器上。</li><li>pdcp命令格式：pdcp [-参数] “源文件1” [源文件2…]  目标</li><li>参数-w：指定要拷贝文件的远程主机，多个主机用逗号隔开，可以是主机名也可以是IP地址</li></ul><h3 id="su-和-sudo-su"><a href="#su-和-sudo-su" class="headerlink" title="su 和 sudo su"></a>su 和 sudo su</h3><ul><li>su：不指明用户名时，默认为root。su yangq4</li><li>su -:切换用户后同时切换到新用户的工作环境</li><li>以上，切换用户需知晓对应用户的登录密码</li><li>sudo su<ul><li>sudo su <user>中的su将以root身份被执行，并要求输入root的password</user></li></ul></li></ul><h3 id="ps-aux-和-ps-ef"><a href="#ps-aux-和-ps-ef" class="headerlink" title="ps aux 和 ps -ef"></a>ps aux 和 ps -ef</h3><ul><li>都是Linux显示系统进程的命令，区别：输出略有不同</li><li><p>ps -ef是标准的格式显示进程<img src="/img/linux/ps_/ps_-ef.png" alt=""></p><ul><li><p>UID    //用户ID、但输出的是用户名</p></li><li><p>PID    //进程的ID</p></li><li><p>PPID   //父进程ID </p></li><li><p>C      //进程占用CPU的百分比 </p></li><li><p>STIME  //进程启动到现在的时间</p></li><li><p>TTY    //该进程在那个终端上运行，若与终端无关，则显示? 若为pts/0等，则表示由网络连接主机进程。 </p></li><li><p>CMD    //命令的名称和参数</p></li></ul></li><li><p>ps aux是BSD的格式显示<img src="/img/linux/ps_/ps_aux.png" alt=""></p><ul><li>USER    //用户名 </li><li>%CPU    //进程占用的CPU百分比 </li><li>%MEM    //占用内存的百分比</li><li>VSZ     //该进程使用的虚拟內存量（KB） </li><li>RSS     //该进程占用的固定內存量（KB）（驻留中页的数量)</li><li>STAT    //进程的状态         </li><li>START   //该进程被触发启动时间 </li><li><p>TIME    //该进程实际使用CPU运行的时间</p><p>  <strong>其中STAT状态位常见的状态字符有</strong> </p><ul><li>D    &nbsp;&nbsp;//无法中断的休眠状态（通常 IO 的进程）</li><li>R    &nbsp;&nbsp;//正在运行可中在队列中可过行的；</li><li>S    &nbsp;&nbsp;//处于休眠状态； </li><li>T    &nbsp;&nbsp;//停止或被追踪； </li><li>W    &nbsp;&nbsp;//进入内存交换 （从内核2.6开始无效）； </li><li>X    &nbsp;&nbsp;//死掉的进程 （基本很少见）； </li><li>Z    &nbsp;&nbsp;//僵尸进程； </li><li>&lt;    &nbsp;&nbsp;//优先级高的进程 </li><li>N    &nbsp;&nbsp;//优先级较低的进程 </li><li>L    &nbsp;&nbsp;//有些页被锁进内存； </li><li>s    &nbsp;&nbsp;//进程的领导者（在它之下有子进程）； </li><li>l    &nbsp;&nbsp;//多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）； </li><li>+    &nbsp;&nbsp;//位于后台的进程组；</li></ul></li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;基础命令&quot;&gt;&lt;a href=&quot;#基础命令&quot; class=&quot;headerlink&quot; title=&quot;基础命令&quot;&gt;&lt;/a&gt;基础命令&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;uname: 显示内核类别 -a 显示详细&lt;/li&gt;
-&lt;li&gt;touch：创建不存在的文件（文件存在会更新时间戳）&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;chmod: R: 4   w: 2   X: 1&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;改权限：chmod 777 file 都有读写、执行权限&lt;br&gt;root 所属用户组 其他用户&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;chown&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://www.yangqingwt.top/categories/Linux/"/>
-    
-    
-      <category term="linux" scheme="http://www.yangqingwt.top/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则整理</title>
-    <link href="http://www.yangqingwt.top/2017/08/24/%E6%AD%A3%E5%88%99%E6%95%B4%E7%90%86/"/>
-    <id>http://www.yangqingwt.top/2017/08/24/正则整理/</id>
-    <published>2017-08-24T15:49:46.000Z</published>
-    <updated>2017-09-20T15:03:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><ul><li>^[0-9]*$ 数字</li><li>^\d{n}$ n位的数字</li><li>^\d{n,}$ 至少n位的数字</li><li>^\d{m,n}$ m~n位的数字</li><li>^(0[1-9][0-9]*)$ 零和非零开头的数字</li></ul><a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;数字&quot;&gt;&lt;a href=&quot;#数字&quot; class=&quot;headerlink&quot; title=&quot;数字&quot;&gt;&lt;/a&gt;数字&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;^[0-9]*$ 数字&lt;/li&gt;
-&lt;li&gt;^\d{n}$ n位的数字&lt;/li&gt;
-&lt;li&gt;^\d{n,}$ 至少n位的数字&lt;/li&gt;
-&lt;li&gt;^\d{m,n}$ m~n位的数字&lt;/li&gt;
-&lt;li&gt;^(0[1-9][0-9]*)$ 零和非零开头的数字&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="正则表达式" scheme="http://www.yangqingwt.top/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-    
-      <category term="正则整理" scheme="http://www.yangqingwt.top/tags/%E6%AD%A3%E5%88%99%E6%95%B4%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mongo</title>
-    <link href="http://www.yangqingwt.top/2017/08/24/mongo%E6%95%B4%E7%90%86/"/>
-    <id>http://www.yangqingwt.top/2017/08/24/mongo整理/</id>
-    <published>2017-08-24T15:44:07.000Z</published>
-    <updated>2017-09-20T15:08:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="基础整理"><a href="#基础整理" class="headerlink" title="基础整理"></a>基础整理</h1><h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><ul><li>mac安装<ol><li>brew update</li><li>brew install mongodb</li></ol></li><li>启动<ol><li>mongod</li><li>mongo</li></ol></li><li>关闭<ol><li>ctrl+c</li><li>mongo<br>> use admin db<br>> db.shutdownServer({force: true})<br><img src="/img/mongo/mongo_close.png" alt=""></li></ol></li></ul><a id="more"></a><ul><li>修复：<ol><li>删除mongo/mongod.lock</li><li>mongod -f /etc/mongod.conf –repair</li><li>另一教程里的：mongod –repair –dbpath /mongodb/ –repairpath /mongodb/repair/</li></ol></li></ul><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="update"><a href="#update" class="headerlink" title="update:"></a>update:</h3><pre><code>1. false 如果不存在，不插入2. true 查出来的记录都更新</code></pre><h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul><li>$gt 大于</li><li>$lt 小于</li><li>$gte 大于等于</li><li>$lte 小于等于</li></ul><h4 id="样例"><a href="#样例" class="headerlink" title="样例:"></a>样例:</h4><blockquote><p>大于0219小于0320<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;$gt:&quot;2017-02-19&quot;, $lt:&quot;2017-03-20&quot;&#125;</div></pre></td></tr></table></figure></p><p>降序排列，限制2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.Hacked.find(&#123;&quot;keyword&quot;: &quot;fghk&quot;&#125;).sort(&#123;sqlite_id: -1&#125;).limit(2)</div></pre></td></tr></table></figure></p><p>查status字段值为“p”或“d”的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.users.find(&#123;status: &#123;$in: [&quot;p&quot;, &quot;d&quot;]&#125;&#125;</div></pre></td></tr></table></figure></p><p>status为a, age小于30的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.users.find(&#123;status: &quot;a&quot;, age:&#123;$lt:30&#125;&#125;)</div></pre></td></tr></table></figure></p></blockquote><h3 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><blockquote><p>mongodump -h dbhost -d dbname -o dbdirectory</p></blockquote><ul><li>-h：MongoDB所在服务器地址</li><li>-d：需要备份的数据库名</li><li>-o：备份的数据存放目录（此目录需要提前建立，默认会建立dump/）</li></ul><h3 id="数据恢复"><a href="#数据恢复" class="headerlink" title="数据恢复"></a>数据恢复</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><blockquote><p>mongorestore -h <hostname>&lt;:port&gt; -d dbname <path></path></hostname></p></blockquote><ul><li>–host &lt;:port&gt;, -h &lt;:port&gt;：<ul><li>服务器地址，默认为： localhost:27017</li></ul></li><li>–db , -d ：<ul><li>需要恢复的数据库实例，例如：test，当然这个名称也可以和备份时候的不一样，比如test2</li></ul></li><li>–drop：<ul><li>恢复的时候，先删除当前数据，然后恢复备份的数据。就是说，恢复后，备份后添加修改的数据都会被删除，慎用哦！</li></ul></li><li>\<path></path>：<ul><li>设置备份数据目录，例如：c:\data\dump\test。</li><li>不能同时指定 <path></path> 和 –dir 选项</li></ul></li><li>–dir：指定备份的目录<ul><li>不能同时指定 <path></path> 和 –dir 选项。</li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;基础整理&quot;&gt;&lt;a href=&quot;#基础整理&quot; class=&quot;headerlink&quot; title=&quot;基础整理&quot;&gt;&lt;/a&gt;基础整理&lt;/h1&gt;&lt;h2 id=&quot;操作&quot;&gt;&lt;a href=&quot;#操作&quot; class=&quot;headerlink&quot; title=&quot;操作&quot;&gt;&lt;/a&gt;操作&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;mac安装&lt;ol&gt;
-&lt;li&gt;brew update&lt;/li&gt;
-&lt;li&gt;brew install mongodb&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;启动&lt;ol&gt;
-&lt;li&gt;mongod&lt;/li&gt;
-&lt;li&gt;mongo&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;关闭&lt;ol&gt;
-&lt;li&gt;ctrl+c&lt;/li&gt;
-&lt;li&gt;mongo&lt;br&gt;&gt; use admin db&lt;br&gt;&gt; db.shutdownServer({force: true})&lt;br&gt;&lt;img src=&quot;/img/mongo/mongo_close.png&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="数据库" scheme="http://www.yangqingwt.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="mongo" scheme="http://www.yangqingwt.top/tags/mongo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tmux</title>
-    <link href="http://www.yangqingwt.top/2017/08/24/tmux/"/>
-    <id>http://www.yangqingwt.top/2017/08/24/tmux/</id>
-    <published>2017-08-24T15:43:38.000Z</published>
-    <updated>2017-09-20T15:12:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="快捷键-command-a后"><a href="#快捷键-command-a后" class="headerlink" title="快捷键(command+a后)"></a>快捷键(command+a后)</h2><h6 id="我的控制键为：Ctrl-a"><a href="#我的控制键为：Ctrl-a" class="headerlink" title="我的控制键为：Ctrl+a"></a>我的控制键为：Ctrl+a</h6><ol><li>s：查看当前会话</li><li>w：显示当前会话的所有窗口</li><li>t：查看时间</li><li>,：窗口重命名</li><li>o：选择pane，轮训选择，逆时针，也可方向键。</li><li>;：last pane</li><li>q：输入序号选择</li><li>!：使单独一个pane作为新的window</li><li>空格：更换pane排版</li></ol><a id="more"></a><ol><li>ctrl+o：按顺序移动pane位置</li><li>{  ：往左、往上移动pane</li><li>}  ：往右、往下移动pane</li><li>：setw synchronize-panes(off)：同步所有窗口执行命令</li><li>复制模式：（需要添加配置）<ul><li>ctrl+a [</li><li>h、j、k、l 上下左右</li><li>alt + 上下箭头：一屏跳</li><li>空格：选择，回车完成复制到剪贴板</li><li>ctrl+a ] ：粘贴</li></ul></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;快捷键-command-a后&quot;&gt;&lt;a href=&quot;#快捷键-command-a后&quot; class=&quot;headerlink&quot; title=&quot;快捷键(command+a后)&quot;&gt;&lt;/a&gt;快捷键(command+a后)&lt;/h2&gt;&lt;h6 id=&quot;我的控制键为：Ctrl-a&quot;&gt;&lt;a href=&quot;#我的控制键为：Ctrl-a&quot; class=&quot;headerlink&quot; title=&quot;我的控制键为：Ctrl+a&quot;&gt;&lt;/a&gt;我的控制键为：Ctrl+a&lt;/h6&gt;&lt;ol&gt;
-&lt;li&gt;s：查看当前会话&lt;/li&gt;
-&lt;li&gt;w：显示当前会话的所有窗口&lt;/li&gt;
-&lt;li&gt;t：查看时间&lt;/li&gt;
-&lt;li&gt;,：窗口重命名&lt;/li&gt;
-&lt;li&gt;o：选择pane，轮训选择，逆时针，也可方向键。&lt;/li&gt;
-&lt;li&gt;;：last pane&lt;/li&gt;
-&lt;li&gt;q：输入序号选择&lt;/li&gt;
-&lt;li&gt;!：使单独一个pane作为新的window&lt;/li&gt;
-&lt;li&gt;空格：更换pane排版&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="终端" scheme="http://www.yangqingwt.top/categories/%E7%BB%88%E7%AB%AF/"/>
-    
-    
-      <category term="tmux" scheme="http://www.yangqingwt.top/tags/tmux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vim整理</title>
-    <link href="http://www.yangqingwt.top/2017/08/23/vim%E6%95%B4%E7%90%86/"/>
-    <id>http://www.yangqingwt.top/2017/08/23/vim整理/</id>
-    <published>2017-08-23T09:04:50.000Z</published>
-    <updated>2017-09-20T15:13:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><ol><li><p>ctrl+z 退出vim编辑，返回终端，vim编辑在后台</p><ul><li>jobs :显示当前环境下所有任务编号</li><li>fg:（fg NUM）进入vim编辑</li></ul></li><li><p>进入粘贴模式</p><ul><li>:set paste</li></ul></li><li>开启新文件窗口:<ul><li>:tabnew .</li><li>gt 跳转</li><li>:tabn可以加数字</li><li>:tabp</li></ul></li></ol><a id="more"></a><ol><li>command+f,弹出查找模式，<ul><li>输入，tab,查找窗口自动变化内容，并将其复制。</li><li>shift+tab,将自动查找内容左边的选中并复制</li></ul></li><li>注释：<ul><li>V 选择模式，选中: normal i #</li><li>取消注释：V选择，d</li></ul></li><li>：e!  放弃更改（=重新打开）</li></ol><h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ol><li>最大化、最小化：command+shift</li><li>移到行尾 $ (shift+4）</li><li>移到行首 ^(shift+6)和0<ul><li>0是整段的跳转，6是行跳转</li></ul></li><li>前一单词：b、B</li><li>后一单词：w、W ；词尾：e、E</li><li>屏幕顶：H</li><li>屏幕底：L</li><li>向右移动一格：空格</li><li>整页翻页 <ul><li>ctrl-f </li><li>ctrl-b</li><li>f就是forword b就是backward</li></ul></li><li>翻半页<ul><li>ctrl-d ctlr-u</li><li>d=down u=up</li></ul></li><li>滚一行<ul><li>ctrl-e ctrl-y</li></ul></li><li>zz 让光标所杂的行居屏幕中央</li><li>zt 让光标所杂的行居屏幕最上一行 t=top</li><li>zb 让光标所杂的行居屏幕最下一行 b=bottom</li><li>删除后一字符：x</li><li>删除前一字符：X     3X</li><li>删除换行符：J      nJ：连接后面n行</li><li>U：撤销当前行的所有修改</li><li>A：行末插入</li><li>>&gt;：整行向右移动（3&gt;&gt;：下面3行包括自己，向右移）<ul><li>:20,30&gt;&gt;：把20到30行向右移动</li></ul></li><li>%：移动到与之匹配的括号上去</li><li>，逗号：移动到上次的修改处</li><li>+：移动到下一行的行首     -：上一行</li></ol><h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><ul><li>vim之不能复制<ul><li>启动了鼠标，鼠标相应了vim的选中，不是终端的选中，被vim截获了操作<br>“图片”</li></ul></li></ul><p><img src="" alt="">{ImgCap}{/ImgCap}</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;小技巧&quot;&gt;&lt;a href=&quot;#小技巧&quot; class=&quot;headerlink&quot; title=&quot;小技巧&quot;&gt;&lt;/a&gt;小技巧&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;ctrl+z 退出vim编辑，返回终端，vim编辑在后台&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;jobs :显示当前环境下所有任务编号&lt;/li&gt;
-&lt;li&gt;fg:（fg NUM）进入vim编辑&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;进入粘贴模式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;:set paste&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;开启新文件窗口:&lt;ul&gt;
-&lt;li&gt;:tabnew .&lt;/li&gt;
-&lt;li&gt;gt 跳转&lt;/li&gt;
-&lt;li&gt;:tabn可以加数字&lt;/li&gt;
-&lt;li&gt;:tabp&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="IDE" scheme="http://www.yangqingwt.top/categories/IDE/"/>
-    
-    
-      <category term="vim" scheme="http://www.yangqingwt.top/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown基础语法</title>
-    <link href="http://www.yangqingwt.top/2017/08/20/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
-    <id>http://www.yangqingwt.top/2017/08/20/Markdown基础语法/</id>
-    <published>2017-08-20T14:30:23.000Z</published>
-    <updated>2017-09-20T15:08:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><pre><code># 一级标题## 二级标题### 三级标题</code></pre><h5 id="总共六级标题"><a href="#总共六级标题" class="headerlink" title="总共六级标题"></a>总共六级标题</h5><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ul><li><p>无序标题：- 、+ 或 * </p></li><li><p>有序标题：1. 2. 3.（数字+英文句点）</p></li></ul><a id="more"></a><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote><p>引用：在文本前加入 &gt; 尖括号（大于号）</p></blockquote><h2 id="图片与链接"><a href="#图片与链接" class="headerlink" title="图片与链接"></a>图片与链接</h2><h5 id="图片为：-ImgCap-ImgCap"><a href="#图片为：-ImgCap-ImgCap" class="headerlink" title="图片为：{ImgCap}{/ImgCap}"></a>图片为：<img src="" alt="">{ImgCap}{/ImgCap}</h5><ul><li>一个惊叹号 !</li><li>一个方括号，里面放上图片的替代文字</li><li>一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上 选择性的 ‘title’ 文字。<br><img src="/img/1.png" alt="图"></li></ul><h5 id="链接为：方括号包起来"><a href="#链接为：方括号包起来" class="headerlink" title="链接为：方括号包起来"></a>链接为：方括号包起来<a href=""></a></h5><h2 id="强调：斜体、粗体"><a href="#强调：斜体、粗体" class="headerlink" title="强调：斜体、粗体"></a>强调：<em>斜体</em>、<strong>粗体</strong></h2><ul><li><em>斜体</em>： 一个 * 包含</li><li><strong>粗体</strong>： 两个 * 包含</li></ul><h5 id="如果你的-和-两边都有空白的话，它们就只会被当成普通的符号"><a href="#如果你的-和-两边都有空白的话，它们就只会被当成普通的符号" class="headerlink" title="如果你的 * 和 _ 两边都有空白的话，它们就只会被当成普通的符号"></a>如果你的 * 和 _ 两边都有空白的话，它们就只会被当成普通的符号</h5><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><table><thead><tr><th>table</th><th>1</th><th>2</th></tr></thead><tbody><tr><td>1</td><td>2</td><td>3</td></tr><tr><td>4</td><td>5</td><td>6</td></tr></tbody></table><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h5 id="两个-把中间的代码包裹起来"><a href="#两个-把中间的代码包裹起来" class="headerlink" title="两个 ` 把中间的代码包裹起来"></a>两个 ` 把中间的代码包裹起来</h5><p><code>print(hello markdown)</code></p><h2 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h2><pre><code>1. 缩进4个空格2. 1个制表符</code></pre><h5 id="一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）"><a href="#一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）" class="headerlink" title="一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）"></a>一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）</h5><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><pre><code>* * *********- - ---------</code></pre><p>实例：</p><hr><h2 id="反斜杠"><a href="#反斜杠" class="headerlink" title="反斜杠"></a>反斜杠</h2><h5 id="Markdown-可以利用反斜杠来插入一些在语法中有其它意义的符号"><a href="#Markdown-可以利用反斜杠来插入一些在语法中有其它意义的符号" class="headerlink" title="Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号"></a>Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号</h5><h5 id="例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。"><a href="#例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。" class="headerlink" title="例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。"></a>例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。</h5>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;# 一级标题
-## 二级标题
-### 三级标题
-&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;总共六级标题&quot;&gt;&lt;a href=&quot;#总共六级标题&quot; class=&quot;headerlink&quot; title=&quot;总共六级标题&quot;&gt;&lt;/a&gt;总共六级标题&lt;/h5&gt;&lt;h2 id=&quot;列表&quot;&gt;&lt;a href=&quot;#列表&quot; class=&quot;headerlink&quot; title=&quot;列表&quot;&gt;&lt;/a&gt;列表&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;无序标题：- 、+ 或 * &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;有序标题：1. 2. 3.（数字+英文句点）&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="language" scheme="http://www.yangqingwt.top/categories/language/"/>
-    
-    
-      <category term="Markdown" scheme="http://www.yangqingwt.top/tags/Markdown/"/>
     
   </entry>
   
