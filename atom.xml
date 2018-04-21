@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yangqingwt.top/"/>
-  <updated>2018-04-21T10:15:14.622Z</updated>
+  <updated>2018-04-21T10:53:24.129Z</updated>
   <id>http://www.yangqingwt.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redis</title>
+    <link href="http://www.yangqingwt.top/2018/04/21/redis/"/>
+    <id>http://www.yangqingwt.top/2018/04/21/redis/</id>
+    <published>2018-04-21T10:19:42.000Z</published>
+    <updated>2018-04-21T10:53:24.129Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="redis基础"><a href="#redis基础" class="headerlink" title="redis基础"></a>redis基础</h2><ul><li>Redis是一个开源，高级的键值存储和一个适用的解决方案，用于构建高性能，可扩展的Web应用程序。</li><li>优点<ul><li>快</li><li>支持丰富的数据类型</li><li>操作具有原子性</li><li>多实用工具，用例：缓存、消息队列（Redis本地支持发布订阅）、应用程序中的任何短期数据：web应用程序中的会话、网页命中计数等</li></ul></li></ul><a id="more"></a><ul><li>Redis与其他键值存储系统<ul><li>Redis是键值数据库系统的不同进化路线，它的值可以包含更复杂的数据类型，可在这些数据类型上定义原子操作。</li><li>Redis是一个内存数据库，但在磁盘数据库上是持久的，因此它代表了一个不同的权衡，在这种情况下，在不能大于存储器(内存)的数据集的限制下实现非常高的写和读速度。</li><li>内存数据库的另一个优点是，它与磁盘上的相同数据结构相比，复杂数据结构在内存中存储表示更容易操作。 因此，Redis可以做很少的内部复杂性。</li></ul></li></ul><ol><li>安装：<ul><li>brew install redis-server</li></ul></li><li><p>启动：</p><ul><li>redis-server</li><li><p>redis-cli # 检查Redis是否正在工作（进入Redis数据库）</p><ul><li><p>获取所有配置设置</p><blockquote><p>CONFIG GET * </p></blockquote></li><li><p>支持的数据类型：字符串、散列/哈希、列表、集合、可排序集合</p></li><li><p>检查服务器是否正在运行</p><blockquote><p>PING</p></blockquote></li><li><p>连接远程服务器：</p><blockquote><p>redis-cli -h host -p port -a password</p></blockquote></li></ul></li></ul></li></ol><h2 id="redia实现消息队列"><a href="#redia实现消息队列" class="headerlink" title="redia实现消息队列"></a>redia实现消息队列</h2><ul><li>生产者消费者模式：让一个或多个客户端监听消息队列，一旦消息到达，消费者马上消费，谁抢到算谁，如果队列没有消息，则消费者继续监听。</li><li>发布订阅者模式：一个或多个客户端订阅消息频道，只要发布者发布消息，所有订阅者都能收到消息，订阅者都是ping的。</li></ul><h3 id="生产消费模式"><a href="#生产消费模式" class="headerlink" title="生产消费模式"></a>生产消费模式</h3><p>blpop获取队列数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#coding:utf-8</div><div class="line">&quot;&quot;&quot;</div><div class="line">生产者-消费者模式中的消费者</div><div class="line">&quot;&quot;&quot;</div><div class="line">import redis</div><div class="line"></div><div class="line">class Task(object):</div><div class="line">    def __init__(self):</div><div class="line">        self.rcon = redis.StrictRedis(host=&apos;localhost&apos;, db=5)</div><div class="line">        self.queue = &apos;task:prodcons:queue&apos;</div><div class="line"></div><div class="line">    def listen_task(self):</div><div class="line">        while True:</div><div class="line">            task = self.rcon.blpop(self.queue, 0)[1]</div><div class="line">            print &quot;Task get&quot;, task</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    print &apos;监听任务队列&apos;</div><div class="line">    Task().listen_task()</div></pre></td></tr></table></figure><h3 id="发布订阅模式"><a href="#发布订阅模式" class="headerlink" title="发布订阅模式"></a>发布订阅模式</h3><p>pubsub功能，订阅者订阅频道，发布者发布消息到频道了，频道就是一个消息队列。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#coding:utf-8</div><div class="line">&quot;&quot;&quot;</div><div class="line">发布订阅模式中的订阅者</div><div class="line">&quot;&quot;&quot;</div><div class="line">import redis</div><div class="line"></div><div class="line">class Task(object):</div><div class="line"></div><div class="line">    def __init__(self):</div><div class="line">        self.rcon = redis.StrictRedis(host=&apos;localhost&apos;, db=5)</div><div class="line">        self.ps = self.rcon.pubsub()</div><div class="line">        self.ps.subscribe(&apos;task:pubsub:channel&apos;)</div><div class="line"></div><div class="line">    def listen_task(self):</div><div class="line">        for i in self.ps.listen():</div><div class="line">            if i[&apos;type&apos;] == &apos;message&apos;:</div><div class="line">                print &quot;Task get&quot;, i[&apos;data&apos;]</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    print &apos;监听任务频道&apos;</div><div class="line">    Task().listen_task()</div></pre></td></tr></table></figure><h3 id="提供生产者和消息发布者"><a href="#提供生产者和消息发布者" class="headerlink" title="提供生产者和消息发布者"></a>提供生产者和消息发布者</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"># coding:utf-8</div><div class="line">&quot;&quot;&quot;</div><div class="line">提供一个页面作为生产者/消息发布者</div><div class="line">&quot;&quot;&quot;</div><div class="line">import redis</div><div class="line">import random</div><div class="line">import logging</div><div class="line">from flask import Flask, redirect</div><div class="line"></div><div class="line">app = Flask(__name__)</div><div class="line"></div><div class="line">rcon = redis.StrictRedis(host=&apos;localhost&apos;, db=1)</div><div class="line">prodcons_queue = &apos;task:prodcons:queue&apos;  #生产者消费者队列名称</div><div class="line">pubsub_channel = &apos;task:pubsub:channel&apos; #发布订阅频道名称</div><div class="line"></div><div class="line">@app.route(&apos;/&apos;)</div><div class="line">def index():</div><div class="line"></div><div class="line">    html = &quot;&quot;&quot;</div><div class="line">&lt;br&gt;</div><div class="line">&lt;center&gt;&lt;h3&gt;Redis Message Queue&lt;/h3&gt;</div><div class="line">&lt;br&gt;</div><div class="line">&lt;a href=&quot;/prodcons&quot;&gt;生产消费者模式&lt;/a&gt;</div><div class="line">&lt;br&gt;</div><div class="line">&lt;br&gt;</div><div class="line">&lt;a href=&quot;/pubsub&quot;&gt;发布订阅者模式&lt;/a&gt;</div><div class="line">&lt;/center&gt;</div><div class="line">&quot;&quot;&quot;</div><div class="line">    return html</div><div class="line"></div><div class="line">#生产者</div><div class="line">@app.route(&apos;/prodcons&apos;)</div><div class="line">def prodcons():</div><div class="line">    elem = random.randrange(10)</div><div class="line">    rcon.lpush(prodcons_queue, elem)</div><div class="line">    logging.info(&quot;lpush &#123;&#125; -- &#123;&#125;&quot;.format(prodcons_queue, elem))</div><div class="line">    return redirect(&apos;/&apos;)</div><div class="line">#消息发布者</div><div class="line">@app.route(&apos;/pubsub&apos;)</div><div class="line">def pubsub():</div><div class="line">    ps = rcon.pubsub()</div><div class="line">    ps.subscribe(pubsub_channel)</div><div class="line">    elem = random.randrange(10)</div><div class="line">    rcon.publish(pubsub_channel, elem)</div><div class="line">    return redirect(&apos;/&apos;)</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    app.run(debug=True)</div></pre></td></tr></table></figure><p>原文地址：<br><a href="https://www.yiibai.com/redis/redis_quick_guide.html" target="_blank" rel="external">https://www.yiibai.com/redis/redis_quick_guide.html</a><br><a href="http://www.cnblogs.com/taceywong/p/5843944.html" target="_blank" rel="external">http://www.cnblogs.com/taceywong/p/5843944.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;redis基础&quot;&gt;&lt;a href=&quot;#redis基础&quot; class=&quot;headerlink&quot; title=&quot;redis基础&quot;&gt;&lt;/a&gt;redis基础&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Redis是一个开源，高级的键值存储和一个适用的解决方案，用于构建高性能，可扩展的Web应用程序。&lt;/li&gt;
+&lt;li&gt;优点&lt;ul&gt;
+&lt;li&gt;快&lt;/li&gt;
+&lt;li&gt;支持丰富的数据类型&lt;/li&gt;
+&lt;li&gt;操作具有原子性&lt;/li&gt;
+&lt;li&gt;多实用工具，用例：缓存、消息队列（Redis本地支持发布订阅）、应用程序中的任何短期数据：web应用程序中的会话、网页命中计数等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>uWSGI</title>
@@ -584,41 +611,6 @@
     
     
       <category term="js" scheme="http://www.yangqingwt.top/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git整理</title>
-    <link href="http://www.yangqingwt.top/2017/08/30/git%E6%95%B4%E7%90%86/"/>
-    <id>http://www.yangqingwt.top/2017/08/30/git整理/</id>
-    <published>2017-08-30T14:19:56.000Z</published>
-    <updated>2017-09-20T15:05:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><ul><li>git checkout xxx.py 签出分支、特定文件等<ul><li>git checkout origin/yangq4</li></ul></li><li>git push origin test:master 提交本地分支test作为远程master分支</li><li>git branch 创建本地分支</li><li>git log –pretty=oneline 只显示提交版本号和内容<img src="/img/git/git_log.png" alt="图"></li><li>回退：<ol><li>git reset –hard HEAD ^ 回退到上个版本</li><li>git reset –hard 版本号</li></ol></li></ul><a id="more"></a><ul><li>git reflog 查看版本号<img src="/img/git/git_reflog.png" alt=""></li><li>git checkout –file 把文件在工作区做的修改撤销（未提交前，未放在暂存区的）</li><li>git branch -d name 删除分支<ul><li>有merge时，用-D</li></ul></li><li>git branch -m fix yangq4 分支重命名</li><li>git stash 当前工作现场隐藏</li><li>git stash list 工作现场查看</li><li>git stash apply 恢复（stash内容并不删除）</li><li>git stash drop 删除文件</li><li>git stash pop 恢复发同时文件也删除</li></ul><h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul><li>commit类别<ul><li>feat：新功能（feature）</li><li>fix：修补bug</li><li>docs：文档（documentation）</li><li>style： 格式（不影响代码运行的变动）</li><li>refactor：重构（即不是新增功能，也不是修改bug的代码变动）</li><li>test：增加测试</li><li>chore：构建过程或辅助工具的变动</li></ul></li><li>撤销上次推送    <ul><li>git reset –hard &lt;版本号&gt;</li><li>git push origin &lt;分支名&gt; –force</li></ul></li></ul><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul><li>error: you need to resolve your current index first<ul><li>git reset –merge</li></ul></li></ul><h2 id="套路"><a href="#套路" class="headerlink" title="套路"></a>套路</h2><ul><li>git pull</li><li>git checkout origin/xuhf</li><li>git checkout -b yangq4</li><li>(git merge origin/branch)</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;基本操作&quot;&gt;&lt;a href=&quot;#基本操作&quot; class=&quot;headerlink&quot; title=&quot;基本操作&quot;&gt;&lt;/a&gt;基本操作&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;git checkout xxx.py 签出分支、特定文件等&lt;ul&gt;
-&lt;li&gt;git checkout origin/yangq4&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;git push origin test:master 提交本地分支test作为远程master分支&lt;/li&gt;
-&lt;li&gt;git branch 创建本地分支&lt;/li&gt;
-&lt;li&gt;git log –pretty=oneline 只显示提交版本号和内容&lt;img src=&quot;/img/git/git_log.png&quot; alt=&quot;图&quot;&gt;&lt;/li&gt;
-&lt;li&gt;回退：&lt;ol&gt;
-&lt;li&gt;git reset –hard HEAD ^ 回退到上个版本&lt;/li&gt;
-&lt;li&gt;git reset –hard 版本号&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="tools" scheme="http://www.yangqingwt.top/categories/tools/"/>
-    
-    
-      <category term="git" scheme="http://www.yangqingwt.top/tags/git/"/>
     
   </entry>
   

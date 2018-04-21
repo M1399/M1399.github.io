@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[redis]]></title>
+    <url>%2F2018%2F04%2F21%2Fredis%2F</url>
+    <content type="text"><![CDATA[redis基础 Redis是一个开源，高级的键值存储和一个适用的解决方案，用于构建高性能，可扩展的Web应用程序。 优点 快 支持丰富的数据类型 操作具有原子性 多实用工具，用例：缓存、消息队列（Redis本地支持发布订阅）、应用程序中的任何短期数据：web应用程序中的会话、网页命中计数等 Redis与其他键值存储系统 Redis是键值数据库系统的不同进化路线，它的值可以包含更复杂的数据类型，可在这些数据类型上定义原子操作。 Redis是一个内存数据库，但在磁盘数据库上是持久的，因此它代表了一个不同的权衡，在这种情况下，在不能大于存储器(内存)的数据集的限制下实现非常高的写和读速度。 内存数据库的另一个优点是，它与磁盘上的相同数据结构相比，复杂数据结构在内存中存储表示更容易操作。 因此，Redis可以做很少的内部复杂性。 安装： brew install redis-server 启动： redis-server redis-cli # 检查Redis是否正在工作（进入Redis数据库） 获取所有配置设置 CONFIG GET * 支持的数据类型：字符串、散列/哈希、列表、集合、可排序集合 检查服务器是否正在运行 PING 连接远程服务器： redis-cli -h host -p port -a password redia实现消息队列 生产者消费者模式：让一个或多个客户端监听消息队列，一旦消息到达，消费者马上消费，谁抢到算谁，如果队列没有消息，则消费者继续监听。 发布订阅者模式：一个或多个客户端订阅消息频道，只要发布者发布消息，所有订阅者都能收到消息，订阅者都是ping的。 生产消费模式blpop获取队列数据 12345678910111213141516171819#coding:utf-8&quot;&quot;&quot;生产者-消费者模式中的消费者&quot;&quot;&quot;import redisclass Task(object): def __init__(self): self.rcon = redis.StrictRedis(host=&apos;localhost&apos;, db=5) self.queue = &apos;task:prodcons:queue&apos; def listen_task(self): while True: task = self.rcon.blpop(self.queue, 0)[1] print &quot;Task get&quot;, taskif __name__ == &apos;__main__&apos;: print &apos;监听任务队列&apos; Task().listen_task() 发布订阅模式pubsub功能，订阅者订阅频道，发布者发布消息到频道了，频道就是一个消息队列。 123456789101112131415161718192021#coding:utf-8&quot;&quot;&quot;发布订阅模式中的订阅者&quot;&quot;&quot;import redisclass Task(object): def __init__(self): self.rcon = redis.StrictRedis(host=&apos;localhost&apos;, db=5) self.ps = self.rcon.pubsub() self.ps.subscribe(&apos;task:pubsub:channel&apos;) def listen_task(self): for i in self.ps.listen(): if i[&apos;type&apos;] == &apos;message&apos;: print &quot;Task get&quot;, i[&apos;data&apos;]if __name__ == &apos;__main__&apos;: print &apos;监听任务频道&apos; Task().listen_task() 提供生产者和消息发布者123456789101112131415161718192021222324252627282930313233343536373839404142434445464748# coding:utf-8&quot;&quot;&quot;提供一个页面作为生产者/消息发布者&quot;&quot;&quot;import redisimport randomimport loggingfrom flask import Flask, redirectapp = Flask(__name__)rcon = redis.StrictRedis(host=&apos;localhost&apos;, db=1)prodcons_queue = &apos;task:prodcons:queue&apos; #生产者消费者队列名称pubsub_channel = &apos;task:pubsub:channel&apos; #发布订阅频道名称@app.route(&apos;/&apos;)def index(): html = &quot;&quot;&quot;&lt;br&gt;&lt;center&gt;&lt;h3&gt;Redis Message Queue&lt;/h3&gt;&lt;br&gt;&lt;a href=&quot;/prodcons&quot;&gt;生产消费者模式&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href=&quot;/pubsub&quot;&gt;发布订阅者模式&lt;/a&gt;&lt;/center&gt;&quot;&quot;&quot; return html#生产者@app.route(&apos;/prodcons&apos;)def prodcons(): elem = random.randrange(10) rcon.lpush(prodcons_queue, elem) logging.info(&quot;lpush &#123;&#125; -- &#123;&#125;&quot;.format(prodcons_queue, elem)) return redirect(&apos;/&apos;)#消息发布者@app.route(&apos;/pubsub&apos;)def pubsub(): ps = rcon.pubsub() ps.subscribe(pubsub_channel) elem = random.randrange(10) rcon.publish(pubsub_channel, elem) return redirect(&apos;/&apos;)if __name__ == &apos;__main__&apos;: app.run(debug=True) 原文地址：https://www.yiibai.com/redis/redis_quick_guide.htmlhttp://www.cnblogs.com/taceywong/p/5843944.html]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[uWSGI]]></title>
     <url>%2F2018%2F04%2F21%2FuWSGI%2F</url>
     <content type="text"><![CDATA[概念： WSGI：一种描述web server如何与web application通信的规范，当前运行在WSGI协议之上的web框架有Bottle、Flask、Django。 uwsgi: uWSGI服务器的独占协议，用于定义传输信息的类型，每一个uwsgi packet前4byte为传输信息类型的描述。该协议是fcgi协议的10倍快。 uWSGI：web服务器，实现了WSGI协议、uwsgi协议、http协议等。 超快性能、低内存占用、多app管理、详尽的日志功能、高度可定制 uWSGI自己实现了基于uwsgi协议的server部分，只需在uwsgi的配置中指定application地址，uWSGI就能直接和应用框架中的WSGI application通信 使用1. 安装 有多种方法安装 pip install uwsgi 使用网络安装器下载安装 http://uwsgi.it/install | bash -s default /tmp/uwsgi 通过下载源tarball文件 12341. wget http://projects.unbit.it/downloads/uwsgi-latest.tar.gz2. tar zxvf uwsgi-latest.tar.gz3. cd uwsgi-latest4. make 2. 部署在HTTP端口12uwsgi --http :3031 --wsgi-file file.py --master --processes 4 --threads 2 --stats 127.0.0.1:3031uwsgi -s :3031 -w file.py -p 4 -t 2 –processes 4 生成4个进程 –threads 2 每个进程2个线程 stats子系统允许你将uWSGI的内部统计数据作为JSON导出 如果你的代理/web服务器/路由器使用HTTP，那么你必须告诉uWSGI本地使用http协议 (这与会自己生成一个代理的–http不同): uwsgi –http-socket 127.0.0.1:3031 –wsgi-file foobar.py –master –processes 4 –threads 2 –stats 127.0.0.1:9191 3. 部署Django uwsgi –socket 127.0.0.1:3031 –chdir dir/diango –wsgi-file wsgi.py –master –processes 4 –threads 2 –stats 127.0.0.1:9091 –chdir 移到指定的目录下，在Django中，需要这样来正确加载模块 这样的长命令，累赘又麻烦愚蠢，容易犯错==，丢掉丢掉，使用.ini文件 123456socket = 127.0.0.1:3031chdir = dir/diangowsgi-file = wsgi.pyprocesses = 4thread = 2stats = 127.0.0.1:9091 运行 uwsgi config.ini 4. 部署Flask flask.py 1234567from flask import Flaskapp = Flask(__name__)@app.route(&apos;/&apos;)def index(): return &quot;&lt;span style=&apos;color:blue&apos;&gt;lalala, test flask&lt;/span&gt;&quot; WSGI函数application导出为app，需要指示uWSGI使用它 -callable app 5. python线程注意事项 不适用线程的情况下启动uWSGI，python GIL（全局锁）将不会启动，因此你的应用生成的线程将不会运行。 如果想维护python线程支持，而不为你的应用启动多线程，添加–enable-threads选项 enable-threads = true (.ini文件) 原文链接： https://www.jianshu.com/p/679dee0a4193http://uwsgi-docs-zh.readthedocs.io/zh_CN/latest/WSGIquickstart.html]]></content>
@@ -192,17 +197,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[git整理]]></title>
-    <url>%2F2017%2F08%2F30%2Fgit%E6%95%B4%E7%90%86%2F</url>
-    <content type="text"><![CDATA[基本操作 git checkout xxx.py 签出分支、特定文件等 git checkout origin/yangq4 git push origin test:master 提交本地分支test作为远程master分支 git branch 创建本地分支 git log –pretty=oneline 只显示提交版本号和内容 回退： git reset –hard HEAD ^ 回退到上个版本 git reset –hard 版本号 git reflog 查看版本号 git checkout –file 把文件在工作区做的修改撤销（未提交前，未放在暂存区的） git branch -d name 删除分支 有merge时，用-D git branch -m fix yangq4 分支重命名 git stash 当前工作现场隐藏 git stash list 工作现场查看 git stash apply 恢复（stash内容并不删除） git stash drop 删除文件 git stash pop 恢复发同时文件也删除 补充 commit类别 feat：新功能（feature） fix：修补bug docs：文档（documentation） style： 格式（不影响代码运行的变动） refactor：重构（即不是新增功能，也不是修改bug的代码变动） test：增加测试 chore：构建过程或辅助工具的变动 撤销上次推送 git reset –hard &lt;版本号&gt; git push origin &lt;分支名&gt; –force 问题 error: you need to resolve your current index first git reset –merge 套路 git pull git checkout origin/xuhf git checkout -b yangq4 (git merge origin/branch)]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[hexo 基础操作]]></title>
     <url>%2F2017%2F08%2F30%2Fhexo-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%2F</url>
     <content type="text"><![CDATA[第一次部署前提：安装node12345$ npm install hexo-cli -g #安装hexo$ hexo init blog$ cd blog$ npm install$ hexo server 启动本地服务localhost:4000关于配置]]></content>
@@ -211,6 +205,17 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git整理]]></title>
+    <url>%2F2017%2F08%2F30%2Fgit%E6%95%B4%E7%90%86%2F</url>
+    <content type="text"><![CDATA[基本操作 git checkout xxx.py 签出分支、特定文件等 git checkout origin/yangq4 git push origin test:master 提交本地分支test作为远程master分支 git branch 创建本地分支 git log –pretty=oneline 只显示提交版本号和内容 回退： git reset –hard HEAD ^ 回退到上个版本 git reset –hard 版本号 git reflog 查看版本号 git checkout –file 把文件在工作区做的修改撤销（未提交前，未放在暂存区的） git branch -d name 删除分支 有merge时，用-D git branch -m fix yangq4 分支重命名 git stash 当前工作现场隐藏 git stash list 工作现场查看 git stash apply 恢复（stash内容并不删除） git stash drop 删除文件 git stash pop 恢复发同时文件也删除 补充 commit类别 feat：新功能（feature） fix：修补bug docs：文档（documentation） style： 格式（不影响代码运行的变动） refactor：重构（即不是新增功能，也不是修改bug的代码变动） test：增加测试 chore：构建过程或辅助工具的变动 撤销上次推送 git reset –hard &lt;版本号&gt; git push origin &lt;分支名&gt; –force 问题 error: you need to resolve your current index first git reset –merge 套路 git pull git checkout origin/xuhf git checkout -b yangq4 (git merge origin/branch)]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
