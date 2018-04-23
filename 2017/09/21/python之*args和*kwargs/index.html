@@ -108,20 +108,20 @@
 
 
 
-<meta name="description" content="用法 它们主要用于函数定义，可以将不定数量的参数传递给一个函数 *args的用法 *args是发送一个非键值对的可变数量的参数列表给一个函数  例：">
+<meta name="description" content="用法 它们主要用于函数定义，可以将不定数量的参数传递给一个函数  *args的用法 *args是发送一个非键值对的可变数量的参数列表给一个函数">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="*args和\*\*kwargs">
 <meta property="og:url" content="http://www.yangqingwt.top/2017/09/21/python之*args和*kwargs/index.html">
 <meta property="og:site_name" content="Yangq blog">
-<meta property="og:description" content="用法 它们主要用于函数定义，可以将不定数量的参数传递给一个函数 *args的用法 *args是发送一个非键值对的可变数量的参数列表给一个函数  例：">
+<meta property="og:description" content="用法 它们主要用于函数定义，可以将不定数量的参数传递给一个函数  *args的用法 *args是发送一个非键值对的可变数量的参数列表给一个函数">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.yangqingwt.top/img/python/args_kwargs/args.png">
 <meta property="og:image" content="http://www.yangqingwt.top/img/python/args_kwargs/3.png">
-<meta property="og:updated_time" content="2018-04-23T16:01:13.815Z">
+<meta property="og:updated_time" content="2018-04-23T16:54:25.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="*args和\*\*kwargs">
-<meta name="twitter:description" content="用法 它们主要用于函数定义，可以将不定数量的参数传递给一个函数 *args的用法 *args是发送一个非键值对的可变数量的参数列表给一个函数  例：">
+<meta name="twitter:description" content="用法 它们主要用于函数定义，可以将不定数量的参数传递给一个函数  *args的用法 *args是发送一个非键值对的可变数量的参数列表给一个函数">
 <meta name="twitter:image" content="http://www.yangqingwt.top/img/python/args_kwargs/args.png">
 
 
@@ -407,28 +407,31 @@
 
       
         <h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><ul>
-<li><p>它们主要用于函数定义，可以将不定数量的参数传递给一个函数</p>
-<h2 id="args的用法"><a href="#args的用法" class="headerlink" title="*args的用法"></a>*args的用法</h2></li>
-<li><p>*args是发送一个非键值对的可变数量的参数列表给一个函数</p>
-</li>
-<li>例：<img src="/img/python/args_kwargs/args.png" alt=""></li>
+<li>它们主要用于函数定义，可以将不定数量的参数传递给一个函数</li>
+</ul>
+<h2 id="args的用法"><a href="#args的用法" class="headerlink" title="*args的用法"></a>*args的用法</h2><ul>
+<li>*args是发送一个非键值对的可变数量的参数列表给一个函数</li>
 </ul>
 <a id="more"></a>
+<ul>
+<li>例：<img src="/img/python/args_kwargs/args.png" alt=""></li>
+</ul>
 <h2 id="kwargs的用法"><a href="#kwargs的用法" class="headerlink" title="**kwargs的用法"></a>**kwargs的用法</h2><ul>
 <li><em>*kwargs允许将不定长度的键值对，作为参数传递给一个函数。如果想要在一个函数里处理带名字的参数，应该用\</em>*kwargs</li>
 </ul>
 <h2 id="使用args和-kwargs调用参数为列表或字典的函数"><a href="#使用args和-kwargs调用参数为列表或字典的函数" class="headerlink" title="使用args和\*kwargs调用参数为列表或字典的函数"></a>使用<em>args和\</em>*kwargs调用参数为列表或字典的函数</h2><p><img src="/img/python/args_kwargs/3.png" alt=""></p>
 <ul>
-<li>同时使用标准参数、*args与**kwargs时的顺序<blockquote>
+<li><p>同时使用标准参数、*args与**kwargs时的顺序</p>
+<blockquote>
 <p>some_func(fargs, <em>args, \</em>*kwargs)</p>
 </blockquote>
 </li>
 </ul>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h4 id="最常见在写函数装饰器的时候用"><a href="#最常见在写函数装饰器的时候用" class="headerlink" title="最常见在写函数装饰器的时候用"></a>最常见在写函数装饰器的时候用</h4><h4 id="也可用来做猴子补丁"><a href="#也可用来做猴子补丁" class="headerlink" title="也可用来做猴子补丁"></a>也可用来做猴子补丁</h4><ul>
-<li>猴子补丁：在程序运行是修改某些代码<ul>
-<li>例：有一个类，里面有个叫get_info的函数会调用一个API并返回相应的数据。如果我们想测试它，可以把API调用替换成一些测试数据<blockquote>
-<p>import someclass<br>def get_info(self, *args):<br>   return “Test data”<br>someclass.get_info = get_info</p>
-</blockquote>
+<li><p>猴子补丁：在程序运行是修改某些代码</p>
+<ul>
+<li><p>例：有一个类，里面有个叫get_info的函数会调用一个API并返回相应的数据。如果我们想测试它，可以把API调用替换成一些测试数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import someclass</div><div class="line">def get_info(self, *args):</div><div class="line">    return &quot;Test data&quot;</div><div class="line">someclass.get_info = get_info</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>

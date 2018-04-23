@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yangqingwt.top/"/>
-  <updated>2018-04-23T16:49:05.065Z</updated>
+  <updated>2018-04-23T16:54:10.415Z</updated>
   <id>http://www.yangqingwt.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>黑产资源收集</title>
+    <link href="http://www.yangqingwt.top/2018/06/23/%E9%BB%91%E4%BA%A7%E8%B5%84%E6%BA%90%E6%94%B6%E9%9B%86/"/>
+    <id>http://www.yangqingwt.top/2018/06/23/黑产资源收集/</id>
+    <published>2018-06-23T09:40:24.000Z</published>
+    <updated>2018-04-23T16:54:10.415Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="打码接码平台、云控群控平台、套现中介。"><a href="#打码接码平台、云控群控平台、套现中介。" class="headerlink" title="打码接码平台、云控群控平台、套现中介。"></a>打码接码平台、云控群控平台、套现中介。</h2><h3 id="1-打码、接码"><a href="#1-打码、接码" class="headerlink" title="1. 打码、接码"></a>1. 打码、接码</h3><h4 id="打码"><a href="#打码" class="headerlink" title="打码"></a>打码</h4><ul><li><p>打码平台，就是打验证码。很多软件需要输入验证码后才能登陆。</p><ul><li>程序将验证码传给打码平台的识别接口，打码平台将验证码发给后端的“打码工”进行识别，并获取识别结果。这样基于此类的人工打码平台，即可实现程序的自动化。</li></ul></li></ul><a id="more"></a><ul><li>例子：羊毛党要去某网站刷活动优惠券，但该网站有较复杂的图像验证码。通常羊毛党会在打码平台注册账号并充值，并通过打码平台提供的api接口，提交验证码识别。打码平台将验证码分发到各个佣工的客户端里，获取佣工的识别结果，并最终反馈给羊毛党。</li><li>打码平台普通的四位验证码0.6~1分钱，语音平台一元一条，接码0.1一条</li></ul><h4 id="接码平台"><a href="#接码平台" class="headerlink" title="接码平台"></a>接码平台</h4><ul><li>接码平台就是接受验证码。当注册某平台，不想用自己手机号或者自己手机号已经用过了，就可以利用接码平台，获取验证码，进行注册。<ul><li>接码平台，提供大量的手机号，并能够发送和接收短信。只需调用手机打码平台相关接口，获取手机号并获取短信内容即可进行批量注册。</li></ul></li></ul><h3 id="2-云控、群控"><a href="#2-云控、群控" class="headerlink" title="2. 云控、群控"></a>2. 云控、群控</h3><h4 id="群控"><a href="#群控" class="headerlink" title="群控"></a>群控</h4><ul><li>群控是通过集线器连接，把多个手机操作界面映射到显示器，实现用一台电脑控制几十台手机<ul><li>尤其是微信推广营销，骗子会先从网上购买或自己注册一批微信号进行养号，通过利用微信群控开始各种加好友、发朋友圈、发红包、甚至伪装成美女和你聊天交友等等。朋友圈刷广告，甚至还有一些发送假红包链接诱骗我们进行点击，除了欺诈骗钱还存在盗取我们帐号的风险。</li><li>刷数据量</li><li>色情牟利：通过定位到不同地方，以美女诱惑加好友，之后向你讨要红包、推荐股票、贩卖色情视频等来骗取钱财。甚至通过免费赠送礼品，诱骗你填写个人信息进行售卖或骗取运费赚取差价获利。</li><li>一些公司举办的优惠活动、免费领取福利下手，比如企业红包、优惠券、佣金、现金补贴等等。利用大批量的微信号去刷这些活动，最后提现或转卖出去来获利。<ul><li>全球虚拟定位、自动加附近好友、自动导入微信号、手机号、QQ号添加好友、自动加群成员为好友、自动摇一摇、自动漂流瓶等等。还可以任意群控手机上的软件，比如陌陌、淘宝等</li><li>微信、陌陌、QQ</li><li>缺点：缺点就是没办法随时随地的控制系统</li><li>成本：以100个号为例，一般的安卓手机500元一台，手机成本5万，系统2万，服务器5000，USB插头1000，需要7.6万。</li><li>功能：批量站街、漂流瓶、通讯录加粉、批量点赞、批量转发、批量群发、批量养号、批量回复、设置固定时间回复、批量阅读、批量安装、批量玩游戏，总之是各种批量。</li></ul></li></ul></li></ul><h4 id="云控"><a href="#云控" class="headerlink" title="云控"></a>云控</h4><ul><li>通过无线连接，电脑/平板/手机通过后台发送指令到云端，云端的指令再发到手机群，继而执行任务。理论上，一台电脑可以控制上千台手机。</li><li>模拟真人操作。比如“不要用170号段的电话卡”、“一天添加好友不要超过30个人”、“完善个人资料”、“前15天不要大规模执行任务”、“把定位设置在各个地方”、“手机不要总是满电”……最让我们听到最哭笑不得的“秘诀”是：不定时遛手机，带着手机走一圈，获得运动步数。</li><li>云控也是一样的效果，但是控制端来说，是通过服务器的云端来实现控制，可以控制几百上千台设备</li><li>成本：以100个号为例，5s或手机2台，单价1000元*2，系统4000，共6000</li><li>由于iOS的应用都运行在沙盒之中，因此APP无法获取系统的底层数据，我们通过伪造手机串号等，可以模拟出多部手机，进而实现效果比较好的多开，多开数量可以达到50个。</li><li>云控平台25个，群控平台9个</li></ul><h3 id="三、套现中介"><a href="#三、套现中介" class="headerlink" title="三、套现中介"></a>三、套现中介</h3><p>   方式：花呗|京东白条|信用卡|分期|任性付|闪银Q币|信用钱包|驴妈妈|唯品会|甜橙</p><p>   对方用淘宝店铺，你买下花呗(或其他支付方式)支付，商家发空包裹，然后扣去手续费后剩余钱打给你。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;打码接码平台、云控群控平台、套现中介。&quot;&gt;&lt;a href=&quot;#打码接码平台、云控群控平台、套现中介。&quot; class=&quot;headerlink&quot; title=&quot;打码接码平台、云控群控平台、套现中介。&quot;&gt;&lt;/a&gt;打码接码平台、云控群控平台、套现中介。&lt;/h2&gt;&lt;h3 id=&quot;1-打码、接码&quot;&gt;&lt;a href=&quot;#1-打码、接码&quot; class=&quot;headerlink&quot; title=&quot;1. 打码、接码&quot;&gt;&lt;/a&gt;1. 打码、接码&lt;/h3&gt;&lt;h4 id=&quot;打码&quot;&gt;&lt;a href=&quot;#打码&quot; class=&quot;headerlink&quot; title=&quot;打码&quot;&gt;&lt;/a&gt;打码&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;打码平台，就是打验证码。很多软件需要输入验证码后才能登陆。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;程序将验证码传给打码平台的识别接口，打码平台将验证码发给后端的“打码工”进行识别，并获取识别结果。这样基于此类的人工打码平台，即可实现程序的自动化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="other" scheme="http://www.yangqingwt.top/tags/other/"/>
+    
+  </entry>
   
   <entry>
     <title>node</title>
@@ -197,28 +223,27 @@
   </entry>
   
   <entry>
-    <title>黑产资源收集</title>
-    <link href="http://www.yangqingwt.top/2017/10/23/%E9%BB%91%E4%BA%A7%E8%B5%84%E6%BA%90%E6%94%B6%E9%9B%86/"/>
-    <id>http://www.yangqingwt.top/2017/10/23/黑产资源收集/</id>
-    <published>2017-10-23T09:40:24.000Z</published>
-    <updated>2018-04-23T10:00:09.571Z</updated>
+    <title>电脑配置</title>
+    <link href="http://www.yangqingwt.top/2017/11/06/%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE/"/>
+    <id>http://www.yangqingwt.top/2017/11/06/电脑配置/</id>
+    <published>2017-11-06T13:48:27.000Z</published>
+    <updated>2018-04-23T16:55:05.527Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="打码接码平台、云控群控平台、套现中介。"><a href="#打码接码平台、云控群控平台、套现中介。" class="headerlink" title="打码接码平台、云控群控平台、套现中介。"></a>打码接码平台、云控群控平台、套现中介。</h2><h3 id="1-打码、接码"><a href="#1-打码、接码" class="headerlink" title="1. 打码、接码"></a>1. 打码、接码</h3><h4 id="打码"><a href="#打码" class="headerlink" title="打码"></a>打码</h4><ul><li><p>打码平台，就是打验证码。很多软件需要输入验证码后才能登陆。</p><ul><li>程序将验证码传给打码平台的识别接口，打码平台将验证码发给后端的“打码工”进行识别，并获取识别结果。这样基于此类的人工打码平台，即可实现程序的自动化。</li></ul></li></ul><a id="more"></a><ul><li>例子：羊毛党要去某网站刷活动优惠券，但该网站有较复杂的图像验证码。通常羊毛党会在打码平台注册账号并充值，并通过打码平台提供的api接口，提交验证码识别。打码平台将验证码分发到各个佣工的客户端里，获取佣工的识别结果，并最终反馈给羊毛党。</li><li>打码平台普通的四位验证码0.6~1分钱，语音平台一元一条，接码0.1一条</li></ul><h4 id="接码平台"><a href="#接码平台" class="headerlink" title="接码平台"></a>接码平台</h4><ul><li>接码平台就是接受验证码。当注册某平台，不想用自己手机号或者自己手机号已经用过了，就可以利用接码平台，获取验证码，进行注册。<ul><li>接码平台，提供大量的手机号，并能够发送和接收短信。只需调用手机打码平台相关接口，获取手机号并获取短信内容即可进行批量注册。</li></ul></li></ul><h3 id="2-云控、群控"><a href="#2-云控、群控" class="headerlink" title="2. 云控、群控"></a>2. 云控、群控</h3><h4 id="群控"><a href="#群控" class="headerlink" title="群控"></a>群控</h4><ul><li>群控是通过集线器连接，把多个手机操作界面映射到显示器，实现用一台电脑控制几十台手机<ul><li>尤其是微信推广营销，骗子会先从网上购买或自己注册一批微信号进行养号，通过利用微信群控开始各种加好友、发朋友圈、发红包、甚至伪装成美女和你聊天交友等等。朋友圈刷广告，甚至还有一些发送假红包链接诱骗我们进行点击，除了欺诈骗钱还存在盗取我们帐号的风险。</li><li>刷数据量</li><li>色情牟利：通过定位到不同地方，以美女诱惑加好友，之后向你讨要红包、推荐股票、贩卖色情视频等来骗取钱财。甚至通过免费赠送礼品，诱骗你填写个人信息进行售卖或骗取运费赚取差价获利。</li><li>一些公司举办的优惠活动、免费领取福利下手，比如企业红包、优惠券、佣金、现金补贴等等。利用大批量的微信号去刷这些活动，最后提现或转卖出去来获利。<ul><li>全球虚拟定位、自动加附近好友、自动导入微信号、手机号、QQ号添加好友、自动加群成员为好友、自动摇一摇、自动漂流瓶等等。还可以任意群控手机上的软件，比如陌陌、淘宝等</li><li>微信、陌陌、QQ</li><li>缺点：缺点就是没办法随时随地的控制系统</li><li>成本：以100个号为例，一般的安卓手机500元一台，手机成本5万，系统2万，服务器5000，USB插头1000，需要7.6万。</li><li>功能：批量站街、漂流瓶、通讯录加粉、批量点赞、批量转发、批量群发、批量养号、批量回复、设置固定时间回复、批量阅读、批量安装、批量玩游戏，总之是各种批量。</li></ul></li></ul></li></ul><h4 id="云控"><a href="#云控" class="headerlink" title="云控"></a>云控</h4><ul><li>通过无线连接，电脑/平板/手机通过后台发送指令到云端，云端的指令再发到手机群，继而执行任务。理论上，一台电脑可以控制上千台手机。</li><li>模拟真人操作。比如“不要用170号段的电话卡”、“一天添加好友不要超过30个人”、“完善个人资料”、“前15天不要大规模执行任务”、“把定位设置在各个地方”、“手机不要总是满电”……最让我们听到最哭笑不得的“秘诀”是：不定时遛手机，带着手机走一圈，获得运动步数。</li><li>云控也是一样的效果，但是控制端来说，是通过服务器的云端来实现控制，可以控制几百上千台设备</li><li>成本：以100个号为例，5s或手机2台，单价1000元*2，系统4000，共6000</li><li>由于iOS的应用都运行在沙盒之中，因此APP无法获取系统的底层数据，我们通过伪造手机串号等，可以模拟出多部手机，进而实现效果比较好的多开，多开数量可以达到50个。</li><li>云控平台25个，群控平台9个</li></ul><h3 id="三、套现中介"><a href="#三、套现中介" class="headerlink" title="三、套现中介"></a>三、套现中介</h3><p>   方式：花呗|京东白条|信用卡|分期|任性付|闪银Q币|信用钱包|驴妈妈|唯品会|甜橙</p><p>   对方用淘宝店铺，你买下花呗(或其他支付方式)支付，商家发空包裹，然后扣去手续费后剩余钱打给你。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>看图吧先<br><img src="/img/电脑配置/center.png" alt=""></p><ol><li>CPU（处理器）</li></ol><a id="more"></a><ul><li>inter：酷睿i3、酷睿i5、酷睿i7<ul><li>i5 5200U：中端处理器，第五代，编号200<img src="/img/电脑配置/computer.png" alt=""></li></ul></li><li>ADM</li><li>概述：<ul><li>i3：普通办公</li><li>i5：玩网游</li><li>i7：性能好，价格高。同时高耗能造成高发热</li></ul></li></ul><ol><li><p>内存：可以自己更换（少数，如Mac、Surface等超薄的，内存条焊在主板上，无法自己更换）</p></li><li><p>显卡：（N卡：英伟达公司的，GT开头；A卡：AMD公司的)</p><ul><li>分为两种<ul><li>双显卡：独立显卡+核心显卡</li><li>核心显卡电脑</li></ul></li><li>根据型号判断显卡性能</li><li>独立显卡：<ul><li>通常显卡型号为GT abcM（abc为数字）<ul><li>a代表是第几代产品</li><li>bc为它的型号，b代表显卡的定位，5定位为中端，大于5高端，小于5为入门级别</li><li>末尾M代表它四笔记本电脑显卡</li><li>有的在GT后添加x，代表更好的性能</li><li>例：GT820M，第八代入门级别的笔记本显卡</li></ul></li></ul></li><li>核心显卡：<ul><li>理解为集成显卡，它把图形处理核心整合在了CPU当中</li><li>双显卡，在游戏等需要较大图形运算量时，才会自动切换为<strong>独立显卡</strong>，所以双显卡性能取决于其中高性能显卡所能达到的性能（一般是独立显卡）</li><li>HD4400, HD4600 &lt; HD5500, HD5600 &lt; HD6000 &lt; HD520, HD530 &lt; HD5100,HD540,HD550 &lt; HD6100 &lt; HD5200 &lt; HD6200</li><li>目前最好的HD6200的显卡大概是中端独立显卡性能水平。</li></ul></li></ul></li><li><p>硬盘：电脑的存储设备</p></li><li>主板：结合CPU、显卡、硬盘等综合考虑</li><li>台式机：还需注意：风扇、散热器、显示器</li></ol><p>摘自：<a href="https://www.zhihu.com/question/40463573/answer/87720343" target="_blank" rel="external">https://www.zhihu.com/question/40463573/answer/87720343</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;打码接码平台、云控群控平台、套现中介。&quot;&gt;&lt;a href=&quot;#打码接码平台、云控群控平台、套现中介。&quot; class=&quot;headerlink&quot; title=&quot;打码接码平台、云控群控平台、套现中介。&quot;&gt;&lt;/a&gt;打码接码平台、云控群控平台、套现中介。&lt;/h2&gt;&lt;h3 id=&quot;1-打码、接码&quot;&gt;&lt;a href=&quot;#1-打码、接码&quot; class=&quot;headerlink&quot; title=&quot;1. 打码、接码&quot;&gt;&lt;/a&gt;1. 打码、接码&lt;/h3&gt;&lt;h4 id=&quot;打码&quot;&gt;&lt;a href=&quot;#打码&quot; class=&quot;headerlink&quot; title=&quot;打码&quot;&gt;&lt;/a&gt;打码&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;打码平台，就是打验证码。很多软件需要输入验证码后才能登陆。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;程序将验证码传给打码平台的识别接口，打码平台将验证码发给后端的“打码工”进行识别，并获取识别结果。这样基于此类的人工打码平台，即可实现程序的自动化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+      &lt;h2 id=&quot;基础配置&quot;&gt;&lt;a href=&quot;#基础配置&quot; class=&quot;headerlink&quot; title=&quot;基础配置&quot;&gt;&lt;/a&gt;基础配置&lt;/h2&gt;&lt;p&gt;看图吧先&lt;br&gt;&lt;img src=&quot;/img/电脑配置/center.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;CPU（处理器）&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
+      <category term="其他" scheme="http://www.yangqingwt.top/categories/%E5%85%B6%E4%BB%96/"/>
     
-      <category term="other" scheme="http://www.yangqingwt.top/tags/other/"/>
+    
+      <category term="电脑配置" scheme="http://www.yangqingwt.top/tags/%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
@@ -346,18 +371,17 @@
     <link href="http://www.yangqingwt.top/2017/09/21/python%E4%B9%8B*args%E5%92%8C*kwargs/"/>
     <id>http://www.yangqingwt.top/2017/09/21/python之*args和*kwargs/</id>
     <published>2017-09-21T02:15:51.000Z</published>
-    <updated>2018-04-23T16:01:13.815Z</updated>
+    <updated>2018-04-23T16:54:25.905Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><ul><li><p>它们主要用于函数定义，可以将不定数量的参数传递给一个函数</p><h2 id="args的用法"><a href="#args的用法" class="headerlink" title="*args的用法"></a>*args的用法</h2></li><li><p>*args是发送一个非键值对的可变数量的参数列表给一个函数</p></li><li>例：<img src="/img/python/args_kwargs/args.png" alt=""></li></ul><a id="more"></a><h2 id="kwargs的用法"><a href="#kwargs的用法" class="headerlink" title="**kwargs的用法"></a>**kwargs的用法</h2><ul><li><em>*kwargs允许将不定长度的键值对，作为参数传递给一个函数。如果想要在一个函数里处理带名字的参数，应该用\</em>*kwargs</li></ul><h2 id="使用args和-kwargs调用参数为列表或字典的函数"><a href="#使用args和-kwargs调用参数为列表或字典的函数" class="headerlink" title="使用args和\*kwargs调用参数为列表或字典的函数"></a>使用<em>args和\</em>*kwargs调用参数为列表或字典的函数</h2><p><img src="/img/python/args_kwargs/3.png" alt=""></p><ul><li>同时使用标准参数、*args与**kwargs时的顺序<blockquote><p>some_func(fargs, <em>args, \</em>*kwargs)</p></blockquote></li></ul><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h4 id="最常见在写函数装饰器的时候用"><a href="#最常见在写函数装饰器的时候用" class="headerlink" title="最常见在写函数装饰器的时候用"></a>最常见在写函数装饰器的时候用</h4><h4 id="也可用来做猴子补丁"><a href="#也可用来做猴子补丁" class="headerlink" title="也可用来做猴子补丁"></a>也可用来做猴子补丁</h4><ul><li>猴子补丁：在程序运行是修改某些代码<ul><li>例：有一个类，里面有个叫get_info的函数会调用一个API并返回相应的数据。如果我们想测试它，可以把API调用替换成一些测试数据<blockquote><p>import someclass<br>def get_info(self, *args):<br>   return “Test data”<br>someclass.get_info = get_info</p></blockquote></li></ul></li></ul><p>摘自：<a href="https://github.com/eastlakeside/interpy-zh/blob/master/SUMMARY.md" target="_blank" rel="external">https://github.com/eastlakeside/interpy-zh/blob/master/SUMMARY.md</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><ul><li>它们主要用于函数定义，可以将不定数量的参数传递给一个函数</li></ul><h2 id="args的用法"><a href="#args的用法" class="headerlink" title="*args的用法"></a>*args的用法</h2><ul><li>*args是发送一个非键值对的可变数量的参数列表给一个函数</li></ul><a id="more"></a><ul><li>例：<img src="/img/python/args_kwargs/args.png" alt=""></li></ul><h2 id="kwargs的用法"><a href="#kwargs的用法" class="headerlink" title="**kwargs的用法"></a>**kwargs的用法</h2><ul><li><em>*kwargs允许将不定长度的键值对，作为参数传递给一个函数。如果想要在一个函数里处理带名字的参数，应该用\</em>*kwargs</li></ul><h2 id="使用args和-kwargs调用参数为列表或字典的函数"><a href="#使用args和-kwargs调用参数为列表或字典的函数" class="headerlink" title="使用args和\*kwargs调用参数为列表或字典的函数"></a>使用<em>args和\</em>*kwargs调用参数为列表或字典的函数</h2><p><img src="/img/python/args_kwargs/3.png" alt=""></p><ul><li><p>同时使用标准参数、*args与**kwargs时的顺序</p><blockquote><p>some_func(fargs, <em>args, \</em>*kwargs)</p></blockquote></li></ul><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h4 id="最常见在写函数装饰器的时候用"><a href="#最常见在写函数装饰器的时候用" class="headerlink" title="最常见在写函数装饰器的时候用"></a>最常见在写函数装饰器的时候用</h4><h4 id="也可用来做猴子补丁"><a href="#也可用来做猴子补丁" class="headerlink" title="也可用来做猴子补丁"></a>也可用来做猴子补丁</h4><ul><li><p>猴子补丁：在程序运行是修改某些代码</p><ul><li><p>例：有一个类，里面有个叫get_info的函数会调用一个API并返回相应的数据。如果我们想测试它，可以把API调用替换成一些测试数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import someclass</div><div class="line">def get_info(self, *args):</div><div class="line">    return &quot;Test data&quot;</div><div class="line">someclass.get_info = get_info</div></pre></td></tr></table></figure></li></ul></li></ul><p>摘自：<a href="https://github.com/eastlakeside/interpy-zh/blob/master/SUMMARY.md" target="_blank" rel="external">https://github.com/eastlakeside/interpy-zh/blob/master/SUMMARY.md</a></p>]]></content>
     
     <summary type="html">
     
       &lt;h1 id=&quot;用法&quot;&gt;&lt;a href=&quot;#用法&quot; class=&quot;headerlink&quot; title=&quot;用法&quot;&gt;&lt;/a&gt;用法&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;它们主要用于函数定义，可以将不定数量的参数传递给一个函数&lt;/p&gt;
-&lt;h2 id=&quot;args的用法&quot;&gt;&lt;a href=&quot;#args的用法&quot; class=&quot;headerlink&quot; title=&quot;*args的用法&quot;&gt;&lt;/a&gt;*args的用法&lt;/h2&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;*args是发送一个非键值对的可变数量的参数列表给一个函数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;例：&lt;img src=&quot;/img/python/args_kwargs/args.png&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;li&gt;它们主要用于函数定义，可以将不定数量的参数传递给一个函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;args的用法&quot;&gt;&lt;a href=&quot;#args的用法&quot; class=&quot;headerlink&quot; title=&quot;*args的用法&quot;&gt;&lt;/a&gt;*args的用法&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;*args是发送一个非键值对的可变数量的参数列表给一个函数&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>
@@ -487,31 +511,6 @@
     
     
       <category term="python" scheme="http://www.yangqingwt.top/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>电脑配置</title>
-    <link href="http://www.yangqingwt.top/2017/09/06/%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE/"/>
-    <id>http://www.yangqingwt.top/2017/09/06/电脑配置/</id>
-    <published>2017-09-06T13:48:27.000Z</published>
-    <updated>2018-04-23T10:01:19.415Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>看图吧先<br><img src="/img/电脑配置/center.png" alt=""></p><ol><li>CPU（处理器）</li></ol><a id="more"></a><ul><li>inter：酷睿i3、酷睿i5、酷睿i7<ul><li>i5 5200U：中端处理器，第五代，编号200<img src="/img/电脑配置/computer.png" alt=""></li></ul></li><li>ADM</li><li>概述：<ul><li>i3：普通办公</li><li>i5：玩网游</li><li>i7：性能好，价格高。同时高耗能造成高发热</li></ul></li></ul><ol><li><p>内存：可以自己更换（少数，如Mac、Surface等超薄的，内存条焊在主板上，无法自己更换）</p></li><li><p>显卡：（N卡：英伟达公司的，GT开头；A卡：AMD公司的)</p><ul><li>分为两种<ul><li>双显卡：独立显卡+核心显卡</li><li>核心显卡电脑</li></ul></li><li>根据型号判断显卡性能</li><li>独立显卡：<ul><li>通常显卡型号为GT abcM（abc为数字）<ul><li>a代表是第几代产品</li><li>bc为它的型号，b代表显卡的定位，5定位为中端，大于5高端，小于5为入门级别</li><li>末尾M代表它四笔记本电脑显卡</li><li>有的在GT后添加x，代表更好的性能</li><li>例：GT820M，第八代入门级别的笔记本显卡</li></ul></li></ul></li><li>核心显卡：<ul><li>理解为集成显卡，它把图形处理核心整合在了CPU当中</li><li>双显卡，在游戏等需要较大图形运算量时，才会自动切换为<strong>独立显卡</strong>，所以双显卡性能取决于其中高性能显卡所能达到的性能（一般是独立显卡）</li><li>HD4400, HD4600 &lt; HD5500, HD5600 &lt; HD6000 &lt; HD520, HD530 &lt; HD5100,HD540,HD550 &lt; HD6100 &lt; HD5200 &lt; HD6200</li><li>目前最好的HD6200的显卡大概是中端独立显卡性能水平。</li></ul></li></ul></li><li><p>硬盘：电脑的存储设备</p></li><li>主板：结合CPU、显卡、硬盘等综合考虑</li><li>台式机：还需注意：风扇、散热器、显示器</li></ol><p>摘自：<a href="https://www.zhihu.com/question/40463573/answer/87720343" target="_blank" rel="external">https://www.zhihu.com/question/40463573/answer/87720343</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;基础配置&quot;&gt;&lt;a href=&quot;#基础配置&quot; class=&quot;headerlink&quot; title=&quot;基础配置&quot;&gt;&lt;/a&gt;基础配置&lt;/h2&gt;&lt;p&gt;看图吧先&lt;br&gt;&lt;img src=&quot;/img/电脑配置/center.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;CPU（处理器）&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://www.yangqingwt.top/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="电脑配置" scheme="http://www.yangqingwt.top/tags/%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
