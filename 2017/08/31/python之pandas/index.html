@@ -108,18 +108,18 @@
 
 
 
-<meta name="description" content="基础整理 数据量达到亿的时候，可以用pandas处理 导入pandas库  import pandas as pdimport numpy as np   导入数据  pd.read_csv(filename)：从CSV文件导入数据 pd.read_table(filename)：从限定分隔符的文本文件导入数据 pd.read_excel(filename)：从Excel文件导入数据 pd.rea">
+<meta name="description" content="基础整理 数据量达到亿的时候，可以用pandas处理 导入pandas库  import pandas as pdimport numpy as np">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python之pandas">
 <meta property="og:url" content="http://www.yangqingwt.top/2017/08/31/python之pandas/index.html">
 <meta property="og:site_name" content="Yangq blog">
-<meta property="og:description" content="基础整理 数据量达到亿的时候，可以用pandas处理 导入pandas库  import pandas as pdimport numpy as np   导入数据  pd.read_csv(filename)：从CSV文件导入数据 pd.read_table(filename)：从限定分隔符的文本文件导入数据 pd.read_excel(filename)：从Excel文件导入数据 pd.rea">
+<meta property="og:description" content="基础整理 数据量达到亿的时候，可以用pandas处理 导入pandas库  import pandas as pdimport numpy as np">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-20T15:14:12.000Z">
+<meta property="og:updated_time" content="2018-04-23T16:02:21.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python之pandas">
-<meta name="twitter:description" content="基础整理 数据量达到亿的时候，可以用pandas处理 导入pandas库  import pandas as pdimport numpy as np   导入数据  pd.read_csv(filename)：从CSV文件导入数据 pd.read_table(filename)：从限定分隔符的文本文件导入数据 pd.read_excel(filename)：从Excel文件导入数据 pd.rea">
+<meta name="twitter:description" content="基础整理 数据量达到亿的时候，可以用pandas处理 导入pandas库  import pandas as pdimport numpy as np">
 
 
 
@@ -410,6 +410,9 @@
 <p>import pandas as pd<br>import numpy as np</p>
 </blockquote>
 </li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p>导入数据</p>
 <ol>
 <li>pd.read_csv(filename)：从CSV文件导入数据</li>
@@ -417,14 +420,11 @@
 <li>pd.read_excel(filename)：从Excel文件导入数据</li>
 <li>pd.read_sql(query, connection_object)：从SQL表/库导入数据</li>
 <li>pd.read_json(json_string)：从JSON格式的字符串导入数据</li>
+<li>pd.read_html(url)：解析URL、字符串或者HTML文件，抽取其中的tables表格</li>
+<li>pd.read_clipboard()：从你的粘贴板获取内容，并传给read_table()</li>
+<li>pd.DataFrame(dict)：从字典对象导入数据，Key是列名，Value是数据</li>
 </ol>
 </li>
-</ul>
-<a id="more"></a>
-<pre><code>6. pd.read_html(url)：解析URL、字符串或者HTML文件，抽取其中的tables表格
-7. pd.read_clipboard()：从你的粘贴板获取内容，并传给read_table()
-8. pd.DataFrame(dict)：从字典对象导入数据，Key是列名，Value是数据
-</code></pre><ul>
 <li><p>导出数据</p>
 <ol>
 <li>df.to_csv(filename)：导出数据到CSV文件</li>
@@ -662,7 +662,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -684,7 +684,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

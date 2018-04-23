@@ -108,19 +108,19 @@
 
 
 
-<meta name="description" content="基础整理操作 mac安装 brew update brew install mongodb   启动 mongod mongo   关闭 ctrl+c mongo&amp;gt; use admin db&amp;gt; db.shutdownServer({force: true})">
+<meta name="description" content="基础整理操作 mac安装 brew update brew install mongodb   启动 mongod mongo">
 <meta name="keywords" content="mongo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mongo">
 <meta property="og:url" content="http://www.yangqingwt.top/2017/08/24/mongo整理/index.html">
 <meta property="og:site_name" content="Yangq blog">
-<meta property="og:description" content="基础整理操作 mac安装 brew update brew install mongodb   启动 mongod mongo   关闭 ctrl+c mongo&amp;gt; use admin db&amp;gt; db.shutdownServer({force: true})">
+<meta property="og:description" content="基础整理操作 mac安装 brew update brew install mongodb   启动 mongod mongo">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.yangqingwt.top/img/mongo/mongo_close.png">
-<meta property="og:updated_time" content="2017-11-24T02:57:36.094Z">
+<meta property="og:updated_time" content="2018-04-23T16:25:53.175Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mongo">
-<meta name="twitter:description" content="基础整理操作 mac安装 brew update brew install mongodb   启动 mongod mongo   关闭 ctrl+c mongo&amp;gt; use admin db&amp;gt; db.shutdownServer({force: true})">
+<meta name="twitter:description" content="基础整理操作 mac安装 brew update brew install mongodb   启动 mongod mongo">
 <meta name="twitter:image" content="http://www.yangqingwt.top/img/mongo/mongo_close.png">
 
 
@@ -416,15 +416,17 @@
 <li>mongo</li>
 </ol>
 </li>
-<li>关闭<ol>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>关闭</p>
+<ol>
 <li>ctrl+c</li>
 <li>mongo<br>> use admin db<br>> db.shutdownServer({force: true})<br><img src="/img/mongo/mongo_close.png" alt=""></li>
 </ol>
 </li>
-</ul>
-<a id="more"></a>
-<ul>
-<li>修复：<ol>
+<li><p>修复：</p>
+<ol>
 <li>删除mongo/mongod.lock</li>
 <li>mongod -f /etc/mongod.conf –repair</li>
 <li>另一教程里的：mongod –repair –dbpath /mongodb/ –repairpath /mongodb/repair/</li>
@@ -636,7 +638,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -658,7 +660,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
