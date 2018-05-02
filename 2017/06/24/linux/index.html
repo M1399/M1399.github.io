@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yangq blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="基础命令 uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4   w: 2   X: 1">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux">
+<meta property="og:url" content="http://www.yangqingwt.top/2017/06/24/linux/index.html">
+<meta property="og:site_name" content="Yangq blog">
+<meta property="og:description" content="基础命令 uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4   w: 2   X: 1">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.yangqingwt.top/img/linux/ps_/ps_-ef.png">
+<meta property="og:image" content="http://www.yangqingwt.top/img/linux/ps_/ps_aux.png">
+<meta property="og:updated_time" content="2018-05-02T03:13:08.420Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux">
+<meta name="twitter:description" content="基础命令 uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4   w: 2   X: 1">
+<meta name="twitter:image" content="http://www.yangqingwt.top/img/linux/ps_/ps_-ef.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangqingwt.top/2017/06/24/linux/"/>
+
+
+
+
+
+  <title>linux | Yangq blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3e7656215799067b8d6253d74e25a223";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+
+  <div class="container  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yangq blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">My First、Study、Summary、Insist and Efforts</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yangqingwt.top/2017/06/24/linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yangq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/pic.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangq blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-24T23:50:33+08:00">
+                2017-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h2><ul>
+<li>uname: 显示内核类别 -a 显示详细</li>
+<li>touch：创建不存在的文件（文件存在会更新时间戳）</li>
+<li>chmod: R: 4   w: 2   X: 1</li>
+</ul>
+<a id="more"></a>
+<blockquote>
+<p>改权限：chmod 777 file 都有读写、执行权限</p>
+<p>root 所属用户组 其他用户</p>
+</blockquote>
+<ul>
+<li>chown</li>
+<li>tee: 读取标准输入的数据并输入文件。-a 追加 -i 湖绿中断信号</li>
+<li>tail -f： 追踪新增文件</li>
+<li>curl ifconfig.me：查看本机外网IP</li>
+</ul>
+<h2 id="分主题整理"><a href="#分主题整理" class="headerlink" title="分主题整理"></a>分主题整理</h2><h3 id="pdsh"><a href="#pdsh" class="headerlink" title="pdsh:"></a>pdsh:</h3><ul>
+<li>pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。</li>
+<li>pdsh支持交互模式，当要执行的命令不确定时，可直接进入pdsh命令行</li>
+<li>pdsh可以通过多种方式在远程主机上运行命令，默认是rsh方式，另外也支持ssh、mrsh、qsh、mqsh、krb4、xcpu等多种rcmd模块</li>
+<li>-w host,host    指定远程主机，可以指定多个，每个主机用逗号隔开，host可以是主机名也可以是IP地址</li>
+<li>-R    指定使用rcmd的模块名，默认是rsh</li>
+<li>-l    指定在远程主机上使用的用户名称</li>
+</ul>
+<h3 id="pdsp"><a href="#pdsp" class="headerlink" title="pdsp:"></a>pdsp:</h3><ul>
+<li>如果配置整个集群，要求所有的机器安装相同的软件，逐一拷贝效率较低，通常的做法是将所有要安装的软件拷贝到一台主机上，通过pdcp命令同步拷贝到其他机器上。</li>
+<li>pdcp命令格式：pdcp [-参数] “源文件1” [源文件2…]  目标</li>
+<li>参数-w：指定要拷贝文件的远程主机，多个主机用逗号隔开，可以是主机名也可以是IP地址</li>
+</ul>
+<h3 id="su-和-sudo-su"><a href="#su-和-sudo-su" class="headerlink" title="su 和 sudo su"></a>su 和 sudo su</h3><ul>
+<li>su：不指明用户名时，默认为root。su yangq4</li>
+<li>su -:切换用户后同时切换到新用户的工作环境</li>
+<li>以上，切换用户需知晓对应用户的登录密码</li>
+<li>sudo su<ul>
+<li>sudo su <user>中的su将以root身份被执行，并要求输入root的password</user></li>
+</ul>
+</li>
+</ul>
+<h3 id="ps-aux-和-ps-ef"><a href="#ps-aux-和-ps-ef" class="headerlink" title="ps aux 和 ps -ef"></a>ps aux 和 ps -ef</h3><ul>
+<li>都是Linux显示系统进程的命令，区别：输出略有不同</li>
+<li><p>ps -ef是标准的格式显示进程<img src="/img/linux/ps_/ps_-ef.png" alt=""></p>
+<ul>
+<li><p>UID    //用户ID、但输出的是用户名</p>
+</li>
+<li><p>PID    //进程的ID</p>
+</li>
+<li><p>PPID   //父进程ID </p>
+</li>
+<li><p>C      //进程占用CPU的百分比 </p>
+</li>
+<li><p>STIME  //进程启动到现在的时间</p>
+</li>
+<li><p>TTY    //该进程在那个终端上运行，若与终端无关，则显示? 若为pts/0等，则表示由网络连接主机进程。 </p>
+</li>
+<li><p>CMD    //命令的名称和参数</p>
+</li>
+</ul>
+</li>
+<li><p>ps aux是BSD的格式显示<img src="/img/linux/ps_/ps_aux.png" alt=""></p>
+<ul>
+<li>USER    //用户名 </li>
+<li>%CPU    //进程占用的CPU百分比 </li>
+<li>%MEM    //占用内存的百分比</li>
+<li>VSZ     //该进程使用的虚拟內存量（KB） </li>
+<li>RSS     //该进程占用的固定內存量（KB）（驻留中页的数量)</li>
+<li>STAT    //进程的状态         </li>
+<li>START   //该进程被触发启动时间 </li>
+<li><p>TIME    //该进程实际使用CPU运行的时间</p>
+<p>  <strong>其中STAT状态位常见的状态字符有</strong> </p>
+<ul>
+<li>D    &nbsp;&nbsp;//无法中断的休眠状态（通常 IO 的进程）</li>
+<li>R    &nbsp;&nbsp;//正在运行可中在队列中可过行的；</li>
+<li>S    &nbsp;&nbsp;//处于休眠状态； </li>
+<li>T    &nbsp;&nbsp;//停止或被追踪； </li>
+<li>W    &nbsp;&nbsp;//进入内存交换 （从内核2.6开始无效）； </li>
+<li>X    &nbsp;&nbsp;//死掉的进程 （基本很少见）； </li>
+<li>Z    &nbsp;&nbsp;//僵尸进程； </li>
+<li>&lt;    &nbsp;&nbsp;//优先级高的进程 </li>
+<li>N    &nbsp;&nbsp;//优先级较低的进程 </li>
+<li>L    &nbsp;&nbsp;//有些页被锁进内存； </li>
+<li>s    &nbsp;&nbsp;//进程的领导者（在它之下有子进程）； </li>
+<li>l    &nbsp;&nbsp;//多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）； </li>
+<li>+    &nbsp;&nbsp;//位于后台的进程组；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>添加个小功能~(๑•̀ㅂ•́)و✧</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="yangq WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="yangq Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/20/Markdown基础语法/" rel="next" title="Markdown基础语法">
+                <i class="fa fa-chevron-left"></i> Markdown基础语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/01/js/" rel="prev" title="js">
+                js <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/img/pic.jpeg"
+               alt="yangq" />
+          <p class="site-author-name" itemprop="name">yangq</p>
+           
+              <p class="site-description motion-element" itemprop="description">python linux more</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      豆瓣
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础命令"><span class="nav-number">1.</span> <span class="nav-text">基础命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分主题整理"><span class="nav-number">2.</span> <span class="nav-text">分主题整理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pdsh"><span class="nav-number">2.1.</span> <span class="nav-text">pdsh:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pdsp"><span class="nav-number">2.2.</span> <span class="nav-text">pdsp:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#su-和-sudo-su"><span class="nav-number">2.3.</span> <span class="nav-text">su 和 sudo su</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps-aux-和-ps-ef"><span class="nav-number">2.4.</span> <span class="nav-text">ps aux 和 ps -ef</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yangq</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Mist
+    </a>
+  </div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

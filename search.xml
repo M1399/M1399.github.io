@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[黑产资源收集]]></title>
-    <url>%2F2018%2F06%2F23%2F%E9%BB%91%E4%BA%A7%E8%B5%84%E6%BA%90%E6%94%B6%E9%9B%86%2F</url>
-    <content type="text"><![CDATA[打码接码平台、云控群控平台、套现中介。1. 打码、接码打码 打码平台，就是打验证码。很多软件需要输入验证码后才能登陆。 程序将验证码传给打码平台的识别接口，打码平台将验证码发给后端的“打码工”进行识别，并获取识别结果。这样基于此类的人工打码平台，即可实现程序的自动化。 例子：羊毛党要去某网站刷活动优惠券，但该网站有较复杂的图像验证码。通常羊毛党会在打码平台注册账号并充值，并通过打码平台提供的api接口，提交验证码识别。打码平台将验证码分发到各个佣工的客户端里，获取佣工的识别结果，并最终反馈给羊毛党。 打码平台普通的四位验证码0.6~1分钱，语音平台一元一条，接码0.1一条 接码平台 接码平台就是接受验证码。当注册某平台，不想用自己手机号或者自己手机号已经用过了，就可以利用接码平台，获取验证码，进行注册。 接码平台，提供大量的手机号，并能够发送和接收短信。只需调用手机打码平台相关接口，获取手机号并获取短信内容即可进行批量注册。 2. 云控、群控群控 群控是通过集线器连接，把多个手机操作界面映射到显示器，实现用一台电脑控制几十台手机 尤其是微信推广营销，骗子会先从网上购买或自己注册一批微信号进行养号，通过利用微信群控开始各种加好友、发朋友圈、发红包、甚至伪装成美女和你聊天交友等等。朋友圈刷广告，甚至还有一些发送假红包链接诱骗我们进行点击，除了欺诈骗钱还存在盗取我们帐号的风险。 刷数据量 色情牟利：通过定位到不同地方，以美女诱惑加好友，之后向你讨要红包、推荐股票、贩卖色情视频等来骗取钱财。甚至通过免费赠送礼品，诱骗你填写个人信息进行售卖或骗取运费赚取差价获利。 一些公司举办的优惠活动、免费领取福利下手，比如企业红包、优惠券、佣金、现金补贴等等。利用大批量的微信号去刷这些活动，最后提现或转卖出去来获利。 全球虚拟定位、自动加附近好友、自动导入微信号、手机号、QQ号添加好友、自动加群成员为好友、自动摇一摇、自动漂流瓶等等。还可以任意群控手机上的软件，比如陌陌、淘宝等 微信、陌陌、QQ 缺点：缺点就是没办法随时随地的控制系统 成本：以100个号为例，一般的安卓手机500元一台，手机成本5万，系统2万，服务器5000，USB插头1000，需要7.6万。 功能：批量站街、漂流瓶、通讯录加粉、批量点赞、批量转发、批量群发、批量养号、批量回复、设置固定时间回复、批量阅读、批量安装、批量玩游戏，总之是各种批量。 云控 通过无线连接，电脑/平板/手机通过后台发送指令到云端，云端的指令再发到手机群，继而执行任务。理论上，一台电脑可以控制上千台手机。 模拟真人操作。比如“不要用170号段的电话卡”、“一天添加好友不要超过30个人”、“完善个人资料”、“前15天不要大规模执行任务”、“把定位设置在各个地方”、“手机不要总是满电”……最让我们听到最哭笑不得的“秘诀”是：不定时遛手机，带着手机走一圈，获得运动步数。 云控也是一样的效果，但是控制端来说，是通过服务器的云端来实现控制，可以控制几百上千台设备 成本：以100个号为例，5s或手机2台，单价1000元*2，系统4000，共6000 由于iOS的应用都运行在沙盒之中，因此APP无法获取系统的底层数据，我们通过伪造手机串号等，可以模拟出多部手机，进而实现效果比较好的多开，多开数量可以达到50个。 云控平台25个，群控平台9个 三、套现中介 方式：花呗|京东白条|信用卡|分期|任性付|闪银Q币|信用钱包|驴妈妈|唯品会|甜橙 对方用淘宝店铺，你买下花呗(或其他支付方式)支付，商家发空包裹，然后扣去手续费后剩余钱打给你。]]></content>
+    <title><![CDATA[python之线程、进程]]></title>
+    <url>%2F2018%2F07%2F24%2Fpython%E4%B9%8B%E7%BA%BF%E7%A8%8B%E3%80%81%E8%BF%9B%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[线程使用 thread是低级模块，对它进行封装后是threading 1234import threadingth = threading.Thread(target=test, arg=[i])th.start()ts.append(th) 全局锁（GIL）：在任意一个指定的时间，有且只有一个线程在运行 多线程复杂度高，不建议使用 互斥锁（加锁一定要释放，不然会造成死锁） mlock = threading.Lock()mlock.acquire() # 加锁mlock.require() # 释放锁 Rlock 可重入锁 mlock = threadling.Rlock() 多进程用例1234from multiprocessing import Processp = Process(target = run_proc, args=(&apos;&apos;,))p.start()p.join() #等待子进程结束后继续往下运行，通常孕育进程间的同步 启动大量子进程 Pool1234567891011from multiprocessing import Poolp = Pool()p.apply_async(test, args=(i, ))p.close()p.join()``` * pool 8核CPU默认为8，设置 &gt; p = Pool(10) #### 进程间通信 Queue Pipes from multiprocessing import Queus, Processq = Queue() # 父进程创建Queue，并传给各子进程p = process(target = run.proc, args=(q, ))```]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
       <tags>
-        <tag>other</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -20,30 +23,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[redis]]></title>
-    <url>%2F2018%2F04%2F21%2Fredis%2F</url>
-    <content type="text"><![CDATA[redis基础 Redis是一个开源，高级的键值存储和一个适用的解决方案，用于构建高性能，可扩展的Web应用程序。 优点 快 支持丰富的数据类型 操作具有原子性 多实用工具，用例：缓存、消息队列（Redis本地支持发布订阅）、应用程序中的任何短期数据：web应用程序中的会话、网页命中计数等 Redis与其他键值存储系统 Redis是键值数据库系统的不同进化路线，它的值可以包含更复杂的数据类型，可在这些数据类型上定义原子操作。 Redis是一个内存数据库，但在磁盘数据库上是持久的，因此它代表了一个不同的权衡，在这种情况下，在不能大于存储器(内存)的数据集的限制下实现非常高的写和读速度。 内存数据库的另一个优点是，它与磁盘上的相同数据结构相比，复杂数据结构在内存中存储表示更容易操作。 因此，Redis可以做很少的内部复杂性。 安装： brew install redis-server 启动： redis-server redis-cli # 检查Redis是否正在工作（进入Redis数据库） 获取所有配置设置 CONFIG GET * 支持的数据类型：字符串、散列/哈希、列表、集合、可排序集合 检查服务器是否正在运行 PING 连接远程服务器： redis-cli -h host -p port -a password redia实现消息队列 生产者消费者模式：让一个或多个客户端监听消息队列，一旦消息到达，消费者马上消费，谁抢到算谁，如果队列没有消息，则消费者继续监听。 发布订阅者模式：一个或多个客户端订阅消息频道，只要发布者发布消息，所有订阅者都能收到消息，订阅者都是ping的。 生产消费模式blpop获取队列数据 12345678910111213141516171819#coding:utf-8&quot;&quot;&quot;生产者-消费者模式中的消费者&quot;&quot;&quot;import redisclass Task(object): def __init__(self): self.rcon = redis.StrictRedis(host=&apos;localhost&apos;, db=5) self.queue = &apos;task:prodcons:queue&apos; def listen_task(self): while True: task = self.rcon.blpop(self.queue, 0)[1] print &quot;Task get&quot;, taskif __name__ == &apos;__main__&apos;: print &apos;监听任务队列&apos; Task().listen_task() 发布订阅模式pubsub功能，订阅者订阅频道，发布者发布消息到频道了，频道就是一个消息队列。 123456789101112131415161718192021#coding:utf-8&quot;&quot;&quot;发布订阅模式中的订阅者&quot;&quot;&quot;import redisclass Task(object): def __init__(self): self.rcon = redis.StrictRedis(host=&apos;localhost&apos;, db=5) self.ps = self.rcon.pubsub() self.ps.subscribe(&apos;task:pubsub:channel&apos;) def listen_task(self): for i in self.ps.listen(): if i[&apos;type&apos;] == &apos;message&apos;: print &quot;Task get&quot;, i[&apos;data&apos;]if __name__ == &apos;__main__&apos;: print &apos;监听任务频道&apos; Task().listen_task() 提供生产者和消息发布者123456789101112131415161718192021222324252627282930313233343536373839404142434445464748# coding:utf-8&quot;&quot;&quot;提供一个页面作为生产者/消息发布者&quot;&quot;&quot;import redisimport randomimport loggingfrom flask import Flask, redirectapp = Flask(__name__)rcon = redis.StrictRedis(host=&apos;localhost&apos;, db=1)prodcons_queue = &apos;task:prodcons:queue&apos; #生产者消费者队列名称pubsub_channel = &apos;task:pubsub:channel&apos; #发布订阅频道名称@app.route(&apos;/&apos;)def index(): html = &quot;&quot;&quot;&lt;br&gt;&lt;center&gt;&lt;h3&gt;Redis Message Queue&lt;/h3&gt;&lt;br&gt;&lt;a href=&quot;/prodcons&quot;&gt;生产消费者模式&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href=&quot;/pubsub&quot;&gt;发布订阅者模式&lt;/a&gt;&lt;/center&gt;&quot;&quot;&quot; return html#生产者@app.route(&apos;/prodcons&apos;)def prodcons(): elem = random.randrange(10) rcon.lpush(prodcons_queue, elem) logging.info(&quot;lpush &#123;&#125; -- &#123;&#125;&quot;.format(prodcons_queue, elem)) return redirect(&apos;/&apos;)#消息发布者@app.route(&apos;/pubsub&apos;)def pubsub(): ps = rcon.pubsub() ps.subscribe(pubsub_channel) elem = random.randrange(10) rcon.publish(pubsub_channel, elem) return redirect(&apos;/&apos;)if __name__ == &apos;__main__&apos;: app.run(debug=True) 原文地址：https://www.yiibai.com/redis/redis_quick_guide.htmlhttp://www.cnblogs.com/taceywong/p/5843944.html]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[uWSGI]]></title>
-    <url>%2F2018%2F04%2F21%2FuWSGI%2F</url>
+    <url>%2F2018%2F03%2F21%2FuWSGI%2F</url>
     <content type="text"><![CDATA[概念： WSGI：一种描述web server如何与web application通信的规范，当前运行在WSGI协议之上的web框架有Bottle、Flask、Django。 uwsgi: uWSGI服务器的独占协议，用于定义传输信息的类型，每一个uwsgi packet前4byte为传输信息类型的描述。该协议是fcgi协议的10倍快。 uWSGI：web服务器，实现了WSGI协议、uwsgi协议、http协议等。 超快性能、低内存占用、多app管理、详尽的日志功能、高度可定制 uWSGI自己实现了基于uwsgi协议的server部分，只需在uwsgi的配置中指定application地址，uWSGI就能直接和应用框架中的WSGI application通信 使用1. 安装 有多种方法安装 pip install uwsgi 使用网络安装器下载安装 http://uwsgi.it/install | bash -s default /tmp/uwsgi 通过下载源tarball文件 12341. wget http://projects.unbit.it/downloads/uwsgi-latest.tar.gz2. tar zxvf uwsgi-latest.tar.gz3. cd uwsgi-latest4. make 2. 部署在HTTP端口12uwsgi --http :3031 --wsgi-file file.py --master --processes 4 --threads 2 --stats 127.0.0.1:3031uwsgi -s :3031 -w file.py -p 4 -t 2 –processes 4 生成4个进程 –threads 2 每个进程2个线程 stats子系统允许你将uWSGI的内部统计数据作为JSON导出 如果你的代理/web服务器/路由器使用HTTP，那么你必须告诉uWSGI本地使用http协议 (这与会自己生成一个代理的–http不同): uwsgi –http-socket 127.0.0.1:3031 –wsgi-file foobar.py –master –processes 4 –threads 2 –stats 127.0.0.1:9191 3. 部署Django uwsgi –socket 127.0.0.1:3031 –chdir dir/diango –wsgi-file wsgi.py –master –processes 4 –threads 2 –stats 127.0.0.1:9091 –chdir 移到指定的目录下，在Django中，需要这样来正确加载模块 这样的长命令，累赘又麻烦愚蠢，容易犯错==，丢掉丢掉，使用.ini文件 123456socket = 127.0.0.1:3031chdir = dir/diangowsgi-file = wsgi.pyprocesses = 4thread = 2stats = 127.0.0.1:9091 运行 uwsgi config.ini 4. 部署Flask flask.py 1234567from flask import Flaskapp = Flask(__name__)@app.route(&apos;/&apos;)def index(): return &quot;&lt;span style=&apos;color:blue&apos;&gt;lalala, test flask&lt;/span&gt;&quot; WSGI函数application导出为app，需要指示uWSGI使用它 -callable app 5. python线程注意事项 不适用线程的情况下启动uWSGI，python GIL（全局锁）将不会启动，因此你的应用生成的线程将不会运行。 如果想维护python线程支持，而不为你的应用启动多线程，添加–enable-threads选项 enable-threads = true (.ini文件) 原文链接： https://www.jianshu.com/p/679dee0a4193http://uwsgi-docs-zh.readthedocs.io/zh_CN/latest/WSGIquickstart.html]]></content>
       <categories>
         <category>服务器</category>
       </categories>
       <tags>
         <tag>web服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[python之线程、进程]]></title>
-    <url>%2F2018%2F03%2F24%2Fpython%E4%B9%8B%E7%BA%BF%E7%A8%8B%E3%80%81%E8%BF%9B%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[线程使用 thread是低级模块，对它进行封装后是threading 1234import threadingth = threading.Thread(target=test, arg=[i])th.start()ts.append(th) 全局锁（GIL）：在任意一个指定的时间，有且只有一个线程在运行 多线程复杂度高，不建议使用 互斥锁（加锁一定要释放，不然会造成死锁） mlock = threading.Lock()mlock.acquire() # 加锁mlock.require() # 释放锁 Rlock 可重入锁 mlock = threadling.Rlock() 多进程用例1234from multiprocessing import Processp = Process(target = run_proc, args=(&apos;&apos;,))p.start()p.join() #等待子进程结束后继续往下运行，通常孕育进程间的同步 启动大量子进程 Pool1234567891011from multiprocessing import Poolp = Pool()p.apply_async(test, args=(i, ))p.close()p.join()``` * pool 8核CPU默认为8，设置 &gt; p = Pool(10) #### 进程间通信 Queue Pipes from multiprocessing import Queus, Processq = Queue() # 父进程创建Queue，并传给各子进程p = process(target = run.proc, args=(q, ))```]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -58,222 +45,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[SQL]]></title>
-    <url>%2F2017%2F12%2F23%2FSQL%2F</url>
-    <content type="text"><![CDATA[SQL dese 对结果查询 select * from tablename where _date=’ ‘ limit 1; count( * )]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[tmuxp]]></title>
-    <url>%2F2017%2F11%2F24%2Ftmuxp%2F</url>
-    <content type="text"><![CDATA[创建文件： ~/.tmuxp/mysession.yamltmuxp load ./mysession.yaml 保存当前会话到配置文件： tmuxp freeze session-name]]></content>
-      <categories>
-        <category>终端</category>
-      </categories>
-      <tags>
-        <tag>tmuxp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[电脑配置]]></title>
-    <url>%2F2017%2F11%2F06%2F%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[基础配置看图吧先 CPU（处理器） inter：酷睿i3、酷睿i5、酷睿i7 i5 5200U：中端处理器，第五代，编号200 ADM 概述： i3：普通办公 i5：玩网游 i7：性能好，价格高。同时高耗能造成高发热 内存：可以自己更换（少数，如Mac、Surface等超薄的，内存条焊在主板上，无法自己更换） 显卡：（N卡：英伟达公司的，GT开头；A卡：AMD公司的) 分为两种 双显卡：独立显卡+核心显卡 核心显卡电脑 根据型号判断显卡性能 独立显卡： 通常显卡型号为GT abcM（abc为数字） a代表是第几代产品 bc为它的型号，b代表显卡的定位，5定位为中端，大于5高端，小于5为入门级别 末尾M代表它四笔记本电脑显卡 有的在GT后添加x，代表更好的性能 例：GT820M，第八代入门级别的笔记本显卡 核心显卡： 理解为集成显卡，它把图形处理核心整合在了CPU当中 双显卡，在游戏等需要较大图形运算量时，才会自动切换为独立显卡，所以双显卡性能取决于其中高性能显卡所能达到的性能（一般是独立显卡） HD4400, HD4600 &lt; HD5500, HD5600 &lt; HD6000 &lt; HD520, HD530 &lt; HD5100,HD540,HD550 &lt; HD6100 &lt; HD5200 &lt; HD6200 目前最好的HD6200的显卡大概是中端独立显卡性能水平。 硬盘：电脑的存储设备 主板：结合CPU、显卡、硬盘等综合考虑 台式机：还需注意：风扇、散热器、显示器 摘自：https://www.zhihu.com/question/40463573/answer/87720343]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>电脑配置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[python之map、filter、reduce]]></title>
-    <url>%2F2017%2F10%2F23%2Fpython%E4%B9%8Bmap%E3%80%81filter%E3%80%81reduce%2F</url>
-    <content type="text"><![CDATA[Map Map会将一个函数映射到一个输入列表的所有元素上 规范：map(function_to_apply, list_of_imputs) 把列表中所有元素一个个传递给一个函数，并收集输出 使用map 使用匿名函数lambda来配合map print加了list转换，是为了python2/3的兼容性 在python2中map直接返回列表，但python3返回迭代器 Filter filter过滤列表中的元素，并且返回一个由所有符合要求的元素所构成的列表。 filter类似于一个for循环，但它是一个内置函数，并且更快 Reduce reduce：对列表进行计算并返回结果 例：计算一个整数列表的乘积]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Linux之cut]]></title>
-    <url>%2F2017%2F10%2F17%2FLinux%E4%B9%8Bcut%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Collections]]></title>
-    <url>%2F2017%2F09%2F21%2FCollections%2F</url>
-    <content type="text"><![CDATA[Collections是python内建的一个集合模块，提供了许多有用的集合类 提供的集合类defaultdict from collections import defaultdict counter 计数器，可以针对某项数据进行计数 123456789101112131415161718from collections import Countercolours = ( (&apos;Yasoob&apos;, &apos;Yellow&apos;), (&apos;Ali&apos;, &apos;Blue&apos;), (&apos;Arham&apos;, &apos;Green&apos;), (&apos;Ali&apos;, &apos;Black&apos;), (&apos;Yasoob&apos;, &apos;Red&apos;), (&apos;Ahmed&apos;, &apos;Silver&apos;),)favs = Counter(name for name, colour in colours)print(favs)输出:Counter(&#123; &apos;Yasoob&apos;: 2, &apos;Ali&apos;: 2, &apos;Arham&apos;: 1, &apos;Ahmed&apos;: 1 &#125;) deque 它提供了一个双端队列，可以从头或尾两端添加或删除元素 用法类型python的list from collections import dequed = deque()d.append(‘1’)d.append(‘2’)d.append(‘3’）print(len(d))输出： 3print(d[0])输出： 1 可以从两端取出(pop)数据： d = deque（range(5))print(len(d))输出： 5d.popleft()输出： 0d.pop()输出： 4print(d)输出： deque([1, 2, 3]) 可以限制这个列表的大小，当超出你设定的限制时，数据会从对队列另一端被挤出去(pop) d = deque(maxlen=30) 可以从任一端扩展这个队列中的数据： d = deque([1,2,3,4,5])d.extendleft([0])d.extend([6,7,8])print(d)输出： deque([0, 1, 2, 3, 4, 5, 6, 7, 8]) namedtuple元组 一个元组是一个不可变的列表，你可以存储一个数据的序列，它和命名元组(namedtuples)非常像，但有几个关键的不同。 主要相似点: 不能修改元组中的数据。 获取元组中的数据，需要使用整数作为索引： man = (‘Ali’, 30)print(man[0])输出： Ali 命名元组 namedtuples: 把元组变成一个针对简单任务的容器。 可以像字典一样访问namedtuples 但namedtuples是不可变的。 from collections import namedtupleAnimal = namedtuple(‘Animal’, ‘name age type’)perry = Animal(name=”perry”, age=31, type=”cat”)print(perry)输出： Animal(name=’perry’, age=31, type=’cat’)print(perry.name)输出： ‘perry’ 上例中，元组名称是Animal，字段名称是’name’，’age’和’type’。 namedtuple优点： 让你的元组变得自文档了。你只要看一眼就很容易理解代码是做什么的 你也不必使用整数索引来访问一个命名元组，这让你的代码更易于维护。 namedtuple的每个实例没有对象字典，所以它们很轻量，与普通的元组比，并不需要更多的内存。这使得它们比字典更快。 可以将命名元祖转化为字典 from collections import namedtupleAnimal = namedtuple(‘Animal’, ‘name age type’)perry = Animal(name=”Perry”, age=31, type=”cat”)print(perry._asdict())输出： OrderedDict([(‘name’, ‘Perry’), (‘age’, 31), (‘type’, ‘cat’)]) enum.Enum (Python 3.4+)枚举对象]]></content>
-      <categories>
-        <category>python内建模块</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[virtualenv]]></title>
-    <url>%2F2017%2F09%2F21%2Fvirtualenv%2F</url>
-    <content type="text"><![CDATA[virtualenv是什么 virtualenv是一个工具，能够创建一个独立的python环境 安装使用安装 pip install virtualenv 使用1). 创建一个隔离的virtualenv环境 virtualenv project 让virtualenv使用全局模块 virtualenv –system-site-packages project 第三方包不复制，得到不带任何第三方包的“干净”的Python运行环境 virtualenv —no-site-packages project 2). 激活环境 source myproject/bin/activate 3). 退出虚拟环境 deactivate 4). 删除虚拟环境 rm -r project Virtualenvwrapper 终端用fish的，使用virtualfish代替 安装： pip install Virtualenvwrapper 配置： export WORKON_HOME=‘~/.virtualenv’ Source /usr/local/bin/virtualenvwrapper.sh 由于每次都需要执行这两步操作，可以将其写入终端的配置文件中。例如，如果使用 bash，则添加到 ~/.bashrc 中；如果使用 zsh，则添加到 ~/.zshrc 中。这样每次启动终端的时候都会自动运行，终端启动之后 virtualenvwrapper 就可以用了。 创建虚拟环境 这里创建的是系统默认的python版本的环境，用 which python 查看默认版本。 建议用下面的命令来制定版本。 $ mkvirtualenv spider 指定建立3.4的python环境 $ mkvirtualenv -p /Users/heliclei/.localpython/bin/python3.4 env34 指定建立2.7的python环境 $ mkvirtualenv -p /Users/heliclei/.localpython/bin/python2.7 env27 进入：workon enve 离开：deactivate 删除：rmvirtualenv enve virtualfish pip install virtualfish vim ~/.config/fish/config.fish 添加 eval (python -m virtualfish) vf new venvname; which python]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[生成器-Generators]]></title>
-    <url>%2F2017%2F09%2F21%2Fpython%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8-Generators%2F</url>
-    <content type="text"><![CDATA[Generators(生成器) 一种迭代器，但是只能对其迭代一次。 因为它们并没有把所有的值存在内存中，而是在运行是生成值. 通过遍历来使用 “for”循环 传递转给任意可以进行迭代的函数和结构。（大多是以函数来实现） 不返回一个值，而是yield一个值。 生成器占很少的资源 eg:计算斐波那契数列的生成器： 这种方式我们不用担心它会使用大量资源 这种方法也许会在计算很大的输入参数时，用尽所有的资源。next() 允许获取序列的下一个元素 在yield所有值后，next（）触发了StopIteration的异常。但是在for循环时没有这个异常，因为for循环会自动捕捉到这个异常并停止调用next（） python内置数据类型也支持迭代的 str对象不是一个迭代器，它是一个可迭代对象。支持迭代，但不能直接对其进行迭代操作 对其实施迭代：使用iter,它将根据一个可迭代对象返回一个迭代器对象]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[*args和\*\*kwargs]]></title>
-    <url>%2F2017%2F09%2F21%2Fpython%E4%B9%8B*args%E5%92%8C*kwargs%2F</url>
-    <content type="text"><![CDATA[用法 它们主要用于函数定义，可以将不定数量的参数传递给一个函数 *args的用法 *args是发送一个非键值对的可变数量的参数列表给一个函数 例： **kwargs的用法 *kwargs允许将不定长度的键值对，作为参数传递给一个函数。如果想要在一个函数里处理带名字的参数，应该用\*kwargs 使用args和\*kwargs调用参数为列表或字典的函数 同时使用标准参数、*args与**kwargs时的顺序 some_func(fargs, args, \*kwargs) 使用最常见在写函数装饰器的时候用也可用来做猴子补丁 猴子补丁：在程序运行是修改某些代码 例：有一个类，里面有个叫get_info的函数会调用一个API并返回相应的数据。如果我们想测试它，可以把API调用替换成一些测试数据 1234import someclassdef get_info(self, *args): return &quot;Test data&quot;someclass.get_info = get_info 摘自：https://github.com/eastlakeside/interpy-zh/blob/master/SUMMARY.md]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[scrapy]]></title>
-    <url>%2F2017%2F09%2F17%2Fscrapy%2F</url>
-    <content type="text"><![CDATA[]]></content>
-      <categories>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[BeautifulSoup]]></title>
-    <url>%2F2017%2F09%2F17%2FBeautifulSoup%2F</url>
-    <content type="text"><![CDATA[安装和使用安装 pip install beautifulsoup4 使用 导入 from bs4 import beautifulsoup 创建一个字符串 12345678910111213html = &quot;&quot;&quot;&lt;html&gt; &lt;head&gt;&lt;title&gt;The Dormouse&apos;s story&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;title&quot; name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt;&lt;p class=&quot;story&quot;&gt; Once upon a time there were three little sisters; and their names were &lt;a href=&quot;http://example.com/elsie&quot; class=&quot;sister&quot; id=&quot;link1&quot;&gt;&lt;!-- Elsie --&gt;&lt;/a&gt;, &lt;a href=&quot;http://example.com/tillie&quot; class=&quot;sister&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;; and they lived at the bottom of a well.&lt;/p&gt;&lt;p class=&quot;story&quot;&gt;...&lt;/p&gt;&quot;&quot;&quot; 创建beautifulsoup对象 soup = BeautifulSoup(html) 也可以用本地HTML文件来创建对象 soup = BeautifulSoup(open(‘index.html’)) 格式化输出,打印出soup对象的内容 print soup.prettify() 四大对象种类1. Tag是什么 是HTML中的一个个标签：title、 a等等HTML标签加上里面包括的内容 验证下这些对象的类型 &gt;&gt;&gt; print type(soup.a) &lt;class &apos;bs4.element.Tag&apos;&gt; 属性name&gt;&gt;&gt; print soup.name [document] &gt;&gt;&gt; print soup.head.name head suop对象本身比较特殊，它的 name 即为 [document]，对于其他内部标签，输出的值便为标签本身的名称。 attrs 把 p 的所有属性打印出来 &gt;&gt;&gt; print soup.p.attrs {&apos;class&apos;: [&apos;title&apos;], &apos;name&apos;: &apos;dromouse&apos;} 单独获取某个属性 &gt;&gt;&gt; print soup.p[&apos;class&apos;] [&apos;title&apos;] 还可以用get方法 &gt;&gt;&gt; print soup.p.get(&apos;class&apos;) [&apos;title&apos;] 可以对这些属性和内容等等进行修改 &gt;&gt;&gt; soup.p[&apos;class&apos;]=&quot;newClass&quot; &gt;&gt;&gt; print soup.p &lt;p class=&quot;newClass&quot; name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt; 对这个属性进行删除 &gt;&gt;&gt; del soup.p[&apos;class&apos;] &gt;&gt;&gt; print soup.p &lt;p name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt; 2. NavigableString获取标签内部的文字&gt;&gt;&gt; print soup.p.string The Dormouse&apos;s story 类型print type(soup.p.string) &lt;class &apos;bs4.element.NavigableString&apos;&gt; 3 BeautifulSoup BeautifulSoup 对象表示的是一个文档的全部内容 大部分时候,可以把它当作 Tag 对象，是一个特殊的 Tag &gt;&gt;&gt; print type(soup.name) &lt;type &apos;unicode&apos;&gt; &gt;&gt;&gt; print soup.name [document] &gt;&gt;&gt; print soup.attrs {} // 空字典 4 comment 是一个特殊类型的 NavigableString 对象 其实输出的内容仍不包括注释符号 &gt;&gt;&gt; print soup.a &lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;&lt;!-- Elsie --&gt;&lt;/a&gt; &gt;&gt;&gt; print soup.a.string Elsie &gt;&gt;&gt; print type(soup.a.string) &lt;class &apos;bs4.element.Comment&apos;&gt; a 里的内容实际上是注释，利用 .string 来输出它的内容，已经把注释符号去掉了( 所以这可能会给我们带来不必要的麻烦 ) 在使用前最好做一下判断 &gt;&gt;&gt; if type(soup.a.string)==bs4.element.Comment: ... print soup.a.string 遍历文档树待续先，累了== 摘自： http://python.jobbole.com/81349/]]></content>
-      <categories>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[itertools]]></title>
-    <url>%2F2017%2F09%2F17%2Fpython%E4%B9%8Bitertools%2F</url>
-    <content type="text"><![CDATA[python的内建模块itertools：提供了一些用于操作迭代对象的函数“无限”迭代器&gt;&gt;&gt; import itertools count（）：会创建一个无限迭代器&gt;&gt;&gt; natuals = itertools.count(1) &gt;&gt;&gt; for n in natuals: ... print n 1 2 3 ... cycle(): 会把传入的序列无限重复下去&gt;&gt;&gt; cs = itertools.cycle(&quot;abc&quot;) &gt;&gt;&gt; for c in cs: ... print c ... &apos;a&apos; &apos;b&apos; &apos;c&apos; &apos;a&apos; ... repeat() 把一个元素无限重复，第二个参数可以限定重复额次数&gt;&gt;&gt; ns = itertools.repeat(&apos;a&apos;, 10) &gt;&gt;&gt; for n in ns: ... print n ...打印10次&apos;a&apos; 迭代器操作函数chain（）：把一组迭代对象串联起来，形成大的迭代器&gt;&gt;&gt; for c in itertools.chain(&apos;abc&apos;, &apos;def&apos;): ... print c ... &apos;a&apos; &apos;b&apos; &apos;c&apos; &apos;d&apos; &apos;e&apos; &apos;f&apos; groupby(): 把迭代器中相邻的重复元素挑出来放在一起&gt;&gt;&gt; for key, group in itertools.groupby(&apos;aabbcccaa&apos;): ... print key, list(group) ... a [&apos;a&apos;, &apos;a&apos;] b [&apos;b&apos;, &apos;b&apos;] c [&apos;c&apos;, &apos;c&apos;, &apos;c&apos;] a [&apos;a&apos;, &apos;a&apos;] 可以添加调选规则 让‘A’和‘a’都返回相同的key： &gt;&gt;&gt; for key, group in itertools.groupby(&apos;AaaBBbcCaAa&apos;, lambda c: c.upper()): ... print key, list(group) ... A [&apos;A&apos;, &apos;a&apos;, &apos;a&apos;] B [&apos;B&apos;, &apos;B&apos;, &apos;b&apos;] C [&apos;c&apos;, &apos;C&apos;] A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;] imap(): 可以作用与无穷序列，如果两个序列长度不一致，以短的为准&gt;&gt;&gt; for x in itertools.imap(lambda x, y: x * y, [10, 20, 30], itertools.count(1)): ... print x ... 10 40 90 imap()返回一个迭代对象，必须用for循环进行迭代，才会在循环中计算出下一个元素 map() 返回list，调用它试，已经计算完毕 &gt;&gt;&gt; r = map(lambda x: x*x, [1, 2, 3]) &gt;&gt;&gt; r # r已经计算出来了 [1, 4, 9] imap()实现了“惰性计算”，只在需要获得结果时才计算ifilter: fileter的惰性实现 总结： itertools提供的全是处理迭代功能的函数，返回值是迭代对象，只有用for循环迭代试才真正计算 参考资源：https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001415616001996f6b32d80b6454caca3d33c965a07611f000]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[python之编码]]></title>
-    <url>%2F2017%2F09%2F13%2Fpython%E4%B9%8B%E7%BC%96%E7%A0%81%2F</url>
-    <content type="text"><![CDATA[decode 和 encode 字符串在Python内部的表示是unicode编码，因此，在做编码转换时，通常需要以unicode作为中间编码，即：先将其他编码的字符串解码（decode）成unicode，再从unicode编码（encode）成另一种编码。 decode: 将其他编码的字符解码成Unicode编码 strs.decode(‘gb2312’) 将gb2312编码的字符串strs转换成Unicode encode：将Unicode编码转换成其他编码的字符串 strs.encode(‘gb2312’) 将Unicode编码的字符串strs转换成gb2312编码 非Unicode编码的strs字符串encode会报错 判断是否为unicode isinstance(strs, unicode) 原文链接：http://cache.baiducontent.com/c?m=9d78d513d99516fe05bbc3690d67952d5f0edd3f2890904b708ed50ed1735a325a7bb3e57a770704a4943d315db8492bb6a7706f700123b799cf884ad9b18f7b6fce7c652e4b9b1745954af4950738c4239358eaaa19e4&amp;p=c663d115d9c342ac17add72d021481&amp;newp=81769a4795934eaf5beec62159578f231610db2151ddd301298ffe0cc4241a1a1a3aecbf2126130fd5ce7e6c07a54b5ae0f63c76310034f1f689df08d2ecce7e6c&amp;user=baidu&amp;fm=sc&amp;query=decode+python&amp;qid=ed9a1561000147fe&amp;p1=5]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[调试]]></title>
-    <url>%2F2017%2F09%2F13%2Fpython%E4%B9%8Bpdb%2F</url>
-    <content type="text"><![CDATA[从脚本内部运行引入pdb模块 import pdb pdb.set_trace() 命令列表 b / break: 设置断点 c / continue: 继续执行程序 l / list: 查看当前的代码段 s / step: 进入函数 r / return: 执行代码直到从当前函数返回 n / next: 执行下一行 q / exit: 中止并退出 p / pp: 打印变量的值 h / help: 帮助 w: 显示当前正在执行的代码行的上下文信息 从命令行运行 在命令行使用Python debugger运行一个脚本 python -m pdb test.py]]></content>
-      <categories>
-        <category>调试</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[SmallSentiment]]></title>
-    <url>%2F2017%2F09%2F05%2FSmallSentiment%2F</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[python之pandas]]></title>
-    <url>%2F2017%2F08%2F31%2Fpython%E4%B9%8Bpandas%2F</url>
-    <content type="text"><![CDATA[基础整理 数据量达到亿的时候，可以用pandas处理 导入pandas库 import pandas as pdimport numpy as np 导入数据 pd.read_csv(filename)：从CSV文件导入数据 pd.read_table(filename)：从限定分隔符的文本文件导入数据 pd.read_excel(filename)：从Excel文件导入数据 pd.read_sql(query, connection_object)：从SQL表/库导入数据 pd.read_json(json_string)：从JSON格式的字符串导入数据 pd.read_html(url)：解析URL、字符串或者HTML文件，抽取其中的tables表格 pd.read_clipboard()：从你的粘贴板获取内容，并传给read_table() pd.DataFrame(dict)：从字典对象导入数据，Key是列名，Value是数据 导出数据 df.to_csv(filename)：导出数据到CSV文件 df.to_excel(filename)：导出数据到Excel文件 df.to_sql(table_name, connection_object)：导出数据到SQL表 df.to_json(filename)：以Json格式导出数据到文本文件 创建测试对象 pd.DataFrame(np.random.rand(20,5))：创建20行5列的随机数组成的DataFrame对象 pd.Series(my_list)：从可迭代对象my_list创建一个Series对象 df.index = pd.date_range(‘1900/1/30’, periods=df.shape[0])：增加一个日期索引 查看、检查数据 df.head(n)：查看DataFrame对象的前n行 df.tail(n)：查看DataFrame对象的最后n行 df.shape()：查看行数和列数 df.info() ：查看索引、数据类型和内存信息 df.describe()：查看数值型列的汇总统计 s.value_counts(dropna=False)：查看Series对象的唯一值和计数 df.apply(pd.Series.value_counts)：查看DataFrame对象中每一列的唯一值和计数 数据选取 df[col]：根据列名，并以Series的形式返回列 df[[col1, col2]]：以DataFrame形式返回多列 s.iloc[0]：按位置选取数据 s.loc[‘index_one’]：按索引选取数据 df.iloc[0,:]：返回第一行 df.iloc[0,0]：返回第一列的第一个元素 数据清理 df.columns = [‘a’,’b’,’c’]：重命名列名 pd.isnull()：检查DataFrame对象中的空值，并返回一个Boolean数组 pd.notnull()：检查DataFrame对象中的非空值，并返回一个Boolean数组 df.dropna()：删除所有包含空值的行 df.dropna(axis=1)：删除所有包含空值的列 df.dropna(axis=1,thresh=n)：删除所有小于n个非空值的行 df.fillna(x)：用x替换DataFrame对象中所有的空值 s.astype(float)：将Series中的数据类型更改为float类型 s.replace(1,’one’)：用‘one’代替所有等于1的值 s.replace([1,3],[‘one’,’three’])：用’one’代替1，用’three’代替 df.rename(columns=lambda x: x + 1)：批量更改列名 df.rename(columns={‘oldname’: ‘new name’})：选择性更改列名 df.set_index(‘column_one’)：更改索引列 df.rename(index=lambda x: x + 1)：批量重命名索引 数据处理：Filter、Sort和GroupBy df[df[col] &gt; 0.5]：选择col列的值大于0.5的行 df.sort_values(col1)：按照列col1排序数据，默认升序排列 df.sort_values(col2, ascending=False)：按照列col1降序排列数据 df.sort_values([col1,col2], ascending=[True,False])：先按列col1升序排列，后按col2降序排列数据 df.groupby(col)：返回一个按列col进行分组的Groupby对象 df.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象 df.groupby(col1)[col2]：返回按列col1进行分组后，列col2的均值 df.pivot_table(index=col1, values=[col2,col3], aggfunc=max)：创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表 df.groupby(col1).agg(np.mean)：返回按列col1分组的所有列的均值 data.apply(np.mean)：对DataFrame中的每一列应用函数np.mean data.apply(np.max,axis=1)：对DataFrame中的每一行应用函数np.max 数据合并 df1.append(df2)：将df2中的行添加到df1的尾部 df.concat([df1, df2],axis=1)：将df2中的列添加到df1的尾部 df1.join(df2,on=col1,how=’inner’)：对df1的列和df2的列执行SQL形式的join 数据统计 df.describe()：查看数据值列的汇总统计 df.mean()：返回所有列的均值 df.corr()：返回列与列之间的相关系数 df.count()：返回每一列中的非空值的个数 df.max()：返回每一列的最大值 df.min()：返回每一列的最小值 df.median()：返回每一列的中位数 df.std()：返回每一列的标准差]]></content>
-      <categories>
-        <category>编程语言</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[sublime]]></title>
-    <url>%2F2017%2F08%2F31%2Fsublime%2F</url>
-    <content type="text"><![CDATA[快捷键 command + D 选中光标所在词，多次操作 command + L 选中整行 command + shift + L 先选中多行，再按快捷键，会在每行行尾有光标，同时编辑 ctrl + M 光标移动至括号首尾 command + 回车 在下行插入新行 command + shift + 回车 在上行插入新行 command + &lt;- 向左单位性的移动光标 command + -&gt; 向右快速移动光标 shift + 方向键 选中文本 command + shift + 方向键 单位性的选中文本 command + shift + d 复制当前行，插入到下一行 command + K + K 光标处删除至行尾（ctrl+k） ctrl + shift + K 删除整行 command + K + U 词转换为大写 command + K + L 转换为小写 ctrl + T 左右字母互换 command + alt + F 搜索+替换 ctrl + tab 切换标签页 command + K + B 开启/关闭侧边栏]]></content>
-      <categories>
-        <category>IDE</category>
-      </categories>
-      <tags>
-        <tag>sublime</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[js]]></title>
-    <url>%2F2017%2F08%2F31%2Fjs%2F</url>
-    <content type="text"><![CDATA[基础语法 注释 行注释// 段注释/ / == 会自动转换类型，一致后再比较 === 不会自动转换类型，类型不一致返回false NaN 与所有值都不相等，包括自己 NaN === NaN; //false用isNaN()函数判断isNaN（NaN）; //true null：表示空的值（与python的None类似 ） undefined: 表示未定义，在判断函数参数是否传递的情况下有用 变量名：大小写英文、数字、$和_的组合]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[hexo 基础操作]]></title>
-    <url>%2F2017%2F08%2F30%2Fhexo-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%2F</url>
-    <content type="text"><![CDATA[第一次部署前提：安装node12345$ npm install hexo-cli -g #安装hexo$ hexo init blog$ cd blog$ npm install$ hexo server 启动本地服务localhost:4000关于配置]]></content>
-      <categories>
-        <category>blog</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[git整理]]></title>
-    <url>%2F2017%2F08%2F30%2Fgit%E6%95%B4%E7%90%86%2F</url>
-    <content type="text"><![CDATA[基本操作 git checkout xxx.py 签出分支、特定文件等 git checkout origin/yangq4 git push origin test:master 提交本地分支test作为远程master分支 git branch 创建本地分支 git log –pretty=oneline 只显示提交版本号和内容 回退： git reset –hard HEAD ^ 回退到上个版本 git reset –hard 版本号 git reflog 查看版本号 git checkout –file 把文件在工作区做的修改撤销（未提交前，未放在暂存区的） git branch -d name 删除分支 有merge时，用-D git branch -m fix yangq4 分支重命名 git stash 当前工作现场隐藏 git stash list 工作现场查看 git stash apply 恢复（stash内容并不删除） git stash drop 删除文件 git stash pop 恢复发同时文件也删除 补充 commit类别 feat：新功能（feature） fix：修补bug docs：文档（documentation） style： 格式（不影响代码运行的变动） refactor：重构（即不是新增功能，也不是修改bug的代码变动） test：增加测试 chore：构建过程或辅助工具的变动 撤销上次推送 git reset –hard &lt;版本号&gt; git push origin &lt;分支名&gt; –force 问题 error: you need to resolve your current index first git reset –merge 套路 git pull git checkout origin/xuhf git checkout -b yangq4 (git merge origin/branch)]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[linux]]></title>
-    <url>%2F2017%2F08%2F24%2Flinux%2F</url>
-    <content type="text"><![CDATA[基础命令 uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4 w: 2 X: 1 改权限：chmod 777 file 都有读写、执行权限 root 所属用户组 其他用户 chown tee: 读取标准输入的数据并输入文件。-a 追加 -i 湖绿中断信号 tail -f： 追踪新增文件 curl ifconfig.me：查看本机外网IP 分主题整理pdsh: pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。 pdsh支持交互模式，当要执行的命令不确定时，可直接进入pdsh命令行 pdsh可以通过多种方式在远程主机上运行命令，默认是rsh方式，另外也支持ssh、mrsh、qsh、mqsh、krb4、xcpu等多种rcmd模块 -w host,host 指定远程主机，可以指定多个，每个主机用逗号隔开，host可以是主机名也可以是IP地址 -R 指定使用rcmd的模块名，默认是rsh -l 指定在远程主机上使用的用户名称 pdsp: 如果配置整个集群，要求所有的机器安装相同的软件，逐一拷贝效率较低，通常的做法是将所有要安装的软件拷贝到一台主机上，通过pdcp命令同步拷贝到其他机器上。 pdcp命令格式：pdcp [-参数] “源文件1” [源文件2…] 目标 参数-w：指定要拷贝文件的远程主机，多个主机用逗号隔开，可以是主机名也可以是IP地址 su 和 sudo su su：不指明用户名时，默认为root。su yangq4 su -:切换用户后同时切换到新用户的工作环境 以上，切换用户需知晓对应用户的登录密码 sudo su sudo su 中的su将以root身份被执行，并要求输入root的password ps aux 和 ps -ef 都是Linux显示系统进程的命令，区别：输出略有不同 ps -ef是标准的格式显示进程 UID //用户ID、但输出的是用户名 PID //进程的ID PPID //父进程ID C //进程占用CPU的百分比 STIME //进程启动到现在的时间 TTY //该进程在那个终端上运行，若与终端无关，则显示? 若为pts/0等，则表示由网络连接主机进程。 CMD //命令的名称和参数 ps aux是BSD的格式显示 USER //用户名 %CPU //进程占用的CPU百分比 %MEM //占用内存的百分比 VSZ //该进程使用的虚拟內存量（KB） RSS //该进程占用的固定內存量（KB）（驻留中页的数量) STAT //进程的状态 START //该进程被触发启动时间 TIME //该进程实际使用CPU运行的时间 其中STAT状态位常见的状态字符有 D &nbsp;&nbsp;//无法中断的休眠状态（通常 IO 的进程） R &nbsp;&nbsp;//正在运行可中在队列中可过行的； S &nbsp;&nbsp;//处于休眠状态； T &nbsp;&nbsp;//停止或被追踪； W &nbsp;&nbsp;//进入内存交换 （从内核2.6开始无效）； X &nbsp;&nbsp;//死掉的进程 （基本很少见）； Z &nbsp;&nbsp;//僵尸进程； &lt; &nbsp;&nbsp;//优先级高的进程 N &nbsp;&nbsp;//优先级较低的进程 L &nbsp;&nbsp;//有些页被锁进内存； s &nbsp;&nbsp;//进程的领导者（在它之下有子进程）； l &nbsp;&nbsp;//多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）； + &nbsp;&nbsp;//位于后台的进程组；]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[正则整理]]></title>
     <url>%2F2017%2F08%2F24%2F%E6%AD%A3%E5%88%99%E6%95%B4%E7%90%86%2F</url>
     <content type="text"><![CDATA[数字 ^[0-9]*$ 数字 ^\d{n}$ n位的数字 ^\d{n,}$ 至少n位的数字 ^\d{m,n}$ m~n位的数字 ^(0[1-9][0-9]*)$ 零和非零开头的数字]]></content>
@@ -285,8 +56,49 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[黑产资源收集]]></title>
+    <url>%2F2017%2F08%2F23%2F%E9%BB%91%E4%BA%A7%E8%B5%84%E6%BA%90%E6%94%B6%E9%9B%86%2F</url>
+    <content type="text"><![CDATA[打码接码平台、云控群控平台、套现中介。1. 打码、接码打码 打码平台，就是打验证码。很多软件需要输入验证码后才能登陆。 程序将验证码传给打码平台的识别接口，打码平台将验证码发给后端的“打码工”进行识别，并获取识别结果。这样基于此类的人工打码平台，即可实现程序的自动化。 例子：羊毛党要去某网站刷活动优惠券，但该网站有较复杂的图像验证码。通常羊毛党会在打码平台注册账号并充值，并通过打码平台提供的api接口，提交验证码识别。打码平台将验证码分发到各个佣工的客户端里，获取佣工的识别结果，并最终反馈给羊毛党。 打码平台普通的四位验证码0.6~1分钱，语音平台一元一条，接码0.1一条 接码平台 接码平台就是接受验证码。当注册某平台，不想用自己手机号或者自己手机号已经用过了，就可以利用接码平台，获取验证码，进行注册。 接码平台，提供大量的手机号，并能够发送和接收短信。只需调用手机打码平台相关接口，获取手机号并获取短信内容即可进行批量注册。 2. 云控、群控群控 群控是通过集线器连接，把多个手机操作界面映射到显示器，实现用一台电脑控制几十台手机 尤其是微信推广营销，骗子会先从网上购买或自己注册一批微信号进行养号，通过利用微信群控开始各种加好友、发朋友圈、发红包、甚至伪装成美女和你聊天交友等等。朋友圈刷广告，甚至还有一些发送假红包链接诱骗我们进行点击，除了欺诈骗钱还存在盗取我们帐号的风险。 刷数据量 色情牟利：通过定位到不同地方，以美女诱惑加好友，之后向你讨要红包、推荐股票、贩卖色情视频等来骗取钱财。甚至通过免费赠送礼品，诱骗你填写个人信息进行售卖或骗取运费赚取差价获利。 一些公司举办的优惠活动、免费领取福利下手，比如企业红包、优惠券、佣金、现金补贴等等。利用大批量的微信号去刷这些活动，最后提现或转卖出去来获利。 全球虚拟定位、自动加附近好友、自动导入微信号、手机号、QQ号添加好友、自动加群成员为好友、自动摇一摇、自动漂流瓶等等。还可以任意群控手机上的软件，比如陌陌、淘宝等 微信、陌陌、QQ 缺点：缺点就是没办法随时随地的控制系统 成本：以100个号为例，一般的安卓手机500元一台，手机成本5万，系统2万，服务器5000，USB插头1000，需要7.6万。 功能：批量站街、漂流瓶、通讯录加粉、批量点赞、批量转发、批量群发、批量养号、批量回复、设置固定时间回复、批量阅读、批量安装、批量玩游戏，总之是各种批量。 云控 通过无线连接，电脑/平板/手机通过后台发送指令到云端，云端的指令再发到手机群，继而执行任务。理论上，一台电脑可以控制上千台手机。 模拟真人操作。比如“不要用170号段的电话卡”、“一天添加好友不要超过30个人”、“完善个人资料”、“前15天不要大规模执行任务”、“把定位设置在各个地方”、“手机不要总是满电”……最让我们听到最哭笑不得的“秘诀”是：不定时遛手机，带着手机走一圈，获得运动步数。 云控也是一样的效果，但是控制端来说，是通过服务器的云端来实现控制，可以控制几百上千台设备 成本：以100个号为例，5s或手机2台，单价1000元*2，系统4000，共6000 由于iOS的应用都运行在沙盒之中，因此APP无法获取系统的底层数据，我们通过伪造手机串号等，可以模拟出多部手机，进而实现效果比较好的多开，多开数量可以达到50个。 云控平台25个，群控平台9个 三、套现中介 方式：花呗|京东白条|信用卡|分期|任性付|闪银Q币|信用钱包|驴妈妈|唯品会|甜橙 对方用淘宝店铺，你买下花呗(或其他支付方式)支付，商家发空包裹，然后扣去手续费后剩余钱打给你。]]></content>
+      <tags>
+        <tag>other</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[BeautifulSoup]]></title>
+    <url>%2F2017%2F08%2F17%2FBeautifulSoup%2F</url>
+    <content type="text"><![CDATA[安装和使用安装 pip install beautifulsoup4 使用 导入 from bs4 import beautifulsoup 创建一个字符串 12345678910111213html = &quot;&quot;&quot;&lt;html&gt; &lt;head&gt;&lt;title&gt;The Dormouse&apos;s story&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;title&quot; name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt;&lt;p class=&quot;story&quot;&gt; Once upon a time there were three little sisters; and their names were &lt;a href=&quot;http://example.com/elsie&quot; class=&quot;sister&quot; id=&quot;link1&quot;&gt;&lt;!-- Elsie --&gt;&lt;/a&gt;, &lt;a href=&quot;http://example.com/tillie&quot; class=&quot;sister&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;; and they lived at the bottom of a well.&lt;/p&gt;&lt;p class=&quot;story&quot;&gt;...&lt;/p&gt;&quot;&quot;&quot; 创建beautifulsoup对象 soup = BeautifulSoup(html) 也可以用本地HTML文件来创建对象 soup = BeautifulSoup(open(‘index.html’)) 格式化输出,打印出soup对象的内容 print soup.prettify() 四大对象种类1. Tag是什么 是HTML中的一个个标签：title、 a等等HTML标签加上里面包括的内容 验证下这些对象的类型 &gt;&gt;&gt; print type(soup.a) &lt;class &apos;bs4.element.Tag&apos;&gt; 属性name&gt;&gt;&gt; print soup.name [document] &gt;&gt;&gt; print soup.head.name head suop对象本身比较特殊，它的 name 即为 [document]，对于其他内部标签，输出的值便为标签本身的名称。 attrs 把 p 的所有属性打印出来 &gt;&gt;&gt; print soup.p.attrs {&apos;class&apos;: [&apos;title&apos;], &apos;name&apos;: &apos;dromouse&apos;} 单独获取某个属性 &gt;&gt;&gt; print soup.p[&apos;class&apos;] [&apos;title&apos;] 还可以用get方法 &gt;&gt;&gt; print soup.p.get(&apos;class&apos;) [&apos;title&apos;] 可以对这些属性和内容等等进行修改 &gt;&gt;&gt; soup.p[&apos;class&apos;]=&quot;newClass&quot; &gt;&gt;&gt; print soup.p &lt;p class=&quot;newClass&quot; name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt; 对这个属性进行删除 &gt;&gt;&gt; del soup.p[&apos;class&apos;] &gt;&gt;&gt; print soup.p &lt;p name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt; 2. NavigableString获取标签内部的文字&gt;&gt;&gt; print soup.p.string The Dormouse&apos;s story 类型print type(soup.p.string) &lt;class &apos;bs4.element.NavigableString&apos;&gt; 3 BeautifulSoup BeautifulSoup 对象表示的是一个文档的全部内容 大部分时候,可以把它当作 Tag 对象，是一个特殊的 Tag &gt;&gt;&gt; print type(soup.name) &lt;type &apos;unicode&apos;&gt; &gt;&gt;&gt; print soup.name [document] &gt;&gt;&gt; print soup.attrs {} // 空字典 4 comment 是一个特殊类型的 NavigableString 对象 其实输出的内容仍不包括注释符号 &gt;&gt;&gt; print soup.a &lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;&lt;!-- Elsie --&gt;&lt;/a&gt; &gt;&gt;&gt; print soup.a.string Elsie &gt;&gt;&gt; print type(soup.a.string) &lt;class &apos;bs4.element.Comment&apos;&gt; a 里的内容实际上是注释，利用 .string 来输出它的内容，已经把注释符号去掉了( 所以这可能会给我们带来不必要的麻烦 ) 在使用前最好做一下判断 &gt;&gt;&gt; if type(soup.a.string)==bs4.element.Comment: ... print soup.a.string 遍历文档树待续先，累了== 摘自： http://python.jobbole.com/81349/]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python之pandas]]></title>
+    <url>%2F2017%2F07%2F31%2Fpython%E4%B9%8Bpandas%2F</url>
+    <content type="text"><![CDATA[基础整理 数据量达到亿的时候，可以用pandas处理 导入pandas库 import pandas as pdimport numpy as np 导入数据 pd.read_csv(filename)：从CSV文件导入数据 pd.read_table(filename)：从限定分隔符的文本文件导入数据 pd.read_excel(filename)：从Excel文件导入数据 pd.read_sql(query, connection_object)：从SQL表/库导入数据 pd.read_json(json_string)：从JSON格式的字符串导入数据 pd.read_html(url)：解析URL、字符串或者HTML文件，抽取其中的tables表格 pd.read_clipboard()：从你的粘贴板获取内容，并传给read_table() pd.DataFrame(dict)：从字典对象导入数据，Key是列名，Value是数据 导出数据 df.to_csv(filename)：导出数据到CSV文件 df.to_excel(filename)：导出数据到Excel文件 df.to_sql(table_name, connection_object)：导出数据到SQL表 df.to_json(filename)：以Json格式导出数据到文本文件 创建测试对象 pd.DataFrame(np.random.rand(20,5))：创建20行5列的随机数组成的DataFrame对象 pd.Series(my_list)：从可迭代对象my_list创建一个Series对象 df.index = pd.date_range(‘1900/1/30’, periods=df.shape[0])：增加一个日期索引 查看、检查数据 df.head(n)：查看DataFrame对象的前n行 df.tail(n)：查看DataFrame对象的最后n行 df.shape()：查看行数和列数 df.info() ：查看索引、数据类型和内存信息 df.describe()：查看数值型列的汇总统计 s.value_counts(dropna=False)：查看Series对象的唯一值和计数 df.apply(pd.Series.value_counts)：查看DataFrame对象中每一列的唯一值和计数 数据选取 df[col]：根据列名，并以Series的形式返回列 df[[col1, col2]]：以DataFrame形式返回多列 s.iloc[0]：按位置选取数据 s.loc[‘index_one’]：按索引选取数据 df.iloc[0,:]：返回第一行 df.iloc[0,0]：返回第一列的第一个元素 数据清理 df.columns = [‘a’,’b’,’c’]：重命名列名 pd.isnull()：检查DataFrame对象中的空值，并返回一个Boolean数组 pd.notnull()：检查DataFrame对象中的非空值，并返回一个Boolean数组 df.dropna()：删除所有包含空值的行 df.dropna(axis=1)：删除所有包含空值的列 df.dropna(axis=1,thresh=n)：删除所有小于n个非空值的行 df.fillna(x)：用x替换DataFrame对象中所有的空值 s.astype(float)：将Series中的数据类型更改为float类型 s.replace(1,’one’)：用‘one’代替所有等于1的值 s.replace([1,3],[‘one’,’three’])：用’one’代替1，用’three’代替 df.rename(columns=lambda x: x + 1)：批量更改列名 df.rename(columns={‘oldname’: ‘new name’})：选择性更改列名 df.set_index(‘column_one’)：更改索引列 df.rename(index=lambda x: x + 1)：批量重命名索引 数据处理：Filter、Sort和GroupBy df[df[col] &gt; 0.5]：选择col列的值大于0.5的行 df.sort_values(col1)：按照列col1排序数据，默认升序排列 df.sort_values(col2, ascending=False)：按照列col1降序排列数据 df.sort_values([col1,col2], ascending=[True,False])：先按列col1升序排列，后按col2降序排列数据 df.groupby(col)：返回一个按列col进行分组的Groupby对象 df.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象 df.groupby(col1)[col2]：返回按列col1进行分组后，列col2的均值 df.pivot_table(index=col1, values=[col2,col3], aggfunc=max)：创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表 df.groupby(col1).agg(np.mean)：返回按列col1分组的所有列的均值 data.apply(np.mean)：对DataFrame中的每一列应用函数np.mean data.apply(np.max,axis=1)：对DataFrame中的每一行应用函数np.max 数据合并 df1.append(df2)：将df2中的行添加到df1的尾部 df.concat([df1, df2],axis=1)：将df2中的列添加到df1的尾部 df1.join(df2,on=col1,how=’inner’)：对df1的列和df2的列执行SQL形式的join 数据统计 df.describe()：查看数据值列的汇总统计 df.mean()：返回所有列的均值 df.corr()：返回列与列之间的相关系数 df.count()：返回每一列中的非空值的个数 df.max()：返回每一列的最大值 df.min()：返回每一列的最小值 df.median()：返回每一列的中位数 df.std()：返回每一列的标准差]]></content>
+      <categories>
+        <category>编程语言</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sublime]]></title>
+    <url>%2F2017%2F07%2F31%2Fsublime%2F</url>
+    <content type="text"><![CDATA[快捷键 command + D 选中光标所在词，多次操作 command + L 选中整行 command + shift + L 先选中多行，再按快捷键，会在每行行尾有光标，同时编辑 ctrl + M 光标移动至括号首尾 command + 回车 在下行插入新行 command + shift + 回车 在上行插入新行 command + &lt;- 向左单位性的移动光标 command + -&gt; 向右快速移动光标 shift + 方向键 选中文本 command + shift + 方向键 单位性的选中文本 command + shift + d 复制当前行，插入到下一行 command + K + K 光标处删除至行尾（ctrl+k） ctrl + shift + K 删除整行 command + K + U 词转换为大写 command + K + L 转换为小写 ctrl + T 左右字母互换 command + alt + F 搜索+替换 ctrl + tab 切换标签页 command + K + B 开启/关闭侧边栏]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
+      <tags>
+        <tag>sublime</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mongo]]></title>
-    <url>%2F2017%2F08%2F24%2Fmongo%E6%95%B4%E7%90%86%2F</url>
+    <url>%2F2017%2F07%2F24%2Fmongo%E6%95%B4%E7%90%86%2F</url>
     <content type="text"><![CDATA[基础整理操作 mac安装 brew update brew install mongodb 启动 mongod mongo 关闭 ctrl+c mongo> use admin db> db.shutdownServer({force: true}) 修复： 删除mongo/mongod.lock mongod -f /etc/mongod.conf –repair 另一教程里的：mongod –repair –dbpath /mongodb/ –repairpath /mongodb/repair/ 语法update:1. false 如果不存在，不插入 2. true 查出来的记录都更新 运算符 $gt 大于 $lt 小于 $gte 大于等于 $lte 小于等于 样例: 大于0219小于03201&#123;$gt:&quot;2017-02-19&quot;, $lt:&quot;2017-03-20&quot;&#125; 降序排列，限制21db.Hacked.find(&#123;&quot;keyword&quot;: &quot;fghk&quot;&#125;).sort(&#123;sqlite_id: -1&#125;).limit(2) 查status字段值为“p”或“d”的1db.users.find(&#123;status: &#123;$in: [&quot;p&quot;, &quot;d&quot;]&#125;&#125; status为a, age小于30的1db.users.find(&#123;status: &quot;a&quot;, age:&#123;$lt:30&#125;&#125;) 数据备份语法 mongodump -h dbhost -d dbname -o dbdirectory -h：MongoDB所在服务器地址 -d：需要备份的数据库名 -o：备份的数据存放目录（此目录需要提前建立，默认会建立dump/） 数据恢复语法 mongorestore -h &lt;:port&gt; -d dbname –host &lt;:port&gt;, -h &lt;:port&gt;： 服务器地址，默认为： localhost:27017 –db , -d ： 需要恢复的数据库实例，例如：test，当然这个名称也可以和备份时候的不一样，比如test2 –drop： 恢复的时候，先删除当前数据，然后恢复备份的数据。就是说，恢复后，备份后添加修改的数据都会被删除，慎用哦！ \： 设置备份数据目录，例如：c:\data\dump\test。 不能同时指定 和 –dir 选项 –dir：指定备份的目录 不能同时指定 和 –dir 选项。 配置我的配置文件在/usr/local/opt/mongo/bin/mongod.conf(不知道配置文件在哪，可以用locate mongod查找) bind_ip = 127.0.0.1 mongodb绑定IP地址，只能本地访问数据库，不能指定默认本地所有IP 使配置生效： mongod –fork –config mongod.conf]]></content>
       <categories>
         <category>数据库</category>
@@ -297,7 +109,7 @@
   </entry>
   <entry>
     <title><![CDATA[tmux]]></title>
-    <url>%2F2017%2F08%2F24%2Ftmux%2F</url>
+    <url>%2F2017%2F07%2F24%2Ftmux%2F</url>
     <content type="text"><![CDATA[快捷键(command+a后)我的控制键为：Ctrl+a s：查看当前会话 w：显示当前会话的所有窗口 t：查看时间 ,：窗口重命名 o：选择pane，轮训选择，逆时针，也可方向键。 ;：last pane q：输入序号选择 !：使单独一个pane作为新的window 空格：更换pane排版 ctrl+o：按顺序移动pane位置 { ：往左、往上移动pane } ：往右、往下移动pane ：setw synchronize-panes(off)：同步所有窗口执行命令 复制模式：（需要添加配置） ctrl+a [ h、j、k、l 上下左右 alt + 上下箭头：一屏跳 空格：选择，回车完成复制到剪贴板 ctrl+a ] ：粘贴]]></content>
       <categories>
         <category>终端</category>
@@ -307,8 +119,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[tmuxp]]></title>
+    <url>%2F2017%2F07%2F24%2Ftmuxp%2F</url>
+    <content type="text"><![CDATA[创建文件： ~/.tmuxp/mysession.yamltmuxp load ./mysession.yaml 保存当前会话到配置文件： tmuxp freeze session-name]]></content>
+      <categories>
+        <category>终端</category>
+      </categories>
+      <tags>
+        <tag>tmuxp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vim整理]]></title>
-    <url>%2F2017%2F08%2F23%2Fvim%E6%95%B4%E7%90%86%2F</url>
+    <url>%2F2017%2F07%2F23%2Fvim%E6%95%B4%E7%90%86%2F</url>
     <content type="text"><![CDATA[小技巧 ctrl+z 退出vim编辑，返回终端，vim编辑在后台 jobs :显示当前环境下所有任务编号 fg:（fg NUM）进入vim编辑 进入粘贴模式 :set paste 开启新文件窗口: :tabnew . gt 跳转 :tabn可以加数字 :tabp command+f,弹出查找模式， 输入，tab,查找窗口自动变化内容，并将其复制。 shift+tab,将自动查找内容左边的选中并复制 注释： V 选择模式，选中: normal i # 取消注释：V选择，d ：e! 放弃更改（=重新打开） 快捷键 最大化、最小化：command+shift 移到行尾 $ (shift+4） 移到行首 ^(shift+6)和0 0是整段的跳转，6是行跳转 前一单词：b、B 后一单词：w、W ；词尾：e、E 屏幕顶：H 屏幕底：L 向右移动一格：空格 整页翻页 ctrl-f ctrl-b f就是forword b就是backward 翻半页 ctrl-d ctlr-u d=down u=up 滚一行 ctrl-e ctrl-y zz 让光标所杂的行居屏幕中央 zt 让光标所杂的行居屏幕最上一行 t=top zb 让光标所杂的行居屏幕最下一行 b=bottom 删除后一字符：x 删除前一字符：X 3X 删除换行符：J nJ：连接后面n行 U：撤销当前行的所有修改 A：行末插入 >&gt;：整行向右移动（3&gt;&gt;：下面3行包括自己，向右移） :20,30&gt;&gt;：把20到30行向右移动 %：移动到与之匹配的括号上去 ，逗号：移动到上次的修改处 +：移动到下一行的行首 -：上一行 异常 vim之不能复制 启动了鼠标，鼠标相应了vim的选中，不是终端的选中，被vim截获了操作“图片” {ImgCap}{/ImgCap}]]></content>
       <categories>
         <category>IDE</category>
@@ -318,8 +141,158 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[python之map、filter、reduce]]></title>
+    <url>%2F2017%2F07%2F23%2Fpython%E4%B9%8Bmap%E3%80%81filter%E3%80%81reduce%2F</url>
+    <content type="text"><![CDATA[Map Map会将一个函数映射到一个输入列表的所有元素上 规范：map(function_to_apply, list_of_imputs) 把列表中所有元素一个个传递给一个函数，并收集输出 使用map 使用匿名函数lambda来配合map print加了list转换，是为了python2/3的兼容性 在python2中map直接返回列表，但python3返回迭代器 Filter filter过滤列表中的元素，并且返回一个由所有符合要求的元素所构成的列表。 filter类似于一个for循环，但它是一个内置函数，并且更快 Reduce reduce：对列表进行计算并返回结果 例：计算一个整数列表的乘积]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SQL]]></title>
+    <url>%2F2017%2F07%2F23%2FSQL%2F</url>
+    <content type="text"><![CDATA[SQL dese 对结果查询 select * from tablename where _date=’ ‘ limit 1; count( * )]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Collections]]></title>
+    <url>%2F2017%2F07%2F21%2FCollections%2F</url>
+    <content type="text"><![CDATA[Collections是python内建的一个集合模块，提供了许多有用的集合类 提供的集合类defaultdict from collections import defaultdict counter 计数器，可以针对某项数据进行计数 123456789101112131415161718from collections import Countercolours = ( (&apos;Yasoob&apos;, &apos;Yellow&apos;), (&apos;Ali&apos;, &apos;Blue&apos;), (&apos;Arham&apos;, &apos;Green&apos;), (&apos;Ali&apos;, &apos;Black&apos;), (&apos;Yasoob&apos;, &apos;Red&apos;), (&apos;Ahmed&apos;, &apos;Silver&apos;),)favs = Counter(name for name, colour in colours)print(favs)输出:Counter(&#123; &apos;Yasoob&apos;: 2, &apos;Ali&apos;: 2, &apos;Arham&apos;: 1, &apos;Ahmed&apos;: 1 &#125;) deque 它提供了一个双端队列，可以从头或尾两端添加或删除元素 用法类型python的list from collections import dequed = deque()d.append(‘1’)d.append(‘2’)d.append(‘3’）print(len(d))输出： 3print(d[0])输出： 1 可以从两端取出(pop)数据： d = deque（range(5))print(len(d))输出： 5d.popleft()输出： 0d.pop()输出： 4print(d)输出： deque([1, 2, 3]) 可以限制这个列表的大小，当超出你设定的限制时，数据会从对队列另一端被挤出去(pop) d = deque(maxlen=30) 可以从任一端扩展这个队列中的数据： d = deque([1,2,3,4,5])d.extendleft([0])d.extend([6,7,8])print(d)输出： deque([0, 1, 2, 3, 4, 5, 6, 7, 8]) namedtuple元组 一个元组是一个不可变的列表，你可以存储一个数据的序列，它和命名元组(namedtuples)非常像，但有几个关键的不同。 主要相似点: 不能修改元组中的数据。 获取元组中的数据，需要使用整数作为索引： man = (‘Ali’, 30)print(man[0])输出： Ali 命名元组 namedtuples: 把元组变成一个针对简单任务的容器。 可以像字典一样访问namedtuples 但namedtuples是不可变的。 from collections import namedtupleAnimal = namedtuple(‘Animal’, ‘name age type’)perry = Animal(name=”perry”, age=31, type=”cat”)print(perry)输出： Animal(name=’perry’, age=31, type=’cat’)print(perry.name)输出： ‘perry’ 上例中，元组名称是Animal，字段名称是’name’，’age’和’type’。 namedtuple优点： 让你的元组变得自文档了。你只要看一眼就很容易理解代码是做什么的 你也不必使用整数索引来访问一个命名元组，这让你的代码更易于维护。 namedtuple的每个实例没有对象字典，所以它们很轻量，与普通的元组比，并不需要更多的内存。这使得它们比字典更快。 可以将命名元祖转化为字典 from collections import namedtupleAnimal = namedtuple(‘Animal’, ‘name age type’)perry = Animal(name=”Perry”, age=31, type=”cat”)print(perry._asdict())输出： OrderedDict([(‘name’, ‘Perry’), (‘age’, 31), (‘type’, ‘cat’)]) enum.Enum (Python 3.4+)枚举对象]]></content>
+      <categories>
+        <category>python内建模块</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[virtualenv]]></title>
+    <url>%2F2017%2F07%2F21%2Fvirtualenv%2F</url>
+    <content type="text"><![CDATA[virtualenv是什么 virtualenv是一个工具，能够创建一个独立的python环境 安装使用安装 pip install virtualenv 使用1). 创建一个隔离的virtualenv环境 virtualenv project 让virtualenv使用全局模块 virtualenv –system-site-packages project 第三方包不复制，得到不带任何第三方包的“干净”的Python运行环境 virtualenv —no-site-packages project 2). 激活环境 source myproject/bin/activate 3). 退出虚拟环境 deactivate 4). 删除虚拟环境 rm -r project Virtualenvwrapper 终端用fish的，使用virtualfish代替 安装： pip install Virtualenvwrapper 配置： export WORKON_HOME=‘~/.virtualenv’ Source /usr/local/bin/virtualenvwrapper.sh 由于每次都需要执行这两步操作，可以将其写入终端的配置文件中。例如，如果使用 bash，则添加到 ~/.bashrc 中；如果使用 zsh，则添加到 ~/.zshrc 中。这样每次启动终端的时候都会自动运行，终端启动之后 virtualenvwrapper 就可以用了。 创建虚拟环境 这里创建的是系统默认的python版本的环境，用 which python 查看默认版本。 建议用下面的命令来制定版本。 $ mkvirtualenv spider 指定建立3.4的python环境 $ mkvirtualenv -p /Users/heliclei/.localpython/bin/python3.4 env34 指定建立2.7的python环境 $ mkvirtualenv -p /Users/heliclei/.localpython/bin/python2.7 env27 进入：workon enve 离开：deactivate 删除：rmvirtualenv enve virtualfish pip install virtualfish vim ~/.config/fish/config.fish 添加 eval (python -m virtualfish) vf new venvname; which python]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[生成器-Generators]]></title>
+    <url>%2F2017%2F07%2F21%2Fpython%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8-Generators%2F</url>
+    <content type="text"><![CDATA[Generators(生成器) 一种迭代器，但是只能对其迭代一次。 因为它们并没有把所有的值存在内存中，而是在运行是生成值. 通过遍历来使用 “for”循环 传递转给任意可以进行迭代的函数和结构。（大多是以函数来实现） 不返回一个值，而是yield一个值。 生成器占很少的资源 eg:计算斐波那契数列的生成器： 这种方式我们不用担心它会使用大量资源 这种方法也许会在计算很大的输入参数时，用尽所有的资源。next() 允许获取序列的下一个元素 在yield所有值后，next（）触发了StopIteration的异常。但是在for循环时没有这个异常，因为for循环会自动捕捉到这个异常并停止调用next（） python内置数据类型也支持迭代的 str对象不是一个迭代器，它是一个可迭代对象。支持迭代，但不能直接对其进行迭代操作 对其实施迭代：使用iter,它将根据一个可迭代对象返回一个迭代器对象]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[*args和\*\*kwargs]]></title>
+    <url>%2F2017%2F07%2F21%2Fpython%E4%B9%8B*args%E5%92%8C*kwargs%2F</url>
+    <content type="text"><![CDATA[用法 它们主要用于函数定义，可以将不定数量的参数传递给一个函数 *args的用法 *args是发送一个非键值对的可变数量的参数列表给一个函数 例： **kwargs的用法 *kwargs允许将不定长度的键值对，作为参数传递给一个函数。如果想要在一个函数里处理带名字的参数，应该用\*kwargs 使用args和\*kwargs调用参数为列表或字典的函数 同时使用标准参数、*args与**kwargs时的顺序 some_func(fargs, args, \*kwargs) 使用最常见在写函数装饰器的时候用也可用来做猴子补丁 猴子补丁：在程序运行是修改某些代码 例：有一个类，里面有个叫get_info的函数会调用一个API并返回相应的数据。如果我们想测试它，可以把API调用替换成一些测试数据 1234import someclassdef get_info(self, *args): return &quot;Test data&quot;someclass.get_info = get_info 摘自：https://github.com/eastlakeside/interpy-zh/blob/master/SUMMARY.md]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[scrapy]]></title>
+    <url>%2F2017%2F07%2F17%2Fscrapy%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[itertools]]></title>
+    <url>%2F2017%2F07%2F17%2Fpython%E4%B9%8Bitertools%2F</url>
+    <content type="text"><![CDATA[python的内建模块itertools：提供了一些用于操作迭代对象的函数“无限”迭代器&gt;&gt;&gt; import itertools count（）：会创建一个无限迭代器&gt;&gt;&gt; natuals = itertools.count(1) &gt;&gt;&gt; for n in natuals: ... print n 1 2 3 ... cycle(): 会把传入的序列无限重复下去&gt;&gt;&gt; cs = itertools.cycle(&quot;abc&quot;) &gt;&gt;&gt; for c in cs: ... print c ... &apos;a&apos; &apos;b&apos; &apos;c&apos; &apos;a&apos; ... repeat() 把一个元素无限重复，第二个参数可以限定重复额次数&gt;&gt;&gt; ns = itertools.repeat(&apos;a&apos;, 10) &gt;&gt;&gt; for n in ns: ... print n ...打印10次&apos;a&apos; 迭代器操作函数chain（）：把一组迭代对象串联起来，形成大的迭代器&gt;&gt;&gt; for c in itertools.chain(&apos;abc&apos;, &apos;def&apos;): ... print c ... &apos;a&apos; &apos;b&apos; &apos;c&apos; &apos;d&apos; &apos;e&apos; &apos;f&apos; groupby(): 把迭代器中相邻的重复元素挑出来放在一起&gt;&gt;&gt; for key, group in itertools.groupby(&apos;aabbcccaa&apos;): ... print key, list(group) ... a [&apos;a&apos;, &apos;a&apos;] b [&apos;b&apos;, &apos;b&apos;] c [&apos;c&apos;, &apos;c&apos;, &apos;c&apos;] a [&apos;a&apos;, &apos;a&apos;] 可以添加调选规则 让‘A’和‘a’都返回相同的key： &gt;&gt;&gt; for key, group in itertools.groupby(&apos;AaaBBbcCaAa&apos;, lambda c: c.upper()): ... print key, list(group) ... A [&apos;A&apos;, &apos;a&apos;, &apos;a&apos;] B [&apos;B&apos;, &apos;B&apos;, &apos;b&apos;] C [&apos;c&apos;, &apos;C&apos;] A [&apos;a&apos;, &apos;A&apos;, &apos;a&apos;] imap(): 可以作用与无穷序列，如果两个序列长度不一致，以短的为准&gt;&gt;&gt; for x in itertools.imap(lambda x, y: x * y, [10, 20, 30], itertools.count(1)): ... print x ... 10 40 90 imap()返回一个迭代对象，必须用for循环进行迭代，才会在循环中计算出下一个元素 map() 返回list，调用它试，已经计算完毕 &gt;&gt;&gt; r = map(lambda x: x*x, [1, 2, 3]) &gt;&gt;&gt; r # r已经计算出来了 [1, 4, 9] imap()实现了“惰性计算”，只在需要获得结果时才计算ifilter: fileter的惰性实现 总结： itertools提供的全是处理迭代功能的函数，返回值是迭代对象，只有用for循环迭代试才真正计算 参考资源：https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001415616001996f6b32d80b6454caca3d33c965a07611f000]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux之cut]]></title>
+    <url>%2F2017%2F07%2F17%2FLinux%E4%B9%8Bcut%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[python之编码]]></title>
+    <url>%2F2017%2F07%2F13%2Fpython%E4%B9%8B%E7%BC%96%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[decode 和 encode 字符串在Python内部的表示是unicode编码，因此，在做编码转换时，通常需要以unicode作为中间编码，即：先将其他编码的字符串解码（decode）成unicode，再从unicode编码（encode）成另一种编码。 decode: 将其他编码的字符解码成Unicode编码 strs.decode(‘gb2312’) 将gb2312编码的字符串strs转换成Unicode encode：将Unicode编码转换成其他编码的字符串 strs.encode(‘gb2312’) 将Unicode编码的字符串strs转换成gb2312编码 非Unicode编码的strs字符串encode会报错 判断是否为unicode isinstance(strs, unicode) 原文链接：http://cache.baiducontent.com/c?m=9d78d513d99516fe05bbc3690d67952d5f0edd3f2890904b708ed50ed1735a325a7bb3e57a770704a4943d315db8492bb6a7706f700123b799cf884ad9b18f7b6fce7c652e4b9b1745954af4950738c4239358eaaa19e4&amp;p=c663d115d9c342ac17add72d021481&amp;newp=81769a4795934eaf5beec62159578f231610db2151ddd301298ffe0cc4241a1a1a3aecbf2126130fd5ce7e6c07a54b5ae0f63c76310034f1f689df08d2ecce7e6c&amp;user=baidu&amp;fm=sc&amp;query=decode+python&amp;qid=ed9a1561000147fe&amp;p1=5]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[调试]]></title>
+    <url>%2F2017%2F07%2F13%2Fpython%E4%B9%8Bpdb%2F</url>
+    <content type="text"><![CDATA[从脚本内部运行引入pdb模块 import pdb pdb.set_trace() 命令列表 b / break: 设置断点 c / continue: 继续执行程序 l / list: 查看当前的代码段 s / step: 进入函数 r / return: 执行代码直到从当前函数返回 n / next: 执行下一行 q / exit: 中止并退出 p / pp: 打印变量的值 h / help: 帮助 w: 显示当前正在执行的代码行的上下文信息 从命令行运行 在命令行使用Python debugger运行一个脚本 python -m pdb test.py]]></content>
+      <categories>
+        <category>调试</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[电脑配置]]></title>
+    <url>%2F2017%2F07%2F06%2F%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[基础配置看图吧先 CPU（处理器） inter：酷睿i3、酷睿i5、酷睿i7 i5 5200U：中端处理器，第五代，编号200 ADM 概述： i3：普通办公 i5：玩网游 i7：性能好，价格高。同时高耗能造成高发热 内存：可以自己更换（少数，如Mac、Surface等超薄的，内存条焊在主板上，无法自己更换） 显卡：（N卡：英伟达公司的，GT开头；A卡：AMD公司的) 分为两种 双显卡：独立显卡+核心显卡 核心显卡电脑 根据型号判断显卡性能 独立显卡： 通常显卡型号为GT abcM（abc为数字） a代表是第几代产品 bc为它的型号，b代表显卡的定位，5定位为中端，大于5高端，小于5为入门级别 末尾M代表它四笔记本电脑显卡 有的在GT后添加x，代表更好的性能 例：GT820M，第八代入门级别的笔记本显卡 核心显卡： 理解为集成显卡，它把图形处理核心整合在了CPU当中 双显卡，在游戏等需要较大图形运算量时，才会自动切换为独立显卡，所以双显卡性能取决于其中高性能显卡所能达到的性能（一般是独立显卡） HD4400, HD4600 &lt; HD5500, HD5600 &lt; HD6000 &lt; HD520, HD530 &lt; HD5100,HD540,HD550 &lt; HD6100 &lt; HD5200 &lt; HD6200 目前最好的HD6200的显卡大概是中端独立显卡性能水平。 硬盘：电脑的存储设备 主板：结合CPU、显卡、硬盘等综合考虑 台式机：还需注意：风扇、散热器、显示器 摘自：https://www.zhihu.com/question/40463573/answer/87720343]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>电脑配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SmallSentiment]]></title>
+    <url>%2F2017%2F07%2F05%2FSmallSentiment%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[js]]></title>
+    <url>%2F2017%2F07%2F01%2Fjs%2F</url>
+    <content type="text"><![CDATA[基础语法 注释 行注释// 段注释/ / == 会自动转换类型，一致后再比较 === 不会自动转换类型，类型不一致返回false NaN 与所有值都不相等，包括自己 NaN === NaN; //false用isNaN()函数判断isNaN（NaN）; //true null：表示空的值（与python的None类似 ） undefined: 表示未定义，在判断函数参数是否传递的情况下有用 变量名：大小写英文、数字、$和_的组合]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux]]></title>
+    <url>%2F2017%2F06%2F24%2Flinux%2F</url>
+    <content type="text"><![CDATA[基础命令 uname: 显示内核类别 -a 显示详细 touch：创建不存在的文件（文件存在会更新时间戳） chmod: R: 4 w: 2 X: 1 改权限：chmod 777 file 都有读写、执行权限 root 所属用户组 其他用户 chown tee: 读取标准输入的数据并输入文件。-a 追加 -i 湖绿中断信号 tail -f： 追踪新增文件 curl ifconfig.me：查看本机外网IP 分主题整理pdsh: pdsh可并行执行对远程目标主机的操作，有批量执行命令或分发任务的运维需求时用。 pdsh支持交互模式，当要执行的命令不确定时，可直接进入pdsh命令行 pdsh可以通过多种方式在远程主机上运行命令，默认是rsh方式，另外也支持ssh、mrsh、qsh、mqsh、krb4、xcpu等多种rcmd模块 -w host,host 指定远程主机，可以指定多个，每个主机用逗号隔开，host可以是主机名也可以是IP地址 -R 指定使用rcmd的模块名，默认是rsh -l 指定在远程主机上使用的用户名称 pdsp: 如果配置整个集群，要求所有的机器安装相同的软件，逐一拷贝效率较低，通常的做法是将所有要安装的软件拷贝到一台主机上，通过pdcp命令同步拷贝到其他机器上。 pdcp命令格式：pdcp [-参数] “源文件1” [源文件2…] 目标 参数-w：指定要拷贝文件的远程主机，多个主机用逗号隔开，可以是主机名也可以是IP地址 su 和 sudo su su：不指明用户名时，默认为root。su yangq4 su -:切换用户后同时切换到新用户的工作环境 以上，切换用户需知晓对应用户的登录密码 sudo su sudo su 中的su将以root身份被执行，并要求输入root的password ps aux 和 ps -ef 都是Linux显示系统进程的命令，区别：输出略有不同 ps -ef是标准的格式显示进程 UID //用户ID、但输出的是用户名 PID //进程的ID PPID //父进程ID C //进程占用CPU的百分比 STIME //进程启动到现在的时间 TTY //该进程在那个终端上运行，若与终端无关，则显示? 若为pts/0等，则表示由网络连接主机进程。 CMD //命令的名称和参数 ps aux是BSD的格式显示 USER //用户名 %CPU //进程占用的CPU百分比 %MEM //占用内存的百分比 VSZ //该进程使用的虚拟內存量（KB） RSS //该进程占用的固定內存量（KB）（驻留中页的数量) STAT //进程的状态 START //该进程被触发启动时间 TIME //该进程实际使用CPU运行的时间 其中STAT状态位常见的状态字符有 D &nbsp;&nbsp;//无法中断的休眠状态（通常 IO 的进程） R &nbsp;&nbsp;//正在运行可中在队列中可过行的； S &nbsp;&nbsp;//处于休眠状态； T &nbsp;&nbsp;//停止或被追踪； W &nbsp;&nbsp;//进入内存交换 （从内核2.6开始无效）； X &nbsp;&nbsp;//死掉的进程 （基本很少见）； Z &nbsp;&nbsp;//僵尸进程； &lt; &nbsp;&nbsp;//优先级高的进程 N &nbsp;&nbsp;//优先级较低的进程 L &nbsp;&nbsp;//有些页被锁进内存； s &nbsp;&nbsp;//进程的领导者（在它之下有子进程）； l &nbsp;&nbsp;//多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）； + &nbsp;&nbsp;//位于后台的进程组；]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Markdown基础语法]]></title>
-    <url>%2F2017%2F08%2F20%2FMarkdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%2F</url>
+    <url>%2F2017%2F06%2F20%2FMarkdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%2F</url>
     <content type="text"><![CDATA[标题# 一级标题 ## 二级标题 ### 三级标题 总共六级标题列表 无序标题：- 、+ 或 * 有序标题：1. 2. 3.（数字+英文句点） 引用 引用：在文本前加入 &gt; 尖括号（大于号） 图片与链接图片为：{ImgCap}{/ImgCap} 一个惊叹号 ! 一个方括号，里面放上图片的替代文字 一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上 选择性的 ‘title’ 文字。 链接为：方括号包起来强调：斜体、粗体 斜体： 一个 * 包含 粗体： 两个 * 包含 如果你的 * 和 _ 两边都有空白的话，它们就只会被当成普通的符号表格 table 1 2 1 2 3 4 5 6 代码两个 ` 把中间的代码包裹起来print(hello markdown) 代码区块1. 缩进4个空格 2. 1个制表符 一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）分割线* * * *** ***** - - - -------- 实例： 反斜杠Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号例如：如果你想要用星号加在文字旁边的方式来做出强调效果，你可以在星号的前面加上反斜杠。]]></content>
       <categories>
         <category>language</category>
@@ -327,5 +300,32 @@
       <tags>
         <tag>Markdown</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo 基础操作]]></title>
+    <url>%2F2017%2F05%2F30%2Fhexo-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[第一次部署前提：安装node12345$ npm install hexo-cli -g #安装hexo$ hexo init blog$ cd blog$ npm install$ hexo server 启动本地服务localhost:4000关于配置]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git整理]]></title>
+    <url>%2F2017%2F04%2F30%2Fgit%E6%95%B4%E7%90%86%2F</url>
+    <content type="text"><![CDATA[基本操作 git checkout xxx.py 签出分支、特定文件等 git checkout origin/yangq4 git push origin test:master 提交本地分支test作为远程master分支 git branch 创建本地分支 git log –pretty=oneline 只显示提交版本号和内容 回退： git reset –hard HEAD ^ 回退到上个版本 git reset –hard 版本号 git reflog 查看版本号 git checkout –file 把文件在工作区做的修改撤销（未提交前，未放在暂存区的） git branch -d name 删除分支 有merge时，用-D git branch -m fix yangq4 分支重命名 git stash 当前工作现场隐藏 git stash list 工作现场查看 git stash apply 恢复（stash内容并不删除） git stash drop 删除文件 git stash pop 恢复发同时文件也删除 补充 commit类别 feat：新功能（feature） fix：修补bug docs：文档（documentation） style： 格式（不影响代码运行的变动） refactor：重构（即不是新增功能，也不是修改bug的代码变动） test：增加测试 chore：构建过程或辅助工具的变动 撤销上次推送 git reset –hard &lt;版本号&gt; git push origin &lt;分支名&gt; –force 问题 error: you need to resolve your current index first git reset –merge 套路 git pull git checkout origin/xuhf git checkout -b yangq4 (git merge origin/branch)]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[redis]]></title>
+    <url>%2F2017%2F03%2F21%2Fredis%2F</url>
+    <content type="text"><![CDATA[redis基础 Redis是一个开源，高级的键值存储和一个适用的解决方案，用于构建高性能，可扩展的Web应用程序。 优点 快 支持丰富的数据类型 操作具有原子性 多实用工具，用例：缓存、消息队列（Redis本地支持发布订阅）、应用程序中的任何短期数据：web应用程序中的会话、网页命中计数等 Redis与其他键值存储系统 Redis是键值数据库系统的不同进化路线，它的值可以包含更复杂的数据类型，可在这些数据类型上定义原子操作。 Redis是一个内存数据库，但在磁盘数据库上是持久的，因此它代表了一个不同的权衡，在这种情况下，在不能大于存储器(内存)的数据集的限制下实现非常高的写和读速度。 内存数据库的另一个优点是，它与磁盘上的相同数据结构相比，复杂数据结构在内存中存储表示更容易操作。 因此，Redis可以做很少的内部复杂性。 安装： brew install redis-server 启动： redis-server redis-cli # 检查Redis是否正在工作（进入Redis数据库） 获取所有配置设置 CONFIG GET * 支持的数据类型：字符串、散列/哈希、列表、集合、可排序集合 检查服务器是否正在运行 PING 连接远程服务器： redis-cli -h host -p port -a password redia实现消息队列 生产者消费者模式：让一个或多个客户端监听消息队列，一旦消息到达，消费者马上消费，谁抢到算谁，如果队列没有消息，则消费者继续监听。 发布订阅者模式：一个或多个客户端订阅消息频道，只要发布者发布消息，所有订阅者都能收到消息，订阅者都是ping的。 生产消费模式blpop获取队列数据 12345678910111213141516171819#coding:utf-8&quot;&quot;&quot;生产者-消费者模式中的消费者&quot;&quot;&quot;import redisclass Task(object): def __init__(self): self.rcon = redis.StrictRedis(host=&apos;localhost&apos;, db=5) self.queue = &apos;task:prodcons:queue&apos; def listen_task(self): while True: task = self.rcon.blpop(self.queue, 0)[1] print &quot;Task get&quot;, taskif __name__ == &apos;__main__&apos;: print &apos;监听任务队列&apos; Task().listen_task() 发布订阅模式pubsub功能，订阅者订阅频道，发布者发布消息到频道了，频道就是一个消息队列。 123456789101112131415161718192021#coding:utf-8&quot;&quot;&quot;发布订阅模式中的订阅者&quot;&quot;&quot;import redisclass Task(object): def __init__(self): self.rcon = redis.StrictRedis(host=&apos;localhost&apos;, db=5) self.ps = self.rcon.pubsub() self.ps.subscribe(&apos;task:pubsub:channel&apos;) def listen_task(self): for i in self.ps.listen(): if i[&apos;type&apos;] == &apos;message&apos;: print &quot;Task get&quot;, i[&apos;data&apos;]if __name__ == &apos;__main__&apos;: print &apos;监听任务频道&apos; Task().listen_task() 提供生产者和消息发布者123456789101112131415161718192021222324252627282930313233343536373839404142434445464748# coding:utf-8&quot;&quot;&quot;提供一个页面作为生产者/消息发布者&quot;&quot;&quot;import redisimport randomimport loggingfrom flask import Flask, redirectapp = Flask(__name__)rcon = redis.StrictRedis(host=&apos;localhost&apos;, db=1)prodcons_queue = &apos;task:prodcons:queue&apos; #生产者消费者队列名称pubsub_channel = &apos;task:pubsub:channel&apos; #发布订阅频道名称@app.route(&apos;/&apos;)def index(): html = &quot;&quot;&quot;&lt;br&gt;&lt;center&gt;&lt;h3&gt;Redis Message Queue&lt;/h3&gt;&lt;br&gt;&lt;a href=&quot;/prodcons&quot;&gt;生产消费者模式&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href=&quot;/pubsub&quot;&gt;发布订阅者模式&lt;/a&gt;&lt;/center&gt;&quot;&quot;&quot; return html#生产者@app.route(&apos;/prodcons&apos;)def prodcons(): elem = random.randrange(10) rcon.lpush(prodcons_queue, elem) logging.info(&quot;lpush &#123;&#125; -- &#123;&#125;&quot;.format(prodcons_queue, elem)) return redirect(&apos;/&apos;)#消息发布者@app.route(&apos;/pubsub&apos;)def pubsub(): ps = rcon.pubsub() ps.subscribe(pubsub_channel) elem = random.randrange(10) rcon.publish(pubsub_channel, elem) return redirect(&apos;/&apos;)if __name__ == &apos;__main__&apos;: app.run(debug=True) 原文地址：https://www.yiibai.com/redis/redis_quick_guide.htmlhttp://www.cnblogs.com/taceywong/p/5843944.html]]></content>
   </entry>
 </search>
